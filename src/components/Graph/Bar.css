@@ -1,0 +1,37 @@
+.bargraph .barhed{
+    display: flex;
+    justify-content: space-between;
+    padding: 0 2rem;
+}
+
+.bargraph .barhed .right{
+    display: flex;
+    align-items: center;
+}
+
+.bargraph .bargrph{
+    display: flex;
+    justify-content: center;    
+}
+
+.bargraph canvas{
+    width: 95% !important;
+}
+ .bargraph{
+    width: 40%;
+    min-width: 550px;
+    height: 280px;
+    background-color: #000;
+    border-radius: 20px;
+
+}
+
+@media only screen and (max-width: 900px) {
+    .bargraph{
+        width: 90%;
+        min-width: 350px;
+        background-color: #000;
+        border-radius: 20px;
+    }
+    
+ }

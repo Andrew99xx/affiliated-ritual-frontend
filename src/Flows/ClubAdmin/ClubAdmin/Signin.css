@@ -1,0 +1,134 @@
+.Signin .container {
+    background: linear-gradient(180deg, #000000 0%, #000000 100%);
+    min-height: 454px;
+    max-width: 531px;
+}
+.Signin {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    background: url("./banner.png");
+    height: 100vh;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+    overflow: hidden;
+
+}
+
+.Signin .logo {
+    color: #E4C748;
+    font-family: "Poppins", sans-serif;
+    text-align: center;
+    margin: 0 0 15px 0;
+    font-size: 30px;
+    font-weight: 700;
+    text-transform: uppercase;
+    line-height: 56px;
+}
+
+.Signin .container .heading {
+    font-size: 36px;
+    color: #fff;
+    font-family: "DM Sans", sans-serif;
+    text-align: center;
+    font-weight: 700;
+    margin: 0 0 10px 0;
+
+}
+
+.Signin .container {
+    padding: 2rem 4rem;
+}
+
+.Signin .container .subheading {
+    text-align: center;
+    font-family: "DM Sans", sans-serif;
+    font-weight: 400;
+    color: #8190BF;
+    margin: 0 0 3rem 0;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 16px;
+}
+
+
+.Signin .formcontainer {
+    display: flex;
+    flex-direction: column;
+}
+
+.Signin .btn {
+    background: linear-gradient(91.94deg, #B17E32 -8.77%, #F3E681 58.63%, #CF9F41 107.45%);
+
+
+    width: 410px;
+    text-align: center;
+    padding: 1rem;
+    color: black;
+    font-weight: 700;
+    font-family: "DM Sans", sans-serif;
+    font-size: 18px;
+    text-decoration: none;
+    margin: 2rem 0;
+    
+
+}
+
+.Signin .btn:hover{
+    cursor: pointer;
+
+}
+
+.Signin .formcontainer p{
+    font-weight: 500;
+    font-family: "DM Sans", sans-serif;
+color: #fff;
+}
+.Signin .formcontainer sup{
+    font-size: 15px;
+color: #EF0000;
+}
+
+.Signin .formcontainer input{
+    padding: 1rem 1.2rem;
+    background-color: #000000;
+    border: 1px solid #FFFFFF4D;
+    border-radius: 5px;
+    color: #8190BF;
+    outline: none;
+    font-size: 16px;
+    
+}
+.Signin .flex{
+    display: flex;
+}
+
+.Signin .formcontainer input::placeholder{
+    color: #8190BF;
+}
+
+.Signin .credit{
+    color: white;
+    font-weight: 500;
+    font-family: "DM Sans", sans-serif;
+}
+
+.Inputbox{
+    display: flex;
+    justify-content: space-between;
+}
+
+.Signin .container .info{
+    display: flex;
+    justify-content: space-between;
+    padding: 1rem 0;
+}
+
+.Signin input[type='checkbox'] {
+    accent-color: #E9D21E;
+    width: 20px;
+    height: 18px;
+    margin: 0 10px 0 0;
+}

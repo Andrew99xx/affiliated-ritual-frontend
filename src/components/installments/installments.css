@@ -1,0 +1,120 @@
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #2F2F2FDE;
+    z-index: 1000;
+  }
+  
+  .modal-main1 {
+    position: fixed;
+    background-color: rgb(0, 0, 0);
+    width: 580px;
+    top: 50%;
+    left: 50%;
+    height: auto;
+    transform: translate(-50%, -50%);
+    border-radius: 20px;
+  }
+
+  .modal-main1 .closebtn{
+      right:20px;
+      position: fixed;
+    cursor: pointer;
+
+  }
+  
+  .display-block {
+    display: block;
+  }
+  
+  .display-none {
+    display: none;
+  }
+
+  .modal-main1 .mainc{
+      padding-top: 2rem;
+      display: flex;
+      align-items: center;
+      flex-direction: column;
+  }
+  .modal-main1 .heading{
+    color: #fff;
+    text-align: center;
+    width: 200px;
+    font-size: 25px;
+    font-weight: 500;
+    font-family: "DM Sans", sans-serif;
+
+
+}
+
+.modal-main1 .btnc{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.modal-main1 .btn{
+    background: linear-gradient(91.94deg, #B17E32 -8.77%, #F3E681 58.63%, #CF9F41 107.45%);
+
+
+    width: 100px;
+    text-align: center;
+    cursor: pointer;
+    padding: 1rem;
+    color: black;
+    font-weight: 700;
+    font-family: "DM Sans", sans-serif;
+    font-size: 15px;
+    text-decoration: none;
+    margin: 1rem 0;
+
+}
+
+.inputconteianer .inputinstall{
+  background-color: #000000;
+    padding: 1.2rem .7rem 1.2rem .7rem;
+    width: 230px;
+    font-family: "DM Sans", sans-serif;
+    border-radius: 5px;
+    font-size: 14px;
+    font-weight: 500;
+    outline: none;
+    color: #BCBCBC;
+    border: 1px solid #3a3a3a;
+    color: #fff;
+    font-size: 16px;
+    color-scheme: dark;
+}
+.inputconteianer {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  padding-bottom: 2rem;
+  grid-gap: 30px; /* Adjust the gap as needed */
+
+}
+
+.modal1header{
+
+  background: linear-gradient(68.42deg, #B17E32 -8.44%, #F3E681 54.36%, #CF9F41 99.85%);
+  padding: 1px 0;
+  display: flex;
+  align-items: center;
+  border-top-right-radius: 20px;
+  border-top-left-radius: 20px;
+
+}
+
+.modal1header .heading{
+  color: #000;
+  font-weight: 700;
+}
+
+.modal-main1 .box1 p{
+  color: #fff;
+  margin:  10px 0;
+}
+

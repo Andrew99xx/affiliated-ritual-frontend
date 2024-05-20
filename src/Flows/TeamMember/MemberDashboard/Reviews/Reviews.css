@@ -1,0 +1,21 @@
+.Reviews .tablehead{
+    opacity: 100%;
+    font-weight: 700;
+}
+
+.Reviews{
+    padding: .5rem 2rem;
+}
+
+.Reviews .tablebody tr td {
+    padding: 1.5rem 1rem;
+}
+
+.Reviews .icons *{
+    padding: 2px;
+    height: 15px;
+}
+
+.Reviews .heading{
+    color: #fff;
+}

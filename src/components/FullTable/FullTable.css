@@ -1,0 +1,22 @@
+.full-table-container .flex{
+    display: flex;
+justify-content: space-between;
+align-items: center;
+}
+
+
+
+.headinc .heading{
+    padding: 0;
+}
+.headinc .subheading{
+    color: white;
+}
+
+.back-button{
+    background-color: #3a3a3a;
+    border: none;
+    outline: none;
+    padding: 5px 10px;
+    cursor: pointer;
+}
