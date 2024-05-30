@@ -31,10 +31,6 @@
 
 }
 
-.Payout .table {
-    table-layout: fixed;
-}
-
 .Payout .btnn{
     cursor: pointer;
     color: black;

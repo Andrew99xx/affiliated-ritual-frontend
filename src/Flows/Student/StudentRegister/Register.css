@@ -139,3 +139,15 @@ color: #EF0000;
     height: 18px;
     margin: 0 10px 0 0;
 }
+
+
+.alr{
+    align-items: center;
+    text-align: center;
+    color: white;
+    font-size: 16px;
+}
+.alr span{
+    color: #E4C748;
+    cursor: pointer;
+}

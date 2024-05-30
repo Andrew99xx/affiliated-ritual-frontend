@@ -8,6 +8,7 @@ const AddCourse = ({ showAddCourse, closeAddCourse }) => {
   const [startDate, setStartDate] = useState("");
   const [endDate, setEndDate] = useState("");
   const [numInstallments, setNumInstallments] = useState(1);
+  const [numModules, setNumModules] = useState(1);
 
   const handleDateChange = (event) => {
     setSelectedDate(event.target.value);
@@ -17,7 +18,7 @@ const AddCourse = ({ showAddCourse, closeAddCourse }) => {
   const handleCourseDurationChange = (event) => {
     const duration = parseInt(event.target.value);
     setCourseDuration(duration);
-    setNumInstallments(duration -1);
+    setNumInstallments(duration - 1);
     calculateEndDate(startDate, duration);
   };
 
@@ -50,6 +51,28 @@ const AddCourse = ({ showAddCourse, closeAddCourse }) => {
       );
     }
     return installmentInputs;
+  };
+
+  // Function to handle changes in number of modules
+  const handleNumModulesChange = (event) => {
+    const modules = parseInt(event.target.value);
+    setNumModules(modules);
+  };
+
+  // Function to render the module input fields dynamically
+  const renderModuleInputs = () => {
+    let moduleInputs = [];
+    for (let i = 1; i <= numModules; i++) {
+      moduleInputs.push(
+        <div key={i}>
+          <p>Module {i}</p>
+          <input type="text" className="inputinstall" placeholder={` Module ${i} Name`} />
+          <input type="text" className="inputinstall" placeholder={` Module ${i} Description`} />
+          <input type="date" className="inputinstall" placeholder={` Module ${i} Description`} />
+        </div>
+      );
+    }
+    return moduleInputs;
   };
 
   return (
@@ -130,6 +153,22 @@ const AddCourse = ({ showAddCourse, closeAddCourse }) => {
             <div className="tworow">
               {renderInstallmentInputs()}
             </div>
+
+<div className="sep">
+            <h3>Select Modules</h3>
+            <p>Number of modules</p>
+            <input
+              type="number"
+              className="inputinstall"
+              placeholder="Enter Number of Modules"
+              min={1}
+              value={numModules}
+              onChange={handleNumModulesChange}
+            />
+            {/* Render module input fields */}
+            <div >
+              {renderModuleInputs()}
+            </div></div>
           </div>
           <div className="btnc">
             <div className="btn">Add Now</div>

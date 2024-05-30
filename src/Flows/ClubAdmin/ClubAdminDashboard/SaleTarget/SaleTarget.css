@@ -34,9 +34,6 @@
     margin: 1rem 0;
 }
 
-.saletarget .table{
-    table-layout: fixed;
-}
 
 .saletarget .tablebody tr td {
     padding: 0 10px;

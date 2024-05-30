@@ -20,9 +20,6 @@
     font-weight: 600;
 }
 
-.Gift .table{
-    table-layout: fixed;
-}
 
 .Gift .btns *{
     cursor: pointer;

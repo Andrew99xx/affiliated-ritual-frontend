@@ -7,6 +7,7 @@ import Student from './Flows/Student/Student';
 import TeamMember from "./Flows/TeamMember/TeamMember";
 import ClubAdmin from "./Flows/ClubAdmin/ClubAdmin";
 import SuperAdmin from "./Flows/SuperAdmin/SuperAdmin";
+import Landing from "./Landing";
 function App() {
   return (
     <Router>
@@ -21,7 +22,7 @@ function App() {
 
 
           
-          <Route path="/" element={<Student />} />
+          <Route path="/" element={<Landing />} />
         </Routes>
       </div>
     </Router>
