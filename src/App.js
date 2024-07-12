@@ -8,6 +8,7 @@ import TeamMember from "./Flows/TeamMember/TeamMember";
 import ClubAdmin from "./Flows/ClubAdmin/ClubAdmin";
 import SuperAdmin from "./Flows/SuperAdmin/SuperAdmin";
 import Landing from "./Landing";
+import Trainer from "./Flows/ClubAdmin/ClubAdminDashboard/AdminDash/Trainer/Trainer";
 function App() {
   return (
     <Router>
@@ -19,6 +20,7 @@ function App() {
           <Route path="/teammember" element={<TeamMember />} />
           <Route path="/clubadmin" element={<ClubAdmin />} />
           <Route path="/superadmin" element={<SuperAdmin />} />
+          <Route path="/trainer" element={<Trainer/>} />
 
 
           
