@@ -1,3 +1,12 @@
+# commands 
+- npm install 
+- npm install --force
+- npm install --legacy-peer-deps
+- npm start 
+- npm run build 
+
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).

@@ -227,9 +227,6 @@ html::-webkit-scrollbar-thumb {
 
 }
 
-.Faqsection .heading{
-  font-size: 4rem;
-}
 .services .box-container {
   display: grid;
   -ms-grid-columns: (minmax(32rem, 1fr))[auto-fit];
@@ -262,6 +259,41 @@ html::-webkit-scrollbar-thumb {
 .btns *{
   margin: 0 10px;
 
+}
+
+
+/* how it works */
+.howItWorkSection{
+  background-color: #242424;
+  color: white;
+  font-family: 'Public Sans', sans-serif;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.howItWorkSection .heading{
+  font-weight: 600;
+  font-size: 40px;
+  line-height: 72px;
+  text-align: center;
+  color: white;
+}
+
+
+/* frequently asked questions */
+.faq-section{
+  background-color: #000000;
+  color: white;
+  font-family: 'Public Sans', sans-serif;
+}
+
+.faq-section .heading {
+  font-weight: 600;
+  font-size: 40px;
+  line-height: 50px;
+  text-align: center;
+  color: white;
 }
 
 
@@ -323,23 +355,9 @@ html::-webkit-scrollbar-thumb {
 
 
 
-.video .heading{
-  font-size: 4rem;
-}
-.video{
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
 
-.video img{
-  height: 80vh;
-    width: 80vw;
-}
-.video video{
-  height: 80vh;
-    width: 80vw;
-}
+
+
 .features .box-container .box {
   display: -webkit-box;
   display: -ms-flexbox;

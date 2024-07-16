@@ -3,7 +3,7 @@ import "./Landing.css";
 import { Swiper, SwiperSlide } from "swiper/react";
 import Aos from "aos";
 import "aos/dist/aos.css";
-import Faq from "./components/Faq/Faq";
+import Faq from "./components/LandingComponents/Faq/Faq";
 import "swiper/css";
 import { Link } from "react-router-dom";
 const Landing = () => {
@@ -120,12 +120,12 @@ const Landing = () => {
             <div className="popup-content">
               <h2>Sign In</h2>
               <div className="landlog">
-                <Link to="/student?action=register"  className="st">
+                <Link to="/student?action=register" className="st">
                   {" "}
                   <img src="/student.png" alt="" height={80} width={80} />{" "}
                   Student
                 </Link>
-                <Link to="/teamleader?action=register"  className="tml">
+                <Link to="/teamleader?action=register" className="tml">
                   {" "}
                   <img src="/leader.png" alt="" height={80} width={80} /> Team
                   Leader
@@ -311,16 +311,7 @@ const Landing = () => {
           </Swiper>
         </section>
 
-        <section className="video">
-          <h1 className="heading">Learn how it works?</h1>
-          {/* <video src="https://placehold.co/600x400/png"></video> */}
-          <img
-            src="https://placehold.co/500x200/png"
-            alt=""
-            data-aos="zoom-out"
-          />
-        </section>
-
+     
         <section class="features" id="features">
           <div class="heading">
             <h1>some of our key features</h1>
@@ -363,7 +354,12 @@ const Landing = () => {
           </div>
         </section>
 
-        <section className="Faqsection" id="faq">
+        <section className="howItWorkSection">
+          <h1 className="heading">Learn how it works?</h1>
+        </section>
+
+
+        <section className="faq-section" id="faq">
           <h1 className="heading">Frequently Asked Questions</h1>
           <Faq />
         </section>
