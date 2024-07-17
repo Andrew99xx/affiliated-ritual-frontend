@@ -14,7 +14,8 @@ dist-ssr
 node_modules
 /node_modules
 ./node_modules
-./node_modules/
+./node_modules/.cache
+.cache
 
 
 # Editor directories and files

@@ -1,0 +1,37 @@
+.introStats-container {
+    display: flex;
+    justify-content: space-around;
+    padding: 20px;
+   
+}
+
+.introStats-item {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 12px;
+}
+
+.introStats-icon {
+    font-size: 40px;
+}
+
+.introStats-title-des-wrapper {
+    display : flex;
+    flex-direction : column;
+    justify-content: start;
+    gap : 10px
+}
+
+.introStats-title {
+    font-size: 22px;
+    font-weight: bold;
+    color: #F3E681;
+    text-align: start;
+}
+
+.introStats-description {
+    font-size: 16px;
+    color: white;
+    text-align: start;
+}

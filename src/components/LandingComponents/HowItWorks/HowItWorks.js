@@ -1,26 +1,43 @@
 import React from 'react'
+import "./HowItWorks.css"
 
 function HowItWorks() {
     const data = [
         {
             imgLink: "https://placehold.co/80x80/png",
             name: "01. Learn ",
-            description: "A comprehensive online course covering various topics to enhance your skills and knowledge."
+            description: "Follow the System. Learn step by step. Say no to Hurry."
         },
         {
             imgLink: "https://placehold.co/80x80/png",
-            name: "02. Graduate",
-            description: "Get personalized guidance and support from industry experts through our mentorship program."
+            name: "02. Earn",
+            description: "Implement our system step by step and start earning from home."
         },
         {
             imgLink: "https://placehold.co/80x80/png",
-            name: "03. Work",
-            description: "Earn recognized certifications to boost your career and showcase your expertise."
+            name: "03. Jackpot",
+            description: "Play Jackpot every month by using your free affiliate coin. Learn, Earn and Jackpot!"
         }
     ];
 
     return (
-        <div>HowItWorks</div>
+        <div className="howItWorks-container">
+            {data.map((item, i) => (
+                <div key={i} className="howItWorks-items" >
+                    <img
+                        className="howItWorks-imglink"
+                        src={item.imgLink}
+                    />
+                    <div className="howItWorks-name">
+                        {item.name}
+                    </div>
+                    <div className='howItWorks-description'>
+                        {item.description}
+                    </div>
+                </div>
+            ))}
+
+        </div>
     )
 }
 
