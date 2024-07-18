@@ -14,6 +14,7 @@ import Home from "./components/LandingComponents/Home/Home";
 import Features from "./components/LandingComponents/Features/Features";
 import Services from "./components/LandingComponents/Services/Services";
 import Courses from "./components/LandingComponents/Courses/Courses";
+import WhyRitual from "./components/LandingComponents/WhyRitual/WhyRitual";
 
 const Landing = () => {
   const [isRegisterOpen, setIsRegisterOpen] = useState(false);
@@ -185,6 +186,34 @@ const Landing = () => {
           <Home />
         </section>
 
+        {/* Intro Stats */}
+        <section className="introStats-section">
+          <IntroStats />
+        </section>
+
+        {/* how it works */}
+        <section className="howItWorkSection">
+          <h1 className="heading">Learn how it works?</h1>
+          <HowItWorks />
+        </section>
+
+        {/* why affiliated ritual */}
+        <section className="whyRitual">
+          <h1 className="heading">Why Affiliated Rituals</h1>
+          <WhyRitual />
+        </section>
+
+        {/* frequently asked */}
+        <section className="faq-section" id="faq">
+          <h1 className="heading">Frequently Asked Questions</h1>
+          <Faq />
+        </section>
+
+        {/* footer section  */}
+        <section class="footer-section">
+          <Footer />
+        </section>
+
 
         {/* 
         <section id="Courses">
@@ -199,27 +228,7 @@ const Landing = () => {
           <Features />
         </section> */}
 
-        {/* Intro Stats */}
-        <section className="introStats-section">
-          <IntroStats />
-        </section>
 
-        {/* how it works */}
-        <section className="howItWorkSection">
-          <h1 className="heading">Learn how it works?</h1>
-          <HowItWorks />
-        </section>
-
-        {/* frequently asked */}
-        <section className="faq-section" id="faq">
-          <h1 className="heading">Frequently Asked Questions</h1>
-          <Faq />
-        </section>
-
-        {/* footer section  */}
-        <section class="footer-section">
-          <Footer />
-        </section>
       </div>
     </div>
   );

@@ -4,6 +4,7 @@
 - npm install --legacy-peer-deps
 - npm start 
 - npm run build 
+- installation problem - increase window ram - check stackoverflow
 
 
 

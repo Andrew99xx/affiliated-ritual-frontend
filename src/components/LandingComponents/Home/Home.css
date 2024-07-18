@@ -1,43 +1,119 @@
 .home {
+    margin-bottom: 0 !important;
+    padding: 10px;
+    padding-bottom: 0 !important;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 2rem;
+}
+
+
+.home-text-wrapper {
+    margin: 0 auto;
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    gap: 32px;
+}
+
+.home-heading {
+    font-family: 'Public Sans';
+    font-weight: 600;
+    font-size: 24px;
+    line-height: 32px;
+    color: #FFC27A;
+}
+
+.home-hook {
+    font-family: 'Public Sans';
+    font-weight: 600;
+    font-size: 56px;
+    line-height: 72px;
     color: white;
 }
 
-.home .image {
-    -webkit-box-flex: 1;
-    -ms-flex: 1 1 42rem;
-    flex: 1 1 42rem;
-    margin-top: 5rem;
+.home-tag {
+    font-family: 'Public Sans';
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 28px;
+    color: #CFD3D6;
 }
 
-.home .image img {
-    width: 100%;
-    -webkit-animation: floating 4s linear infinite;
-    animation: floating 4s linear infinite;
+.home-btn {
+    background-color: white;
+    color: black;
+    height: 56px;
+    width: 209px;
+    cursor: pointer;
+    border-radius: 4px;
+    font-family: 'Public Sans';
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 32px;
+    text-align: center;
 }
 
-.home .content {
-    -webkit-box-flex: 1;
-    -ms-flex: 1 1 42rem;
-    flex: 1 1 42rem;
-    color: rgba(235, 214, 114, 1);
+.home-btn:hover {
+    background-color: #CF9F41;
 }
 
-.home .content h3 {
-    font-size: 6rem;
+.home-img-svg-wrapper {
+    height: 100%;
+    display: flex;
+    flex: 1;
+    position: relative;
+    text-align: center;
 }
 
-.home .content p {
-    font-size: 2rem;
-    padding: 1rem 0;
-    line-height: 2;
-    color: white;
+/* edit according to svg - set postion - increase size to see effect  */
+.home-svg {
+    background-color: #CF9F41;
+    height: 0;
+    width: 0;
 }
 
+.home-img-wrapper {
+    position: relative;
+    display: inline-block;
+}
 
-/* media queries */
-@media (max-width: 1200px) {
+.home-img {
+    display: block;
+    margin: 0 auto;
+}
 
-    .home .content h3 {
-        font-size: 4rem;
-    }
+.home-top-card {
+    position: absolute;
+    top: 0;
+    right: 0;
+    transform: translateX(-50%);
+    background-color: white;
+    color: black;
+    padding: 10px;
+    border-radius: 10px;
+    font-family: 'Public Sans';
+    font-weight: 600;
+    font-size: 12px;
+    line-height: 32px;
+    text-align: center;
+}
+
+.home-left-card {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    transform: translateY(-50%);
+    background-color: white;
+    color: black;
+    padding: 10px;
+    border-radius: 10px;
+    font-family: 'Public Sans';
+    font-weight: 600;
+    font-size: 12px;
+    line-height: 32px;
+    text-align: center;
 }

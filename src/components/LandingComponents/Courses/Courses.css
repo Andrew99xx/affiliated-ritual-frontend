@@ -1,5 +1,74 @@
-
 .courses .heading {
-    font-size: 3rem;
-  }
-  
+  font-size: 3rem;
+}
+
+
+.swiper-wrapper {
+  justify-content: space-around;
+  padding-top: 2rem;
+  padding-left: 1rem;
+}
+
+
+
+.dialogs {
+  display: flex;
+  justify-content: space-evenly;
+  padding-top: 2rem;
+}
+
+.dots * {
+  height: 30px;
+  border-radius: 50%;
+  width: 30px;
+  background: linear-gradient(68.42deg, #B17E32 -8.44%, #F3E681 54.36%, #CF9F41 99.85%);
+
+}
+
+.dialog {
+  min-height: 250px;
+  max-width: 500px;
+  background-color: #3E3E3E;
+  padding: 2rem 2rem;
+  margin: 0 3.7rem;
+  display: flex !important;
+  flex-direction: column;
+  justify-content: center;
+  border-radius: 15px;
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  align-items: center;
+}
+
+.content-container {
+  overflow: hidden;
+ 
+}
+
+.contente {
+  padding: 3rem 1rem;
+}
+
+.dialogs {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  padding-top: 2rem;
+}
+
+
+.dialog .heading {
+  text-align: center;
+  font-size: 28px;
+  font-weight: 700;
+  color: #000000;
+}
+
+.dialog .text {
+  text-align: center;
+  color: rgb(0, 0, 0);
+  font-size: 16px;
+  line-height: 21.82px;
+}

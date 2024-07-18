@@ -1,5 +1,6 @@
 import React from 'react'
 import { Swiper, SwiperSlide } from "swiper/react";
+import './Courses.css'
 
 function Courses() {
     return (
