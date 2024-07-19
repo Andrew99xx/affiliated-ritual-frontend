@@ -1,0 +1,92 @@
+.feedback-main {
+    font-family: 'Public Sans', sans-serif;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+}
+
+.feedback-paragraph {
+    margin-top: 0ch !important;
+    padding-top: 0ch !important;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 30px;
+    text-align: center;
+    color: white;
+}
+
+.feedback-container {
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+    justify-content: center;
+    flex-wrap: wrap; /* Allow items to wrap if the container is too small */
+}
+
+
+
+.feedback-item {
+    width: 424px;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    background-color: #4E4E4E;
+    padding: 32px;
+    border-radius: 30px;
+    box-sizing: border-box;
+  /* Ensure padding is included in the height/width */
+}
+
+.feedback-itp-wrapper {
+    display: flex;
+    flex-direction: row;
+    justify-content: start;
+    align-items: center;
+    gap: 10px;
+    width: 100%;  /* Necessary to make the child elements take the full width */
+}
+
+.feedback-icon {
+    background: linear-gradient(91.94deg, #B17E32 -8.77%, #F3E681 58.63%, #CF9F41 107.45%);
+    border-radius: 50%;
+    height: 60px;
+    width: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.feedback-tp-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+
+}
+
+.feedback-title {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+    font-size: 19px;
+    line-height: 24px;
+    color: white;
+}
+
+.feedback-position {
+    font-family: 'Inter', sans-serif;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 20px;
+    color: #A5A5A5;
+}
+
+.feedback-description {
+    font-family: 'Inter', sans-serif;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 23px;
+    color: #D8D8D8;
+}

@@ -11,10 +11,18 @@ import HowItWorks from "./components/LandingComponents/HowItWorks/HowItWorks";
 import IntroStats from "./components/LandingComponents/IntroStats/IntroStats";
 import Footer from "./components/LandingComponents/Footer/Footer";
 import Home from "./components/LandingComponents/Home/Home";
-import Features from "./components/LandingComponents/Features/Features";
-import Services from "./components/LandingComponents/Services/Services";
-import Courses from "./components/LandingComponents/Courses/Courses";
 import WhyRitual from "./components/LandingComponents/WhyRitual/WhyRitual";
+import Leaderboard from "./components/LandingComponents/Leaderboard/Leaderboard";
+import Proof from "./components/LandingComponents/Proof/Proof";
+import Feedback from "./components/LandingComponents/Feedback/Feedback";
+import Trainer from "./components/LandingComponents/Trainer/Trainer";
+import Media from "./components/LandingComponents/Media/Media";
+import System from "./components/LandingComponents/System/System";
+import Package from "./components/LandingComponents/Package/Package";
+import Club from "./components/LandingComponents/Club/Club";
+// import Features from "./components/LandingComponents/Features/Features";
+// import Services from "./components/LandingComponents/Services/Services";
+// import Courses from "./components/LandingComponents/Courses/Courses";
 
 const Landing = () => {
   const [isRegisterOpen, setIsRegisterOpen] = useState(false);
@@ -197,16 +205,64 @@ const Landing = () => {
           <HowItWorks />
         </section>
 
+        {/* system forever */}
+        <section className="system-section" id="system">
+          <h1 className="heading">This Will Change The Sytem Forever!</h1>
+          <System />
+        </section>
+
+         {/* packages */}
+         <section className="package-section" id="package">
+          <h1 className="heading">Our Exclusive Packages</h1>
+          <Package />
+        </section>
+
         {/* why affiliated ritual */}
-        <section className="whyRitual">
+        <section className="whyRitual" id="whyRitual">
           <h1 className="heading">Why Affiliated Rituals</h1>
           <WhyRitual />
+        </section>
+
+        {/* trainer section */}
+        <section className="trainer-section" id="trainer">
+          <h1 className="heading">Our Trainer</h1>
+          <Trainer />
+        </section>
+
+        {/* media section */}
+        <section className="media-section" id="media">
+          <h1 className="heading">Media Presence</h1>
+          <Media />
+        </section>
+
+        {/* club section */}
+        <section className="club-section" id="club">
+          <h1 className="heading">Our Leader & Members</h1>
+          < Club/>
+        </section>
+
+        {/* feedback section - voice of our students */}
+        <section className="feedback-section" id="feedback">
+          <h1 className="heading">Voice of Our Students</h1>
+          <Feedback />
+        </section>
+
+        {/* proof section */}
+        <section className="proof-section" id="proof">
+          <h1 className="heading">More Proof</h1>
+          <Proof />
         </section>
 
         {/* frequently asked */}
         <section className="faq-section" id="faq">
           <h1 className="heading">Frequently Asked Questions</h1>
           <Faq />
+        </section>
+
+        {/* leaderboard section */}
+        <section className="leaderboard-section" id="leaderboard">
+          <h1 className="heading">Leaderboard</h1>
+          <Leaderboard />
         </section>
 
         {/* footer section  */}

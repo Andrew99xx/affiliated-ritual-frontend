@@ -218,6 +218,50 @@ html::-webkit-scrollbar-thumb {
 }
 
 
+
+
+/* system section */
+.system-section {
+  background-color: black;
+  color: white;
+  font-family: 'Public Sans', sans-serif;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.system-section .heading {
+  font-weight: 600;
+  font-size: 40px;
+  line-height: 50px;
+  text-align: center;
+  color: white;
+}
+
+
+/* package section */
+.package-section {
+  background-color: #0F0F0F;
+  color: white;
+  font-family: 'Public Sans', sans-serif;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.package-section .heading {
+  font-weight: 600;
+  font-size: 40px;
+  line-height: 50px;
+  text-align: center;
+  color: white;
+}
+
+
+
+
 /* why affiliated section  */
 .whyRitual {
   background-color: black;
@@ -239,14 +283,138 @@ html::-webkit-scrollbar-thumb {
 }
 
 
+
+/* trainer section */
+.trainer-section {
+  background-color: #0F0F0F;
+  color: white;
+  font-family: 'Public Sans', sans-serif;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.trainer-section .heading {
+  font-weight: 600;
+  font-size: 40px;
+  line-height: 50px;
+  text-align: center;
+  color: white;
+}
+
+
+
+/* media section */
+.media-section {
+  background-color: black;
+  color: white;
+  font-family: 'Public Sans', sans-serif;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.media-section .heading {
+  font-weight: 600;
+  font-size: 40px;
+  line-height: 50px;
+  text-align: center;
+  color: white;
+}
+
+
+
+/* club section - members & leaders */
+.club-section {
+  background-color: #0F0F0F;
+  color: white;
+  font-family: 'Public Sans', sans-serif;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.club-section .heading {
+  font-weight: 600;
+  font-size: 40px;
+  line-height: 50px;
+  text-align: center;
+  color: white;
+}
+
+
+
+/* feedback section */
+.feedback-section {
+  background-color: #0F0F0F;
+  color: white;
+  font-family: 'Public Sans', sans-serif;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.feedback-section .heading {
+  font-weight: 600;
+  font-size: 40px;
+  line-height: 50px;
+  text-align: center;
+  color: white;
+}
+
+
+/* proof section */
+.proof-section {
+  background-color: black;
+  color: white;
+  font-family: 'Public Sans', sans-serif;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.proof-section .heading {
+  font-weight: 600;
+  font-size: 40px;
+  line-height: 50px;
+  text-align: center;
+  color: white;
+}
+
+
+
 /* frequently asked questions */
 .faq-section {
-  background-color: #000000;
+  background-color: #0F0F0F;
   color: white;
   font-family: 'Public Sans', sans-serif;
 }
 
 .faq-section .heading {
+  font-weight: 600;
+  font-size: 40px;
+  line-height: 50px;
+  text-align: center;
+  color: white;
+}
+
+/* leaderboard section */
+.leaderboard-section {
+  background-color: black;
+  color: white;
+  font-family: 'Public Sans', sans-serif;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.leaderboard-section .heading {
   font-weight: 600;
   font-size: 40px;
   line-height: 50px;
