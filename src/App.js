@@ -8,7 +8,7 @@ import TeamMember from "./Flows/TeamMember/TeamMember";
 import ClubAdmin from "./Flows/ClubAdmin/ClubAdmin";
 import SuperAdmin from "./Flows/SuperAdmin/SuperAdmin";
 import Landing from "./Landing";
-import Trainer from "./Flows/ClubAdmin/ClubAdminDashboard/AdminDash/Trainer/Trainer";
+import Trainer from "./Flows/ClubTrainer/Trainer";
 function App() {
   return (
     <Router>

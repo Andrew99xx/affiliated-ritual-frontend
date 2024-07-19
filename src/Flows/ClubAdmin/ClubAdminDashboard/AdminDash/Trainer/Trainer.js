@@ -12,7 +12,7 @@ const Trainer = () => {
   return (
     <div className='Trainer'>
       <div className="fl"> <h1 className="heading">Trainer</h1> <button className="back-button" onClick={refreshPage}>
-        <img src={Arrow} alt="" />
+        <img src={Arrow} alt=""/>
         </button></div>
 
     </div>

@@ -4,7 +4,7 @@ import Signin from './Signin/Signin';
 import Dashboard from './Dashboard/Dashboard';
 import TrainerRegister from './TrainerRegister/TrainerRegister';
 
-const Student = () => {
+const Trainer = () => {
   const [isSignedIn, setIsSignedIn] = useState(false);
   const [isRegistering, setIsRegistering] = useState(false);
   const location = useLocation();
@@ -42,4 +42,4 @@ const Student = () => {
   );
 };
 
-export default Student;
+export default Trainer;
