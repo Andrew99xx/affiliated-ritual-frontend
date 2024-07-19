@@ -1,11 +1,29 @@
 import React, { useEffect, useState } from "react";
-import "./Landing.css";
-import { Swiper, SwiperSlide } from "swiper/react";
-import Aos from "aos";
-import "aos/dist/aos.css";
-import Faq from "./components/Faq/Faq";
-import "swiper/css";
 import { Link } from "react-router-dom";
+
+import Aos from "aos";
+import "./Landing.css";
+import "aos/dist/aos.css";
+import "swiper/css";
+
+import Faq from "./components/LandingComponents/Faq/Faq";
+import HowItWorks from "./components/LandingComponents/HowItWorks/HowItWorks";
+import IntroStats from "./components/LandingComponents/IntroStats/IntroStats";
+import Footer from "./components/LandingComponents/Footer/Footer";
+import Home from "./components/LandingComponents/Home/Home";
+import WhyRitual from "./components/LandingComponents/WhyRitual/WhyRitual";
+import Leaderboard from "./components/LandingComponents/Leaderboard/Leaderboard";
+import Proof from "./components/LandingComponents/Proof/Proof";
+import Feedback from "./components/LandingComponents/Feedback/Feedback";
+import Trainer from "./components/LandingComponents/Trainer/Trainer";
+import Media from "./components/LandingComponents/Media/Media";
+import System from "./components/LandingComponents/System/System";
+import Package from "./components/LandingComponents/Package/Package";
+import Club from "./components/LandingComponents/Club/Club";
+// import Features from "./components/LandingComponents/Features/Features";
+// import Services from "./components/LandingComponents/Services/Services";
+// import Courses from "./components/LandingComponents/Courses/Courses";
+
 const Landing = () => {
   const [isRegisterOpen, setIsRegisterOpen] = useState(false);
   const [isLoginOpen, setIsLoginOpen] = useState(false);
@@ -120,12 +138,12 @@ const Landing = () => {
             <div className="popup-content">
               <h2>Sign In</h2>
               <div className="landlog">
-                <Link to="/student?action=register"  className="st">
+                <Link to="/student?action=register" className="st">
                   {" "}
                   <img src="/student.png" alt="" height={80} width={80} />{" "}
                   Student
                 </Link>
-                <Link to="/teamleader?action=register"  className="tml">
+                <Link to="/teamleader?action=register" className="tml">
                   {" "}
                   <img src="/leader.png" alt="" height={80} width={80} /> Team
                   Leader
@@ -167,246 +185,106 @@ const Landing = () => {
             Signin
           </a>
         </div>
+
       </header>
       <div className="page">
-        <section class="home" id="home">
-          <div class="image">
-            <img src="/feature-2.svg" height={450} alt="" />
-          </div>
 
-          <div class="content">
-            <h3> Make learning fun!</h3>
-            <p>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Excepturi
-              magnam id laborum consequuntur inventore aliquam perspiciatis
-              explicabo eius iure dignissimos.
-            </p>
-            <a href="#" class="btn">
-              {" "}
-              Sign up for free
-            </a>
-          </div>
+        {/* home section */}
+        <section class="home-section" id="home">
+          <Home />
         </section>
 
-        <section class="services" id="services">
-          <div class="heading">
-            <h1>what we provide?</h1>
-          </div>
-
-          <div class="box-container">
-            <div class="box" data-aos="flip-left">
-              <img src="images/icon-1.svg" alt="" />
-              <h3>service name</h3>
-              <p>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Nihil,
-                corporis.
-              </p>
-              <a href="" className="btn">
-                Learn more
-              </a>
-            </div>
-
-            <div class="box" data-aos="flip-left">
-              <img src="images/icon-2.svg" alt="" />
-              <h3>service name</h3>
-              <p>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Nihil,
-                corporis.
-              </p>
-              <a href="" className="btn">
-                Learn more
-              </a>
-            </div>
-
-            <div class="box" data-aos="flip-left">
-              <img src="images/icon-3.svg" alt="" />
-              <h3>service name</h3>
-              <p>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Nihil,
-                corporis.
-              </p>
-              <a href="" className="btn">
-                Learn more
-              </a>
-            </div>
-
-            <div class="box" data-aos="flip-left">
-              <img src="images/icon-3.svg" alt="" />
-              <h3>service name</h3>
-              <p>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Nihil,
-                corporis.
-              </p>
-              <a href="" className="btn">
-                Learn more
-              </a>
-            </div>
-          </div>
+        {/* Intro Stats */}
+        <section className="introStats-section">
+          <IntroStats />
         </section>
 
-        <section className="courses" id="Courses">
-          <h1 className="heading">Explore Trending courses</h1>
-
-          <Swiper className="dialogs" slidesPerView={3} loop={true}>
-            <SwiperSlide
-              className="dialog"
-              style={{ backgroundImage: "url('/bg.png')" }}
-            >
-              <div className="heading">Lorem, ipsum.</div>
-              <p className="text">
-                {" "}
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Libero
-                sit provident, quas voluptatem minima explicabo ullam omnis
-                dolore aut ratione.
-              </p>
-            </SwiperSlide>
-            <SwiperSlide className="dialog">
-              <div className="heading">Course Name</div>
-              <p className="text">
-                {" "}
-                Lorem ipsum dolor, sit amet consectetur adipisicing elit.
-                Possimus, itaque?
-              </p>
-            </SwiperSlide>
-            <SwiperSlide className="dialog">
-              <div className="heading">Lorem, ipsum.</div>
-              <p className="text">
-                {" "}
-                Lorem ipsum dolor, sit amet consectetur adipisicing elit.
-                Possimus, itaque?
-              </p>
-            </SwiperSlide>
-            <SwiperSlide className="dialog">
-              <div className="heading">Lorem, ipsum.</div>
-              <p className="text">
-                {" "}
-                Lorem ipsum dolor, sit amet consectetur adipisicing elit.
-                Possimus, itaque?
-              </p>
-            </SwiperSlide>
-            <SwiperSlide className="dialog">
-              <div className="heading">Lorem, ipsum.</div>
-              <p className="text">
-                {" "}
-                Lorem ipsum dolor, sit amet consectetur adipisicing elit.
-                Possimus, itaque?
-              </p>
-            </SwiperSlide>
-            <SwiperSlide className="dialog">
-              <div className="heading">Lorem, ipsum.</div>
-              <p className="text">
-                {" "}
-                Lorem ipsum dolor, sit amet consectetur adipisicing elit.
-                Possimus, itaque?
-              </p>
-            </SwiperSlide>
-            <SwiperSlide className="dialog">
-              <div className="heading">Lorem, ipsum.</div>
-              <p className="text">
-                {" "}
-                Lorem ipsum dolor, sit amet consectetur adipisicing elit.
-                Possimus, itaque?
-              </p>
-            </SwiperSlide>
-          </Swiper>
-        </section>
-
-        <section className="video">
+        {/* how it works */}
+        <section className="howItWorkSection">
           <h1 className="heading">Learn how it works?</h1>
-          {/* <video src="https://placehold.co/600x400/png"></video> */}
-          <img
-            src="https://placehold.co/500x200/png"
-            alt=""
-            data-aos="zoom-out"
-          />
+          <HowItWorks />
         </section>
 
-        <section class="features" id="features">
-          <div class="heading">
-            <h1>some of our key features</h1>
-          </div>
-
-          <div class="box-container">
-            <div class="box">
-              <div class="image" data-aos="zoom-in-right">
-                <img src="/feature-1.svg" height={600} alt="" />
-              </div>
-              <div class="content" data-aos="zoom-in-left">
-                <h3>
-                  pick a course <span class="line-down"> location!</span>
-                </h3>
-                <p>
-                  Lorem ipsum dolor sit, amet consectetur adipisicing elit.
-                  Iusto nisi fugit saepe quisquam adipisci. Consectetur ipsum
-                  cumque beatae accusantium similique mollitia commodi, atque
-                  laborum, id, eos illo recusandae!
-                </p>
-              </div>
-            </div>
-
-            <div class="box">
-              <div class="image" data-aos="zoom-in-left">
-                <img src="/feature-2.svg" alt="" />
-              </div>
-              <div class="content" data-aos="zoom-in-right">
-                <h3>
-                  Learn and <span class="line-down">explore</span> designs
-                </h3>
-                <p>
-                  Lorem ipsum dolor sit, amet consectetur adipisicing elit.
-                  Iusto nisi fugit saepe quisquam adipisci. Consectetur ipsum
-                  cumque beatae accusantium similique mollitia commodi, atque
-                  laborum, id, eos illo recusandae!
-                </p>
-              </div>
-            </div>
-          </div>
+        {/* system forever */}
+        <section className="system-section" id="system">
+          <h1 className="heading">This Will Change The Sytem Forever!</h1>
+          <System />
         </section>
 
-        <section className="Faqsection" id="faq">
+         {/* packages */}
+         <section className="package-section" id="package">
+          <h1 className="heading">Our Exclusive Packages</h1>
+          <Package />
+        </section>
+
+        {/* why affiliated ritual */}
+        <section className="whyRitual" id="whyRitual">
+          <h1 className="heading">Why Affiliated Rituals</h1>
+          <WhyRitual />
+        </section>
+
+        {/* trainer section */}
+        <section className="trainer-section" id="trainer">
+          <h1 className="heading">Our Trainer</h1>
+          <Trainer />
+        </section>
+
+        {/* media section */}
+        <section className="media-section" id="media">
+          <h1 className="heading">Media Presence</h1>
+          <Media />
+        </section>
+
+        {/* club section */}
+        <section className="club-section" id="club">
+          <h1 className="heading">Our Leader & Members</h1>
+          < Club/>
+        </section>
+
+        {/* feedback section - voice of our students */}
+        <section className="feedback-section" id="feedback">
+          <h1 className="heading">Voice of Our Students</h1>
+          <Feedback />
+        </section>
+
+        {/* proof section */}
+        <section className="proof-section" id="proof">
+          <h1 className="heading">More Proof</h1>
+          <Proof />
+        </section>
+
+        {/* frequently asked */}
+        <section className="faq-section" id="faq">
           <h1 className="heading">Frequently Asked Questions</h1>
           <Faq />
         </section>
 
-        <section class="footer">
-          <div class="box-container">
-            <div class="box">
-              <h3>Affliliated Rituals</h3>
-              <p>
-                {" "}
-                Lorem ipsum, dolor sit amet consectetur adipisicing elit.
-                Repudiandae sit qui voluptate amet ad quasi doloremque accusamus
-                aperiam beatae culpa.
-              </p>
-            </div>
-            <div class="box">
-              <h3>quick links</h3>
-              <a href="#home">home</a>
-              <a href="#services">services</a>
-              <a href="#Courses">Courses</a>
-              <a href="#features">features</a>
-              <a href="#faq">Faq</a>
-            </div>
-
-            <div class="box">
-              <h3>extra links</h3>
-              <a href="#_">Blogs</a>
-              <a href="#_">Documentation</a>
-              <a href="#_">Terms & conditions</a>
-            </div>
-
-            <div class="box">
-              <h3>contact info</h3>
-              <a href="#">+123-456-7890</a>
-              <a href="#">example@gmail.com</a>
-              <a href="#">Kolkata, india - 400104</a>
-            </div>
-          </div>
-
-          <div class="credit">
-            <span> Afflilated Rituals </span> | all rights reserved{" "}
-          </div>
+        {/* leaderboard section */}
+        <section className="leaderboard-section" id="leaderboard">
+          <h1 className="heading">Leaderboard</h1>
+          <Leaderboard />
         </section>
+
+        {/* footer section  */}
+        <section class="footer-section">
+          <Footer />
+        </section>
+
+
+        {/* 
+        <section id="Courses">
+          <Courses />
+        </section>
+
+        <section id="services">
+          <Services />
+        </section>
+
+        <section id="features">
+          <Features />
+        </section> */}
+
+
       </div>
     </div>
   );

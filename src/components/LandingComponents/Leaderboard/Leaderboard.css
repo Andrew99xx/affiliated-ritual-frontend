@@ -1,0 +1,53 @@
+.leaderboard-container {
+    width: 80%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+    
+}
+
+.leaderboard-paragraph{
+    margin-top: 0ch !important;
+    padding-top: 0ch !important;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 30px;
+    text-align: center;
+    color: white;
+}
+
+.leaderboard {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 10px;
+    font-family: 'Public Sans', sans-serif;
+    text-transform: uppercase;
+}
+
+.leaderboard thead {
+    font-family: 'Public Sans', sans-serif;
+    font-weight: 600;
+    font-size: 22px;
+    line-height: 50px;
+    text-align: center;
+    color: #BD9141;
+}
+
+.leaderboard tbody {
+    font-family: 'Public Sans', sans-serif;
+    font-weight: 700;
+    font-size: 22px;
+    line-height: 50px;
+    text-align: center;
+    color: black;
+   
+}
+
+
+
+.leaderboard td {
+    background-color: #BD9141;
+    padding: 10px;
+}

@@ -1,0 +1,119 @@
+.home {
+    margin-bottom: 0 !important;
+    padding: 10px;
+    padding-bottom: 0 !important;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 2rem;
+}
+
+
+.home-text-wrapper {
+    margin: 0 auto;
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    gap: 32px;
+}
+
+.home-heading {
+    font-family: 'Public Sans';
+    font-weight: 600;
+    font-size: 24px;
+    line-height: 32px;
+    color: #FFC27A;
+}
+
+.home-hook {
+    font-family: 'Public Sans';
+    font-weight: 600;
+    font-size: 56px;
+    line-height: 72px;
+    color: white;
+}
+
+.home-tag {
+    font-family: 'Public Sans';
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 28px;
+    color: #CFD3D6;
+}
+
+.home-btn {
+    background-color: white;
+    color: black;
+    height: 56px;
+    width: 209px;
+    cursor: pointer;
+    border-radius: 4px;
+    font-family: 'Public Sans';
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 32px;
+    text-align: center;
+}
+
+.home-btn:hover {
+    background-color: #CF9F41;
+}
+
+.home-img-svg-wrapper {
+    height: 100%;
+    display: flex;
+    flex: 1;
+    position: relative;
+    text-align: center;
+}
+
+/* edit according to svg - set postion - increase size to see effect  */
+.home-svg {
+    background-color: #CF9F41;
+    height: 0;
+    width: 0;
+}
+
+.home-img-wrapper {
+    position: relative;
+    display: inline-block;
+}
+
+.home-img {
+    display: block;
+    margin: 0 auto;
+}
+
+.home-top-card {
+    position: absolute;
+    top: 0;
+    right: 0;
+    transform: translateX(-50%);
+    background-color: white;
+    color: black;
+    padding: 10px;
+    border-radius: 10px;
+    font-family: 'Public Sans';
+    font-weight: 600;
+    font-size: 12px;
+    line-height: 32px;
+    text-align: center;
+}
+
+.home-left-card {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    transform: translateY(-50%);
+    background-color: white;
+    color: black;
+    padding: 10px;
+    border-radius: 10px;
+    font-family: 'Public Sans';
+    font-weight: 600;
+    font-size: 12px;
+    line-height: 32px;
+    text-align: center;
+}
