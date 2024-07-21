@@ -7,7 +7,7 @@ const Direct = () => {
   return (
     <div className='Direct'>
       <h1 className="heading">Direct Sale Report</h1>
-      <div className="containe"><h2 className="subheading">In-Active Students</h2> <input placeholder='Search' className='input' type="text" /></div>
+      <div className="containe"><h2 className="subheading">Active Students</h2> <input placeholder='Search' className='input' type="text" /></div>
       <div className="flex">
       <Table data={data} onViewFull={() => {}} showAction={false} />
       </div>
@@ -17,7 +17,7 @@ const Direct = () => {
       <Table data={data} onViewFull={() => {}} showAction={false} />
       </div>
 
-      <div className="containe"><h2 className="subheading">In-Active Students</h2> <input placeholder='Search' className='input' type="text" /></div>
+      <div className="containe"><h2 className="subheading">Passed Out Students</h2> <input placeholder='Search' className='input' type="text" /></div>
       <div className="flex">
       <Table data={data} onViewFull={() => {}} showAction={false} />
       </div>
