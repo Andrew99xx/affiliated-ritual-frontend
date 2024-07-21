@@ -1,29 +1,30 @@
 import React from 'react';
 import './Trainer.css';
+import trainerImage from "./trainer.jpg"
 
 function Trainer() {
     const trainer = [
         {
-            imgLink: "https://via.placeholder.com/250x300.png?text=Placeholder+Image",
+            imgLink: trainerImage,
             alt: "alt name",
             name: "Jacob",
             position: "UI Ux expert"
         },
         {
-            imgLink: "https://via.placeholder.com/250x300.png?text=Placeholder+Image",
+            imgLink: trainerImage,
             alt: "alt name",
             name: "Jacob",
             position: "UI Ux expert"
         },
         {
-            imgLink: "https://via.placeholder.com/250x300.png?text=Placeholder+Image",
+            imgLink: trainerImage,
             alt: "alt name",
             name: "Jacob",
             position: "UI Ux expert"
         },
         {
 
-            imgLink: "https://via.placeholder.com/250x300.png?text=Placeholder+Image",
+            imgLink: trainerImage,
             alt: "alt name",
             name: "Jacob",
             position: "UI Ux expert"

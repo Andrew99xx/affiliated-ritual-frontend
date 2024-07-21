@@ -1,15 +1,16 @@
 import React from 'react'
 import './System.css'
+import videoImage from './videoImage.jpg'
 
 function System() {
     const systemData = [
         {
-            mediaLink: "https://via.placeholder.com/100x50.png?text=ANI+News",
-            name: "ANI News"
+            mediaLink:videoImage,
+            name: "describing about our system"
         },
         {
-            mediaLink: "https://via.placeholder.com/100x50.png?text=The+Print",
-            name: "The Print"
+            mediaLink: videoImage,
+            name: "describing about our system"
         },
     ];
 
@@ -24,7 +25,7 @@ function System() {
                             src={item.mediaLink}
                             alt={item.name}
                         />
-                        <div className='system-name'>{item.name}</div>
+                    
                     </div>
                 ))}
             </div>

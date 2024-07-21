@@ -1,20 +1,23 @@
 import React from 'react'
 import "./HowItWorks.css"
+import jackpot from './jackpot.png'
+import learn from './learn.png'
+import money from './money.png'
 
 function HowItWorks() {
     const data = [
         {
-            imgLink: "https://placehold.co/80x80/png",
+            imgLink: jackpot,
             name: "01. Learn ",
             description: "Follow the System. Learn step by step. Say no to Hurry."
         },
         {
-            imgLink: "https://placehold.co/80x80/png",
+            imgLink: learn,
             name: "02. Earn",
             description: "Implement our system step by step and start earning from home."
         },
         {
-            imgLink: "https://placehold.co/80x80/png",
+            imgLink: money,
             name: "03. Jackpot",
             description: "Play Jackpot every month by using your free affiliate coin. Learn, Earn and Jackpot!"
         }
