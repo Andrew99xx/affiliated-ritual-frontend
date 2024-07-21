@@ -1,0 +1,32 @@
+.banner-container {
+    width: 80%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 50px;
+}
+
+.banner-paragraph {
+    flex: 1;
+    font-family: 'Public Sans';
+    font-weight: 700;
+    font-size: 50px;
+    line-height: 70px;
+    text-align: center;
+
+}
+
+.banner-btn {
+ 
+    background-color: black;
+    color: white;
+    height: 66px;
+    width: 264px;
+    cursor: pointer;
+    border-radius: 50px;
+    font-family: 'Public Sans';
+    font-weight: 600;
+    font-size: 20px;
+    text-align: center;
+}

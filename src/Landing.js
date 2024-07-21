@@ -20,6 +20,7 @@ import Media from "./components/LandingComponents/Media/Media";
 import System from "./components/LandingComponents/System/System";
 import Package from "./components/LandingComponents/Package/Package";
 import Club from "./components/LandingComponents/Club/Club";
+import Banner from "./components/LandingComponents/Banner/Banner";
 // import Features from "./components/LandingComponents/Features/Features";
 // import Services from "./components/LandingComponents/Services/Services";
 // import Courses from "./components/LandingComponents/Courses/Courses";
@@ -164,10 +165,10 @@ const Landing = () => {
 
         <nav className={`navbar ${isNavbarVisible ? "active" : ""}`}>
           <a href="#home">Home</a>
-          <a href="#services">Services</a>
-          <a href="#Courses">Courses</a>
-          <a href="#features">Features</a>
-          <a href="#faq">Faq</a>
+          <a href="#services">Product</a>
+          <a href="#Courses">Contact Us</a>
+          <a href="#features">Leaderboard</a>
+
         </nav>
 
         <div
@@ -211,8 +212,8 @@ const Landing = () => {
           <System />
         </section>
 
-         {/* packages */}
-         <section className="package-section" id="package">
+        {/* packages */}
+        <section className="package-section" id="package">
           <h1 className="heading">Our Exclusive Packages</h1>
           <Package />
         </section>
@@ -238,7 +239,12 @@ const Landing = () => {
         {/* club section */}
         <section className="club-section" id="club">
           <h1 className="heading">Our Leader & Members</h1>
-          < Club/>
+          < Club />
+        </section>
+
+        {/* banner section */}
+        <section className="banner-section" id="banner">
+          <Banner />
         </section>
 
         {/* feedback section - voice of our students */}
@@ -265,11 +271,6 @@ const Landing = () => {
           <Leaderboard />
         </section>
 
-        {/* footer section  */}
-        <section class="footer-section">
-          <Footer />
-        </section>
-
 
         {/* 
         <section id="Courses">
@@ -283,7 +284,12 @@ const Landing = () => {
         <section id="features">
           <Features />
         </section> */}
+        {/* footer section  */}
 
+
+        <section class="footer-section">
+          <Footer />
+        </section>
 
       </div>
     </div>
