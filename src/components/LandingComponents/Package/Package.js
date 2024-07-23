@@ -1,29 +1,33 @@
 import React from 'react'
 import './Package.css'
 import package01 from './package01.png'
+import { RiArrowRightUpLine } from "react-icons/ri";
 
 function Package() {
     const packageData = [
         {
-            packageImage:package01,
+            packageImage: package01,
             packageTitle: "Package 1",
-            packageDetails: ["3 months", "3 classes/week", "Available"],
-            points: ["Point 1", "Point 2", "Point 3"],
-            packagePrice: "$300"
+            packageDetails: ["3 months", "3 classes/week", "Recording"],
+            points: ["Free Doubt Session", "Live Q&A Support", "Affiliate Ritual Certificate"],
+            packagePrice: "18,000",
+            packagePriceCross: "40,000"
         },
         {
-            packageImage:package01,
+            packageImage: package01,
             packageTitle: "Package 2",
-            packageDetails: ["6 months", "2 classes/week", "Available"],
-            points: ["Point 1", "Point 2", "Point 3"],
-            packagePrice: "$500"
+            packageDetails: ["6 months", "2 classes/week", "Recording"],
+            points: ["Free Doubt Session", "Live Q&A Support", "Affiliate Ritual Certificate"],
+            packagePrice: "18,000",
+            packagePriceCross: "40,000"
         },
         {
-            packageImage:package01,
+            packageImage: package01,
             packageTitle: "Package 3",
-            packageDetails: ["1 year", "1 class/week", "Available"],
-            points: ["Point 1", "Point 2", "Point 3"],
-            packagePrice: "$900"
+            packageDetails: ["1 year", "1 class/week", "Recording"],
+            points: ["Free Doubt Session", "Live Q&A Support", "Affiliate Ritual Certificate"],
+            packagePrice: "18,000",
+            packagePriceCross: "40,000"
         }
     ];
 
@@ -40,13 +44,14 @@ function Package() {
                         />
                         <div className='package-title'>{item.packageTitle}</div>
 
-
                         <div className='package-details' >
                             {item.packageDetails.map((detail, index) => (
-                                <li key={index}>{detail}</li>
+                                <li key={index}>
+                                    <span className='package-dots'></span>
+                                    {detail}
+                                </li>
                             ))}
                         </div>
-
 
                         <div className='package-points'>
                             {item.points.map((point, index) => (
@@ -56,7 +61,21 @@ function Package() {
 
                         <div className='hr-line'></div>
 
-                        <div className='package-price'>{item.packagePrice}</div>
+                        <div className='package-price-wrapper'>
+                            <div>
+                                <span className='package-price'>
+                                    {item.packagePrice}
+                                </span>
+                                <span className='package-price-cross'>
+                                    {item.packagePriceCross}
+                                </span>
+                            </div>
+
+                            <div className='package-buy'>
+                                <RiArrowRightUpLine className='package-buy-icon' />
+                            </div>
+
+                        </div>
                     </div>
                 ))}
             </div>

@@ -1,5 +1,7 @@
-.footer{
-    color: white;
+.footer {
+    color: #B2BBCC;
+    ;
+    font-family: "Inter";
 }
 
 .footer .box-container {
@@ -13,16 +15,37 @@
 }
 
 .footer .box-container .box h3 {
-    color: #fff;
-    font-size: 2.5rem;
+    color: #ffffff;
+    font-weight: 600;
+    font-size: 22px;
+    line-height: 28px;
     padding: 1rem 0;
 }
 
+.footer .footer-banner {
+    background: linear-gradient(91.94deg, #B17E32 -8.77%, #F3E681 58.63%, #CF9F41 107.45%);
+    height: 4px;
+    width: 30px;
+    border-radius: 2px;
+    margin-top: 0ch !important;
+    padding-top: 0ch !important;
+    margin-bottom: 16px;
+}  
+
+
+.footer .box p {
+    font-size: 16px;
+}
+
 .footer .box-container .box a {
+    font-family: "Inter";
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 28px;
     display: block;
-    color: #adadad;
-    font-size: 1.5rem;
-    padding: 1rem 0;
+    color: #B2BBCC;
+    padding: 8px 0;
+    text-decoration: none;
 }
 
 .footer .box-container .box a:hover {
@@ -33,17 +56,25 @@
     margin-top: 1rem;
 }
 
+.footer .footer-media {
+    display: flex;
+    gap: 10px;
+    font-size: 16px;
+}
+
+
 .footer .credit {
     text-align: center;
     padding: 1.5rem;
     margin-top: 1.5rem;
     padding-top: 2.5rem;
-    font-size: 2rem;
-    color: #e7e7e7;
-    border-top: .1rem solid rgba(255, 255, 255, 0.1);
-}
-
-.footer .box p {
     font-size: 16px;
-    color: #adadad;
+    font-family: "Inter";
+    font-weight: 400;
+    line-height: 18px;
+    color: #8C9AB4;
+    border-top: .1rem solid rgba(255, 255, 255, 0.1);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }

@@ -1,6 +1,8 @@
 import React from 'react';
 import './Trainer.css';
 import trainerImage from "./trainer.jpg"
+import { Swiper, SwiperSlide } from "swiper/react";
+import "swiper/css";
 
 function Trainer() {
     const trainer = [
@@ -34,12 +36,14 @@ function Trainer() {
     return (
         <div className='trainer-container'>
             <p className='trainer-paragraph'>Let's meet with the team of our  industry expert trainers. We believe that you will be able to change your life with the most advanced AI integrated training module cooked by Affiliate Ritual.</p>
-            <div className='trainer-items'>
+            <div
+                className="feedback-container"
+            >
                 {trainer.map((item, i) => (
 
-                    <div className='trainer-item-wrapper'>
+                    <div key={i} className='trainer-item-wrapper'>
                         <img
-                            key={i}
+
                             className="trainer-img"
                             src={item.imgLink}
                             alt={item.alt}
