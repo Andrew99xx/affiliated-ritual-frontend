@@ -1,11 +1,13 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import { CiLock } from "react-icons/ci";
 
 import Aos from "aos";
 import "./Landing.css";
 import "aos/dist/aos.css";
 import "swiper/css";
 
+// components 
 import Faq from "./components/LandingComponents/Faq/Faq";
 import HowItWorks from "./components/LandingComponents/HowItWorks/HowItWorks";
 import IntroStats from "./components/LandingComponents/IntroStats/IntroStats";
@@ -20,9 +22,10 @@ import Media from "./components/LandingComponents/Media/Media";
 import System from "./components/LandingComponents/System/System";
 import Package from "./components/LandingComponents/Package/Package";
 import Club from "./components/LandingComponents/Club/Club";
-// import Features from "./components/LandingComponents/Features/Features";
-// import Services from "./components/LandingComponents/Services/Services";
-// import Courses from "./components/LandingComponents/Courses/Courses";
+import Banner from "./components/LandingComponents/Banner/Banner";
+import Features from "./components/LandingComponents/Features/Features";
+import Services from "./components/LandingComponents/Services/Services";
+import Courses from "./components/LandingComponents/Courses/Courses";
 
 const Landing = () => {
   const [isRegisterOpen, setIsRegisterOpen] = useState(false);
@@ -100,6 +103,8 @@ const Landing = () => {
 
   return (
     <div className="body">
+
+
       {isRegisterOpen && (
         <div className="popup-overlay">
           <div className="landregister">
@@ -157,17 +162,19 @@ const Landing = () => {
           </div>
         </div>
       )}
+
+
       <header class="header">
-        <a href="#" class="logo">
+        {/* logo */}
+        <a href="#" class="header-logo">
           Affiliated Rituals{" "}
         </a>
 
         <nav className={`navbar ${isNavbarVisible ? "active" : ""}`}>
           <a href="#home">Home</a>
-          <a href="#services">Services</a>
-          <a href="#Courses">Courses</a>
-          <a href="#features">Features</a>
-          <a href="#faq">Faq</a>
+          <a href="#services">Product</a>
+          <a href="#Courses">Contact Us</a>
+          <a href="#features">Leaderboard</a>
         </nav>
 
         <div
@@ -177,18 +184,20 @@ const Landing = () => {
         >
           ☰
         </div>
-        <div className="btns">
-          <a href="#" class="btn" onClick={openRegister}>
+
+        <div className="header-btns">
+          <a href="#" class="btn-login" onClick={openRegister}>
+            <CiLock size={24}/>
             Login
           </a>
-          <a href="#" class="btn" onClick={openLogin}>
-            Signin
+          <a href="#" class="btn-signup" onClick={openLogin}>
+            Sign up for Free
           </a>
         </div>
-
       </header>
-      <div className="page">
 
+
+      <main>
         {/* home section */}
         <section class="home-section" id="home">
           <Home />
@@ -211,8 +220,8 @@ const Landing = () => {
           <System />
         </section>
 
-         {/* packages */}
-         <section className="package-section" id="package">
+        {/* packages */}
+        <section className="package-section" id="package">
           <h1 className="heading">Our Exclusive Packages</h1>
           <Package />
         </section>
@@ -238,7 +247,12 @@ const Landing = () => {
         {/* club section */}
         <section className="club-section" id="club">
           <h1 className="heading">Our Leader & Members</h1>
-          < Club/>
+          < Club />
+        </section>
+
+        {/* banner section */}
+        <section className="banner-section" id="banner">
+          <Banner />
         </section>
 
         {/* feedback section - voice of our students */}
@@ -265,27 +279,25 @@ const Landing = () => {
           <Leaderboard />
         </section>
 
-        {/* footer section  */}
-        <section class="footer-section">
-          <Footer />
-        </section>
-
+        {/* <section id="Courses">
+          <Courses />
+        </section> * */}
 
         {/* 
-        <section id="Courses">
-          <Courses />
-        </section>
-
         <section id="services">
           <Services />
-        </section>
-
-        <section id="features">
-          <Features />
         </section> */}
 
+        {/* 
+        <section id="features">
+          <Features />
+        </section>  */}
+      </main>
 
-      </div>
+      {/* footer */}
+      <footer class="footer-section">
+        <Footer />
+      </footer>
     </div>
   );
 };

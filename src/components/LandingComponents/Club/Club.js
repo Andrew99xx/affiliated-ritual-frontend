@@ -1,13 +1,15 @@
 import React from 'react'
 import './Club.css'
+import videoImage from './videoImage.jpg'
+
 function Club() {
     const clubData = [
         {
-            mediaLink: "https://via.placeholder.com/100x50.png?text=ANI+News",
+            mediaLink:videoImage,
             name: "ANI News"
         },
         {
-            mediaLink: "https://via.placeholder.com/100x50.png?text=The+Print",
+            mediaLink:videoImage,
             name: "The Print"
         },
     ];
@@ -24,7 +26,7 @@ function Club() {
                             src={item.mediaLink}
                             alt={item.name}
                         />
-                        <div className='club-name'>{item.name}</div>
+                       
                     </div>
                 ))}
             </div>

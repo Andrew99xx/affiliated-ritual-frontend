@@ -1,45 +1,57 @@
 import React from 'react'
 import './Media.css'
+
+import Alj from "./Alj.png"
+import ani from "./ani.jpeg"
+import bbc from "./bbc.png"
+import cnn from "./cnn.jpeg"
+import htimes from "./htimes.jpeg"
+import ndtv from "./ndtv.jpeg"
+import reuters from "./reuters.jpeg"
+import the_hindu from "./the_hindu.jpeg"
+import the_print from "./the_print.jpeg"
+import theIndianExpress from "./theIndianExpress.jpeg"
+
 function Media() {
     const mediaData = [
         {
-            logo: "https://via.placeholder.com/100x50.png?text=ANI+News",
+            logo: ani,
             name: "ANI News"
         },
         {
-            logo: "https://via.placeholder.com/100x50.png?text=The+Print",
+            logo: the_print,
             name: "The Print"
         },
         {
-            logo: "https://via.placeholder.com/100x50.png?text=BBC+News",
+            logo: bbc,
             name: "BBC News"
         },
         {
-            logo: "https://via.placeholder.com/100x50.png?text=Reuters",
+            logo: reuters,
             name: "Reuters"
         },
         {
-            logo: "https://via.placeholder.com/100x50.png?text=CNN",
+            logo: cnn,
             name: "CNN"
         },
         {
-            logo: "https://via.placeholder.com/100x50.png?text=Al+Jazeera",
+            logo: Alj,
             name: "Al Jazeera"
         },
         {
-            logo: "https://via.placeholder.com/100x50.png?text=The+Hindu",
+            logo: the_hindu,
             name: "The Hindu"
         },
         {
-            logo: "https://via.placeholder.com/100x50.png?text=NDTV",
+            logo: ndtv,
             name: "NDTV"
         },
         {
-            logo: "https://via.placeholder.com/100x50.png?text=The+Indian+Express",
+            logo: theIndianExpress,
             name: "The Indian Express"
         },
         {
-            logo: "https://via.placeholder.com/100x50.png?text=Hindustan+Times",
+            logo: htimes,
             name: "Hindustan Times"
         }
     ];

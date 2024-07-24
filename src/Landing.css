@@ -19,12 +19,17 @@ html::-webkit-scrollbar-thumb {
   background-position: center;
   background-size: cover;
   text-decoration: none;
-
 }
 
+
+/* applying to each section  */
 .body section {
   padding: 8rem 9%;
+}
 
+/* applying to footer */
+.body footer {
+  padding: 8rem 9%;
 }
 
 .body .heading {
@@ -103,6 +108,9 @@ html::-webkit-scrollbar-thumb {
   }
 }
 
+
+
+/* header css */
 .header {
   position: -webkit-sticky;
   position: sticky;
@@ -119,41 +127,37 @@ html::-webkit-scrollbar-thumb {
   -webkit-box-pack: justify;
   -ms-flex-pack: justify;
   justify-content: space-between;
-  background: rgb(22, 22, 22);
+  background-color: rgba(15, 15, 15, 0.95);
   -webkit-box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.1);
   box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.1);
   padding: 2rem 9%;
-
 }
 
-.header .logo {
+
+.header .header-logo {
+  font-family: 'Popins';
   font-size: 2.5rem;
-  font-weight: bolder;
-  color: rgb(255, 255, 255);
+  font-weight: 700;
+  font-size: 35px;
+  line-height: 52px;
+  color: white;
   text-decoration: none;
 
 }
-
-.header .logo img {
-  height: 37px;
-  margin-bottom: -1rem;
-}
-
 
 .header .navbar a {
   margin: 0 1rem;
-  font-size: 2rem;
+  font-family: 'Public Sans';
+  font-size: 17px;
+  font-weight: 500;
+  line-height: 19px;
   text-decoration: none;
-
   color: #fff;
+  text-transform: uppercase;
 }
 
 .header .navbar a:hover {
-  text-decoration: underline;
-}
-
-.header .btn {
-  margin-top: 0;
+  color: #CF9F41;
 }
 
 #menu-btn {
@@ -162,11 +166,57 @@ html::-webkit-scrollbar-thumb {
   display: none;
 }
 
-
-.btns * {
+.header-btns {
   margin: 0 10px;
-
+  display: flex;
+  gap: 10px;
+  align-items: center;
 }
+
+.btn-login {
+  text-decoration: none;
+  width: 167px !important;
+  height: 48px !important;
+  border-radius: 100px;
+  padding: 12px 24px;
+  font-family: "Public Sans";
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 24px;
+  text-align: center;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-sizing: border-box;
+  gap: 7px;
+}
+
+.btn-signup {
+  background: linear-gradient(91.94deg, #B17E32 -8.77%, #F3E681 58.63%, #CF9F41 107.45%) !important;
+  text-decoration: none;
+  width: 167px !important;
+  height: 48px !important;
+  border-radius: 100px;
+  padding: 12px 24px;
+  font-family: "Public Sans";
+  font-weight: 400;
+  font-size: 16px;
+  text-wrap: nowrap;
+  line-height: 24px;
+  text-align: center;
+  color: #242424;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-sizing: border-box;
+}
+
+
+
+
+
+
 
 
 /* home section */
@@ -200,7 +250,7 @@ html::-webkit-scrollbar-thumb {
 
 /* how it works */
 .howItWorkSection {
-  background-color: #242424;
+  background-color: #0F0F0F;
   color: white;
   font-family: 'Public Sans', sans-serif;
   display: flex;
@@ -343,6 +393,18 @@ html::-webkit-scrollbar-thumb {
   line-height: 50px;
   text-align: center;
   color: white;
+}
+
+
+/* banner section */
+.banner-section {
+  background: linear-gradient(91.94deg, #B17E32 -8.77%, #F3E681 58.63%, #CF9F41 107.45%);
+  color: black;
+  font-family: 'Public Sans', sans-serif;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 

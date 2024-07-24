@@ -19,6 +19,7 @@
 
 .trainer-items {
     display: flex;
+    flex-direction: row;
     flex-wrap: wrap;
     gap: 20px;
     justify-content: center;
@@ -29,12 +30,13 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    gap: 5px;
+    /* gap: 5px; */
     padding:20px 15px;
-    width: 312px;
-    height: 370px;
+    /* width: 312px;
+    height: 370px; */
     border-radius: 24px;
     background-color: #3E3E3E;
+    
     
 }
 
@@ -46,4 +48,25 @@
     justify-content: center;
     align-items: center;
     border-radius: 24px;
+   
+  
+}
+
+
+.trainer-name {
+    font-weight: 700;
+    font-size: 20px;
+    /* line-height: 30px; */
+    text-align: center;
+    color: #B17E32;
+}
+
+
+
+.trainer-position {
+    font-weight: 600;
+    font-size: 16px;
+    /* line-height: 30px; */
+    text-align: center;
+    color: white;
 }
