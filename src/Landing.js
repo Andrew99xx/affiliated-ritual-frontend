@@ -1,11 +1,13 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import { CiLock } from "react-icons/ci";
 
 import Aos from "aos";
 import "./Landing.css";
 import "aos/dist/aos.css";
 import "swiper/css";
 
+// components 
 import Faq from "./components/LandingComponents/Faq/Faq";
 import HowItWorks from "./components/LandingComponents/HowItWorks/HowItWorks";
 import IntroStats from "./components/LandingComponents/IntroStats/IntroStats";
@@ -21,9 +23,9 @@ import System from "./components/LandingComponents/System/System";
 import Package from "./components/LandingComponents/Package/Package";
 import Club from "./components/LandingComponents/Club/Club";
 import Banner from "./components/LandingComponents/Banner/Banner";
-// import Features from "./components/LandingComponents/Features/Features";
-// import Services from "./components/LandingComponents/Services/Services";
-// import Courses from "./components/LandingComponents/Courses/Courses";
+import Features from "./components/LandingComponents/Features/Features";
+import Services from "./components/LandingComponents/Services/Services";
+import Courses from "./components/LandingComponents/Courses/Courses";
 
 const Landing = () => {
   const [isRegisterOpen, setIsRegisterOpen] = useState(false);
@@ -101,6 +103,8 @@ const Landing = () => {
 
   return (
     <div className="body">
+
+
       {isRegisterOpen && (
         <div className="popup-overlay">
           <div className="landregister">
@@ -158,8 +162,11 @@ const Landing = () => {
           </div>
         </div>
       )}
+
+
       <header class="header">
-        <a href="#" class="logo">
+        {/* logo */}
+        <a href="#" class="header-logo">
           Affiliated Rituals{" "}
         </a>
 
@@ -168,7 +175,6 @@ const Landing = () => {
           <a href="#services">Product</a>
           <a href="#Courses">Contact Us</a>
           <a href="#features">Leaderboard</a>
-
         </nav>
 
         <div
@@ -178,18 +184,20 @@ const Landing = () => {
         >
           ☰
         </div>
-        <div className="btns">
-          <a href="#" class="btn" onClick={openRegister}>
+
+        <div className="header-btns">
+          <a href="#" class="btn-login" onClick={openRegister}>
+            <CiLock size={24}/>
             Login
           </a>
-          <a href="#" class="btn" onClick={openLogin}>
-            Signin
+          <a href="#" class="btn-signup" onClick={openLogin}>
+            Sign up for Free
           </a>
         </div>
-
       </header>
-      <div className="page">
 
+
+      <main>
         {/* home section */}
         <section class="home-section" id="home">
           <Home />
@@ -271,27 +279,25 @@ const Landing = () => {
           <Leaderboard />
         </section>
 
+        {/* <section id="Courses">
+          <Courses />
+        </section> * */}
 
         {/* 
-        <section id="Courses">
-          <Courses />
-        </section>
-
         <section id="services">
           <Services />
-        </section>
+        </section> */}
 
+        {/* 
         <section id="features">
           <Features />
-        </section> */}
-        {/* footer section  */}
+        </section>  */}
+      </main>
 
-
-        <section class="footer-section">
-          <Footer />
-        </section>
-
-      </div>
+      {/* footer */}
+      <footer class="footer-section">
+        <Footer />
+      </footer>
     </div>
   );
 };

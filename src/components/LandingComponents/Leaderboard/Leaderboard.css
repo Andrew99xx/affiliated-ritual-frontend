@@ -46,8 +46,8 @@
 }
 
 
-
 .leaderboard td {
-    background-color: #BD9141;
+    background: linear-gradient(91.94deg, #B17E32 -8.77%, #F3E681 58.63%, #CF9F41 107.45%);
+    /* background-color: #BD9141; */
     padding: 10px;
 }
