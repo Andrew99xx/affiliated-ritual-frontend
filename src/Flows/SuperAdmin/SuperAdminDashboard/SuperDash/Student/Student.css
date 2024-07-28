@@ -1,0 +1,18 @@
+.students .heading{
+    color: white;
+    margin: 0;
+}
+.students .heading2{
+    color: white;
+}
+.students {
+    padding: 1rem 2rem;
+}
+
+.students .subheading{
+    color: white;
+}
+
+.students .boxes{
+    margin:  2rem 0;
+}

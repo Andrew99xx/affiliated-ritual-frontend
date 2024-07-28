@@ -1,0 +1,31 @@
+.team .heading{
+    color: white;
+}
+
+.team{
+    padding: 1rem 2rem;
+}
+
+.fl{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.inputinstallll{
+    background-color: #000000;
+    padding: .7rem .7rem .7rem .7rem;
+    width: 230px;
+    font-family: "DM Sans", sans-serif;
+    border-radius: 5px;
+    font-size: 14px;
+    font-weight: 500;
+    outline: none;
+    color: #BCBCBC;
+    border: 1px solid #3a3a3a;
+    color: #fff;
+    font-size: 16px;
+    color-scheme: dark;
+
+
+}

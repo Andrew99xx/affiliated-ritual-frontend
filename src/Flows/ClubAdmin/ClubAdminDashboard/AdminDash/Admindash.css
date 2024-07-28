@@ -1,0 +1,37 @@
+.admindash .graphs{
+    color: white;
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    margin-bottom: 4rem ;
+}
+
+
+.admindash{
+    padding: 1rem 2rem;
+}
+.admindash .heading{
+    color: white;
+    padding: 0 1rem;
+    
+}
+
+.admindash .boxes{
+    margin-bottom: 3rem;
+}
+
+.hes{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+}
+
+.subha{
+    margin-right: 2rem;
+    color: #EBD672;
+    font-family: "DM Sans", sans-serif;
+    font-weight: 700;
+    cursor: pointer;
+    font-size: 20px;
+}

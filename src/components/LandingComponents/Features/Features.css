@@ -1,0 +1,52 @@
+.features .box-container .box {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    gap: 2rem;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    min-height: 50vh;
+    margin-bottom: 3rem;
+    color: white;
+}
+
+.features .box-container .box:last-child {
+    margin-bottom: 0;
+}
+
+.features .box-container .box:nth-child(even) {
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: reverse;
+    -ms-flex-flow: row-reverse wrap;
+    flex-flow: row-reverse wrap;
+}
+
+.features .box-container .box .image {
+    -webkit-box-flex: 1;
+    -ms-flex: 1 1 42rem;
+    flex: 1 1 42rem;
+}
+
+.features .box-container .box .image img {
+    width: 100%;
+}
+
+.features .box-container .box .content {
+    -webkit-box-flex: 1;
+    -ms-flex: 1 1 42rem;
+    flex: 1 1 42rem;
+}
+
+.features .box-container .box .content h3 {
+    font-size: 3.5rem;
+    line-height: 1.5;
+}
+
+.features .box-container .box .content p {
+    padding: 1.5rem 0;
+    line-height: 2;
+    font-size: 1.7rem;
+}

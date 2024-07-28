@@ -1,0 +1,45 @@
+.Payout .graphs{
+    color: white;
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    margin-bottom: 4rem ;
+    margin-top: 3rem;
+}
+
+.Payout .heading{
+    color: #fff;
+    font-size: 24px;
+    padding: 0 1rem ;
+
+}
+
+.Payout{
+    padding: 1rem 2rem;
+}
+
+.tablespayout .sl{
+    display: flex;
+    justify-content: space-between;
+    text-align: center;
+}
+.tablespayout .sl .viw{
+    color: #EBD672;
+    font-size: 20px;
+    cursor: pointer;
+    margin-right: 2rem;
+
+}
+
+
+.Payout .btnn{
+    cursor: pointer;
+    color: black;
+    background-color: white !important;
+    text-decoration: none;
+    padding: .6rem 1.2rem;
+}
+
+.Payout .tb{
+    margin-bottom: 3rem;
+}

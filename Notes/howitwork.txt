@@ -1,0 +1,17 @@
+{/* <video src="https://placehold.co/600x400/png"></video> */}
+          {/* <img
+            src="https://placehold.co/500x200/png"
+            alt=""
+            data-aos="zoom-out"
+          /> */}
+
+
+
+          .video img{
+  height: 80vh;
+    width: 80vw;
+}
+.video video{
+  height: 80vh;
+    width: 80vw;
+}
