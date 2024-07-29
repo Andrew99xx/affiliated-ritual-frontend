@@ -37,6 +37,10 @@ const TeamLeader = () => {
           )}
         </>
       )}
+<<<<<<< HEAD
+=======
+      {/*when, isSignedIn, is true */}
+>>>>>>> 11cb80b (major update)
       {isSignedIn && <TeamDashboard />}
     </div>
   );

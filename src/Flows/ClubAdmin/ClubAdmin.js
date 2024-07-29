@@ -3,6 +3,11 @@ import ClubAdminSign from './ClubAdmin/ClubAdminSign';
 import AdminDashboard from './ClubAdminDashboard/AdminDashboard';
 
 const ClubAdmin = () => {
+<<<<<<< HEAD
+=======
+
+  // change state to show effect
+>>>>>>> 11cb80b (major update)
   const [isSignedIn, setIsSignedIn] = useState(true);
 
   // Function to handle signin

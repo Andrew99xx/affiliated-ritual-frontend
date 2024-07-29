@@ -71,6 +71,11 @@ html::-webkit-scrollbar-thumb {
   color: #000;
 }
 
+<<<<<<< HEAD
+=======
+
+/* where we are using */
+>>>>>>> 11cb80b (major update)
 .line-down {
   position: relative;
   display: inline-block;
@@ -381,10 +386,17 @@ html::-webkit-scrollbar-thumb {
   background-color: #0F0F0F;
   color: white;
   font-family: 'Public Sans', sans-serif;
+<<<<<<< HEAD
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+=======
+  /* display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center; */
+>>>>>>> 11cb80b (major update)
 }
 
 .club-section .heading {
@@ -563,6 +575,10 @@ html::-webkit-scrollbar-thumb {
 }
 
 .popup-overlay {
+<<<<<<< HEAD
+=======
+  z-index: 1000;
+>>>>>>> 11cb80b (major update)
   position: fixed;
   top: 0;
   left: 0;
