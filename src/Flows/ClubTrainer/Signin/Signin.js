@@ -4,6 +4,7 @@ import "./Signin.css";
 import Sign from './Signincomp/Sign';
 import Signotp from './Signincomp/Signotp';
 import { auth } from '../../../firebase-config';
+import { checkUserExists } from '../../../service/checkUserExists';
 
 const Signin = ({ onSignin, onToggle }) => {
   const [email, setEmail] = useState('');
@@ -62,12 +63,19 @@ const Signin = ({ onSignin, onToggle }) => {
       return;
     }
     confirmationResult.confirm(otp)
-      .then((result) => {
+      .then(async (result) => {
         const user = result.user;
         setMessage(`Phone number verified! User: ${user.uid}`);
         alert(`Phone number verified! User: ${user.uid}`);
-        // Call onSignin to handle the successful sign-in
-        onSignin(user);
+
+        const userExists = await checkUserExists(user.uid);
+        if (userExists) {
+           // Call onSignin to handle the successful sign-in or if user uid exits
+          onSignin(user);
+        } else {
+          alert("You are not registered");
+        }
+       
       })
       .catch((error) => {
         console.error('Error verifying OTP:', error);
