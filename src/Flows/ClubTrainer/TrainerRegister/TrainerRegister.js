@@ -4,16 +4,19 @@ import "./Register.css";
 
 const TrainerRegister = ({ onToggle }) => {
 =======
-import React, { useState } from "react";
-import { createUserWithEmailAndPassword } from "firebase/auth";
+import React, { useEffect, useState } from "react";
+import { RecaptchaVerifier, signInWithPhoneNumber } from "firebase/auth";
 import { collection, addDoc } from "firebase/firestore";
 import "./Register.css";
 import { auth, db } from "../../../firebase-config.js";
-
+import OtpInputContainer from '../Signin/Signincomp/OtpInputContainer.js';
 
 const TrainerRegister = ({ onToggle }) => {
- 
-  // take password as input, we are missing that
+  const [otp, setOtp] = useState('');
+  const [confirmationResult, setConfirmationResult] = useState(null);
+  const [message, setMessage] = useState('');
+  const [uid, setUid] = useState('');
+
   const [formData, setFormData] = useState({
     firstName: "",
     lastName: "",
@@ -28,32 +31,89 @@ const TrainerRegister = ({ onToggle }) => {
     ifscCode: ""
   });
 
+  useEffect(() => {
+    window.recaptchaVerifier = new RecaptchaVerifier(auth, 'recaptcha-container', {
+      'size': 'invisible',
+      'callback': (response) => {
+        console.log('reCAPTCHA solved');
+      }
+    });
+
+    // Cleanup on component unmount
+    return () => {
+      if (window.recaptchaVerifier) {
+        window.recaptchaVerifier.clear();
+      }
+    };
+  }, []);
+
+  const handleOtpChange = (otpComing) => {
+    setOtp(otpComing);
+  };
+
+  const sendVerificationCode = (e) => {
+    e.preventDefault();
+    const appVerifier = window.recaptchaVerifier;
+    signInWithPhoneNumber(auth, formData.phone, appVerifier)
+      .then((result) => {
+        setConfirmationResult(result);
+        setMessage('OTP sent to your phone');
+        alert('OTP sent to your phone');
+      })
+      .catch((error) => {
+        console.error('Error sending OTP:', error);
+        setMessage('Failed to send OTP. Please try again.');
+        alert('Failed to send OTP. Please try again.');
+      });
+  };
+
+  const verifyOtp = (e) => {
+    e.preventDefault();
+    if (!confirmationResult) {
+      setMessage('First request the OTP');
+      alert('First request the OTP');
+      return;
+    }
+    confirmationResult.confirm(otp)
+      .then((result) => {
+        const user = result.user;
+        setUid(user.uid);
+        setMessage(`Phone number verified! User: ${user.uid}`);
+        alert(`Phone number verified! User: ${user.uid}`);
+      })
+      .catch((error) => {
+        console.error('Error verifying OTP:', error);
+        setMessage('Failed to verify OTP. Please try again.');
+        alert('Failed to verify OTP. Please try again.');
+      });
+  };
+
+  const addUserToFirestore = async () => {
+    try {
+      await addDoc(collection(db, "users"), {
+        uid: uid,
+        ...formData
+      });
+      alert("Registration successful! User data saved to Firestore!");
+    } catch (error) {
+      console.error("Error adding user to Firestore: ", error);
+      alert("Error adding user to Firestore: ", error.message);
+    }
+  };
+
+
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
-  const handleSubmit = async (e) => {
+  const handleRegister = (e) => {
     e.preventDefault();
-    try {
-      // set password here - 
-      const userCredential = await createUserWithEmailAndPassword(auth, formData.email, "defaultPassword"); // Use a default password for now
-      const user = userCredential.user;
-
-      // Add additional user data to Firestore
-      await addDoc(collection(db, "users"), {
-        uid: user.uid,
-        ...formData
-      });
-
-      alert("Registration successful!");
-      // redirect to login after registration
-    } catch (error) {
-      // custom handle if email already registered
-      console.error("Error registering user: ", error);
-      alert("Error registering user: ", error.message);
+    if (uid) {
+      addUserToFirestore();
+    } else {
+      alert('Please verify OTP first');
     }
   };
->>>>>>> 11cb80b (major update)
   return (
     <div className="Register">
       <div className="container">
@@ -61,33 +121,6 @@ const TrainerRegister = ({ onToggle }) => {
           <h3 className="logo">Dummy logo</h3>
         </div>
         <div className="heading">Registration</div>
-<<<<<<< HEAD
-        <div className="formcontainer">
-          <p>First Name <sup>*</sup></p>
-          <input type="text" className="input" placeholder="Enter first name" />
-          <p>Last Name <sup>*</sup></p>
-          <input type="text" className="input" placeholder="Enter Last name" />
-          <p>Email <sup>*</sup></p>
-          <input type="text" className="input" placeholder="mail@simmmple.com" />
-          <p>Date of Birth <sup>*</sup></p>
-          <input type="date" className="input" />
-          <p>Adhar number <sup>*</sup></p>
-          <input type="text" className="input" placeholder="Adhar Number" />
-          <p>Pan Number <sup>*</sup></p>
-          <input type="text" className="input" placeholder="Pan Number" />
-          <p>Address <sup>*</sup></p>
-          <input type="text" className="input" placeholder="Address" />
-          <h3>Bank Details</h3>
-          <p>Account number <sup>*</sup></p>
-          <input type="text" className="input" placeholder="Account Number" />
-          <p>Account Type <sup>*</sup></p>
-          <input type="text" className="input" placeholder="Account Type" />
-          <p>Ifsc Code <sup>*</sup></p>
-          <input type="text" className="input" placeholder="Ifsc Code" />
-          <button className="btn">Register</button>
-         <p className="alr">Already a member? <span onClick={onToggle}> Sign in</span></p>
-        </div>
-=======
         <form className="formcontainer" onSubmit={handleSubmit}>
           <p>First Name <sup>*</sup></p>
           <input
@@ -119,7 +152,32 @@ const TrainerRegister = ({ onToggle }) => {
             required
           />
           <p>Phone <sup>*</sup></p>
-          <input type="tel" className="input" name="phone" value={formData.phone} onChange={handleChange} placeholder="9876543210" required />
+          <input
+            type="tel"
+            className="input"
+            name="phone"
+            value={formData.phone}
+            onChange={handleChange}
+            placeholder="9876543210"
+            required
+          />
+          <button
+            onClick={sendVerificationCode}
+            className="btn"
+          >GET OTP
+          </button>
+
+          <p>Enter Otp <sup>*</sup></p>
+          <OtpInputContainer onOtpChange={handleOtpChange} />
+
+          <button
+            onClick={verifyOtp}
+            className="btn">
+            Verify OTP
+          </button>
+
+
+
           <p>Date of Birth <sup>*</sup></p>
           <input type="date" className="input" name="dob" value={formData.dob} onChange={handleChange} required />
           <p>Adhar Number <sup>*</sup></p>
@@ -135,11 +193,15 @@ const TrainerRegister = ({ onToggle }) => {
           <input type="text" className="input" name="accountType" value={formData.accountType} onChange={handleChange} placeholder="Account Type" required />
           <p>Ifsc Code <sup>*</sup></p>
           <input type="text" className="input" name="ifscCode" value={formData.ifscCode} onChange={handleChange} placeholder="Ifsc Code" required />
-          <button className="btn" type="submit">Register</button>
+          <button className="btn" onClick={handleRegister}>Register</button>
           <p className="alr">Already a member? <span onClick={onToggle}>Sign in</span></p>
         </form>
 >>>>>>> 11cb80b (major update)
       </div>
+      <div id="recaptcha-container"></div>
+      {message && <div style={{
+        color: 'red',
+      }}>{message}</div>}
     </div>
   );
 };
