@@ -5,12 +5,9 @@ import Dashboard from './Dashboard/Dashboard';
 import TrainerRegister from './TrainerRegister/TrainerRegister';
 
 const Trainer = () => {
-<<<<<<< HEAD
-=======
 
   // after otp validaton, setIsSignedIn = true
   // so just call handleSignIn, 
->>>>>>> 11cb80b (major update)
   const [isSignedIn, setIsSignedIn] = useState(false);
   const [isRegistering, setIsRegistering] = useState(false);
   const location = useLocation();
@@ -36,15 +33,6 @@ const Trainer = () => {
     <div>
       {!isSignedIn && (
         <>
-<<<<<<< HEAD
-          {isRegistering ? (
-            <TrainerRegister onToggle={toggleRegistering} />
-          ) : (
-            <Signin onSignin={handleSignin} onToggle={toggleRegistering} />
-          )}
-        </>
-      )}
-=======
           {
             isRegistering ? (
               <TrainerRegister onToggle={toggleRegistering} />
@@ -56,15 +44,11 @@ const Trainer = () => {
       )}
 
       {/*when, isSignedIn, is true */}
->>>>>>> 11cb80b (major update)
       {isSignedIn && <Dashboard />}
     </div>
   );
 };
 
 export default Trainer;
-<<<<<<< HEAD
-=======
 
 // props for state management
->>>>>>> 11cb80b (major update)

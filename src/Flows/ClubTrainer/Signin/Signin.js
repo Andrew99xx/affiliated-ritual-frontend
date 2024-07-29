@@ -1,15 +1,3 @@
-<<<<<<< HEAD
-import React, { useState } from 'react';
-import "./Signin.css";
-import Sign from './Signincomp/Sign';
-import Signotp from './Signincomp/Signotp';
-
-const Signin = ({ onSignin, onToggle }) => {
-  const [showSignIn, setShowSignIn] = useState(true);
-
-  const handleSignInClick = () => {
-    setShowSignIn(false);
-=======
 import React, { useEffect, useState } from 'react';
 import { RecaptchaVerifier, signInWithPhoneNumber } from 'firebase/auth';
 import "./Signin.css";
@@ -94,20 +82,10 @@ const Signin = ({ onSignin, onToggle }) => {
         setMessage('Failed to verify OTP. Please try again.');
         alert('Failed to verify OTP. Please try again.');
       });
->>>>>>> 11cb80b (major update)
   };
 
   return (
     <div className='Signin'>
-<<<<<<< HEAD
-      {showSignIn ? <Sign onSignInClick={handleSignInClick} /> : <Signotp />}
-     <p className='alr'>Need an account?<span onClick={onToggle}> Register</span></p> 
-
-      <div className="credit">© 2024. All Rights Reserved.</div>
-    </div>
-  );
-}
-=======
       <div id="recaptcha-container"></div>
       {showSign ?
         <Sign onSignInClick={handleSignInClick} /> :
@@ -119,6 +97,5 @@ const Signin = ({ onSignin, onToggle }) => {
     </div>
   );
 };
->>>>>>> 11cb80b (major update)
 
 export default Signin;

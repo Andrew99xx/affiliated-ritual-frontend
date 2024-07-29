@@ -1,8 +1,5 @@
 import React, { useState, useEffect } from "react";
-<<<<<<< HEAD
-=======
 import { useNavigate } from 'react-router-dom'
->>>>>>> 11cb80b (major update)
 import "./AdminDashboard.css";
 import AdminDa from "./AdminDash/AdminDashboard";
 import Couselist from "./CourseList/Couselist";
@@ -13,10 +10,6 @@ import Logout from "../../../components/LogoutModal/Logout";
 
 
 import logout from "./logout.png"
-<<<<<<< HEAD
-
-=======
->>>>>>> 11cb80b (major update)
 import menu from "./assets/menu.png";
 import coin from "./assets/coin.png";
 import notif from "./assets/notif.png";
@@ -34,14 +27,10 @@ import SaleTargetActive from "./assets/SaleActive.png";
 import SaleTarget from "./assets/Sale.png";
 
 const AdminDashboard = () => {
-<<<<<<< HEAD
-  const [showModal, setShowModal] = useState(false);
-=======
   const navigate = useNavigate();
   const [showModal, setShowModal] = useState(false);
   const [activeElement, setActiveElement] = useState('admindash');
   const [isMenuExpanded, setIsMenuExpanded] = useState(false);
->>>>>>> 11cb80b (major update)
 
 
   const openModal = () => {
@@ -51,12 +40,7 @@ const AdminDashboard = () => {
   const closeModal = () => {
     setShowModal(false);
   };
-<<<<<<< HEAD
-  const [activeElement, setActiveElement] = useState('admindash');
-  const [isMenuExpanded, setIsMenuExpanded] = useState(false);
-=======
 
->>>>>>> 11cb80b (major update)
 
   useEffect(() => {
     const handleResize = () => {
@@ -101,11 +85,7 @@ const AdminDashboard = () => {
           <img src={activeElement === 'couselist' ? CourseActive : Course} alt="" />
           <span>Course List</span>
         </div>
-<<<<<<< HEAD
- <div className={activeElement === 'payout' ? "sidebarelementactive" : "sidebarelement"} onClick={() => handleClick('payout')}>
-=======
         <div className={activeElement === 'payout' ? "sidebarelementactive" : "sidebarelement"} onClick={() => handleClick('payout')}>
->>>>>>> 11cb80b (major update)
           <img src={activeElement === 'payout' ? PayoutsActive : Payouts} alt="" />
           <span>Payout</span>
         </div>
@@ -113,20 +93,11 @@ const AdminDashboard = () => {
           <img src={activeElement === 'gift' ? GiftsActive : Gifts} alt="" />
           <span>Gift</span>
         </div>
-<<<<<<< HEAD
-       
-=======
 
->>>>>>> 11cb80b (major update)
         <div className={activeElement === 'saletarget' ? "sidebarelementactive" : "sidebarelement"} onClick={() => handleClick('saletarget')}>
           <img src={activeElement === 'saletarget' ? SaleTargetActive : SaleTarget} alt="" />
           <span>Sale & Target</span>
         </div>
-<<<<<<< HEAD
-         <div className="logout" onClick={openModal}> <img src={logout} alt="" /> <span>Logout</span></div>
-      </div>
- <Logout showModal={showModal} closeModal={closeModal} />
-=======
 
         <div className={activeElement === 'registerAsTeamLeader' ? "sidebarelementactive" : "sidebarelement"} onClick={ () => navigate("/teamleader")}>
           {/* change the image here, todo */}
@@ -137,7 +108,6 @@ const AdminDashboard = () => {
         <div className="logout" onClick={openModal}> <img src={logout} alt="" /> <span>Logout</span></div>
       </div>
       <Logout showModal={showModal} closeModal={closeModal} />
->>>>>>> 11cb80b (major update)
       <div className="maincontent">
         <div className="header">
           <div className="left">
@@ -154,11 +124,7 @@ const AdminDashboard = () => {
               <div className="maximise"><img src={expand} height={25} alt="" /></div>
               <div className="notifications"><img src={notif} height={30} alt="" /></div>
               <div className="profile"><img src={profile} height={35} alt="" /></div>
-<<<<<<< HEAD
-            </div> 
-=======
             </div>
->>>>>>> 11cb80b (major update)
           </div>
         </div>
         <div className="content">

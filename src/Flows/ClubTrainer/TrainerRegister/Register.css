@@ -4,10 +4,7 @@
     max-width: 531px;
     overflow: auto;
 }
-<<<<<<< HEAD
-=======
 
->>>>>>> 11cb80b (major update)
 .Register {
     display: flex;
     justify-content: center;
@@ -66,11 +63,6 @@
 
 .Register .btn {
     background: linear-gradient(91.94deg, #B17E32 -8.77%, #F3E681 58.63%, #CF9F41 107.45%);
-<<<<<<< HEAD
-
-
-=======
->>>>>>> 11cb80b (major update)
     width: 410px;
     text-align: center;
     padding: 1rem;
@@ -80,43 +72,15 @@
     font-size: 18px;
     text-decoration: none;
     margin: 2rem 0;
-<<<<<<< HEAD
-    
-
-}
-
-.Register .btn:hover{
-=======
 
 
 }
 
 .Register .btn:hover {
->>>>>>> 11cb80b (major update)
     cursor: pointer;
 
 }
 
-<<<<<<< HEAD
-.Register .formcontainer p{
-    font-weight: 500;
-    font-family: "DM Sans", sans-serif;
-color: #fff;
-}
-
-.Register .formcontainer h3{
-    font-weight: 500;
-    font-family: "DM Sans", sans-serif;
-color: #fff;
-margin-bottom: 0;
-}
-.Register .formcontainer sup{
-    font-size: 15px;
-color: #EF0000;
-}
-
-.Register .formcontainer input{
-=======
 .Register .formcontainer p {
     font-weight: 500;
     font-family: "DM Sans", sans-serif;
@@ -136,7 +100,6 @@ color: #EF0000;
 }
 
 .Register .formcontainer input {
->>>>>>> 11cb80b (major update)
     padding: 1rem 1.2rem;
     background-color: #000000;
     border: 1px solid #FFFFFF4D;
@@ -145,17 +108,6 @@ color: #EF0000;
     outline: none;
     font-size: 16px;
 }
-<<<<<<< HEAD
-.Register .flex{
-    display: flex;
-}
-
-.Register .formcontainer input::placeholder{
-    color: #8190BF;
-}
-
-.Register .credit{
-=======
 
 .Register .flex {
     display: flex;
@@ -166,26 +118,17 @@ color: #EF0000;
 }
 
 .Register .credit {
->>>>>>> 11cb80b (major update)
     color: white;
     font-weight: 500;
     font-family: "DM Sans", sans-serif;
 }
 
-<<<<<<< HEAD
-.Inputbox{
-=======
 .Inputbox {
->>>>>>> 11cb80b (major update)
     display: flex;
     justify-content: space-between;
 }
 
-<<<<<<< HEAD
-.Register .container .info{
-=======
 .Register .container .info {
->>>>>>> 11cb80b (major update)
     display: flex;
     justify-content: space-between;
     padding: 1rem 0;
@@ -199,22 +142,14 @@ color: #EF0000;
 }
 
 
-<<<<<<< HEAD
-.alr{
-=======
 .alr {
->>>>>>> 11cb80b (major update)
     align-items: center;
     text-align: center;
     color: white;
     font-size: 16px;
 }
-<<<<<<< HEAD
-.alr span{
-=======
 
 .alr span {
->>>>>>> 11cb80b (major update)
     color: #E4C748;
     cursor: pointer;
 }

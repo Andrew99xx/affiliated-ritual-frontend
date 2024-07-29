@@ -1,11 +1,3 @@
-<<<<<<< HEAD
-import React from "react";
-import { Link } from "react-router-dom";
-import "../Signin.css";
-import OtpInputContainer from "./OtpInputContainer";
-
-const Signotp = () => {
-=======
 import React, { useState } from "react";
 import "../Signin.css";
 import OtpInputContainer from "./OtpInputContainer";
@@ -29,7 +21,6 @@ const Signotp = ({ email, phone, onOtpVerify }) => {
     onOtpVerify(otp)
   };
 
->>>>>>> 11cb80b (major update)
   return (
     <div className="container">
       <div>
@@ -38,17 +29,6 @@ const Signotp = ({ email, phone, onOtpVerify }) => {
       <div className="heading">Enter OTP</div>
       <div className="subheading">Enter your OTP to sign in!</div>
 
-<<<<<<< HEAD
-
-      <div className="formcontainer">
-        <input type="text" className="input" value="mail@simmmple.com" readonly />
-        <p>Enter OTP</p>
-        <OtpInputContainer/>
-
-        <div className="info">
-          <p className="flex">
-            
-=======
       <div className="formcontainer">
 
         {/* take the value from - signin components */}
@@ -60,25 +40,18 @@ const Signotp = ({ email, phone, onOtpVerify }) => {
 
         <div className="info">
           <p className="flex">
->>>>>>> 11cb80b (major update)
             <input type="checkbox" />
             Keep me logged in
           </p>
           <p>Resend OTP</p>
         </div>
 
-<<<<<<< HEAD
-        <a href="#" className="btn">
-          Sign In
-        </a>
-=======
         <button
           onClick={handleSignIn}
           className="btn">
           Sign In - verify OTP
         </button>
         
->>>>>>> 11cb80b (major update)
       </div>
     </div>
   );

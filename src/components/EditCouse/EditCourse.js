@@ -1,18 +1,3 @@
-<<<<<<< HEAD
-import React, { useState } from "react";
-import close from "./blackcr.png";
-import "./EditCourse.css";
-
-const EditCourse = ({ showEditCourse, closeEditCourse }) => {
-  const [courseDuration, setCourseDuration] = useState(1);
-  const [selectedDate, setSelectedDate] = useState('');
-  const [startDate, setStartDate] = useState("");
-  const [endDate, setEndDate] = useState("");
-  const [numInstallments, setNumInstallments] = useState(1);
-
-  const handleDateChange = (event) => {
-    setSelectedDate(event.target.value);
-=======
 import React, { useState, useEffect } from "react";
 import close from "./blackcr.png";
 import "./EditCourse.css";
@@ -61,30 +46,16 @@ const EditCourse = ({ showEditCourse, closeEditCourse, courseId }) => {
   const handleDateChange = (event) => {
     setStartDate(event.target.value);
     calculateEndDate(event.target.value, courseDuration);
->>>>>>> 11cb80b (major update)
   };
 
   // Function to handle changes in course duration
   const handleCourseDurationChange = (event) => {
     const duration = parseInt(event.target.value);
     setCourseDuration(duration);
-<<<<<<< HEAD
-    setNumInstallments(duration -1);
-    calculateEndDate(startDate, duration);
-  };
-
-  // Function to handle changes in start date
-  const handleStartDateChange = (event) => {
-    setStartDate(event.target.value);
-    calculateEndDate(event.target.value, courseDuration);
-  };
-
-=======
     setNumInstallments(duration - 1);
     calculateEndDate(startDate, duration);
   };
 
->>>>>>> 11cb80b (major update)
   // Function to calculate the end date based on start date and course duration
   const calculateEndDate = (startDate, duration) => {
     if (startDate && duration) {
@@ -110,8 +81,6 @@ const EditCourse = ({ showEditCourse, closeEditCourse, courseId }) => {
     return installmentInputs;
   };
 
-<<<<<<< HEAD
-=======
   const handleNumModulesChange = (event) => {
     const modules = parseInt(event.target.value);
     setNumModules(modules);
@@ -156,7 +125,6 @@ const EditCourse = ({ showEditCourse, closeEditCourse, courseId }) => {
     }
   };
 
->>>>>>> 11cb80b (major update)
   return (
     <div className={showEditCourse ? "modal display-block" : "modal display-none"}>
       <section className="modal-main2">
@@ -174,11 +142,8 @@ const EditCourse = ({ showEditCourse, closeEditCourse, courseId }) => {
               type="text"
               className="inputinstall"
               placeholder="Enter Name"
-<<<<<<< HEAD
-=======
               value={courseName}
               onChange={(e) => setCourseName(e.target.value)}
->>>>>>> 11cb80b (major update)
             />
             <p>Upload image</p>
             <input
@@ -205,18 +170,12 @@ const EditCourse = ({ showEditCourse, closeEditCourse, courseId }) => {
                   type="text"
                   className="inputinstall"
                   placeholder="Enter Price"
-<<<<<<< HEAD
-                />
-              </div>
-            </div>
-=======
                   value={coursePrice}
                   onChange={(e) => setCoursePrice(e.target.value)}
                 />
               </div>
             </div>
 
->>>>>>> 11cb80b (major update)
             <div className="tworow">
               <div>
                 <p>Course Start Date</p>
@@ -224,11 +183,7 @@ const EditCourse = ({ showEditCourse, closeEditCourse, courseId }) => {
                   type="date"
                   className="inputinstall"
                   value={startDate}
-<<<<<<< HEAD
-                  onChange={handleStartDateChange}
-=======
                   onChange={handleDateChange}
->>>>>>> 11cb80b (major update)
                 />
               </div>
               <div>
@@ -241,28 +196,13 @@ const EditCourse = ({ showEditCourse, closeEditCourse, courseId }) => {
                 />
               </div>
             </div>
-<<<<<<< HEAD
-=======
 
->>>>>>> 11cb80b (major update)
             <p>Registration Fees</p>
             <input
               type="number"
               className="inputinstall"
               placeholder="Enter Amount"
               min={0}
-<<<<<<< HEAD
-              max={0} // course price
-            />
-            {/* Render installment input fields */}
-            <div className="tworow">
-              {renderInstallmentInputs()}
-            </div>
-          </div>
-          <div className="btnc">
-            <div className="btn">Add Now</div>
-          </div>
-=======
               value={registrationFees}
               onChange={(e) => setRegistrationFees(e.target.value)}
             />
@@ -311,7 +251,6 @@ const EditCourse = ({ showEditCourse, closeEditCourse, courseId }) => {
             <div className="btn" onClick={handleEditCourse}>Save Changes</div>
           </div>
 
->>>>>>> 11cb80b (major update)
         </div>
       </section>
     </div>

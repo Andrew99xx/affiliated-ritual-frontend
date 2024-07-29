@@ -1,9 +1,3 @@
-<<<<<<< HEAD
-import React from "react";
-import "./Register.css";
-
-const TrainerRegister = ({ onToggle }) => {
-=======
 import React, { useEffect, useState } from "react";
 import { RecaptchaVerifier, signInWithPhoneNumber } from "firebase/auth";
 import { collection, addDoc } from "firebase/firestore";
@@ -114,6 +108,7 @@ const TrainerRegister = ({ onToggle }) => {
       alert('Please verify OTP first');
     }
   };
+
   return (
     <div className="Register">
       <div className="container">
@@ -121,7 +116,7 @@ const TrainerRegister = ({ onToggle }) => {
           <h3 className="logo">Dummy logo</h3>
         </div>
         <div className="heading">Registration</div>
-        <form className="formcontainer" onSubmit={handleSubmit}>
+        <form className="formcontainer">
           <p>First Name <sup>*</sup></p>
           <input
             type="text"
@@ -196,7 +191,6 @@ const TrainerRegister = ({ onToggle }) => {
           <button className="btn" onClick={handleRegister}>Register</button>
           <p className="alr">Already a member? <span onClick={onToggle}>Sign in</span></p>
         </form>
->>>>>>> 11cb80b (major update)
       </div>
       <div id="recaptcha-container"></div>
       {message && <div style={{

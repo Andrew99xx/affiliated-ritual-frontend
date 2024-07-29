@@ -1,10 +1,6 @@
 import "./App.css"
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 
-<<<<<<< HEAD
-
-=======
->>>>>>> 11cb80b (major update)
 import TeamLeader from './Flows/TeamLeader/TeamLeader';
 import Student from './Flows/Student/Student';
 import TeamMember from "./Flows/TeamMember/TeamMember";
@@ -12,15 +8,10 @@ import ClubAdmin from "./Flows/ClubAdmin/ClubAdmin";
 import SuperAdmin from "./Flows/SuperAdmin/SuperAdmin";
 import Landing from "./Landing";
 import Trainer from "./Flows/ClubTrainer/Trainer";
-<<<<<<< HEAD
-function App() {
-  return (
-=======
 
 function App() {
   return (
     // routing 
->>>>>>> 11cb80b (major update)
     <Router>
       <div className="App">
         <Routes>
