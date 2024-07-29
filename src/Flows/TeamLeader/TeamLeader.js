@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
-import TeamSignin from './TeamSignin/TeamSignin';
+import Signin from './Signin/Signin';
 import TeamDashboard from './TeamDashboard/TeamDashboard';
 import LeaderRegister from './LeaderRegister/LeaderRegister';
 
@@ -33,7 +33,7 @@ const TeamLeader = () => {
           {isRegistering ? (
             <LeaderRegister onToggle={toggleRegistering} />
           ) : (
-            <TeamSignin onSignin={handleSignin} onToggle={toggleRegistering} />
+            <Signin onSignin={handleSignin} onToggle={toggleRegistering} />
           )}
         </>
       )}

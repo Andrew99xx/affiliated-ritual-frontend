@@ -1,21 +1,16 @@
-/**
- * this was test code - to implement firebase mobile otp login 
- * 
- * -- delete this PhoneSignin.js 
- */
-
-
-
 import React, { useEffect, useState } from 'react';
 import { RecaptchaVerifier, signInWithPhoneNumber } from 'firebase/auth';
+import "./Signin.css";
+import Sign from './Signincomp/Sign';
+import Signotp from './Signincomp/Signotp';
 import { auth } from '../../../firebase-config';
-import './Signin.css';
 
-const PhoneSignIn = () => {
+const Signin = ({ onSignin, onToggle }) => {
+  const [email, setEmail] = useState('');
   const [phone, setPhone] = useState('');
-  const [otp, setOtp] = useState('');
   const [message, setMessage] = useState('');
   const [confirmationResult, setConfirmationResult] = useState(null);
+  const [showSign, setShowSign] = useState(true);
 
   useEffect(() => {
     window.recaptchaVerifier = new RecaptchaVerifier(auth, 'recaptcha-container', {
@@ -24,9 +19,28 @@ const PhoneSignIn = () => {
         console.log('reCAPTCHA solved');
       }
     });
+
+    // Cleanup on component unmount
+    return () => {
+      if (window.recaptchaVerifier) {
+        window.recaptchaVerifier.clear();
+      }
+    };
   }, []);
 
-  const sendVerificationCode = () => {
+  const handleSignInClick = (email, phone) => {
+    setEmail(email);
+    setPhone(phone);
+    sendVerificationCode(phone);
+    setShowSign(false);
+
+  };
+
+  const handleOtpVerify = (otpComing) => {
+    verifyOtp(otpComing);
+  };
+
+  const sendVerificationCode = (phone) => {
     const appVerifier = window.recaptchaVerifier;
     signInWithPhoneNumber(auth, phone, appVerifier)
       .then((result) => {
@@ -41,7 +55,7 @@ const PhoneSignIn = () => {
       });
   };
 
-  const verifyOtp = () => {
+  const verifyOtp = (otp) => {
     if (!confirmationResult) {
       setMessage('First request the OTP');
       alert('First request the OTP');
@@ -52,6 +66,8 @@ const PhoneSignIn = () => {
         const user = result.user;
         setMessage(`Phone number verified! User: ${user.uid}`);
         alert(`Phone number verified! User: ${user.uid}`);
+        // Call onSignin to handle the successful sign-in
+        onSignin(user);
       })
       .catch((error) => {
         console.error('Error verifying OTP:', error);
@@ -61,49 +77,17 @@ const PhoneSignIn = () => {
   };
 
   return (
-    <div className="container">
-
-      {/* recaptcha */}
+    <div className='Signin'>
       <div id="recaptcha-container"></div>
-
-      <div className="form-container">
-
-        {/* phone */}
-        <p>Enter Phone Number</p>
-        <input
-          type="tel"
-          className="input"
-          placeholder="+1234567890"
-          value={phone}
-          onChange={(e) => setPhone(e.target.value)}
-        />
-        <button
-          onClick={sendVerificationCode}
-          className="btn"
-        >
-          Send OTP
-        </button>
-
-
-        {/* otp  */}
-        <p>Enter OTP</p>
-        <input
-          type="text"
-          className="input"
-          placeholder="123456"
-          value={otp}
-          onChange={(e) => setOtp(e.target.value)}
-        />
-        <button
-          onClick={verifyOtp}
-          className="btn"
-        >
-          Verify OTP
-        </button>
-        {message && <div className="message">{message}</div>}
-      </div>
+      {showSign ?
+        <Sign onSignInClick={handleSignInClick} /> :
+        <Signotp email={email} phone={phone} onOtpVerify={handleOtpVerify} />
+      }
+      <p className='alr'>Need an account?<span onClick={onToggle}> Register</span></p>
+      <div className="credit">© 2024. All Rights Reserved.</div>
+      {message && <div className="message">{message}</div>}
     </div>
   );
 };
 
-export default PhoneSignIn;
+export default Signin;
