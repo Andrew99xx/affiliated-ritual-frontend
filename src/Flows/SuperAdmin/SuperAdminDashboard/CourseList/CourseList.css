@@ -1,0 +1,113 @@
+.courselist .table {
+    width: 100%;
+    background: black;
+    color: white;
+    overflow: auto;
+    text-align: left ;
+    flex-grow: 1;
+    border-radius: 10px; 
+    overflow: hidden;
+
+}
+
+.tablehead {
+    background-color: #313D4F;
+    opacity: 90%;
+    border-top-left-radius: 10px; 
+    border-top-right-radius: 10px; 
+}
+
+.tablehead tr * {
+    padding: 1.2rem;
+}
+
+.tablebody tr td {
+    padding: 1rem;
+}
+
+.tablebody td {
+    border-bottom: 1px solid #3a3a3a;
+}
+
+
+.tablebody{
+    font-size: 16px;
+    color: #fff;
+
+    font-family: "Nunito Sans", sans-serif;
+    font-weight: 600;
+
+}
+.tablebody td{
+    opacity: 70%;
+}
+
+.tablecon .btn{
+    background: linear-gradient(68.42deg, #B17E32 -8.44%, #F3E681 54.36%, #CF9F41 99.85%);
+    color: black;
+    text-decoration: none;
+    padding: .6rem 1.2rem;
+    text-wrap: nowrap;
+
+
+}
+.btns{
+    display: flex;
+    justify-content: center;
+}
+
+.tablecon .btns{
+    opacity: 100%;
+    padding: .9rem 1rem;
+    
+}
+
+.tablecon{
+    overflow-x: auto;
+    width: 100%;
+}
+
+.courseheader{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.courselist{
+    padding: 1rem 2%;
+}
+
+.courseheader .btn{
+    background: linear-gradient(91.94deg, #B17E32 -8.77%, #F3E681 58.63%, #CF9F41 107.45%);
+
+
+    width: 200px;
+    text-align: center;
+    cursor: pointer;
+    padding: 1rem;
+    color: black;
+    font-weight: 700;
+    font-family: "DM Sans", sans-serif;
+    font-size: 17px;
+    text-decoration: none;
+    margin: 1rem 0;
+}
+
+.courseheader .heading{
+    color: white;
+}
+
+.courselist .btns{
+    display: flex;
+    justify-content: left;
+}
+
+.courselist .btns *{
+    margin: 0 10px 0 0;
+    cursor: pointer;
+}
+
+.courselist .eye{
+    cursor: pointer;
+
+}

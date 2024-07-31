@@ -1,0 +1,61 @@
+.game {
+    padding: 1rem 2rem;
+}.game .heading{
+    color: white;
+}
+.game .subheading {
+    color: white;
+}
+
+.gamecontainer {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.slotgame{
+    background-image: url("slot2.png");
+    height: 500px;
+    width: 500px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 7.5rem;
+}
+
+.gamecontainer .textb{
+    max-width: 500px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.3rem;
+    
+    font-weight: 700;
+    font-family: "DM Sans", sans-serif;
+
+}
+.textb .heading{
+    color: #EBD672;
+}
+
+.gamecontainer .leverimage{
+    margin-right: -1.5rem;
+}
+
+.mr-2{
+    margin-right: -6rem;
+}
+.index-module_slot_wrap__ZT-DX{
+    padding-top: 2.5rem;
+}
+
+@media screen and (max-width: 1250px) {
+    .dot3{
+        z-index: -1;
+    }
+}
+
+.rotated{
+    transform: rotatex(180deg);
+    margin-top: 7rem;
+}

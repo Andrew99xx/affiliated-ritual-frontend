@@ -1,0 +1,141 @@
+.Register .container {
+    background: linear-gradient(180deg, #000000 0%, #000000 100%);
+    max-height: 797px;
+    max-width: 531px;
+    overflow: auto;
+}
+.Register {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    background: url("./banner.png");
+    height: 100vh;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+    overflow: hidden;
+
+}
+
+.Register .logo {
+    color: #E4C748;
+    font-family: "Poppins", sans-serif;
+    text-align: center;
+    margin: 0 0 15px 0;
+    font-size: 30px;
+    font-weight: 700;
+    text-transform: uppercase;
+    line-height: 56px;
+}
+
+.Register .container .heading {
+    font-size: 36px;
+    color: #fff;
+    font-family: "DM Sans", sans-serif;
+    text-align: center;
+    font-weight: 700;
+    margin: 0 0 10px 0;
+
+}
+
+.Register .container {
+    padding: 2rem 4rem;
+}
+
+.Register .container .subheading {
+    text-align: center;
+    font-family: "DM Sans", sans-serif;
+    font-weight: 400;
+    color: #8190BF;
+    margin: 0 0 3rem 0;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 16px;
+}
+
+
+.Register .formcontainer {
+    display: flex;
+    flex-direction: column;
+}
+
+.Register .btn {
+    background: linear-gradient(91.94deg, #B17E32 -8.77%, #F3E681 58.63%, #CF9F41 107.45%);
+
+
+    width: 410px;
+    text-align: center;
+    padding: 1rem;
+    color: black;
+    font-weight: 700;
+    font-family: "DM Sans", sans-serif;
+    font-size: 18px;
+    text-decoration: none;
+    margin: 2rem 0;
+    
+
+}
+
+.Register .btn:hover{
+    cursor: pointer;
+
+}
+
+.Register .formcontainer p{
+    font-weight: 500;
+    font-family: "DM Sans", sans-serif;
+color: #fff;
+}
+
+.Register .formcontainer h3{
+    font-weight: 500;
+    font-family: "DM Sans", sans-serif;
+color: #fff;
+margin-bottom: 0;
+}
+.Register .formcontainer sup{
+    font-size: 15px;
+color: #EF0000;
+}
+
+.Register .formcontainer input{
+    padding: 1rem 1.2rem;
+    background-color: #000000;
+    border: 1px solid #FFFFFF4D;
+    border-radius: 5px;
+    color: #8190BF;
+    outline: none;
+    font-size: 16px;
+}
+.Register .flex{
+    display: flex;
+}
+
+.Register .formcontainer input::placeholder{
+    color: #8190BF;
+}
+
+.Register .credit{
+    color: white;
+    font-weight: 500;
+    font-family: "DM Sans", sans-serif;
+}
+
+.Inputbox{
+    display: flex;
+    justify-content: space-between;
+}
+
+.Register .container .info{
+    display: flex;
+    justify-content: space-between;
+    padding: 1rem 0;
+}
+
+.Register input[type='checkbox'] {
+    accent-color: #E9D21E;
+    width: 20px;
+    height: 18px;
+    margin: 0 10px 0 0;
+}

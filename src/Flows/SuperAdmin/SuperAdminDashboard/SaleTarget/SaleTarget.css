@@ -1,0 +1,43 @@
+.bigcontainer{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.bigheading{
+    font-size: 40px;
+    color: #EBD672;
+    padding: 0 1rem;
+}
+.saletarget{
+    padding: 1rem 2rem;
+}
+
+.saletarget .heading{
+    padding: 0 1rem;
+    color: #fff;
+}
+
+.saletarget .btn{
+    background: linear-gradient(91.94deg, #B17E32 -8.77%, #F3E681 58.63%, #CF9F41 107.45%);
+
+
+    width: 150px;
+    text-align: center;
+    cursor: pointer;
+    padding: 1rem;
+    color: black;
+    font-weight: 700;
+    font-family: "DM Sans", sans-serif;
+    font-size: 17px;
+    text-decoration: none;
+    margin: 1rem 0;
+}
+
+
+.saletarget .tablebody tr td {
+    padding: 0 10px;
+}
+.saletarget .tablebody th {
+    text-align: center;
+}
