@@ -1,0 +1,190 @@
+.inputinstall{
+    background-color: #000000;
+      padding: 1.2rem .7rem 1.2rem .7rem;
+      width: 230px;
+      font-family: "DM Sans", sans-serif;
+      border-radius: 5px;
+      font-size: 14px;
+      font-weight: 500;
+      outline: none;
+      color: #BCBCBC;
+      border: 1px solid #3a3a3a;
+      color: #fff;
+      font-size: 16px;
+      color-scheme: dark;
+  }
+
+  
+
+  .modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #2F2F2FDE;
+    z-index: 1000;
+  }
+  
+  .modal-main2 {
+    position: fixed;
+    background-color: rgb(0, 0, 0);
+    min-width: 400px;
+    width: 33%;
+    top: 50%;
+    left: 50%;
+    max-height: 900px;
+    transform: translate(-50%, -50%);
+    border-radius: 20px;
+  }
+
+  .modal-main2 .closebtn{
+      right:20px;
+      position: fixed;
+    cursor: pointer;
+
+  }
+  
+  .display-block {
+    display: block;
+  }
+  
+  .display-none {
+    display: none;
+  }
+
+  .modal-main2 .mainc{
+    padding: .3rem 3rem 0rem 1rem;
+      display: flex;
+      flex-direction: column;
+      overflow-y: auto;
+      max-height: 800px;
+  }
+  .modal-main2 .heading{
+    color: #fff;
+    text-align: center;
+    width: 200px;
+    font-size: 25px;
+    font-weight: 500;
+    font-family: "DM Sans", sans-serif;
+
+
+}
+
+.modal-main2 .btnc{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+.modal-main2 .btn{
+    background: linear-gradient(91.94deg, #B17E32 -8.77%, #F3E681 58.63%, #CF9F41 107.45%);
+
+
+    width: 300px;
+    text-align: center;
+    cursor: pointer;
+    padding: 1rem;
+    color: black;
+    font-weight: 700;
+    font-family: "DM Sans", sans-serif;
+    font-size: 15px;
+    text-decoration: none;
+    margin: 1rem 0;
+
+}
+
+.modal-main2 .inputconteianer .inputinstall{
+  background-color: #000000;
+    padding: 1.2rem .7rem 1.2rem .7rem;
+    width: 230px;
+    font-family: "DM Sans", sans-serif;
+    border-radius: 5px;
+    font-size: 14px;
+    font-weight: 500;
+    outline: none;
+    color: #BCBCBC;
+    border: 1px solid #3a3a3a;
+    color: #fff;
+    font-size: 16px;
+}
+.modal-main2 .inputconteianer {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  padding-bottom: 2rem;
+  grid-gap: 30px; /* Adjust the gap as needed */
+
+}
+
+.modal-main2 .modal1header{
+
+  background: linear-gradient(68.42deg, #B17E32 -8.44%, #F3E681 54.36%, #CF9F41 99.85%);
+  padding: 1px 0;
+  display: flex;
+  align-items: center;
+  border-top-right-radius: 20px;
+  border-top-left-radius: 20px;
+
+}
+
+.modal-main2 .modal1header .heading{
+  color: #000;
+  font-weight: 700;
+}
+
+.modal-main2 .mainc p{
+    margin: 6px 12px;
+    color: #fff;
+    font-size: 15px;
+    font-weight: 700;
+    font-family: "Nunito Sans", sans-serif;
+
+}
+
+
+
+.modal-main2 .inputcontainer {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .modal-main2 .inputinstall {
+    width: 100%; 
+    margin: 5px 10px; 
+  }
+  
+  .modal-main2 .tworow {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+  }
+
+  .modal-main2 .tworow *{
+    width: 250px;
+  }
+  
+  
+
+  .modal-main2 .inputcontainer ::placeholder{
+      color: #A3AED0;
+  }
+
+
+  
+  .placeholder {
+    position: absolute;
+    left: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    pointer-events: none;
+    color: #aaa; /* Placeholder color */
+  }
+  
+  
+  .datePickerContainer {
+    position: relative;
+    display: inline-block;
+  }
+
+  

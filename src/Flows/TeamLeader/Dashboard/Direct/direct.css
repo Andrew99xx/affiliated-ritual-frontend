@@ -1,0 +1,38 @@
+.Direct .flex{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 3rem;
+}
+
+.Direct{
+    padding: .5rem 1.5rem;
+}
+
+.Direct .heading{
+    color: #fff;
+}.Direct .subheading{
+    color: #fff;
+}
+
+.containe{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.containe input{
+    background-color: #060606;
+    padding: 0.7rem 1rem;
+    font-family: "DM Sans", sans-serif;
+    border-radius: 5px;
+    font-size: 14px;
+    font-weight: 500;
+    outline: none;
+    border: 0.6px solid #CFCFCF1D;
+    color: #BCBCBC;
+}
+
+.containe .subheading{
+    color: white;
+}

@@ -1,0 +1,44 @@
+
+ .boxes .box{
+    background-color: #000;
+    border: 0.6px solid rgb(66, 66, 66);
+    height: 180px;
+    width: 290px;
+    border-radius: 15px;
+    padding: 1rem 1.5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+ .boxes .box .boxinfo{
+    display: flex;
+    justify-content: space-between;
+}
+
+.boxes .box .boxicon {
+    display: flex;
+    align-items: center;
+}
+ .boxes .box .boxinfo .detail p{
+    font-size: 20px;
+    color: #fff;
+    font-weight: 600;
+    opacity: 70%;
+
+    font-family: "Nunito Sans", sans-serif;
+}
+
+ .boxes .box .boxinfo .detail h3{
+    font-size: 35px;
+    color: #fff;
+    font-weight: 700;
+    font-family: "Nunito Sans", sans-serif;
+    margin: 0;
+
+}
+
+ .boxes .box .status{
+    color: #fff;
+
+}

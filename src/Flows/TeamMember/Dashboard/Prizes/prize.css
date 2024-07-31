@@ -1,0 +1,53 @@
+.Prize{
+    padding: 1rem 1rem;
+}
+.Prize .heading{
+    color: white;
+}
+
+.Prize .textb .heading{
+    color: #EBD672;
+    width: 400px;
+    
+}
+
+.Prize .textb{
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    margin-top: -5rem;
+    margin-left: -2rem;
+}
+
+.Prize .slotcontainer{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.Prize .conmt{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #000;
+    border-radius: 20px;
+    font-family: "DM Sans", sans-serif;
+
+}
+
+.conmt .heading{
+    color: #EBD672;
+}
+
+.conmt .top{
+    border-bottom: 1px solid #3a3a3a;
+
+
+}
+.conmt .heading2{
+    color: #fff;
+}
+
+.red{
+    color: red;
+}

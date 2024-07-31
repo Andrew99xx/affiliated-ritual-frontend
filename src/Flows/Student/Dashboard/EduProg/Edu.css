@@ -1,0 +1,47 @@
+.edu{
+    padding: 0 2rem;
+}
+
+.edu .heading{
+    color: #fff;
+    font-size: 30px;
+    font-family: "DM Sans", sans-serif;
+    font-weight: 700;
+
+}
+
+
+
+ .boxes{
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 30px;
+
+    display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+
+.graphes{
+    padding: 3rem 0;
+    color: white;
+    display: flex;
+     flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+
+@media only screen and (max-width: 900px) {
+    .edu{
+        padding: 0 1rem;
+    }
+
+ }
+
+ @media only screen and (max-width: 500px) {
+    .edu{
+        padding: 0 .3rem;
+    }
+
+ }

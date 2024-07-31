@@ -1,0 +1,42 @@
+.certifcate h1{
+    padding: 1rem;
+    color: white;
+}
+
+.certifcate .maincer{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.certifcate .maincer img{
+    width: 800px;
+}
+
+@media only screen and (max-width: 1100px) {
+    .certifcate .maincer img{
+        width: 600px;
+    }
+  }
+
+  @media only screen and (max-width: 780px) {
+    .certifcate .maincer img{
+        width: 400px;
+    }
+  }
+
+.certifcate .maincer .btn{
+    background: linear-gradient(91.94deg, #B17E32 -8.77%, #F3E681 58.63%, #CF9F41 107.45%);
+
+
+    width: 350px;
+    text-align: center;
+    padding: 1rem;
+    color: black;
+    font-weight: 700;
+    font-family: "DM Sans", sans-serif;
+    font-size: 18px;
+    text-decoration: none;
+    margin: 2rem 0;
+}

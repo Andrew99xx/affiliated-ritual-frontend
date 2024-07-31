@@ -1,0 +1,149 @@
+.feedback-main {
+    font-family: 'Public Sans', sans-serif;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    
+}
+
+.feedback-paragraph {
+    width: 424px !important;
+    margin-top: 0ch !important;
+    padding-top: 0ch !important;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 30px;
+    text-align: center;
+    color: white;
+    text-wrap: wrap;
+}
+
+.feedback-container {
+    width: 50%;
+    padding-left: 32px;
+    padding-right: 32px;
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+    justify-content: center;
+    flex-wrap: wrap;
+    position: relative;
+    /* Required for absolute positioning of buttons */
+}
+
+.feedback-item {
+
+    width: 424px !important;
+    height: 288px !important;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    background-color: #4E4E4E;
+    padding: 32px;
+    border-radius: 30px;
+    box-sizing: border-box;
+   
+}
+
+.feedback-itp-wrapper {
+    display: flex;
+    flex-direction: row;
+    justify-content: start;
+    align-items: center;
+    gap: 10px;
+    width: 100%;
+}
+
+.feedback-icon {
+    background: linear-gradient(91.94deg, #B17E32 -8.77%, #F3E681 58.63%, #CF9F41 107.45%);
+    border-radius: 50%;
+    height: 60px;
+    width: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.feedback-tp-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.feedback-title {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+    font-size: 19px;
+    line-height: 24px;
+    color: white;
+}
+
+.feedback-position {
+    font-family: 'Inter', sans-serif;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 20px;
+    color: #A5A5A5;
+}
+
+.feedback-description {
+    font-family: 'Inter', sans-serif;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 23px;
+    color: #D8D8D8;
+}
+
+/* Swiper Navigation Buttons */
+.swiper-button-prev,
+.swiper-button-next {
+    width: 44px !important;
+    height: 44px !important;
+    color: black !important;
+    border-radius: 50% !important;
+    padding: 10px !important;
+    background: linear-gradient(91.94deg, #B17E32 -8.77%, #F3E681 58.63%, #CF9F41 107.45%);
+    top: 50%;
+    
+    transform: translateY(15%);
+    box-sizing: content-box !important;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 10;
+
+}
+
+.swiper-button-prev {
+    
+    left: -50px;
+    /* Adjust distance from left side */
+}
+
+.swiper-button-next {
+    right: -50px;
+    /* Adjust distance from right side */
+}
+
+/* Swiper Pagination Bullets */
+.swiper-pagination {
+   z-index: 10; 
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+    position: absolute !important;
+    /* bottom: -50px; */
+    
+}
+
+.swiper-pagination-bullet {
+    background-color: white !important;
+    margin: 0 5px !important;
+}
+
+.swiper-pagination-bullet-active {
+    background-color: #B17E32 !important;
+}

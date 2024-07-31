@@ -1,0 +1,25 @@
+.smallbargraph .barhed{
+    display: flex;
+    justify-content: space-between;
+    padding: 0 2rem;
+}
+
+.smallbargraph .barhed .right{
+    display: flex;
+    align-items: center;
+}
+
+.smallbargraph .bargrph{
+    display: flex;
+    justify-content: center;    
+}
+
+.smallbargraph{
+    width: 20%;
+    min-width: 350px;
+    
+    height: 280px;
+    background-color: #000;
+    border-radius: 20px;
+
+}

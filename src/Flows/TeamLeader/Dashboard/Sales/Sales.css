@@ -1,0 +1,26 @@
+.sales{
+    padding: 0 2rem;
+}
+
+.sales .heading{
+    color: #fff;
+    font-size: 30px;
+    font-family: "DM Sans", sans-serif;
+    font-weight: 700;
+
+}
+
+
+
+.sales .boxes{
+    display: flex;
+    justify-content: space-between;
+}
+
+
+.sales .graphes{
+    display: flex;
+    justify-content: space-around;
+    padding: 3rem 0;
+    color: white;
+}
