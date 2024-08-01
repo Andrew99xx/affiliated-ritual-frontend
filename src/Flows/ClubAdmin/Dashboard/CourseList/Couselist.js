@@ -3,15 +3,14 @@ import "./CourseList.css";
 import { db } from '../../../../firebase-config';
 import { collection, getDocs } from 'firebase/firestore'; // Import Firestore methods
 
-import eye from "./eye.png";
-import deleteicon from "./delete.png";
-import edit from "./edit.png";
+import eye from "./assests/eye.png";
+import deleteicon from "./assests/delete.png";
+import edit from "./assests/edit.png";
 
-
-import Installments from "../../../../components/installments/Installments";
-import AddCourse from '../../../../components/AddCourse/AddCourse';
-import EditCourse from '../../../../components/EditCouse/EditCourse';
-import Delete from '../../../../components/Delete/Delete';
+import Installments from "./Installments/Installments";
+import AddCourse from './AddCourse/AddCourse';
+import EditCourse from './EditCourse/EditCourse';
+import DeleteCourse from './DeleteCourse/DeleteCourse';
 
 const CourseList = () => {
   const [courses, setCourses] = useState([]);
@@ -95,11 +94,11 @@ const CourseList = () => {
               {courses.slice(0, displayCount).map((course) => (
                 <tr key={course.id}>
                   <td>{course.id}</td>
-                  <td>{course.name}</td>
+                  <td>{course.courseName}</td>
                   <td>{course.startDate}</td>
                   <td>{course.endDate}</td>
-                  <td>{course.price}</td>
-                  <td>{course.instructor}</td>
+                  <td>{course.coursePrice}</td>
+                  <td>{course.selectedInstructor}</td>
                   <td className='btns'>
                     <img className='icon' src={eye} alt="View" onClick={() => handleEyeClick(course.id)} />
                     <img className='icon' src={edit} alt="Edit" onClick={() => handleEditCourse(course.id)} />
@@ -119,7 +118,7 @@ const CourseList = () => {
       {showInstallment && <Installments showInstallment={showInstallment} closeInstallment={handleCloseInstallment} courseId={selectedCourseId} />}
       {showAddCourse && <AddCourse showAddCourse={showAddCourse} closeAddCourse={handleCloseAddCourse} />}
       {showEditCourse && <EditCourse showEditCourse={showEditCourse} closeEditCourse={handleCloseEditCourse} courseId={selectedCourseId} />}
-      {showDelete && <Delete showDelete={showDelete} closeDelete={handleCloseDelete} courseId={selectedCourseId} />}
+      {showDelete && <DeleteCourse showDelete={showDelete} closeDelete={handleCloseDelete} courseId={selectedCourseId} />}
     </div>
   );
 };

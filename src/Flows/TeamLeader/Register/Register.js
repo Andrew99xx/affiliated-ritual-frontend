@@ -1,9 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { RecaptchaVerifier, signInWithPhoneNumber } from "firebase/auth";
-import { doc, setDoc } from "firebase/firestore";
-
+import { doc, setDoc, getDoc } from "firebase/firestore";
 import "./Register.css";
-
 import { auth, db } from "../../../firebase-config";
 import OtpInputContainer from "../Signin/Signincomp/OtpInputContainer";
 
@@ -12,6 +10,7 @@ const LeaderRegister = ({ onToggle }) => {
   const [confirmationResult, setConfirmationResult] = useState(null);
   const [message, setMessage] = useState('');
   const [uid, setUid] = useState('');
+
   const [formData, setFormData] = useState({
     firstName: "",
     lastName: "",
@@ -23,11 +22,13 @@ const LeaderRegister = ({ onToggle }) => {
     address: "",
     accountNumber: "",
     accountType: "",
-    ifscCode: ""
+    ifscCode: "",
+    userTypes: "team_leader",
+    myARID: ""
   });
 
   useEffect(() => {
-    window.recaptchaVerifier = new RecaptchaVerifier(auth,'recaptcha-container', {
+    window.recaptchaVerifier = new RecaptchaVerifier(auth, 'recaptcha-container', {
       'size': 'invisible',
       'callback': (response) => {
         console.log('reCAPTCHA solved');
@@ -69,11 +70,25 @@ const LeaderRegister = ({ onToggle }) => {
       return;
     }
     confirmationResult.confirm(otp)
-      .then((result) => {
+      .then(async (result) => {
         const user = result.user;
         setUid(user.uid);
         setMessage(`Phone number verified! User: ${user.uid}`);
         alert(`Phone number verified! User: ${user.uid}`);
+
+        // Check if the user data already exists
+        const userDocRef = doc(db, "users", user.uid);
+        const userDocSnapshot = await getDoc(userDocRef);
+
+        if (userDocSnapshot.exists()) {
+          // If user data exists, use it and prevent overwriting myARID
+          const existingData = userDocSnapshot.data();
+          setFormData(existingData);
+        } else {
+          // If user data does not exist, generate a new myARID
+          const myARID = generateMyARID();
+          setFormData(prevData => ({ ...prevData, myARID }));
+        }
       })
       .catch((error) => {
         console.error('Error verifying OTP:', error);
@@ -82,18 +97,20 @@ const LeaderRegister = ({ onToggle }) => {
       });
   };
 
+  const generateMyARID = () => {
+    const randomNumbers = Math.floor(100000 + Math.random() * 900000); // Generates a 6-digit number
+    return `TL${randomNumbers}`;
+  };
+
   const addUserToFirestore = async () => {
     try {
-      // if team leders is diffrerent from users, then store in leaders or something
-      await setDoc(doc(db, "users", uid), formData);
+      await setDoc(doc(db, "users", uid), formData, { merge: true });
       alert("Registration successful! User data saved to Firestore!");
     } catch (error) {
       console.error("Error adding user to Firestore: ", error);
       alert("Error adding user to Firestore: ", error.message);
     }
   };
-
- 
 
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -116,6 +133,33 @@ const LeaderRegister = ({ onToggle }) => {
         </div>
         <div className="heading">Registration</div>
         <form className="formcontainer">
+
+          <p>Phone Number <sup>*</sup></p>
+          <input
+            type="tel"
+            className="input"
+            name="phone"
+            value={formData.phone}
+            onChange={handleChange}
+            placeholder="9876543210"
+            required
+          />
+          <button
+            onClick={sendVerificationCode}
+            className="btn"
+          >Send OTP
+          </button>
+
+          <p>Enter Otp <sup>*</sup></p>
+          <OtpInputContainer onOtpChange={handleOtpChange} />
+
+          <button
+            onClick={verifyOtp}
+            className="btn">
+            Verify OTP
+          </button>
+
+
           <p>First Name <sup>*</sup></p>
           <input
             type="text"
@@ -145,30 +189,7 @@ const LeaderRegister = ({ onToggle }) => {
             placeholder="mail@simmmple.com"
             required
           />
-          <p>Phone Number <sup>*</sup></p>
-          <input
-            type="tel"
-            className="input"
-            name="phone"
-            value={formData.phone}
-            onChange={handleChange}
-            placeholder="9876543210"
-            required
-          />
-          <button
-            onClick={sendVerificationCode}
-            className="btn"
-          >Send OTP
-          </button>
 
-          <p>Enter Otp <sup>*</sup></p>
-          <OtpInputContainer onOtpChange={handleOtpChange} />
-
-          <button
-            onClick={verifyOtp}
-            className="btn">
-            Verify OTP
-          </button>
 
           <p>Date of Birth <sup>*</sup></p>
           <input type="date" className="input" name="dateOfBirth" value={formData.dateOfBirth} onChange={handleChange} required />

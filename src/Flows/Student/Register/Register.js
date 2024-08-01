@@ -1,16 +1,41 @@
 import React, { useState, useEffect } from "react";
 import { RecaptchaVerifier, signInWithPhoneNumber } from "firebase/auth";
-import { doc, setDoc } from "firebase/firestore";
-import "./Register.css";
-import { auth, db } from "../../../firebase-config.js";
+import { doc, setDoc, getDoc, getDocs, collection } from "firebase/firestore";
 
+import "./Register.css";
 import OtpInputContainer from "../Signin/Signincomp/OtpInputContainer.js";
 
+import { auth, db } from "../../../firebase-config.js";
+import { findUserIdByReferral } from "../../../service/findUserIdByReferral.js";
+import { findCoursePriceById } from "../../../service/findCoursePriceById.js";
+import { updateUserEarnings } from "../../../service/updateUserEarnings.js";
+
+
+
+
 const StudentRegister = ({ onToggle }) => {
+  const [courses, setCourses] = useState([]);
   const [otp, setOtp] = useState('');
   const [confirmationResult, setConfirmationResult] = useState(null);
   const [message, setMessage] = useState('');
   const [uid, setUid] = useState('');
+
+  const [formData, setFormData] = useState({
+    firstName: "",
+    lastName: "",
+    phone: "",
+    courseId: "",
+    dateOfBirth: "",
+    aadharNumber: "",
+    panNumber: "",
+    address: "",
+    accountNumber: "",
+    accountType: "",
+    ifscCode: "",
+    referralId: "",
+    userTypes: "team_leader",
+    myARID: ""
+  });
 
   useEffect(() => {
     window.recaptchaVerifier = new RecaptchaVerifier(auth, 'recaptcha-container', {
@@ -20,7 +45,6 @@ const StudentRegister = ({ onToggle }) => {
       }
     });
 
-    // Cleanup on component unmount
     return () => {
       if (window.recaptchaVerifier) {
         window.recaptchaVerifier.clear();
@@ -28,8 +52,25 @@ const StudentRegister = ({ onToggle }) => {
     };
   }, []);
 
+  // Fetch courses from Firestore
+  useEffect(() => {
+    const fetchCourses = async () => {
+      const courseCollection = collection(db, "courses");
+      const courseSnapshot = await getDocs(courseCollection);
+      const courseList = courseSnapshot.docs.map(doc => ({ id: doc.id, ...doc.data() }));
+      setCourses(courseList);
+    };
+    fetchCourses();
+  }, []);
+
+
   const handleOtpChange = (otpComing) => {
     setOtp(otpComing);
+  };
+
+  const generateMyARID = () => {
+    const randomNumbers = Math.floor(100000 + Math.random() * 900000);
+    return `TL${randomNumbers}`;
   };
 
   const sendVerificationCode = (e) => {
@@ -56,11 +97,25 @@ const StudentRegister = ({ onToggle }) => {
       return;
     }
     confirmationResult.confirm(otp)
-      .then((result) => {
+      .then(async (result) => {
         const user = result.user;
         setUid(user.uid);
         setMessage(`Phone number verified! User: ${user.uid}`);
         alert(`Phone number verified! User: ${user.uid}`);
+
+        // Check if the user data already exists
+        const userDocRef = doc(db, "users", user.uid);
+        const userDocSnapshot = await getDoc(userDocRef);
+
+        if (userDocSnapshot.exists()) {
+          // If user data exists, use it and prevent overwriting myARID
+          const existingData = userDocSnapshot.data();
+          setFormData(existingData);
+        } else {
+          // If user data does not exist, generate a new myARID
+          const myARID = generateMyARID();
+          setFormData(prevData => ({ ...prevData, myARID }));
+        }
       })
       .catch((error) => {
         console.error('Error verifying OTP:', error);
@@ -69,11 +124,12 @@ const StudentRegister = ({ onToggle }) => {
       });
   };
 
+
+
   const addUserToFirestore = async () => {
     try {
-      // little iteration to includes uid also in formData, comparing with TeamLeader added by clubAdmon
-      // hint - clubadmin/Dashboard/addTeamLeader
-      await setDoc(doc(db, "users", uid), formData);
+      // updating data in firestore 
+      await setDoc(doc(db, "users", uid), formData, { merge: true });
       alert("Registration successful! User data saved to Firestore!");
     } catch (error) {
       console.error("Error adding user to Firestore: ", error);
@@ -81,25 +137,23 @@ const StudentRegister = ({ onToggle }) => {
     }
   };
 
-  const [formData, setFormData] = useState({
-    firstName: "",
-    lastName: "",
-    phone: "",
-    dateOfBirth: "",
-    aadharNumber: "",
-    panNumber: "",
-    address: "",
-    accountNumber: "",
-    accountType: "",
-    ifscCode: ""
-  });
-
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
-  const handleRegister = (e) => {
+  const handleRegister = async (e) => {
     e.preventDefault();
+
+    // Check if referral ID is provided, exits is our database or not 
+    if (formData.referralId && formData.courseId) {
+      // do the money distribution things
+      const referringUserId = await findUserIdByReferral(formData.referralId);
+      const coursePrice = await findCoursePriceById(formData.courseId);
+      updateUserEarnings(referringUserId, coursePrice)
+
+    }
+
+    // If referral ID is valid or not provided, proceed with the registration
     if (uid) {
       addUserToFirestore();
     } else {
@@ -115,25 +169,7 @@ const StudentRegister = ({ onToggle }) => {
         </div>
         <div className="heading">Registration</div>
         <form className="formcontainer">
-          <p>First Name <sup>*</sup></p>
-          <input
-            type="text"
-            className="input"
-            name="firstName"
-            value={formData.firstName}
-            onChange={handleChange}
-            placeholder="Enter first name"
-            required
-          />
-          <p>Last Name <sup>*</sup></p>
-          <input type="text"
-            className="input"
-            name="lastName"
-            value={formData.lastName}
-            onChange={handleChange}
-            placeholder="Enter last name"
-            required
-          />
+
           <p>Phone Number <sup>*</sup></p>
           <input
             type="tel"
@@ -159,14 +195,68 @@ const StudentRegister = ({ onToggle }) => {
             Verify OTP
           </button>
 
+          <p>First Name <sup>*</sup></p>
+          <input
+            type="text"
+            className="input"
+            name="firstName"
+            value={formData.firstName}
+            onChange={handleChange}
+            placeholder="Enter first name"
+            required
+          />
+          <p>Last Name <sup>*</sup></p>
+          <input
+            type="text"
+            className="input"
+            name="lastName"
+            value={formData.lastName}
+            onChange={handleChange}
+            placeholder="Enter last name"
+            required
+          />
+
           <p>Date of Birth <sup>*</sup></p>
           <input type="date" className="input" name="dateOfBirth" value={formData.dateOfBirth} onChange={handleChange} required />
+
           <p>Aadhar Number <sup>*</sup></p>
           <input type="text" className="input" name="aadharNumber" value={formData.aadharNumber} onChange={handleChange} placeholder="Aadhar Number" required />
+
           <p>Pan Number <sup>*</sup></p>
           <input type="text" className="input" name="panNumber" value={formData.panNumber} onChange={handleChange} placeholder="Pan Number" required />
+
           <p>Address <sup>*</sup></p>
           <input type="text" className="input" name="address" value={formData.address} onChange={handleChange} placeholder="Address" required />
+
+          <p>Select a course <sup>*</sup></p>
+          <select
+            className="selectCourse"
+            name="courseId"
+            value={formData.courseId}
+            onChange={handleChange}
+            required
+          >
+            <option value="" disabled>Select a course</option>
+            {courses.map((course, index) => (
+              <option
+                key={index}
+                value={course.id}
+              >
+                {course.courseName}
+              </option>
+            ))}
+          </select>
+
+          <p>Referral ID</p>
+          <input
+            type="text"
+            className="input"
+            name="referralId"
+            value={formData.referralId}
+            onChange={handleChange}
+            placeholder="Enter Referral ID"
+          />
+
           <h3>Bank Details</h3>
           <p>Account Number <sup>*</sup></p>
           <input type="text" className="input" name="accountNumber" value={formData.accountNumber} onChange={handleChange} placeholder="Account Number" required />
@@ -174,14 +264,15 @@ const StudentRegister = ({ onToggle }) => {
           <input type="text" className="input" name="accountType" value={formData.accountType} onChange={handleChange} placeholder="Account Type" required />
           <p>Ifsc Code <sup>*</sup></p>
           <input type="text" className="input" name="ifscCode" value={formData.ifscCode} onChange={handleChange} placeholder="Ifsc Code" required />
+
+          {/* you may change the value of Register to Update, if user is already registered */}
           <button className="btn" onClick={handleRegister}>Register</button>
+
           <p className="alr">Already a member? <span onClick={onToggle}>Sign in</span></p>
         </form>
       </div>
       <div id="recaptcha-container"></div>
-      {
-        message && <div>{message}</div>
-      }
+      {message && <div>{message}</div>}
     </div>
   );
 };

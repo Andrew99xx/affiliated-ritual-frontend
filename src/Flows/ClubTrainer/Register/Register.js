@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { RecaptchaVerifier, signInWithPhoneNumber } from "firebase/auth";
-import { collection, addDoc } from "firebase/firestore";
+import { setDoc, doc } from "firebase/firestore";
 import "./Register.css";
 import { auth, db } from "../../../firebase-config.js";
 import OtpInputContainer from '../Signin/Signincomp/OtpInputContainer.js';
@@ -82,9 +82,10 @@ const TrainerRegister = ({ onToggle }) => {
       });
   };
 
+
   const addUserToFirestore = async () => {
     try {
-      await addDoc(collection(db, "users"), {
+      await setDoc(doc(db, "users", uid), { // Updated to setDoc
         uid: uid,
         ...formData
       });

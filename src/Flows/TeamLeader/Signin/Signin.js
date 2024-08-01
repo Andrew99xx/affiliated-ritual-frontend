@@ -67,14 +67,10 @@ const Signin = ({ onSignin, onToggle }) => {
         const user = result.user;
         setMessage(`Phone number verified! User: ${user.uid}`);
         alert(`Phone number verified! User: ${user.uid}`);
-<<<<<<< HEAD
 
         // checking if user exists or not 
         const userExists = await checkUserExists(user.uid);
         alert(userExists)
-=======
-        const userExists = await checkUserExists(user.uid);
->>>>>>> origin/main
         if (userExists) {
            // Call onSignin to handle the successful sign-in or if user uid exits
           onSignin(user);

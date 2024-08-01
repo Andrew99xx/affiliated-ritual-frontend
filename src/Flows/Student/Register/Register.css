@@ -4,6 +4,7 @@
     max-width: 531px;
     overflow: auto;
 }
+
 .Register {
     display: flex;
     justify-content: center;
@@ -73,33 +74,34 @@
     font-size: 18px;
     text-decoration: none;
     margin: 2rem 0;
-    
+
 
 }
 
-.Register .btn:hover{
+.Register .btn:hover {
     cursor: pointer;
 
 }
 
-.Register .formcontainer p{
+.Register .formcontainer p {
     font-weight: 500;
     font-family: "DM Sans", sans-serif;
-color: #fff;
+    color: #fff;
 }
 
-.Register .formcontainer h3{
+.Register .formcontainer h3 {
     font-weight: 500;
     font-family: "DM Sans", sans-serif;
-color: #fff;
-margin-bottom: 0;
+    color: #fff;
+    margin-bottom: 0;
 }
-.Register .formcontainer sup{
+
+.Register .formcontainer sup {
     font-size: 15px;
-color: #EF0000;
+    color: #EF0000;
 }
 
-.Register .formcontainer input{
+.Register .formcontainer input {
     padding: 1rem 1.2rem;
     background-color: #000000;
     border: 1px solid #FFFFFF4D;
@@ -108,26 +110,27 @@ color: #EF0000;
     outline: none;
     font-size: 16px;
 }
-.Register .flex{
+
+.Register .flex {
     display: flex;
 }
 
-.Register .formcontainer input::placeholder{
+.Register .formcontainer input::placeholder {
     color: #8190BF;
 }
 
-.Register .credit{
+.Register .credit {
     color: white;
     font-weight: 500;
     font-family: "DM Sans", sans-serif;
 }
 
-.Inputbox{
+.Inputbox {
     display: flex;
     justify-content: space-between;
 }
 
-.Register .container .info{
+.Register .container .info {
     display: flex;
     justify-content: space-between;
     padding: 1rem 0;
@@ -140,14 +143,32 @@ color: #EF0000;
     margin: 0 10px 0 0;
 }
 
+.Register .selectCourse {
+    background-color: #000000;
+    padding: 1.2rem .7rem 1.2rem .7rem;
+    width: 230px;
+    font-family: "DM Sans", sans-serif;
+    border-radius: 5px;
+    font-size: 14px;
+    font-weight: 500;
+    outline: none;
+    color: #BCBCBC;
+    border: 1px solid #3a3a3a;
+    color: #fff;
+    font-size: 16px;
+    color-scheme: dark;
+  
+  }
 
-.alr{
+
+.alr {
     align-items: center;
     text-align: center;
     color: white;
     font-size: 16px;
 }
-.alr span{
+
+.alr span {
     color: #E4C748;
     cursor: pointer;
 }
