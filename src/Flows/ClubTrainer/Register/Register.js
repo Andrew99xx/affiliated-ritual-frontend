@@ -4,6 +4,7 @@ import { setDoc, doc } from "firebase/firestore";
 import "./Register.css";
 import { auth, db } from "../../../firebase-config.js";
 import OtpInputContainer from '../Signin/Signincomp/OtpInputContainer.js';
+import { getCurrentTimestamp } from "../../../service/getCurrentTimestamp.js";
 
 const TrainerRegister = ({ onToggle }) => {
   const [otp, setOtp] = useState('');
@@ -22,7 +23,9 @@ const TrainerRegister = ({ onToggle }) => {
     address: "",
     accountNumber: "",
     accountType: "",
-    ifscCode: ""
+    ifscCode: "",
+    createdAt: "",
+    updatedAt: "",
   });
 
   useEffect(() => {
@@ -101,8 +104,16 @@ const TrainerRegister = ({ onToggle }) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
+
+  // implement the updation part, what if trainer is already registered
+  // this , you can do at the time of uid or otp confirmation
   const handleRegister = (e) => {
     e.preventDefault();
+
+    const updatedAt = getCurrentTimestamp();
+    const createdAt = getCurrentTimestamp();
+    setFormData({ ...formData, updatedAt, createdAt })
+
     if (uid) {
       addUserToFirestore();
     } else {

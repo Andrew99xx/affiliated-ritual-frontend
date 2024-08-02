@@ -1,18 +1,45 @@
 import { doc, updateDoc, getDoc } from "firebase/firestore";
 import { db } from "../firebase-config.js";
+import { getCurrentTimestamp } from "./getCurrentTimestamp.js";
+import { findUserIdByReferral } from "./findUserIdByReferral.js";
 
-// Function to get current timestamp in dd-mm-yy hh:mm:ss format
-const getCurrentTimestamp = () => {
-    const now = new Date();
-    const day = String(now.getDate()).padStart(2, '0');
-    const month = String(now.getMonth() + 1).padStart(2, '0');
-    const year = now.getFullYear().toString().slice(-2);
-    const hours = String(now.getHours()).padStart(2, '0');
-    const minutes = String(now.getMinutes()).padStart(2, '0');
-    const seconds = String(now.getSeconds()).padStart(2, '0');
-    return `${day}-${month}-${year} ${hours}:${minutes}:${seconds}`;
-};
 
+// this will execute , when earnings is passive 
+const updateTeamLeaderPassiveEarnings = async (userId, coursePrice) => {
+    try {
+        const userRef = doc(db, "users", userId);
+        const userSnap = await getDoc(userRef);
+        if (userSnap.exists()) {
+            const userData = userSnap.data();
+
+            if (userData.userTypes === 'team_leader') {
+                // creating temporary array, if .earnings do not exits, then empty
+                const currentEarnings = userData.earnings || [];
+                const newSell = {
+                    createdAt: getCurrentTimestamp(),
+                    updatedAt: getCurrentTimestamp(),
+                    yourAmount: 0.2 * coursePrice,
+                    sellsType: "passive",
+                };
+
+                // updating temporary array
+                currentEarnings.push(newSell);
+
+                // final updating the users
+                await updateDoc(userRef, {
+                    earnings: currentEarnings
+                });
+
+                alert("User's earnings updated successfully.");
+            }
+        } else {
+            alert("User does not exist.");
+        }
+    } catch (error) {
+        console.error("Error updating user's earnings:", error);
+        throw error;
+    }
+}
 
 // update earnings according to userType, 
 // for userType , team_leader, = it is clear, just do the 40%
@@ -25,25 +52,53 @@ export const updateUserEarnings = async (userId, coursePrice) => {
         if (userSnap.exists()) {
             const userData = userSnap.data();
 
-            // creating temporary array, if .earnings do not exits, then empty
-            const currentEarnings = userData.earnings || [];
+            if (userData.userTypes === 'team_leader') {
+                // creating temporary array, if .earnings do not exits, then empty
+                const currentEarnings = userData.earnings || [];
+                const newSell = {
+                    createdAt: getCurrentTimestamp(),
+                    updatedAt: getCurrentTimestamp(),
+                    yourAmount: 0.4 * coursePrice,
+                    sellsType: "active",
+                };
 
-            const newSell = {
-                sellId: getCurrentTimestamp(),
-                coursePrice: coursePrice,
-                yourAmount : 0.4 *coursePrice,
-            };
-            // updating temporary array
-            currentEarnings.push(newSell);
+                // updating temporary array
+                currentEarnings.push(newSell);
 
-            // final updating the users
-            await updateDoc(userRef, {
-                earnings: currentEarnings
-            });
+                // final updating the users
+                await updateDoc(userRef, {
+                    earnings: currentEarnings
+                });
 
-            console.log("User's earnings updated successfully.");
+                alert("User's earnings updated successfully.");
+            }
+            else if (userData.userTypes === 'team_member') {
+                // updating team_members earnings 
+                const currentEarnings = userData.earnings || [];
+                const newSell = {
+                    createdAt: getCurrentTimestamp(),
+                    updatedAt: getCurrentTimestamp(),
+                    yourAmount: 0.2 * coursePrice,
+                    sellsType: "active",
+                };
+
+                // updating temporary array
+                currentEarnings.push(newSell);
+
+                // final updating the users
+                await updateDoc(userRef, {
+                    earnings: currentEarnings
+                });
+
+                alert("User's earnings updated successfully.");
+
+                // finding team_leaders of team_members 
+                const teamLeaderId = findUserIdByReferral(userData.referralId)
+                updateTeamLeaderPassiveEarnings(teamLeaderId, coursePrice);
+                alert("passive earnings updated of teamLeaders")
+            }
         } else {
-            console.error("User does not exist.");
+            alert("User does not exist.");
         }
     } catch (error) {
         console.error("Error updating user's earnings:", error);

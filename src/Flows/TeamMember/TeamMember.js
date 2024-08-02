@@ -1,22 +1,46 @@
-import React,{useState} from 'react'
-import Dashboard from './Dashboard/Dashboard'
-import TeamMemberSignin from "./Signin/Signin"
+import React, { useState, useEffect } from 'react';
+import { useLocation } from 'react-router-dom';
+import Signin from './Signin/Signin';
+import Dashboard from './Dashboard/Dashboard';
+import Register from './Register/Register';
+
 const TeamMember = () => {
-  const [isSignedIn, setIsSignedIn] = useState(true);
- // Function to handle signin
- const handleSignin = () => {
-  // Perform signin logic
-  setIsSignedIn(true);
-};
+  const [isSignedIn, setIsSignedIn] = useState(false);
+  const [isRegistering, setIsRegistering] = useState(false);
+  const location = useLocation();
+
+  useEffect(() => {
+    const searchParams = new URLSearchParams(location.search);
+    if (searchParams.get('action') === 'register') {
+      setIsRegistering(true);
+    } else {
+      setIsRegistering(false);
+    }
+  }, [location.search]);
+
+  const handleSignin = () => {
+    setIsSignedIn(true);
+  };
+
+  const toggleRegistering = () => {
+    setIsRegistering(!isRegistering);
+  };
+
   return (
     <div>
-    {/* Render TeamSignin component only if not signed in */}
-    {!isSignedIn && <TeamMemberSignin onSignin={handleSignin} />}
-    
-    {/* Render TeamDashboard component only if signed in */}
-    {isSignedIn && <Dashboard />}
-  </div>
-  )
-}
+      {!isSignedIn && (
+        <>
+          {isRegistering ? (
+            <Register onToggle={toggleRegistering} />
+          ) : (
+            <Signin onSignin={handleSignin} onToggle={toggleRegistering} />
+          )}
+        </>
+      )}
+      {/*when, isSignedIn, is true */}
+      {isSignedIn && <Dashboard />}
+    </div>
+  );
+};
 
-export default TeamMember
+export default TeamMember;

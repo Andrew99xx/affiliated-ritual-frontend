@@ -9,6 +9,7 @@ import { auth, db } from "../../../firebase-config.js";
 import { findUserIdByReferral } from "../../../service/findUserIdByReferral.js";
 import { findCoursePriceById } from "../../../service/findCoursePriceById.js";
 import { updateUserEarnings } from "../../../service/updateUserEarnings.js";
+import { getCurrentTimestamp } from "../../../service/getCurrentTimestamp.js";
 
 
 
@@ -34,7 +35,9 @@ const StudentRegister = ({ onToggle }) => {
     ifscCode: "",
     referralId: "",
     userTypes: "team_leader",
-    myARID: ""
+    myARID: "",
+    createdAt: "",
+    updatedAt: "",
   });
 
   useEffect(() => {
@@ -109,12 +112,14 @@ const StudentRegister = ({ onToggle }) => {
 
         if (userDocSnapshot.exists()) {
           // If user data exists, use it and prevent overwriting myARID
+           // fetching the data if exists & updating formData
           const existingData = userDocSnapshot.data();
           setFormData(existingData);
         } else {
+          const createdAt = getCurrentTimestamp();
           // If user data does not exist, generate a new myARID
           const myARID = generateMyARID();
-          setFormData(prevData => ({ ...prevData, myARID }));
+          setFormData(prevData => ({ ...prevData, myARID, createdAt }));
         }
       })
       .catch((error) => {
@@ -144,16 +149,18 @@ const StudentRegister = ({ onToggle }) => {
   const handleRegister = async (e) => {
     e.preventDefault();
 
+    const updatedAt = getCurrentTimestamp();
+    setFormData({ ...formData, updatedAt })
+
     // Check if referral ID is provided, exits is our database or not 
     if (formData.referralId && formData.courseId) {
       // do the money distribution things
       const referringUserId = await findUserIdByReferral(formData.referralId);
       const coursePrice = await findCoursePriceById(formData.courseId);
       updateUserEarnings(referringUserId, coursePrice)
-
     }
 
-    // If referral ID is valid or not provided, proceed with the registration
+    // If referral ID is valid or not provided, still proceed with the registration
     if (uid) {
       addUserToFirestore();
     } else {
@@ -269,9 +276,11 @@ const StudentRegister = ({ onToggle }) => {
           <button className="btn" onClick={handleRegister}>Register</button>
 
           <p className="alr">Already a member? <span onClick={onToggle}>Sign in</span></p>
+          <div id="recaptcha-container"></div>
+          {/* keep this recaptcha-container within the form, may be external css may intefere in css */}
         </form>
       </div>
-      <div id="recaptcha-container"></div>
+
       {message && <div>{message}</div>}
     </div>
   );

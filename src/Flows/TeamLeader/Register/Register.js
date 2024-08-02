@@ -4,6 +4,7 @@ import { doc, setDoc, getDoc } from "firebase/firestore";
 import "./Register.css";
 import { auth, db } from "../../../firebase-config";
 import OtpInputContainer from "../Signin/Signincomp/OtpInputContainer";
+import { getCurrentTimestamp } from "../../../service/getCurrentTimestamp";
 
 const LeaderRegister = ({ onToggle }) => {
   const [otp, setOtp] = useState('');
@@ -24,7 +25,9 @@ const LeaderRegister = ({ onToggle }) => {
     accountType: "",
     ifscCode: "",
     userTypes: "team_leader",
-    myARID: ""
+    myARID: "",
+    createdAt: "",
+    updatedAt: "",
   });
 
   useEffect(() => {
@@ -82,12 +85,14 @@ const LeaderRegister = ({ onToggle }) => {
 
         if (userDocSnapshot.exists()) {
           // If user data exists, use it and prevent overwriting myARID
+          // fetching the data if exists & updating formData
           const existingData = userDocSnapshot.data();
           setFormData(existingData);
         } else {
           // If user data does not exist, generate a new myARID
+          const createdAt = getCurrentTimestamp();
           const myARID = generateMyARID();
-          setFormData(prevData => ({ ...prevData, myARID }));
+          setFormData(prevData => ({ ...prevData, createdAt, myARID }));
         }
       })
       .catch((error) => {
@@ -97,10 +102,12 @@ const LeaderRegister = ({ onToggle }) => {
       });
   };
 
+
   const generateMyARID = () => {
     const randomNumbers = Math.floor(100000 + Math.random() * 900000); // Generates a 6-digit number
     return `TL${randomNumbers}`;
   };
+
 
   const addUserToFirestore = async () => {
     try {
@@ -112,17 +119,25 @@ const LeaderRegister = ({ onToggle }) => {
     }
   };
 
+  // handle changes
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
+
+  // if uid present then data savings & updation
   const handleRegister = (e) => {
     e.preventDefault();
+    
+    const updatedAt = getCurrentTimestamp();
+    setFormData({ ...formData, updatedAt })
+
     if (uid) {
       addUserToFirestore();
     } else {
       alert('Please verify OTP first');
     }
+
   };
 
   return (
@@ -206,11 +221,14 @@ const LeaderRegister = ({ onToggle }) => {
           <input type="text" className="input" name="accountType" value={formData.accountType} onChange={handleChange} placeholder="Account Type" required />
           <p>Ifsc Code <sup>*</sup></p>
           <input type="text" className="input" name="ifscCode" value={formData.ifscCode} onChange={handleChange} placeholder="Ifsc Code" required />
+          {/* this may be used to update */}
           <button className="btn" onClick={handleRegister}>Register</button>
           <p className="alr">Already a member? <span onClick={onToggle}>Sign in</span></p>
+          <div id="recaptcha-container"></div>
+          {/* keep this recaptcha-container within the form, may be external css may intefere in css */}
         </form>
       </div>
-      <div id="recaptcha-container"></div>
+
       {message && <div className="message">{message}</div>}
     </div>
   );
