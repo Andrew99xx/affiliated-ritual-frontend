@@ -1,0 +1,154 @@
+import { doc, updateDoc, getDoc, collection, setDoc } from "firebase/firestore";
+import { db } from "../firebase-config.js";
+import { getCurrentTimestamp } from "./getCurrentTimestamp.js";
+import { findUserIdByReferral } from "./findUserIdByReferral.js";
+
+
+// update earnings according to userType, 
+// for userType , team_leader, = it is clear, just do the 40%
+// for userType, team_member, = you have to find the teamLeader of team_member, then split 20%, 20%
+// userId = the one who will get the commission
+export const updateUserEarnings = async (userId, coursePrice) => {
+    try {
+        const userRef = doc(db, "users", userId);
+        const userSnap = await getDoc(userRef);
+
+        if (userSnap.exists()) {
+            const userData = userSnap.data();
+
+            if (userData.userTypes === 'team_leader') {
+
+                const subCollectionEarnings = collection(userRef, "earnings");
+                // Adding a document to the subcollection
+                // chang the orderId - each time 
+                await setDoc(doc(subCollectionEarnings, "orderId"), {
+                    createdAt: getCurrentTimestamp(),
+                    updatedAt: getCurrentTimestamp(),
+                    yourAmount: 0.4 * coursePrice,
+                    sellsType: "active",
+                });
+
+
+
+                // creating temporary array, if .earnings do not exits, then empty
+                // const currentEarnings = userData.earnings || [];
+                // const newSell = {
+                //     createdAt: getCurrentTimestamp(),
+                //     updatedAt: getCurrentTimestamp(),
+                //     yourAmount: 0.4 * coursePrice,
+                //     sellsType: "active",
+                // };
+
+                // updating temporary array
+                // currentEarnings.push(newSell);
+
+                // final updating the users
+                // await updateDoc(userRef, {
+                //     earnings: currentEarnings
+                // });
+
+                alert("User's earnings updated successfully.");
+            }
+            else if (userData.userTypes === 'team_member') {
+
+                const subCollectionEarnings = collection(userRef, "earnings");
+                // Adding a document to the subcollection
+                // chang the orderId - each time 
+                await setDoc(doc(subCollectionEarnings, "orderId"), {
+                    createdAt: getCurrentTimestamp(),
+                    updatedAt: getCurrentTimestamp(),
+                    yourAmount: 0.2 * coursePrice,
+                    sellsType: "active",
+                });
+
+
+                
+                // updating team_members earnings 
+                // const currentEarnings = userData.earnings || [];
+                // const newSell = {
+                //     createdAt: getCurrentTimestamp(),
+                //     updatedAt: getCurrentTimestamp(),
+                //     yourAmount: 0.2 * coursePrice,
+                //     sellsType: "active",
+                // };
+
+                // updating temporary array
+                // currentEarnings.push(newSell);
+
+                // final updating the users
+                // await updateDoc(userRef, {
+                //     earnings: currentEarnings
+                // });
+
+                alert("User's earnings updated successfully.");
+
+                // finding team_leaders of team_members 
+                const teamLeaderId = findUserIdByReferral(userData.referralId)
+                updateTeamLeaderPassiveEarnings(teamLeaderId, coursePrice);
+                alert("passive earnings updated of teamLeaders")
+            }
+        } else {
+            alert("User does not exist.");
+        }
+    } catch (error) {
+        console.error("Error updating user's earnings:", error);
+        throw error;
+    }
+};
+
+
+
+
+
+// this will execute , when earnings is passive 
+const updateTeamLeaderPassiveEarnings = async (userId, coursePrice) => {
+    try {
+        const userRef = doc(db, "users", userId);
+        const userSnap = await getDoc(userRef);
+
+        if (userSnap.exists()) {
+
+            const userData = userSnap.data();
+
+            if (userData.userTypes === 'team_leader') {
+
+                const subCollectionEarnings = collection(userRef, "earnings");
+                // Adding a document to the subcollection
+                // chang the orderId - each time 
+                await setDoc(doc(subCollectionEarnings, "orderId"), {
+                    createdAt: getCurrentTimestamp(),
+                    updatedAt: getCurrentTimestamp(),
+                    yourAmount: 0.2 * coursePrice,
+                    sellsType: "passive",
+                });
+
+
+                // creating temporary array, if .earnings do not exits, then empty
+                // const currentEarnings = userData.earnings || [];
+                // const newSell = {
+                //     createdAt: getCurrentTimestamp(),
+                //     updatedAt: getCurrentTimestamp(),
+                //     yourAmount: 0.2 * coursePrice,
+                //     sellsType: "passive",
+                // };
+
+                // updating temporary array
+                // currentEarnings.push(newSell);
+
+                // final updating the users
+                // await updateDoc(userRef, {
+                //     earnings: currentEarnings
+                // });
+
+                alert("User's earnings updated successfully.");
+            }
+        } else {
+            alert("User does not exist.");
+        }
+    } catch (error) {
+        console.error("Error updating user's earnings:", error);
+        throw error;
+    }
+}
+
+

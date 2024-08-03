@@ -112,7 +112,7 @@ const StudentRegister = ({ onToggle }) => {
 
         if (userDocSnapshot.exists()) {
           // If user data exists, use it and prevent overwriting myARID
-           // fetching the data if exists & updating formData
+          // fetching the data if exists & updating formData
           const existingData = userDocSnapshot.data();
           setFormData(existingData);
         } else {
@@ -153,11 +153,19 @@ const StudentRegister = ({ onToggle }) => {
     setFormData({ ...formData, updatedAt })
 
     // Check if referral ID is provided, exits is our database or not 
-    if (formData.referralId && formData.courseId) {
+    if (formData.referralId && formData.courseId && uid) {
       // do the money distribution things
+      // add type checking here
       const referringUserId = await findUserIdByReferral(formData.referralId);
       const coursePrice = await findCoursePriceById(formData.courseId);
-      updateUserEarnings(referringUserId, coursePrice)
+
+      if (referringUserId == null || coursePrice == null){
+        alert("Invalid referral ID or course ID");
+      }
+
+      if (referringUserId !== null) {
+        updateUserEarnings(referringUserId, coursePrice, uid)
+      }
     }
 
     // If referral ID is valid or not provided, still proceed with the registration

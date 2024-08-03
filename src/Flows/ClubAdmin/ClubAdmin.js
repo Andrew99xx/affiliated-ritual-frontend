@@ -5,7 +5,7 @@ import Dashboard from './Dashboard/Dashboard';
 const ClubAdmin = () => {
 
   // change state to show effect, 
-  const [isSignedIn, setIsSignedIn] = useState(true);
+  const [isSignedIn, setIsSignedIn] = useState(false);
 
   // Function to handle signin
   const handleSignin = () => {

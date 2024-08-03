@@ -1,51 +1,21 @@
-import { doc, updateDoc, getDoc } from "firebase/firestore";
+import { doc, getDoc, collection, setDoc } from "firebase/firestore";
 import { db } from "../firebase-config.js";
 import { getCurrentTimestamp } from "./getCurrentTimestamp.js";
 import { findUserIdByReferral } from "./findUserIdByReferral.js";
 
-
-// this will execute , when earnings is passive 
-const updateTeamLeaderPassiveEarnings = async (userId, coursePrice) => {
+// Update earnings according to userType
+export const updateUserEarnings = async (userId, coursePrice, studentUID) => {
     try {
-        const userRef = doc(db, "users", userId);
-        const userSnap = await getDoc(userRef);
-        if (userSnap.exists()) {
-            const userData = userSnap.data();
 
-            if (userData.userTypes === 'team_leader') {
-                // creating temporary array, if .earnings do not exits, then empty
-                const currentEarnings = userData.earnings || [];
-                const newSell = {
-                    createdAt: getCurrentTimestamp(),
-                    updatedAt: getCurrentTimestamp(),
-                    yourAmount: 0.2 * coursePrice,
-                    sellsType: "passive",
-                };
-
-                // updating temporary array
-                currentEarnings.push(newSell);
-
-                // final updating the users
-                await updateDoc(userRef, {
-                    earnings: currentEarnings
-                });
-
-                alert("User's earnings updated successfully.");
-            }
-        } else {
-            alert("User does not exist.");
+        if (typeof userId !== 'string') {
+            alert(`Invalid userId: Expected string, received ${typeof userId}`);
+            return;
         }
-    } catch (error) {
-        console.error("Error updating user's earnings:", error);
-        throw error;
-    }
-}
+        // if (typeof coursePrice !== 'number') {
+        //     alert(`Invalid coursePrice: Expected number, received ${typeof coursePrice}`);
+        //     return;
+        // }
 
-// update earnings according to userType, 
-// for userType , team_leader, = it is clear, just do the 40%
-// for userType, team_member, = you have to find the teamLeader of team_member, then split 20%, 20%
-export const updateUserEarnings = async (userId, coursePrice) => {
-    try {
         const userRef = doc(db, "users", userId);
         const userSnap = await getDoc(userRef);
 
@@ -53,57 +23,107 @@ export const updateUserEarnings = async (userId, coursePrice) => {
             const userData = userSnap.data();
 
             if (userData.userTypes === 'team_leader') {
-                // creating temporary array, if .earnings do not exits, then empty
-                const currentEarnings = userData.earnings || [];
-                const newSell = {
+
+                const subCollectionEarnings = collection(userRef, "earnings");
+                await setDoc(doc(subCollectionEarnings, `orderId-${studentUID}`), {
                     createdAt: getCurrentTimestamp(),
                     updatedAt: getCurrentTimestamp(),
                     yourAmount: 0.4 * coursePrice,
                     sellsType: "active",
-                };
-
-                // updating temporary array
-                currentEarnings.push(newSell);
-
-                // final updating the users
-                await updateDoc(userRef, {
-                    earnings: currentEarnings
                 });
 
-                alert("User's earnings updated successfully.");
-            }
-            else if (userData.userTypes === 'team_member') {
-                // updating team_members earnings 
-                const currentEarnings = userData.earnings || [];
-                const newSell = {
+                const subCollectionReferrals = collection(userRef, "referrals");
+                await setDoc(doc(subCollectionReferrals, `orderId-${studentUID}`), {
+                    createdAt: getCurrentTimestamp(),
+                    updatedAt: getCurrentTimestamp(),
+                    referedStudentId : studentUID,
+                    referType: "active",
+                });
+
+                alert("Users, team leader earnings updated successfully.");
+
+            } else if (userData.userTypes === 'team_member') {
+
+                const subCollectionEarnings = collection(userRef, "earnings");
+                await setDoc(doc(subCollectionEarnings, `orderId-${studentUID}`), {
                     createdAt: getCurrentTimestamp(),
                     updatedAt: getCurrentTimestamp(),
                     yourAmount: 0.2 * coursePrice,
                     sellsType: "active",
-                };
-
-                // updating temporary array
-                currentEarnings.push(newSell);
-
-                // final updating the users
-                await updateDoc(userRef, {
-                    earnings: currentEarnings
                 });
 
-                alert("User's earnings updated successfully.");
+                const subCollectionReferrals = collection(userRef, "referrals");
+                await setDoc(doc(subCollectionReferrals, `orderId-${studentUID}`), {
+                    createdAt: getCurrentTimestamp(),
+                    updatedAt: getCurrentTimestamp(),
+                    referedStudentId : studentUID,
+                    referType: "active",
+                });
 
-                // finding team_leaders of team_members 
-                const teamLeaderId = findUserIdByReferral(userData.referralId)
-                updateTeamLeaderPassiveEarnings(teamLeaderId, coursePrice);
-                alert("passive earnings updated of teamLeaders")
+                alert("Users, team members earnings updated successfully.");
+
+                const teamLeaderId = await findUserIdByReferral(userData.referralId);
+                updateTeamLeaderPassiveEarnings(teamLeaderId, coursePrice, studentUID);
+               
             }
         } else {
             alert("User does not exist.");
         }
     } catch (error) {
-        console.error("Error updating user's earnings:", error);
-        throw error;
+        alert(`Error updating user's earnings: ${error.message}`);
     }
 };
 
 
+// Update team leader passive earnings
+const updateTeamLeaderPassiveEarnings = async (userId, coursePrice, studentUID) => {
+    try {
+        if (typeof userId !== 'string') {
+            alert(`Invalid userId: Expected string, received ${typeof userId}`);
+            return;
+        }
+        // if (typeof coursePrice !== 'number') {
+        //     alert(`Invalid coursePrice: Expected number, received ${typeof coursePrice}`);
+        //     return;
+        // }
+
+        const userRef = doc(db, "users", userId);
+        const userSnap = await getDoc(userRef);
+
+        if (userSnap.exists()) {
+            const userData = userSnap.data();
+
+            if (userData.userTypes === 'team_leader') {
+
+                const subCollectionEarnings = collection(userRef, "earnings");
+                await setDoc(doc(subCollectionEarnings, `orderId-${studentUID}`), {
+                    createdAt: getCurrentTimestamp(),
+                    updatedAt: getCurrentTimestamp(),
+                    yourAmount: 0.2 * coursePrice,
+                    sellsType: "passive",
+                });
+
+                const subCollectionReferrals = collection(userRef, "referrals");
+                await setDoc(doc(subCollectionReferrals, `orderId-${studentUID}`), {
+                    createdAt: getCurrentTimestamp(),
+                    updatedAt: getCurrentTimestamp(),
+                    referedStudentId : studentUID,
+                    referType: "passive",
+                });
+
+                alert("Users, team-leader passive earnings updated successfully.");
+            }
+        } else {
+            alert("User does not exist.");
+        }
+    } catch (error) {
+        alert(`Error updating user's earnings: ${error.message}`);
+    }
+}
+
+
+
+/**
+ * -- if no team leader is found, then you will get error
+ * -- also, replace orderId with , id of coursePrice users id, 
+ */

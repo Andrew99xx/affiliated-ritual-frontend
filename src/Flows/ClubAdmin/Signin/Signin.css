@@ -3,7 +3,6 @@
     min-height: 454px;
     max-width: 531px;
 }
-
 .Signin {
     display: flex;
     justify-content: center;
@@ -73,27 +72,26 @@
     font-size: 18px;
     text-decoration: none;
     margin: 2rem 0;
-
+    
 
 }
 
-.Signin .btn:hover {
+.Signin .btn:hover{
     cursor: pointer;
 
 }
 
-.Signin .formcontainer p {
+.Signin .formcontainer p{
     font-weight: 500;
     font-family: "DM Sans", sans-serif;
-    color: #fff;
+color: #fff;
 }
-
-.Signin .formcontainer sup {
+.Signin .formcontainer sup{
     font-size: 15px;
-    color: #EF0000;
+color: #EF0000;
 }
 
-.Signin .formcontainer input {
+.Signin .formcontainer input{
     padding: 1rem 1.2rem;
     background-color: #000000;
     border: 1px solid #FFFFFF4D;
@@ -101,29 +99,27 @@
     color: #8190BF;
     outline: none;
     font-size: 16px;
-
 }
-
-.Signin .flex {
+.Signin .flex{
     display: flex;
 }
 
-.Signin .formcontainer input::placeholder {
+.Signin .formcontainer input::placeholder{
     color: #8190BF;
 }
 
-.Signin .credit {
+.Signin .credit{
     color: white;
     font-weight: 500;
     font-family: "DM Sans", sans-serif;
 }
 
-.Inputbox {
+.Inputbox{
     display: flex;
     justify-content: space-between;
 }
 
-.Signin .container .info {
+.Signin .container .info{
     display: flex;
     justify-content: space-between;
     padding: 1rem 0;
