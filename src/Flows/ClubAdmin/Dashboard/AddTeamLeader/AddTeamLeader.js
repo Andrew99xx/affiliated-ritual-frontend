@@ -116,6 +116,33 @@ const AddTeamLeader = () => {
         </div>
         <div className="heading">Registration</div>
         <form className="formcontainer">
+
+          <p>Phone <sup>*</sup></p>
+          <input
+            type="tel"
+            className="input"
+            name="phone"
+            value={formData.phone}
+            onChange={handleChange}
+            placeholder="9876543210"
+            required
+          />
+          <button
+            onClick={sendVerificationCode}
+            className="btn"
+          >GET OTP
+          </button>
+
+          <p>Enter Otp <sup>*</sup></p>
+          <OtpInputContainer onOtpChange={handleOtpChange} />
+
+          <button
+            onClick={verifyOtp}
+            className="btn">
+            Verify OTP
+          </button>
+
+
           <p>First Name <sup>*</sup></p>
           <input
             type="text"
@@ -146,30 +173,7 @@ const AddTeamLeader = () => {
             placeholder="mail@simmmple.com"
             required
           />
-          <p>Phone <sup>*</sup></p>
-          <input
-            type="tel"
-            className="input"
-            name="phone"
-            value={formData.phone}
-            onChange={handleChange}
-            placeholder="9876543210"
-            required
-          />
-          <button
-            onClick={sendVerificationCode}
-            className="btn"
-          >GET OTP
-          </button>
 
-          <p>Enter Otp <sup>*</sup></p>
-          <OtpInputContainer onOtpChange={handleOtpChange} />
-
-          <button
-            onClick={verifyOtp}
-            className="btn">
-            Verify OTP
-          </button>
 
           <p>Date of Birth <sup>*</sup></p>
           <input type="date" className="input" name="dob" value={formData.dob} onChange={handleChange} required />
