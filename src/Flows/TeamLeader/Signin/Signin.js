@@ -63,7 +63,7 @@ const Signin = ({ onSignin, onToggle }) => {
       return;
     }
     confirmationResult.confirm(otp)
-      .then(async(result) => {
+      .then(async (result) => {
         const user = result.user;
         setMessage(`Phone number verified! User: ${user.uid}`);
         alert(`Phone number verified! User: ${user.uid}`);
@@ -72,8 +72,12 @@ const Signin = ({ onSignin, onToggle }) => {
         const userExists = await checkUserExists(user.uid);
         alert(userExists)
         if (userExists) {
-           // Call onSignin to handle the successful sign-in or if user uid exits
+          // Call onSignin to handle the successful sign-in or if user uid exits
           onSignin(user);
+          // Clear any existing 'uid' from localStorage
+          localStorage.removeItem('team_leader_uid');
+          // Store the new 'uid' in localStorage
+          localStorage.setItem('team_leader_uid', user.uid);
         } else {
           alert("You are not registered");
         }
