@@ -71,6 +71,8 @@ html::-webkit-scrollbar-thumb {
   color: #000;
 }
 
+
+/* where we are using */
 .line-down {
   position: relative;
   display: inline-block;
@@ -339,10 +341,10 @@ html::-webkit-scrollbar-thumb {
   background-color: #0F0F0F;
   color: white;
   font-family: 'Public Sans', sans-serif;
-  display: flex;
+  /* display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: center;
+  align-items: center; */
 }
 
 .trainer-section .heading {
@@ -381,10 +383,10 @@ html::-webkit-scrollbar-thumb {
   background-color: #0F0F0F;
   color: white;
   font-family: 'Public Sans', sans-serif;
-  display: flex;
+  /* display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: center;
+  align-items: center; */
 }
 
 .club-section .heading {
@@ -414,10 +416,10 @@ html::-webkit-scrollbar-thumb {
   background-color: #0F0F0F;
   color: white;
   font-family: 'Public Sans', sans-serif;
-  display: flex;
+  /* display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: center;
+  align-items: center; */
 }
 
 .feedback-section .heading {
@@ -563,6 +565,7 @@ html::-webkit-scrollbar-thumb {
 }
 
 .popup-overlay {
+  z-index: 1000;
   position: fixed;
   top: 0;
   left: 0;

@@ -2,19 +2,27 @@ import React, { useState } from "react";
 import close from "./blackcr.png";
 import "./AddCourse.css";
 
+import { db } from '../../firebase-config.js'
+import { collection, addDoc } from "firebase/firestore";
+import { courses } from "./data"; // Import the courses array
+
 const AddCourse = ({ showAddCourse, closeAddCourse }) => {
+  const [courseName, setCourseName] = useState('');
   const [courseDuration, setCourseDuration] = useState(1);
   const [selectedDate, setSelectedDate] = useState('');
   const [startDate, setStartDate] = useState("");
   const [endDate, setEndDate] = useState("");
+  const [coursePrice, setCoursePrice] = useState('');
+  const [registrationFees, setRegistrationFees] = useState('');
   const [numInstallments, setNumInstallments] = useState(1);
   const [numModules, setNumModules] = useState(1);
+  const [selectedInstructor, setSelectedInstructor] = useState('');
+  const instructors = ["Instructor 1", "Instructor 2", "Instructor 3"]; // update or fetch real instructor
 
   const handleDateChange = (event) => {
     setSelectedDate(event.target.value);
   };
 
-  // Function to handle changes in course duration
   const handleCourseDurationChange = (event) => {
     const duration = parseInt(event.target.value);
     setCourseDuration(duration);
@@ -22,13 +30,11 @@ const AddCourse = ({ showAddCourse, closeAddCourse }) => {
     calculateEndDate(startDate, duration);
   };
 
-  // Function to handle changes in start date
   const handleStartDateChange = (event) => {
     setStartDate(event.target.value);
     calculateEndDate(event.target.value, courseDuration);
   };
 
-  // Function to calculate the end date based on start date and course duration
   const calculateEndDate = (startDate, duration) => {
     if (startDate && duration) {
       const start = new Date(startDate);
@@ -39,7 +45,6 @@ const AddCourse = ({ showAddCourse, closeAddCourse }) => {
     }
   };
 
-  // Function to render the installment input fields dynamically
   const renderInstallmentInputs = () => {
     let installmentInputs = [];
     for (let i = 1; i <= numInstallments; i++) {
@@ -53,13 +58,11 @@ const AddCourse = ({ showAddCourse, closeAddCourse }) => {
     return installmentInputs;
   };
 
-  // Function to handle changes in number of modules
   const handleNumModulesChange = (event) => {
     const modules = parseInt(event.target.value);
     setNumModules(modules);
   };
 
-  // Function to render the module input fields dynamically
   const renderModuleInputs = () => {
     let moduleInputs = [];
     for (let i = 1; i <= numModules; i++) {
@@ -68,11 +71,37 @@ const AddCourse = ({ showAddCourse, closeAddCourse }) => {
           <p>Module {i}</p>
           <input type="text" className="inputinstall" placeholder={` Module ${i} Name`} />
           <input type="text" className="inputinstall" placeholder={` Module ${i} Description`} />
-          <input type="date" className="inputinstall" placeholder={` Module ${i} Description`} />
+          <input type="date" className="inputinstall" placeholder={` Module ${i} Date`} />
         </div>
       );
     }
     return moduleInputs;
+  };
+
+  const handleAddCourse = async () => {
+    const newCourse = {
+      name: courseName,
+      duration: courseDuration,
+      startDate: startDate,
+      endDate: endDate,
+      price: coursePrice,
+      registrationFees: registrationFees,
+      instructor: selectedInstructor,
+      modules: numModules,
+      installments: numInstallments,
+    };
+
+
+
+    // firebase data store
+    try {
+      await addDoc(collection(db, "courses"), newCourse);
+      console.log('Course added:', newCourse);
+      alert("Course added successfully");
+      closeAddCourse();
+    } catch (e) {
+      console.error("Error adding course: ", e);
+    }
   };
 
   return (
@@ -92,6 +121,8 @@ const AddCourse = ({ showAddCourse, closeAddCourse }) => {
               type="text"
               className="inputinstall"
               placeholder="Enter Name"
+              value={courseName}
+              onChange={(e) => setCourseName(e.target.value)}
             />
             <p>Upload image</p>
             <input
@@ -118,9 +149,12 @@ const AddCourse = ({ showAddCourse, closeAddCourse }) => {
                   type="text"
                   className="inputinstall"
                   placeholder="Enter Price"
+                  value={coursePrice}
+                  onChange={(e) => setCoursePrice(e.target.value)}
                 />
               </div>
             </div>
+
             <div className="tworow">
               <div>
                 <p>Course Start Date</p>
@@ -141,38 +175,61 @@ const AddCourse = ({ showAddCourse, closeAddCourse }) => {
                 />
               </div>
             </div>
+
             <p>Registration Fees</p>
             <input
               type="number"
               className="inputinstall"
               placeholder="Enter Amount"
               min={0}
-              max={0} // course price
+              value={registrationFees}
+              onChange={(e) => setRegistrationFees(e.target.value)}
             />
-            {/* Render installment input fields */}
+
+            <div className="sep">
+              <h3>Select Instructor</h3>
+              <select
+                className="inputinstall"
+                value={selectedInstructor}
+                onChange={(e) => setSelectedInstructor(e.target.value)}
+              >
+                <option value="" disabled>Select Instructor</option>
+                {instructors.map((instructor, index) => (
+                  <option
+                    key={index}
+                    value={instructor}>
+                    {instructor}
+                  </option>
+                ))}
+              </select>
+            </div>
+
             <div className="tworow">
               {renderInstallmentInputs()}
             </div>
 
-<div className="sep">
-            <h3>Select Modules</h3>
-            <p>Number of modules</p>
-            <input
-              type="number"
-              className="inputinstall"
-              placeholder="Enter Number of Modules"
-              min={1}
-              value={numModules}
-              onChange={handleNumModulesChange}
-            />
-            {/* Render module input fields */}
-            <div >
-              {renderModuleInputs()}
-            </div></div>
+            <div className="sep">
+              <h3>Select Modules</h3>
+              <p>Number of modules</p>
+              <input
+                type="number"
+                className="inputinstall"
+                placeholder="Enter Number of Modules"
+                min={1}
+                value={numModules}
+                onChange={handleNumModulesChange}
+              />
+              <div >
+                {renderModuleInputs()}
+              </div>
+            </div>
+
           </div>
+
           <div className="btnc">
-            <div className="btn">Add Now</div>
+            <div className="btn" onClick={handleAddCourse}>Add Now</div>
           </div>
+
         </div>
       </section>
     </div>

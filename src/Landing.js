@@ -21,11 +21,12 @@ import Trainer from "./components/LandingComponents/Trainer/Trainer";
 import Media from "./components/LandingComponents/Media/Media";
 import System from "./components/LandingComponents/System/System";
 import Package from "./components/LandingComponents/Package/Package";
-import Club from "./components/LandingComponents/Club/Club";
 import Banner from "./components/LandingComponents/Banner/Banner";
-import Features from "./components/LandingComponents/Features/Features";
-import Services from "./components/LandingComponents/Services/Services";
-import Courses from "./components/LandingComponents/Courses/Courses";
+import Club from "./components/LandingComponents/Club/Club";
+// import Features from "./components/LandingComponents/Features/Features";
+// import Services from "./components/LandingComponents/Services/Services";
+// import Courses from "./components/LandingComponents/Courses/Courses";
+
 
 const Landing = () => {
   const [isRegisterOpen, setIsRegisterOpen] = useState(false);
@@ -104,11 +105,11 @@ const Landing = () => {
   return (
     <div className="body">
 
-
-      {isRegisterOpen && (
+      {/* multitpel login options */}
+      {isLoginOpen && (
         <div className="popup-overlay">
           <div className="landregister">
-            <button className="popup-close" onClick={closeRegister}>
+            <button className="popup-close" onClick={closeLogin}>
               &times;
             </button>
             <div className="popup-content">
@@ -124,7 +125,7 @@ const Landing = () => {
                   <img src="/leader.png" alt="" height={80} width={80} /> Team
                   Leader
                 </Link>
-                <Link className="tra">
+                <Link to="/trainer?action=login" className="tra">
                   <img src="/trainer.png" alt="" height={80} width={80} />{" "}
                   Trainer
                 </Link>
@@ -134,10 +135,11 @@ const Landing = () => {
         </div>
       )}
 
-      {isLoginOpen && (
+      {/* multiple signin options  */}
+      {isRegisterOpen && (
         <div className="popup-overlay">
           <div className="landlogin">
-            <button className="popup-close" onClick={closeLogin}>
+            <button className="popup-close" onClick={closeRegister}>
               &times;
             </button>
             <div className="popup-content">
@@ -153,7 +155,7 @@ const Landing = () => {
                   <img src="/leader.png" alt="" height={80} width={80} /> Team
                   Leader
                 </Link>
-                <Link className="tra">
+                <Link to="/trainer?action=register" className="tra">
                   <img src="/trainer.png" alt="" height={80} width={80} />{" "}
                   Trainer
                 </Link>
@@ -165,16 +167,15 @@ const Landing = () => {
 
 
       <header class="header">
-        {/* logo */}
         <a href="#" class="header-logo">
           Affiliated Rituals{" "}
         </a>
 
         <nav className={`navbar ${isNavbarVisible ? "active" : ""}`}>
           <a href="#home">Home</a>
-          <a href="#services">Product</a>
-          <a href="#Courses">Contact Us</a>
-          <a href="#features">Leaderboard</a>
+          <a href="#product">Product</a>
+          <a href="#contact_section">Contact Us</a>
+          <a href="#leaderboard_section">Leaderboard</a>
         </nav>
 
         <div
@@ -186,11 +187,12 @@ const Landing = () => {
         </div>
 
         <div className="header-btns">
-          <a href="#" class="btn-login" onClick={openRegister}>
-            <CiLock size={24}/>
+          {/* fucntionality is good working, change the name  */}
+          <a href="#" class="btn-login" onClick={openLogin}>
+            <CiLock size={24} />
             Login
           </a>
-          <a href="#" class="btn-signup" onClick={openLogin}>
+          <a href="#" class="btn-signup" onClick={openRegister}>
             Sign up for Free
           </a>
         </div>
@@ -247,7 +249,7 @@ const Landing = () => {
         {/* club section */}
         <section className="club-section" id="club">
           <h1 className="heading">Our Leader & Members</h1>
-          < Club />
+          <Club />
         </section>
 
         {/* banner section */}

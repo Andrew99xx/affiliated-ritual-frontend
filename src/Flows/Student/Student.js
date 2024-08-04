@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
 import Signin from './Signin/Signin';
 import Dashboard from './Dashboard/Dashboard';
-import StudentRegister from './StudentRegister/StudentRegister';
+import Register from './Register/Register';
 
 const Student = () => {
   const [isSignedIn, setIsSignedIn] = useState(false);
@@ -31,7 +31,7 @@ const Student = () => {
       {!isSignedIn && (
         <>
           {isRegistering ? (
-            <StudentRegister onToggle={toggleRegistering} />
+            <Register onToggle={toggleRegistering} />
           ) : (
             <Signin onSignin={handleSignin} onToggle={toggleRegistering} />
           )}

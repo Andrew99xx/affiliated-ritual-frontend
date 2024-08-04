@@ -1,13 +1,4 @@
-.trainer-container {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    gap: 15px;
-}
-
 .trainer-paragraph {
-    width: 80%;
     margin-top: 0ch !important;
     padding-top: 0ch !important;
     font-weight: 400;
@@ -17,56 +8,83 @@
     color: white;
 }
 
-.trainer-items {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    gap: 20px;
-    justify-content: center;
-}
 
 .trainer-item-wrapper {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    /* gap: 5px; */
-    padding:20px 15px;
-    /* width: 312px;
-    height: 370px; */
+    margin-top: 20px;
+}
+
+.trainer-item {
+    width: 312px !important;
+    height: 370px !important;
+    box-sizing: border-box;
     border-radius: 24px;
+    padding: 16px;
     background-color: #3E3E3E;
-    
-    
 }
 
 .trainer-img {
-    width: 300px;
-    height: 300px;
-    background-color: #4E4E4E; 
+    width: 280px;
+    height: 264px;
+    display: block;
+    background-color: #4E4E4E;
     display: flex;
     justify-content: center;
     align-items: center;
-    border-radius: 24px;
-   
-  
+    border-radius: 12px;
 }
-
 
 .trainer-name {
-    font-weight: 700;
-    font-size: 20px;
-    /* line-height: 30px; */
+    font-family: 'Public Sans';
+    font-weight: 400;
+    font-size: 22px;
     text-align: center;
-    color: #B17E32;
+    line-height: 28px;
+    color: #BD9141;
+    margin-top: 10px;
+}
+
+.trainer-position {
+    font-family: 'Public Sans';
+    font-weight: 400;
+    font-size: 16px;
+    text-align: center;
+    line-height: 24px;
+    color: white;
+    margin-top: 8px;
 }
 
 
+/* Hide the previous button */
+/* .slick-prev {
+    display: none !important;
+} */
 
-.trainer-position {
-    font-weight: 600;
-    font-size: 16px;
-    /* line-height: 30px; */
-    text-align: center;
-    color: white;
+/* Hide the next button */
+/* .slick-next {
+    display: none !important;
+} */
+
+/* Optionally, hide the arrow icons */
+/* .slick-prev:before,
+.slick-next:before {
+    display: none;
+    color: #fff; 
+} */
+
+
+
+/* Style the container for the dots */
+/* .slick-dots {
+    bottom: -30px;
+} */
+
+/* Style each dot */
+.slick-dots li button:before {
+    color: #D9D9D9;
+
+}
+
+/* Style the active dot */
+.slick-dots li.slick-active button:before {
+    color: #BD9141;
 }

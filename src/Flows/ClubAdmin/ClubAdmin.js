@@ -1,9 +1,11 @@
 import React, { useState } from 'react';
-import ClubAdminSign from './ClubAdmin/ClubAdminSign';
-import AdminDashboard from './ClubAdminDashboard/AdminDashboard';
+import Signin from './Signin/Signin';
+import Dashboard from './Dashboard/Dashboard';
 
 const ClubAdmin = () => {
-  const [isSignedIn, setIsSignedIn] = useState(true);
+
+  // change state to show effect, 
+  const [isSignedIn, setIsSignedIn] = useState(false);
 
   // Function to handle signin
   const handleSignin = () => {
@@ -14,10 +16,10 @@ const ClubAdmin = () => {
   return (
     <div>
       {/* Render Signin component only if not signed in */}
-      {!isSignedIn && <ClubAdminSign onSignin={handleSignin} />}
+      {!isSignedIn && <Signin onSignin={handleSignin} />}
       
       {/* Render Dashboard component only if signed in */}
-      {isSignedIn && <AdminDashboard />}
+      {isSignedIn && <Dashboard />}
     </div>
   );
 };

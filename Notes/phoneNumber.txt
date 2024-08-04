@@ -1,0 +1,14 @@
+Phone number	    Verification code	
+
++92 21 54817547     123456   clubadmin
+
++91 8765 987 650    123456   team_leader
++91 5789 435 876    123456   team_leader
+
++91 5478 934 207	123456	 team_member
++91 4578 912 452	123456	 team_member
+
++1 650-768-2345	    123456	 students + team_leader
++1 651-767-1254     123456   students + team_leader
+
+

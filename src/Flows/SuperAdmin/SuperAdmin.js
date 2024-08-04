@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
-import SuperDashboard from './SuperAdminDashboard/SuperDashboard';
-import SuperAdminSign from "./SuperAdmin/SuperAdminSign"
+
+import Dashboard from './Dashboard/Dashboard';
+import Signin from "./Signin/Signin"
+
 const SuperAdmin = () => {
   const [isSignedIn, setIsSignedIn] = useState(true);
 
@@ -13,10 +15,10 @@ const SuperAdmin = () => {
   return (
     <div>
       {/* Render Signin component only if not signed in */}
-      {!isSignedIn && <SuperAdminSign onSignin={handleSignin} />}
+      {!isSignedIn && <Signin onSignin={handleSignin} />}
       
       {/* Render Dashboard component only if signed in */}
-      {isSignedIn && <SuperDashboard />}
+      {isSignedIn && <Dashboard />}
     </div>
   );
 };

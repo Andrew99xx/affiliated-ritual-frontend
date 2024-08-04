@@ -62,12 +62,12 @@ export const verifyOtp = async (otp) => {
 //   } else {
 //     try {
 //       const user = await verifyOtp(otp);
-//       const userDoc = await getDoc(doc(db, "Users", user.uid));
+//       const userDoc = await getDoc(doc(db, "users", user.uid));
 //       if (userDoc.exists()) {
 //         console.log('User already registered');
 //         // Handle existing user scenario
 //       } else {
-//         await setDoc(doc(db, "Users", user.uid), formData);
+//         await setDoc(doc(db, "users", user.uid), formData);
 //         console.log('User Registered Successfully!!');
 //       }
 //     } catch (error) {

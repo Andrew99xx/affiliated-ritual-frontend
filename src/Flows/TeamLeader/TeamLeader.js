@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
-import TeamSignin from './TeamSignin/TeamSignin';
-import TeamDashboard from './TeamDashboard/TeamDashboard';
-import LeaderRegister from './LeaderRegister/LeaderRegister';
+import Signin from './Signin/Signin';
+import Dashboard from './Dashboard/Dashboard';
+import Register from './Register/Register';
 
 const TeamLeader = () => {
   const [isSignedIn, setIsSignedIn] = useState(false);
@@ -31,13 +31,14 @@ const TeamLeader = () => {
       {!isSignedIn && (
         <>
           {isRegistering ? (
-            <LeaderRegister onToggle={toggleRegistering} />
+            <Register onToggle={toggleRegistering} />
           ) : (
-            <TeamSignin onSignin={handleSignin} onToggle={toggleRegistering} />
+            <Signin onSignin={handleSignin} onToggle={toggleRegistering} />
           )}
         </>
       )}
-      {isSignedIn && <TeamDashboard />}
+      {/*when, isSignedIn, is true */}
+      {isSignedIn && <Dashboard />}
     </div>
   );
 };
