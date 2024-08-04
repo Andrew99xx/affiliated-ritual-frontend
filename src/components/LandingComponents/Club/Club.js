@@ -12,15 +12,13 @@ function Club() {
         speed: 500,
         slidesToShow: 2,
         slidesToScroll: 2,
-        centerMode: false,
-        // centerMode: false,
+        centerMode: true,
         // centerPadding: '0px', 
         responsive: [
             {
                 breakpoint: 1400,
                 settings: {
-                    centerMode: false,
-                    // centerMode: false,
+                    centerMode: true,
                     //centerPadding: '0px', 
                     slidesToShow: 1,
                     slidesToScroll: 1,

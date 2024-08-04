@@ -14,15 +14,15 @@
 }
 
 .club-item {
-    width: 568px; 
+    width: 568px;
     height: 350px;
     box-sizing: border-box;
 }
 
 .club-img {
     display: block;
-     width: 568px; 
-    height: 350px; 
+    width: 568px;
+    height: 350px;
     background-color: #4E4E4E;
     display: flex;
     justify-content: center;
@@ -32,36 +32,36 @@
 
 
 /* Hide the previous button */
-.slick-prev {
+/* .slick-prev {
     display: none !important;
-}
+} */
 
 /* Hide the next button */
-.slick-next {
+/* .slick-next {
     display: none !important;
-}
+} */
 
 /* Optionally, hide the arrow icons */
-.slick-prev:before,
+/* .slick-prev:before,
 .slick-next:before {
     display: none;
-    /* color: #fff; */
-}
+    color: #fff; 
+} */
 
 
 
 /* Style the container for the dots */
-.slick-dots {
-    bottom: -30px; 
-}
+/* .slick-dots {
+    bottom: -30px;
+} */
 
 /* Style each dot */
 .slick-dots li button:before {
-    color:#D9D9D9;
-    font-size: 16px; 
+    color: #D9D9D9;
+    
 }
 
 /* Style the active dot */
 .slick-dots li.slick-active button:before {
-    color: #BD9141; 
+    color: #BD9141;
 }
