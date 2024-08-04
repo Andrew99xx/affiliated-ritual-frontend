@@ -416,10 +416,10 @@ html::-webkit-scrollbar-thumb {
   background-color: #0F0F0F;
   color: white;
   font-family: 'Public Sans', sans-serif;
-  display: flex;
+  /* display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: center;
+  align-items: center; */
 }
 
 .feedback-section .heading {

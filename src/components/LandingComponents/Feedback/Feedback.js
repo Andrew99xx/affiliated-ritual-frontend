@@ -1,10 +1,9 @@
 import React from 'react';
 import './Feedback.css';
-import { Swiper, SwiperSlide } from "swiper/react";
-import { Navigation, Pagination } from 'swiper/modules';
-import "swiper/css";
-import "swiper/css/navigation";
-import "swiper/css/pagination";
+import Slider from "react-slick";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
+import { FaQuoteRight } from "react-icons/fa6";
 
 function Feedback() {
     const feedback = [
@@ -46,33 +45,49 @@ function Feedback() {
         }
     ];
 
+    const settings = {
+        dots: true,
+        infinite: true,
+        speed: 500,
+        slidesToShow: 2,
+        slidesToScroll: 2,
+        centerMode: true,
+        responsive: [
+            {
+                breakpoint: 1400,
+                settings: {
+                    centerMode: true,
+                    slidesToShow: 1,
+                    slidesToScroll: 1,
+                    dots: true
+                }
+            }
+        ]
+    };
+
     return (
         <div className='feedback-main'>
             <p className='feedback-paragraph'>Some reviews that never lies. check their stories and let's change your career in a snap. Change the system!</p>
 
-            <Swiper
-                slidesPerView={3}
-                loop={true}
-                spaceBetween={30}
-                className="feedback-container"
-                navigation
-                pagination={{ clickable: true }}
-                modules={[Navigation, Pagination]}
-            >
-                {feedback.map((item, i) => (
-                    <SwiperSlide key={i} className="feedback-item">
-                        <div className='feedback-itp-wrapper'>
-                            <div className="feedback-icon">{item.icon}</div>
-                            <div className='feedback-tp-wrapper'>
-                                <div className="feedback-title">{item.title}</div>
-                                <div className="feedback-position">{item.position}</div>
+            {/* slider-container = coming from slick-carousel */}
+            <div className="slider-container">
+                <Slider {...settings} className='feedback-container'>
+                    {feedback.map((item, i) => (
+                        <div key={i} className="feedback-item">
+                            <div className='feedback-itp-wrapper'>
+                                <div className="feedback-icon">{item.icon}</div>
+                                <div className='feedback-tp-wrapper'>
+                                    <div className="feedback-title">{item.title}</div>
+                                    <div className="feedback-position">{item.position}</div>
+                                </div>
+                                < FaQuoteRight className='feedback-quote-right'/>
                             </div>
+                            <div className="feedback-description">{item.description}</div>
                         </div>
-                        <div className="feedback-description">{item.description}</div>
-                    </SwiperSlide>
-                ))}
-            </Swiper>
-        </div>
+                    ))}
+                </Slider>
+            </div>
+        </div >
     );
 }
 

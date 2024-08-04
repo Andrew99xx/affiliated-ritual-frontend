@@ -42,8 +42,7 @@ function WhyRitual() {
                 <div key={i} className="whyRitual-item">
                     < VscSparkle className='whyRitual-sparkle'/>
                     <div className='whyRitual-icon-title-wrapper'>
-                        <div className="whyRitual-icon">{item.icon}
-                        </div>
+                        <div className="whyRitual-icon">{item.icon}</div>
                         <div className="whyRitual-title">{item.title}</div>
                     </div>
                     <div className="whyRitual-description">{item.description}</div>

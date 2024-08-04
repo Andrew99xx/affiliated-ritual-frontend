@@ -1,16 +1,16 @@
 .feedback-main {
     font-family: 'Public Sans', sans-serif;
     color: white;
-    display: flex;
+    /* display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    gap: 20px;
-    
+    gap: 20px; */
+
 }
 
 .feedback-paragraph {
-    width: 424px !important;
+    width: 100%;
     margin-top: 0ch !important;
     padding-top: 0ch !important;
     font-weight: 400;
@@ -22,30 +22,20 @@
 }
 
 .feedback-container {
-    width: 50%;
-    padding-left: 32px;
-    padding-right: 32px;
-    display: flex;
-    flex-direction: row;
-    gap: 20px;
-    justify-content: center;
-    flex-wrap: wrap;
-    position: relative;
-    /* Required for absolute positioning of buttons */
+    margin-top: 40px;
 }
 
 .feedback-item {
-
     width: 424px !important;
     height: 288px !important;
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
     background-color: #4E4E4E;
+    display: flex !important;
+    flex-direction: column;
+    gap: 25px;
     padding: 32px;
     border-radius: 30px;
     box-sizing: border-box;
-   
+
 }
 
 .feedback-itp-wrapper {
@@ -55,6 +45,7 @@
     align-items: center;
     gap: 10px;
     width: 100%;
+    position: relative;
 }
 
 .feedback-icon {
@@ -89,61 +80,18 @@
     color: #A5A5A5;
 }
 
+.feedback-quote-right {
+    position: absolute;
+    font-size: 42px;
+    color: #BD9141;
+    right: 10px;
+    top: -5px;
+}
+
 .feedback-description {
     font-family: 'Inter', sans-serif;
     font-weight: 400;
     font-size: 16px;
     line-height: 23px;
     color: #D8D8D8;
-}
-
-/* Swiper Navigation Buttons */
-.swiper-button-prev,
-.swiper-button-next {
-    width: 44px !important;
-    height: 44px !important;
-    color: black !important;
-    border-radius: 50% !important;
-    padding: 10px !important;
-    background: linear-gradient(91.94deg, #B17E32 -8.77%, #F3E681 58.63%, #CF9F41 107.45%);
-    top: 50%;
-    
-    transform: translateY(15%);
-    box-sizing: content-box !important;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    z-index: 10;
-
-}
-
-.swiper-button-prev {
-    
-    left: -50px;
-    /* Adjust distance from left side */
-}
-
-.swiper-button-next {
-    right: -50px;
-    /* Adjust distance from right side */
-}
-
-/* Swiper Pagination Bullets */
-.swiper-pagination {
-   z-index: 10; 
-    display: flex !important;
-    justify-content: center !important;
-    align-items: center !important;
-    position: absolute !important;
-    /* bottom: -50px; */
-    
-}
-
-.swiper-pagination-bullet {
-    background-color: white !important;
-    margin: 0 5px !important;
-}
-
-.swiper-pagination-bullet-active {
-    background-color: #B17E32 !important;
 }
