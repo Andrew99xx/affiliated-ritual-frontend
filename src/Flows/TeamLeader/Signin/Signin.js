@@ -75,7 +75,7 @@ const Signin = ({ onSignin, onToggle }) => {
           // Call onSignin to handle the successful sign-in or if user uid exits
           onSignin(user);
           // Clear any existing 'uid' from localStorage
-          localStorage.removeItem('team_leader_uid');
+          // localStorage.removeItem('team_leader_uid');
           // Store the new 'uid' in localStorage
           localStorage.setItem('team_leader_uid', user.uid);
         } else {
