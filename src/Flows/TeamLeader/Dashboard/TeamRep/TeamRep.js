@@ -7,7 +7,8 @@ import FullTable from "./FullTable/FullTable";
 
 import { db } from "../../../../firebase-config";
 import { doc, getDoc, collection, where, getDocs, query } from "firebase/firestore";
-import moment from "moment"; // For easier time date manipulation
+import moment from "moment"; 
+// For easier time date manipulation
 
 const TeamRep = () => {
   const [fullDataItem, setFullDataItem] = useState(null);

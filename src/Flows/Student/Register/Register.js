@@ -12,8 +12,6 @@ import { updateUserEarnings } from "../../../service/updateUserEarnings.js";
 import { getCurrentTimestamp } from "../../../service/getCurrentTimestamp.js";
 
 
-
-
 const StudentRegister = ({ onToggle }) => {
   const [courses, setCourses] = useState([]);
   const [otp, setOtp] = useState('');
@@ -26,6 +24,7 @@ const StudentRegister = ({ onToggle }) => {
     lastName: "",
     phone: "",
     courseId: "",
+    courseIdsArray: [], // Updated to match the key
     dateOfBirth: "",
     aadharNumber: "",
     panNumber: "",
@@ -134,7 +133,9 @@ const StudentRegister = ({ onToggle }) => {
   const addUserToFirestore = async () => {
     try {
       // updating data in firestore 
-      await setDoc(doc(db, "users", uid), formData, { merge: true });
+      // Add uid to formData
+      const updatedFormData = { ...formData, uid: uid };
+      await setDoc(doc(db, "users", uid), updatedFormData, { merge: true });
       alert("Registration successful! User data saved to Firestore!");
     } catch (error) {
       console.error("Error adding user to Firestore: ", error);
@@ -142,9 +143,32 @@ const StudentRegister = ({ onToggle }) => {
     }
   };
 
+
+  // handle input changes 
+
+
   const handleChange = (e) => {
-    setFormData({ ...formData, [e.target.name]: e.target.value });
+    const { name, value } = e.target;
+
+    if (name === "courseId") {
+      setFormData((prevData) => {
+        // Check if courseId is already in courseIdsArray
+        const isCourseIdPresent = prevData.courseIdsArray && prevData.courseIdsArray.includes(value);
+
+        return {
+          ...prevData,
+          courseId: value,
+          courseIdsArray: isCourseIdPresent
+            ? prevData.courseIdsArray // Do not modify if courseId already exists
+            : [...(prevData.courseIdsArray || []), value], // Add courseId if it doesn't exist
+        };
+      });
+    } else {
+      setFormData({ ...formData, [name]: value });
+    }
   };
+
+
 
   const handleRegister = async (e) => {
     e.preventDefault();
@@ -159,7 +183,7 @@ const StudentRegister = ({ onToggle }) => {
       const referringUserId = await findUserIdByReferral(formData.referralId);
       const coursePrice = await findCoursePriceById(formData.courseId);
 
-      if (referringUserId == null || coursePrice == null){
+      if (referringUserId == null || coursePrice == null) {
         alert("Invalid referral ID or course ID");
       }
 
@@ -184,6 +208,8 @@ const StudentRegister = ({ onToggle }) => {
         </div>
         <div className="heading">Registration</div>
         <form className="formcontainer">
+
+          <div id="recaptcha-container"></div>
 
           <p>Phone Number <sup>*</sup></p>
           <input
@@ -284,7 +310,7 @@ const StudentRegister = ({ onToggle }) => {
           <button className="btn" onClick={handleRegister}>Register</button>
 
           <p className="alr">Already a member? <span onClick={onToggle}>Sign in</span></p>
-          <div id="recaptcha-container"></div>
+
           {/* keep this recaptcha-container within the form, may be external css may intefere in css */}
         </form>
       </div>

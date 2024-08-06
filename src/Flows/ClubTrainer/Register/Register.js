@@ -200,11 +200,14 @@ const TrainerRegister = ({ onToggle }) => {
           <input type="text" className="input" name="accountType" value={formData.accountType} onChange={handleChange} placeholder="Account Type" required />
           <p>Ifsc Code <sup>*</sup></p>
           <input type="text" className="input" name="ifscCode" value={formData.ifscCode} onChange={handleChange} placeholder="Ifsc Code" required />
+
+          <div id="recaptcha-container"></div>
+
           <button className="btn" onClick={handleRegister}>Register</button>
           <p className="alr">Already a member? <span onClick={onToggle}>Sign in</span></p>
         </form>
       </div>
-      <div id="recaptcha-container"></div>
+
       {message && <div style={{
         color: 'red',
       }}>{message}</div>}

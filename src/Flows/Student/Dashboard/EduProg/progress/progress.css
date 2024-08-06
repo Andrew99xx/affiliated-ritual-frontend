@@ -1,0 +1,163 @@
+.progress{
+    background-color: #0A0A0A;
+}
+.progress .prheader{
+    display: flex;
+    justify-content: space-between;
+    padding: 1rem 3rem;
+    border-bottom: 1px solid #313D4F;
+    background-color: #0A0A0A !important;
+}
+.progress .prheader .heading{
+    font-size: 20px;
+    color: #EBD672;
+    font-weight: 700;
+    text-transform: uppercase;
+}
+.linethick{
+    align-items: center;
+    width: 90%;
+    height: 7px;
+    border-radius: 50px;
+    background: linear-gradient(68.42deg, #B17E32 -8.44%, #F3E681 54.36%, #CF9F41 99.85%);
+}
+.progress .content{
+    padding: 3rem 2rem;
+    
+}
+
+.dialogs .swiper-wrapper{
+    justify-content: space-around;
+    padding-top: 2rem;
+    padding-left: 1rem;
+}
+.center{
+    display: flex;
+    justify-content: center;
+}
+
+.dots{
+    display: flex;
+    justify-content: space-around;
+    margin-top: -1rem;
+    min-width: 1400px;
+
+
+}
+
+.dialogs{
+    display: flex;
+    justify-content: space-evenly;
+    padding-top: 2rem;
+}
+.dots *{
+    height: 30px;
+    border-radius: 50%;
+    width: 30px;
+    background: linear-gradient(68.42deg, #B17E32 -8.44%, #F3E681 54.36%, #CF9F41 99.85%);
+
+}
+.dialog{
+    height: 169.62px;
+    max-width: 284px;
+    background-color: #3E3E3E;
+    padding: 2rem 2rem;
+    margin: 0 3.7rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    border-radius: 15px;
+}
+.dialog .heading{
+    text-align: center;
+    font-size: 20px;
+    font-weight: 700;
+    color: #EBD672;
+
+}
+
+.dialog .text{
+    text-align: center;
+    color: #fff;
+    font-size: 16px;
+    line-height: 21.82px;
+}
+
+
+.content-container {
+    overflow: hidden; /* Add scrolling to the container */
+  }
+  
+  .contente {
+    padding: 3rem 1rem;
+  }
+  
+  .dialogs {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    padding-top: 2rem;
+  }
+  
+  .dialog {
+    height: 169.62px;
+    width: calc(50% - 20px); /* Adjust width for responsiveness */
+    background-color: #3E3E3E;
+    padding: 2rem;
+    margin-bottom: 20px; /* Add margin between dialogs */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-radius: 15px;
+  }
+  
+  .dialog .heading {
+    text-align: center;
+    font-size: 20px;
+    font-weight: 700;
+    color: #EBD672;
+  }
+  
+  .dialog .text {
+    text-align: center;
+    color: #fff;
+    font-size: 16px;
+    line-height: 21.82px;
+  }
+  
+  
+  .dots * {
+    height: 30px;
+    width: 30px;
+    background: linear-gradient(68.42deg, #B17E32 -8.44%, #F3E681 54.36%, #CF9F41 99.85%);
+    border-radius: 50%;
+  }
+
+  @media screen and (max-width: 1750px) {
+    .dot3{
+        z-index: -1;
+    }
+}
+
+@media screen and (max-width: 1270px) {
+    .dot2{
+        z-index: -1;
+    }
+}
+
+@media screen and (max-width: 668px) {
+    .dialogs .swiper-wrapper{
+        justify-content: center;
+    }
+   .dots{ display: flex;
+    justify-content: space-between;
+    margin-top: -1rem;
+    min-width: 1400px;
+    margin-left: 9rem;}
+}
+
+.progress .swiper-horizontal {
+    margin-right: 4rem;
+}

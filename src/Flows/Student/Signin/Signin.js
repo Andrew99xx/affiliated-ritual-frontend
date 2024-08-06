@@ -14,12 +14,16 @@ const Signin = ({ onSignin, onToggle }) => {
   const [showSign, setShowSign] = useState(true);
 
   useEffect(() => {
-    window.recaptchaVerifier = new RecaptchaVerifier(auth, 'recaptcha-container', {
-      'size': 'invisible',
-      'callback': (response) => {
-        console.log('reCAPTCHA solved');
-      }
-    });
+    // Ensure the recaptcha-container element exists
+    const recaptchaContainer = document.getElementById('recaptcha-container');
+    if (recaptchaContainer) {
+      window.recaptchaVerifier = new RecaptchaVerifier(auth, recaptchaContainer, {
+        'size': 'invisible',
+        'callback': (response) => {
+          console.log('reCAPTCHA solved');
+        }
+      });
+    }
 
     // Cleanup on component unmount
     return () => {
@@ -34,7 +38,6 @@ const Signin = ({ onSignin, onToggle }) => {
     setPhone(phone);
     sendVerificationCode(phone);
     setShowSign(false);
-
   };
 
   const handleOtpVerify = (otpComing) => {
@@ -70,8 +73,8 @@ const Signin = ({ onSignin, onToggle }) => {
 
         const userExists = await checkUserExists(user.uid);
         if (userExists) {
-          // Call onSignin to handle the successful sign-in or if user uid exits
           onSignin(user);
+          localStorage.setItem('student_uid', user.uid);
         } else {
           alert("You are not registered");
         }
