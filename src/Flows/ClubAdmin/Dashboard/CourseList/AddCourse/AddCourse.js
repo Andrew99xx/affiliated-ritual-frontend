@@ -1,9 +1,11 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import close from "./blackcr.png";
 import "./AddCourse.css";
 
-import { db } from "../../../../../firebase-config.js";
 import { collection, addDoc } from "firebase/firestore";
+import { db } from "../../../../../firebase-config.js";
+import {getClubTrainers} from "../../../../../service/getUsers/getClubTrainers.js"
+
 
 const AddCourse = ({ showAddCourse, closeAddCourse }) => {
   const [formState, setFormState] = useState({
@@ -16,12 +18,20 @@ const AddCourse = ({ showAddCourse, closeAddCourse }) => {
     registrationFees: '',
     numInstallments: 1,
     numModules: 1,
-    selectedInstructor: '',
+    selectedTrainer: '',
     modules: [{ name: '', description: '', date: '' }],
     installments: [{ date: '' }],
   });
 
-  const instructors = ["Instructor 1", "Instructor 2", "Instructor 3"];
+  const [clubTrainers, setClubTrainers] = useState([]); 
+
+  useEffect(() => {
+    const fetchClubTrainers = async () => {  
+      const trainers = await getClubTrainers(); 
+      setClubTrainers(trainers);  
+    };
+    fetchClubTrainers(); 
+  }, []);  
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -171,20 +181,20 @@ const AddCourse = ({ showAddCourse, closeAddCourse }) => {
             />
 
             <div className="sep">
-              <h3>Select Instructor</h3>
+              <h3>Select Trainer</h3>
               <select
                 className="inputinstall"
-                name="selectedInstructor"
-                value={formState.selectedInstructor}
+                name="selectedTrainer"
+                value={formState.selectedTrainer}
                 onChange={handleChange}
               >
                 <option value="" disabled>Select Instructor</option>
-                {instructors.map((instructor, index) => (
+                {clubTrainers.map((instructor, index) => (
                   <option
                     key={index}
-                    value={instructor}
+                    value={instructor.id}
                   >
-                    {instructor}
+                    {instructor.firstName}
                   </option>
                 ))}
               </select>

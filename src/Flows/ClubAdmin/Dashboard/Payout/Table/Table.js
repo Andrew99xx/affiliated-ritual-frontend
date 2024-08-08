@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import moment from 'moment';
 import './Table.css';
 
-const Table = ({ data, onViewFull, showAction = true }) => {
+const Table = ({ data,  onClickPay, showAction = true }) => {
   const [displayCount, setDisplayCount] = useState(5);
 
   // Generate last six months
@@ -11,7 +11,8 @@ const Table = ({ data, onViewFull, showAction = true }) => {
     for (let i = 0; i < 6; i++) {
       months.push(moment().subtract(i, 'months').format('MMMM YYYY'));
     }
-    return months.reverse(); // Reverse to display from oldest to newest
+    return months.reverse(); 
+    // Reverse to display from oldest to newest
   };
 
   const lastSixMonths = getLastSixMonths();
@@ -36,25 +37,21 @@ const Table = ({ data, onViewFull, showAction = true }) => {
         </thead>
         <tbody className='tablebody'>
           {data && data.slice(0, displayCount).map((item) => {
-            // Ensure monthlyEarnings is defined and is an object
-            const monthlyEarnings = item.monthlyEarnings || {};
-
             // Calculate total earnings for each user
-            const totalEarnings = lastSixMonths.reduce((acc, month) =>
-              acc + (monthlyEarnings[month] || 0), 0);
+            const totalEarnings = lastSixMonths.reduce((acc, month) => acc + (item.monthlyEarnings[month] || 0), 0);
 
             return (
               <tr key={item.id}>
-                <td>{typeof item.id === 'string' ? item.id.slice(0, 4) + "..." : "NA"}</td>
-                <td>{item.firstName || "NA"}</td>
+                <td>{item.id.slice(0, 4) + "..."}</td>
+                <td>{item.firstName}</td>
                 {lastSixMonths.map(month => (
-                  <td key={month}>{monthlyEarnings[month] !== undefined ? monthlyEarnings[month] : "0"}</td>
+                  <td key={month}>{item.monthlyEarnings[month] || 0}</td>
                 ))}
                 <td>{totalEarnings}</td>
                 {showAction && (
                   <td className='btns'>
-                    <a className='btn' href="#" onClick={() => onViewFull(item)}>
-                      View full
+                    <a className='btn' href="#" onClick={() => onClickPay(item)}>
+                      Pay
                     </a>
                   </td>
                 )}

@@ -81,24 +81,24 @@ const CourseList = () => {
           <table className='table' cellSpacing={0}>
             <thead className='tablehead'>
               <tr>
-                <th>ID</th>
+                <th>Course ID</th>
                 <th>Course Name</th>
                 <th>Start Date</th>
                 <th>End Date</th>
                 <th>Price</th>
-                <th>Instructor</th>
+                <th>Trainer Id </th>
                 <th>Action</th>
               </tr>
             </thead>
             <tbody className='tablebody'>
               {courses.slice(0, displayCount).map((course) => (
                 <tr key={course.id}>
-                  <td>{course.id}</td>
+                  <td>{course.id.slice(0,7) + "..." || "Not Found"}</td>
                   <td>{course.courseName}</td>
                   <td>{course.startDate}</td>
                   <td>{course.endDate}</td>
                   <td>{course.coursePrice}</td>
-                  <td>{course.selectedInstructor}</td>
+                  <td>{course.selectedTrainer.slice(0,7) + "..." || "Not Found"}</td>
                   <td className='btns'>
                     <img className='icon' src={eye} alt="View" onClick={() => handleEyeClick(course.id)} />
                     <img className='icon' src={edit} alt="Edit" onClick={() => handleEditCourse(course.id)} />

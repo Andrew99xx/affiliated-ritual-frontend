@@ -4,7 +4,7 @@ import "./Signin.css";
 import Sign from './Signincomp/Sign';
 import Signotp from './Signincomp/Signotp';
 import { auth } from '../../../firebase-config';
-import { checkUserExists } from '../../../service/checkUserExists';
+
 
 const Signin = ({ onSignin }) => {
   const [email, setEmail] = useState('');
@@ -14,20 +14,23 @@ const Signin = ({ onSignin }) => {
   const [showSign, setShowSign] = useState(true);
 
   useEffect(() => {
-    window.recaptchaVerifier = new RecaptchaVerifier(auth, 'recaptcha-container', {
-      'size': 'invisible',
-      'callback': (response) => {
-        console.log('reCAPTCHA solved');
-      }
-    });
+    const recaptchaContainer = document.getElementById('recaptcha-container');
+    if (recaptchaContainer) {
+      window.recaptchaVerifier = new RecaptchaVerifier(auth, 'recaptcha-container', {
+        'size': 'invisible',
+        'callback': (response) => {
+          console.log('reCAPTCHA solved');
+        }
+      });
+    }
 
-    // Cleanup on component unmount
     return () => {
       if (window.recaptchaVerifier) {
         window.recaptchaVerifier.clear();
       }
     };
   }, []);
+
 
   const handleSignInClick = (email, phone) => {
     setEmail(email);
@@ -69,14 +72,6 @@ const Signin = ({ onSignin }) => {
         alert(`Phone number verified! User: ${user.uid}`);
 
         onSignin(user);
-
-        // const userExists = await checkUserExists(user.uid);
-        // if (userExists) {
-        // 
-        //   onSignin(user);
-        // } else {
-        //   alert("You are not registered");
-        // }
       })
       .catch((error) => {
         console.error('Error verifying OTP:', error);

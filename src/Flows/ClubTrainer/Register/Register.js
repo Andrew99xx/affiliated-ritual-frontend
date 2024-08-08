@@ -26,6 +26,7 @@ const TrainerRegister = ({ onToggle }) => {
     ifscCode: "",
     createdAt: "",
     updatedAt: "",
+    userTypes: "club_trainer",
   });
 
   useEffect(() => {

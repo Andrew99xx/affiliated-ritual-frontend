@@ -9,7 +9,8 @@ export const findCoursePriceById = async (courseId) => {
 
         if (courseDoc.exists()) {
             const courseData = courseDoc.data();
-            return courseData.coursePrice; // coursePrice is in database
+            return courseData.coursePrice; 
+            // coursePrice is in database
         } else {
             console.log("No such course found!");
             return null;

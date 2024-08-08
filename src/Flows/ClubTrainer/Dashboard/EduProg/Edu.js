@@ -1,19 +1,74 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import "./Edu.css";
 
-import Progress from "../../../../components/progress/Progress";
+import Progress from "./progress/Progress";
 import Box from "../../../../components/box/Box";
 import Graph from "../../../../components/Graph/Graph";
 import Bargraph from "../../../../components/Graph/Bargraph";
 
-// importing assests
+import { db } from "../../../../firebase-config";
+import { where, getDocs, collection, query } from "firebase/firestore";
+
+// importing assets
 import user from "./users.png";
 import orders from "./orders.png";
 import pending from "./pending.png";
 import sales from "./sales.png";
 
 const Edu = () => {
- 
+  const [courseData, setCourseData] = useState([]);
+  const [trainer_uid, setTrainerUid] = useState(null);
+
+  useEffect(() => {
+    // Retrieve UID from local storage and set state
+    const uid = localStorage.getItem('trainer_uid');
+    if (uid) {
+      setTrainerUid(uid);
+    } else {
+      console.error("No trainer UID found in local storage.");
+    }
+  }, []);
+
+  useEffect(() => {
+    if (trainer_uid) {
+      async function fetchCourseData() {
+        const data = await getCoursesByTrainer(trainer_uid);
+        setCourseData(data);
+        console.log(data);
+      }
+      fetchCourseData();
+    }
+  }, [trainer_uid]); // Dependency array ensures this runs only when trainer_uid is set
+
+  const getCoursesByTrainer = async (trainer_uid) => {
+
+    if (!trainer_uid) {
+      console.error("Trainer UID is not available.");
+      return [];
+    }
+
+    try {
+      const coursesRef = collection(db, "courses");
+      const q = query(coursesRef, where("selectedTrainer", "==", trainer_uid));
+      const querySnapshot = await getDocs(q);
+
+      if (querySnapshot.empty) {
+        console.log("No courses found for this trainer.");
+        return [];
+      }
+
+      const courses = [];
+      querySnapshot.forEach((doc) => {
+        courses.push({ id: doc.id, ...doc.data() });
+      });
+
+      // returning array
+      return courses;
+    } catch (error) {
+      console.error("Error fetching courses: ", error);
+      return [];
+    }
+  };
 
   return (
     <div className="edu">
@@ -26,13 +81,21 @@ const Edu = () => {
       </div>
 
       <div className="graphes">
-       <Graph/>
-       <Bargraph/>
-      
-
+        <Graph />
+        <Bargraph />
       </div>
-      <div className="courses"></div>
-      <div className="pro"><Progress/></div>
+      <div
+        className="courses"
+        style={{
+          color: "white",
+          fontSize: "44px"
+        }}
+      >
+        Your courses
+      </div>
+      <div className="pro">
+        <Progress data={courseData} />
+      </div>
     </div>
   );
 };

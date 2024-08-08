@@ -56,6 +56,7 @@ const Edu = () => {
     }
 
     try {
+      // all the courses a students had purchased 
       const courseIdsArray = await getCourseIdsOfStudent(student_uid);
 
       if (courseIdsArray.length === 0) {
@@ -106,10 +107,11 @@ const Edu = () => {
       <div
         className="courses"
         style={{
-          color: "white"
+          color: "white",
+          fontSize : "44px"
         }}
       >
-        courses
+        Your courses
       </div>
       <div className="pro">
         <Progress data={courseData} />

@@ -1,7 +1,10 @@
 import React, { useState, useEffect } from "react";
 import close from "./blackcr.png";
 import "./EditCourse.css";
+
 import { db } from "../../../../../firebase-config";
+import { getClubTrainers } from "../../../../../service/getUsers/getClubTrainers";
+
 import { doc, getDoc, updateDoc } from "firebase/firestore";
 
 const EditCourse = ({ showEditCourse, closeEditCourse, courseId }) => {
@@ -14,12 +17,22 @@ const EditCourse = ({ showEditCourse, closeEditCourse, courseId }) => {
     registrationFees: '',
     numInstallments: 1,
     numModules: 1,
-    selectedInstructor: '',
+    selectedTrainer: '',
     modules: [{ name: '', description: '', date: '' }],
     installments: [{ date: '' }],
   });
 
-  const instructors = ["Instructor 1", "Instructor 2", "Instructor 3"];
+
+
+  const [clubTrainers, setClubTrainers] = useState([]);
+
+  useEffect(() => {
+    const fetchClubTrainers = async () => {
+      const trainers = await getClubTrainers();
+      setClubTrainers(trainers);
+    };
+    fetchClubTrainers();
+  }, []);
 
   useEffect(() => {
     if (courseId) {
@@ -35,7 +48,7 @@ const EditCourse = ({ showEditCourse, closeEditCourse, courseId }) => {
             endDate: courseData.endDate || '',
             coursePrice: courseData.coursePrice || '',
             registrationFees: courseData.registrationFees || '',
-            selectedInstructor: courseData.selectedInstructor || '',
+            selectedTrainer: courseData.selectedTrainer || '',
             numInstallments: courseData.installments.length || 1,
             numModules: parseInt(courseData.numModules) || 1,
             modules: courseData.modules || [{ name: '', description: '', date: '' }],
@@ -106,7 +119,7 @@ const EditCourse = ({ showEditCourse, closeEditCourse, courseId }) => {
       endDate: formState.endDate,
       coursePrice: formState.coursePrice,
       registrationFees: formState.registrationFees,
-      selectedInstructor: formState.selectedInstructor,
+      selectedTrainer: formState.selectedTrainer,
       modules: formState.modules,
       installments: formState.installments,
       numInstallments: formState.installments.length,
@@ -214,19 +227,20 @@ const EditCourse = ({ showEditCourse, closeEditCourse, courseId }) => {
             />
 
             <div className="sep">
-              <h3>Select Instructor</h3>
+              <h3>Select Trainer</h3>
               <select
                 className="inputinstall"
-                name="selectedInstructor"
-                value={formState.selectedInstructor}
+                name="selectedTrainer"
+                value={formState.selectedTrainer}
                 onChange={handleChange}
               >
                 <option value="" disabled>Select Instructor</option>
-                {instructors.map((instructor, index) => (
+                {clubTrainers.map((trainer, index) => (
                   <option
                     key={index}
-                    value={instructor}>
-                    {instructor}
+                    value={trainer.id}
+                  >
+                    {trainer.firstName}
                   </option>
                 ))}
               </select>

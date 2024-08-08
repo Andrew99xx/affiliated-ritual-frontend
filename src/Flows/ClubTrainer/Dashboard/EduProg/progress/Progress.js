@@ -30,6 +30,7 @@ const Progress = ({ data }) => {
                   <SwiperSlide key={moduleIndex} className="dialog">
                     <div className="heading">{module.name}</div>
                     <p className="text">{module.description}</p>
+                    <p className="text">Action Button - todo </p>
                   </SwiperSlide>
                 ))}
               </Swiper>
