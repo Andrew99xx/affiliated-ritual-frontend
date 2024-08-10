@@ -12,7 +12,7 @@ import Pay from "../../../../components/Pay/Pay.js"
 import Table from "./Table/Table.js";
 
 
-import { getclubTrainersEarnings } from "../../../../service/getUsersEarnings/getClubTrainersEarnings.js"
+import { getClubTrainersEarnings } from "../../../../service/getUsersEarnings/getClubTrainersEarnings.js"
 import { getTeamLeadersEarnings } from "../../../../service/getUsersEarnings/getTeamLeadersEarnings.js"
 import { getTeamMembersEarnings } from "../../../../service/getUsersEarnings/getTeamMembersEarnings.js"
 
@@ -46,10 +46,6 @@ const Payout = () => {
 
   
 
- 
-
- 
-
   useEffect(() => {
     const fetchEarnings = async () => {
       const teamLeadersEarnings = await getTeamLeadersEarnings();
@@ -58,7 +54,7 @@ const Payout = () => {
       const membersEarnings = await getTeamMembersEarnings();
       setTeamMembersData(membersEarnings);
 
-      const trainerEarnings = await getclubTrainersEarnings();
+      const trainerEarnings = await getClubTrainersEarnings();
       setClubTrainersData(trainerEarnings);
     };
 
@@ -81,13 +77,15 @@ const Payout = () => {
       </div>
 
       <div className="tablespayout">
+
+
         <div className="sl">
           <h1 className="heading">Trainer</h1>
           <h1 className="viw">View All</h1>
         </div>
         <div className="tb">
           <Table
-            data={teamLeadersData.slice(0, displayCount)} // Pass the team leaders data
+            data={clubTrainersData.slice(0, displayCount)} // Pass the team leaders data
             onClickPay={showPayModal} // Pass the onClick handler for actions
           />
         </div>

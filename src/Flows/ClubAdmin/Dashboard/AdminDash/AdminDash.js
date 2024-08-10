@@ -5,11 +5,16 @@ import Bargraph from "../../../../components/Graph/Bargraph";
 import Smallbar from "../../../../components/Smallbar/Smallbar";
 import PieChart from "../../../../components/Pie/PieChart";
 import Table from "../../../../components/Table/Table";
+
+// different table for trainer 
 import TrainerTable from "../../../../components/Trainer/TrainerTable";
+
+
 import Pay from "../../../../components/Pay/Pay";
 
 import { getTeamLeadersEarnings } from "../../../../service/getUsersEarnings/getTeamLeadersEarnings"
 import { getTeamMembersEarnings } from "../../../../service/getUsersEarnings/getTeamMembersEarnings"
+import { getClubTrainersEarnings } from "../../../../service/getUsersEarnings/getClubTrainersEarnings.js"
 
 import Team from "./Team/Team";
 import Student from "./Student/Student";
@@ -25,6 +30,7 @@ const AdminDa = () => {
 
   const [teamLeadersEarnings, setTeamLeadersEarnings] = useState([]);
   const [teamMembersEarnings, setTeamMembersEarnings] = useState([]);
+  const [clubTrainersEarnings, setClubTrainersEarnings] = useState([])
 
   const [showTeam, setShowTeam] = useState(false);
   const [showStudent, setShowStudent] = useState(false);
@@ -37,6 +43,9 @@ const AdminDa = () => {
 
       const teamMembersEarnings = await getTeamMembersEarnings();
       setTeamMembersEarnings(teamMembersEarnings);
+
+      const clubTrainersEarnings = await getClubTrainersEarnings();
+      setClubTrainersEarnings(clubTrainersEarnings);
     };
 
     fetchEarnings();
@@ -88,7 +97,7 @@ const AdminDa = () => {
       <div className="tables">
 
         <div className="hes">
-          <h1 className="heading">Teams</h1> 
+          <h1 className="heading">Team Members</h1>
           <h2 className="subha" onClick={ShowTeam}>View All</h2>
         </div>
         <Table data={teamMembersEarnings} onViewFull={() => { }} showAction={false} />
@@ -104,7 +113,8 @@ const AdminDa = () => {
           <h1 className="heading">Trainer</h1>{" "}
           <h2 className="subha" onClick={ShowTrainer}>View All</h2>
         </div>
-        <TrainerTable data={data} onViewFull={() => { }} showAction={true} />
+        {/* <TrainerTable data={data} onViewFull={() => { }} showAction={true} /> */}
+        <Table data={clubTrainersEarnings} onViewFull={() => { }} showAction={false} />
 
       </div>
     </div>

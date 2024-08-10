@@ -1,20 +1,20 @@
 import { findMonthlyEarningsForUser } from "../findMonthlyEarningsForUser";
 import { getClubTrainers } from "../getUsers/getClubTrainers";
 
-export const getclubTrainersEarnings = async () => {
+export const getClubTrainersEarnings = async () => {
     try {
       const clubTrainers = await getClubTrainers();
 
       // returns array
       const clubTrainersEarnings = await Promise.all(
-        clubTrainers.map(async (teamLeader) => {
+        clubTrainers.map(async (trainer) => {
 
           // getting object, 
-          const monthlyEarnings = await findMonthlyEarningsForUser(teamLeader.id);
+          const monthlyEarnings = await findMonthlyEarningsForUser(trainer.id);
 
           // each single elements is object
           // we are not iterating montlyEarnings, 
-          return { ...teamLeader, monthlyEarnings };
+          return { ...trainer, monthlyEarnings };
         })
       );
 
