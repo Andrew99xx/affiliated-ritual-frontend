@@ -1,4 +1,4 @@
-import React, { useState,useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import "./Dashboard.css";
 import Edu from "./EduProg/Edu";
 import Certificate from "./Certificate/Certificate";
@@ -77,7 +77,7 @@ const Dashboard = () => {
         <div className="logout" onClick={openModal}> <img src={logout} alt="" /> <span>Logout</span></div>
 
       </div>
- <Logout showModal={showModal} closeModal={closeModal} />
+      <Logout showModal={showModal} closeModal={closeModal} />
 
       <div className="maincontent">
         <div className="header">
