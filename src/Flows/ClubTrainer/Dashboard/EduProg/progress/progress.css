@@ -146,6 +146,19 @@
     border-radius: 50%;
 }
 
+
+.btn{
+    background: linear-gradient(68.42deg, #B17E32 -8.44%, #F3E681 54.36%, #CF9F41 99.85%);
+    color: black;
+    text-decoration: none;
+    padding: .6rem 1.2rem;
+    text-wrap: nowrap;
+
+
+}
+
+
+
 @media screen and (max-width: 1750px) {
     .dot3 {
         z-index: -1;

@@ -11,11 +11,11 @@ import Pay from "../../../../components/Pay/Pay.js"
 
 import Table from "./Table/Table.js";
 
-import { findMonthlyEarningsForUser } from "../../../../service/findMonthlyEarningsForUser.js";
-import { getTeamLeaders } from "../../../../service/getUsers/getTeamLeaders.js"
-import { getTeamMembers } from "../../../../service/getUsers/getTeamMembers.js"
 
-// import { getTeamMembers } from "../../../../service/users/getTeamMembers.js";
+import { getclubTrainersEarnings } from "../../../../service/getUsersEarnings/getClubTrainersEarnings.js"
+import { getTeamLeadersEarnings } from "../../../../service/getUsersEarnings/getTeamLeadersEarnings.js"
+import { getTeamMembersEarnings } from "../../../../service/getUsersEarnings/getTeamMembersEarnings.js"
+
 
 
 const Payout = () => {
@@ -44,41 +44,25 @@ const Payout = () => {
     setDisplayCount(displayCount + 5);
   };
 
-  async function getTeamLeadersWithMonthlyEarnings() {
-    try {
-      const teamLeaders = await getTeamLeaders();
-      const teamLeadersWithMonthlyEarnings = await Promise.all(
-        teamLeaders.map(async (teamLeader) => {
-          const monthlyEarnings = await findMonthlyEarningsForUser(teamLeader.id);
-          return { ...teamLeader, monthlyEarnings };
-        })
-      );
-      setTeamLeadersData(teamLeadersWithMonthlyEarnings);
-    } catch (error) {
-      console.error("Error fetching team leaders with monthly earnings:", error);
-    }
-  }
+  
 
-  async function getTeamMembersWithMonthlyEarnings() {
-    try {
-      const teamMembers = await getTeamMembers();
-      console.log(teamMembers);
-      const teamMembersWithMonthlyEarnings = await Promise.all(
-        teamMembers.map(async (teamMember) => {
-          const monthlyEarnings = await findMonthlyEarningsForUser(teamMember.id);
-          return { ...teamMember, monthlyEarnings };
-        })
-      );
-      console.log(teamMembersWithMonthlyEarnings);
-      setTeamMembersData(teamMembersWithMonthlyEarnings);
-    } catch (error) {
-      console.error("Error fetching team leaders with monthly earnings:", error);
-    }
-  }
+ 
+
+ 
 
   useEffect(() => {
-    getTeamLeadersWithMonthlyEarnings();
-    getTeamMembersWithMonthlyEarnings();
+    const fetchEarnings = async () => {
+      const teamLeadersEarnings = await getTeamLeadersEarnings();
+      setTeamLeadersData(teamLeadersEarnings);
+
+      const membersEarnings = await getTeamMembersEarnings();
+      setTeamMembersData(membersEarnings);
+
+      const trainerEarnings = await getclubTrainersEarnings();
+      setClubTrainersData(trainerEarnings);
+    };
+
+    fetchEarnings();
   }, []);
 
   return (

@@ -4,7 +4,7 @@ import { doc, setDoc, getDoc } from "firebase/firestore";
 import "./Register.css";
 import { auth, db } from "../../../firebase-config";
 import OtpInputContainer from "../Signin/Signincomp/OtpInputContainer";
-import { getCurrentTimestamp } from "../../../service/getCurrentTimestamp";
+import { getCurrentTimestamp } from "../../../service/time/getCurrentTimestamp";
 
 const LeaderRegister = ({ onToggle }) => {
   const [otp, setOtp] = useState('');

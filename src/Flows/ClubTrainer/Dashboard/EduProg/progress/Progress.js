@@ -4,7 +4,7 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 
 // Update the Progress component to accept courseData as a prop
-const Progress = ({ data }) => {
+const Progress = ({ data, onClickAttendance }) => {
   return (
     <div className="progress">
       {data.map((course, index) => (
@@ -30,7 +30,14 @@ const Progress = ({ data }) => {
                   <SwiperSlide key={moduleIndex} className="dialog">
                     <div className="heading">{module.name}</div>
                     <p className="text">{module.description}</p>
-                    <p className="text">Action Button - todo </p>
+
+                    <div>
+                      <div
+                        className='btn'
+                        onClick={() => onClickAttendance(course.id, course.courseName, module.name)}>
+                        Attendance
+                      </div>
+                    </div>
                   </SwiperSlide>
                 ))}
               </Swiper>

@@ -1,7 +1,7 @@
 import { doc, getDoc, collection, setDoc } from "firebase/firestore";
-import { db } from "../firebase-config.js";
-import { getCurrentTimestamp } from "./getCurrentTimestamp.js";
-import { findUserIdByReferral } from "./findUserIdByReferral.js";
+import { db } from "../../firebase-config.js";
+import { getCurrentTimestamp } from "../time/getCurrentTimestamp.js";
+import { findUserIdByReferral } from "../findUserIdByReferral.js";
 
 // Update earnings according to userType
 export const updateUserEarnings = async (userId, coursePrice, studentUID) => {

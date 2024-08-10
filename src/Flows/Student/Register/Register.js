@@ -8,8 +8,8 @@ import OtpInputContainer from "../Signin/Signincomp/OtpInputContainer.js";
 import { auth, db } from "../../../firebase-config.js";
 import { findUserIdByReferral } from "../../../service/findUserIdByReferral.js";
 import { findCoursePriceById } from "../../../service/findCoursePriceById.js";
-import { updateUserEarnings } from "../../../service/updateUserEarnings.js";
-import { getCurrentTimestamp } from "../../../service/getCurrentTimestamp.js";
+import { updateUserEarnings } from "../../../service/updateEarnings/updateUserEarnings.js";
+import { getCurrentTimestamp } from "../../../service/time/getCurrentTimestamp.js";
 
 
 const StudentRegister = ({ onToggle }) => {
