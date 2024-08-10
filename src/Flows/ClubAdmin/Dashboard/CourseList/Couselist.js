@@ -38,6 +38,8 @@ const CourseList = () => {
     setDisplayCount(displayCount + 5);
   };
 
+
+  // add 
   const handleAddCourse = () => {
     setShowAddCourse(true); // Show the modal when the add icon is clicked
   };
@@ -45,6 +47,8 @@ const CourseList = () => {
     setShowAddCourse(false); // Hide the modal when close button is clicked
   };
 
+
+  // installment 
   const handleEyeClick = (courseId) => {
     setSelectedCourseId(courseId);
     setShowInstallment(true); // Show the modal when the eye icon is clicked
@@ -53,6 +57,8 @@ const CourseList = () => {
     setShowInstallment(false); // Hide the modal when close button is clicked
   };
 
+
+  // delete 
   const handleDeleteClick = (courseId) => {
     setSelectedCourseId(courseId);
     setShowDelete(true); // Show the modal when the delete icon is clicked
@@ -61,6 +67,8 @@ const CourseList = () => {
     setShowDelete(false); // Hide the modal when close button is clicked
   };
 
+
+  // edit 
   const handleEditCourse = (courseId) => {
     setSelectedCourseId(courseId);
     setShowEditCourse(true); // Show the modal when the edit icon is clicked
