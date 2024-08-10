@@ -4,7 +4,6 @@ import "./EditCourse.css";
 
 import { db } from "../../../../../firebase-config";
 import { getClubTrainers } from "../../../../../service/getUsers/getClubTrainers";
-
 import { doc, getDoc, updateDoc } from "firebase/firestore";
 
 const EditCourse = ({ showEditCourse, closeEditCourse, courseId }) => {
@@ -19,10 +18,8 @@ const EditCourse = ({ showEditCourse, closeEditCourse, courseId }) => {
     numModules: 1,
     selectedTrainer: '',
     modules: [{ name: '', description: '', date: '' }],
-    installments: [{ date: '' }],
+    installments: [{ date: '', price: '' }],
   });
-
-
 
   const [clubTrainers, setClubTrainers] = useState([]);
 
@@ -52,7 +49,7 @@ const EditCourse = ({ showEditCourse, closeEditCourse, courseId }) => {
             numInstallments: courseData.installments.length || 1,
             numModules: parseInt(courseData.numModules) || 1,
             modules: courseData.modules || [{ name: '', description: '', date: '' }],
-            installments: courseData.installments || [{ date: '' }],
+            installments: courseData.installments || [{ date: '', price: '' }],
           });
         } else {
           console.log("No such document!");
@@ -72,7 +69,7 @@ const EditCourse = ({ showEditCourse, closeEditCourse, courseId }) => {
         const duration = parseInt(value);
         const endDate = calculateEndDate(updatedState.startDate, duration);
         updatedState.endDate = endDate;
-        updatedState.numInstallments = duration - 1;
+        updatedState.numInstallments = duration;
       }
 
       if (name === 'startDate') {
@@ -96,19 +93,38 @@ const EditCourse = ({ showEditCourse, closeEditCourse, courseId }) => {
   const handleModuleChange = (index, field, value) => {
     const updatedModules = [...formState.modules];
     updatedModules[index] = { ...updatedModules[index], [field]: value };
-    setFormState(prevState => ({ ...prevState, modules: updatedModules }));
-  };
 
-  const handleInstallmentChange = (index, value) => {
-    const updatedInstallments = [...formState.installments];
-    updatedInstallments[index] = { ...updatedInstallments[index], date: value };
-    setFormState(prevState => ({ ...prevState, installments: updatedInstallments }));
+    const updatedInstallments = updatedModules.map(module => ({
+      date: module.date,
+      price: (formState.coursePrice / updatedModules.length).toFixed(2)
+    }));
+
+    setFormState(prevState => ({
+      ...prevState,
+      modules: updatedModules,
+      installments: updatedInstallments,
+      numInstallments: updatedModules.length,
+      courseDuration: updatedModules.length,
+    }));
   };
 
   const handleNumModulesChange = (event) => {
     const modules = parseInt(event.target.value);
     const updatedModules = Array.from({ length: modules }, (_, i) => formState.modules[i] || { name: '', description: '', date: '' });
-    setFormState(prevState => ({ ...prevState, numModules: modules, modules: updatedModules }));
+
+    const updatedInstallments = updatedModules.map(module => ({
+      date: module.date,
+      price: (formState.coursePrice / modules).toFixed(2)
+    }));
+
+    setFormState(prevState => ({
+      ...prevState,
+      numModules: modules,
+      modules: updatedModules,
+      installments: updatedInstallments,
+      numInstallments: modules,
+      courseDuration: modules,
+    }));
   };
 
   const handleEditCourse = async () => {
@@ -160,60 +176,41 @@ const EditCourse = ({ showEditCourse, closeEditCourse, courseId }) => {
               onChange={handleChange}
             />
 
+
+
+
+
+            <div>
+              <p>Course Price</p>
+              <input
+                type="text"
+                className="inputinstall"
+                placeholder="Enter Price"
+                name="coursePrice"
+                value={formState.coursePrice}
+                onChange={handleChange}
+              />
+            </div>
+
+
+
+            <div>
+              <p>Course Start Date</p>
+              <input
+                type="date"
+                className="inputinstall"
+                name="startDate"
+                value={formState.startDate}
+                onChange={handleChange}
+              />
+            </div>
+
             <p>Upload image</p>
             <input
               type="file"
               className="inputinstall"
               accept="image/*"
             />
-
-            <div className="tworow">
-              <div>
-                <p>Course Duration<span className="small"> In months</span></p>
-                <input
-                  type="number"
-                  className="inputinstall"
-                  placeholder="Enter Duration"
-                  min={1}
-                  name="courseDuration"
-                  value={formState.courseDuration}
-                  onChange={handleChange}
-                />
-              </div>
-              <div>
-                <p>Course Price</p>
-                <input
-                  type="text"
-                  className="inputinstall"
-                  placeholder="Enter Price"
-                  name="coursePrice"
-                  value={formState.coursePrice}
-                  onChange={handleChange}
-                />
-              </div>
-            </div>
-
-            <div className="tworow">
-              <div>
-                <p>Course Start Date</p>
-                <input
-                  type="date"
-                  className="inputinstall"
-                  name="startDate"
-                  value={formState.startDate}
-                  onChange={handleChange}
-                />
-              </div>
-              <div>
-                <p>Course End Date</p>
-                <input
-                  type="date"
-                  className="inputinstall"
-                  value={formState.endDate}
-                  readOnly
-                />
-              </div>
-            </div>
 
             <p>Registration Fees</p>
             <input
@@ -244,21 +241,6 @@ const EditCourse = ({ showEditCourse, closeEditCourse, courseId }) => {
                   </option>
                 ))}
               </select>
-            </div>
-
-            <div className="tworow">
-              {Array.from({ length: formState.numInstallments }, (_, index) => (
-                <div key={index}>
-                  <p>Installment {index + 1}</p>
-                  <input
-                    type="date"
-                    className="inputinstall"
-                    placeholder="Enter Date"
-                    value={formState.installments[index]?.date || ''}
-                    onChange={(e) => handleInstallmentChange(index, e.target.value)}
-                  />
-                </div>
-              ))}
             </div>
 
             <div className="sep">
@@ -294,7 +276,6 @@ const EditCourse = ({ showEditCourse, closeEditCourse, courseId }) => {
                     <input
                       type="date"
                       className="inputinstall"
-                      placeholder={`Module ${index + 1} Date`}
                       value={formState.modules[index]?.date || ''}
                       onChange={(e) => handleModuleChange(index, 'date', e.target.value)}
                     />
@@ -303,12 +284,63 @@ const EditCourse = ({ showEditCourse, closeEditCourse, courseId }) => {
               </div>
             </div>
 
-          </div>
+            <div className="sep">
+              <h3> Installments Breakdown</h3>
+              {formState.installments.map((installment, index) => (
+                <div key={index}>
+                  <p>Installment {index + 1}</p>
+                  <input
+                    type="date"
+                    className="inputinstall"
+                    placeholder={`Installment ${index + 1} Date`}
+                    value={installment.date || ''}
+                    onChange={(e) => {
+                      const updatedInstallments = [...formState.installments];
+                      updatedInstallments[index].date = e.target.value;
+                      setFormState(prevState => ({
+                        ...prevState,
+                        installments: updatedInstallments
+                      }));
+                    }}
+                  />
+                  <input
+                    type="text"
+                    className="inputinstall"
+                    placeholder={`Installment ${index + 1} Price`}
+                    value={installment.price || ''}
+                    readOnly
+                  />
+                </div>
+              ))}
+            </div>
 
-          <div className="btnc">
-            <div className="btn" onClick={handleEditCourse}>Save Changes</div>
-          </div>
+            <div>
+              <p>Course Duration<span className="small"> In months</span></p>
+              <input
+                type="number"
+                className="inputinstall"
+                placeholder="Enter Duration"
+                min={1}
+                name="courseDuration"
+                value={formState.courseDuration}
+                readOnly
+              />
+            </div>
 
+            <div>
+              <p>Course End Date</p>
+              <input
+                type="date"
+                className="inputinstall"
+                value={formState.endDate}
+                readOnly
+              />
+            </div>
+
+            <div className="btnContainer">
+              <button className="btn" onClick={handleEditCourse}>Save Changes</button>
+            </div>
+          </div>
         </div>
       </section>
     </div>

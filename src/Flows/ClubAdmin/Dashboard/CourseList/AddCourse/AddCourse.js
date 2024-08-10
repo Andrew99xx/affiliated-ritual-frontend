@@ -1,17 +1,14 @@
 import React, { useEffect, useState } from "react";
 import close from "./blackcr.png";
 import "./AddCourse.css";
-
 import { collection, addDoc } from "firebase/firestore";
 import { db } from "../../../../../firebase-config.js";
-import { getClubTrainers } from "../../../../../service/getUsers/getClubTrainers.js"
-
+import { getClubTrainers } from "../../../../../service/getUsers/getClubTrainers.js";
 
 const AddCourse = ({ showAddCourse, closeAddCourse }) => {
   const [formState, setFormState] = useState({
     courseName: '',
     courseDuration: 1,
-    selectedDate: '',
     startDate: '',
     endDate: '',
     coursePrice: '',
@@ -20,7 +17,7 @@ const AddCourse = ({ showAddCourse, closeAddCourse }) => {
     numModules: 1,
     selectedTrainer: '',
     modules: [{ name: '', description: '', date: '' }],
-    installments: [{ date: '' }],
+    installments: [{ date: '', price: '' }],
   });
 
   const [clubTrainers, setClubTrainers] = useState([]);
@@ -43,7 +40,7 @@ const AddCourse = ({ showAddCourse, closeAddCourse }) => {
       setFormState({
         ...formState,
         courseDuration: duration,
-        numInstallments: duration - 1,
+        numInstallments: duration,
         endDate
       });
     }
@@ -66,25 +63,40 @@ const AddCourse = ({ showAddCourse, closeAddCourse }) => {
   const handleModuleChange = (index, field, value) => {
     const updatedModules = [...formState.modules];
     updatedModules[index] = { ...updatedModules[index], [field]: value };
-    setFormState({ ...formState, modules: updatedModules });
+
+    const updatedInstallments = updatedModules.map(module => ({
+      date: module.date,
+      price: (formState.coursePrice / updatedModules.length).toFixed(2)
+    }));
+
+    setFormState({
+      ...formState,
+      modules: updatedModules,
+      installments: updatedInstallments,
+      numInstallments: updatedModules.length,
+      courseDuration: updatedModules.length,
+    });
   };
 
   const handleNumModulesChange = (event) => {
     const modules = parseInt(event.target.value);
     const updatedModules = Array.from({ length: modules }, (_, i) => formState.modules[i] || { name: '', description: '', date: '' });
-    setFormState({ ...formState, numModules: modules, modules: updatedModules });
+
+    const updatedInstallments = updatedModules.map(module => ({
+      date: module.date,
+      price: (formState.coursePrice / modules).toFixed(2)
+    }));
+
+    setFormState({
+      ...formState,
+      numModules: modules,
+      modules: updatedModules,
+      installments: updatedInstallments,
+      numInstallments: modules,
+      courseDuration: modules,
+    });
   };
 
-  const handleInstallmentChange = (index, value) => {
-    const updatedInstallments = [...formState.installments];
-    updatedInstallments[index] = { ...updatedInstallments[index], date: value };
-    setFormState({ ...formState, installments: updatedInstallments });
-  };
-
-
-
-
-  // adding course to db 
   const handleAddCourse = async () => {
     try {
       await addDoc(collection(db, "courses"), formState);
@@ -107,9 +119,6 @@ const AddCourse = ({ showAddCourse, closeAddCourse }) => {
 
         <div className="mainc">
           <div className="inputcontainer">
-
-
-
             <p>Course Name</p>
             <input
               type="text"
@@ -143,7 +152,6 @@ const AddCourse = ({ showAddCourse, closeAddCourse }) => {
               />
             </div>
 
-
             <p>Upload course image</p>
             <input
               type="file"
@@ -161,7 +169,6 @@ const AddCourse = ({ showAddCourse, closeAddCourse }) => {
               value={formState.registrationFees}
               onChange={handleChange}
             />
-
 
             <div className="sep">
               <h3>Select Trainer</h3>
@@ -182,8 +189,6 @@ const AddCourse = ({ showAddCourse, closeAddCourse }) => {
                 ))}
               </select>
             </div>
-
-
 
             <div className="sep">
               <h3>Select Modules</h3>
@@ -227,19 +232,39 @@ const AddCourse = ({ showAddCourse, closeAddCourse }) => {
               </div>
             </div>
 
-            <div>
-              {Array.from({ length: formState.numInstallments }, (_, index) => (
-                <div key={index}>
-                  <p>Installment {index + 1}</p>
-                  <input
-                    type="date"
-                    className="inputinstall"
-                    placeholder="Enter Date"
-                    value={formState.installments[index]?.date || ''}
-                    onChange={(e) => handleInstallmentChange(index, e.target.value)}
-                  />
-                </div>
-              ))}
+            <div className="sep">
+              <h3>Installments</h3>
+              <p>Number of Installments</p>
+              <input
+                type="number"
+                className="inputinstall"
+                placeholder="Number of installments"
+                min={1}
+                name="numInstallments"
+                value={formState.numInstallments}
+                readOnly
+              />
+              <div>
+                {Array.from({ length: formState.numModules }, (_, index) => (
+                  <div key={index}>
+                    <p>Installment {index + 1}</p>
+                    <input
+                      type="text"
+                      className="inputinstall"
+                      placeholder={`Installment ${index + 1} Price`}
+                      value={formState.installments[index]?.price || ''}
+                      readOnly
+                    />
+                    <input
+                      type="date"
+                      className="inputinstall"
+                      placeholder={`Installment ${index + 1} Date`}
+                      value={formState.installments[index]?.date || ''}
+                      readOnly
+                    />
+                  </div>
+                ))}
+              </div>
             </div>
 
             <div>
@@ -251,7 +276,6 @@ const AddCourse = ({ showAddCourse, closeAddCourse }) => {
                 min={1}
                 name="courseDuration"
                 value={formState.courseDuration}
-                // onChange={handleChange}
                 readOnly
               />
             </div>
@@ -265,14 +289,11 @@ const AddCourse = ({ showAddCourse, closeAddCourse }) => {
                 readOnly
               />
             </div>
-
-
           </div>
 
           <div className="btnc">
             <div className="btn" onClick={handleAddCourse}>Add Now</div>
           </div>
-
         </div>
       </section>
     </div>
