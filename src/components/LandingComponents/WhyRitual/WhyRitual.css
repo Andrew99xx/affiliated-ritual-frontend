@@ -45,12 +45,13 @@
 
 .whyRitual-icon {
     background: linear-gradient(91.94deg, #B17E32 -8.77%, #F3E681 58.63%, #CF9F41 107.45%);
-    border-radius: 50%;
+    border-radius: 100%;
     height: 60px;
     width: 60px;
     display: flex;
     justify-content: center;
     align-items: center;
+    padding: 5px;
 }
 
 .whyRitual-title {

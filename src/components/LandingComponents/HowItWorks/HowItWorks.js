@@ -7,7 +7,7 @@ import money from './money.png'
 function HowItWorks() {
     const data = [
         {
-            imgLink: money,
+            imgLink: learn,
             name: "01. Learn ",
             description: "Follow the System. Learn step by step. Say no to Hurry."
         },
@@ -17,7 +17,7 @@ function HowItWorks() {
             description: "Implement our system step by step and start earning from home."
         },
         {
-            imgLink: money,
+            imgLink: jackpot,
             name: "03. Jackpot",
             description: "Play Jackpot every month by using your free affiliate coin. Learn, Earn and Jackpot!"
         }

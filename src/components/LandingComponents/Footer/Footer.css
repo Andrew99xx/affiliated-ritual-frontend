@@ -1,7 +1,6 @@
 .footer {
     color: #B2BBCC;
-    ;
-    font-family: "Inter";
+    font-family: "Inter" ;
 }
 
 .footer .box-container {
@@ -20,6 +19,7 @@
     font-size: 22px;
     line-height: 28px;
     padding: 1rem 0;
+    font-family: "Poppins" !important;
 }
 
 .footer .footer-banner {
@@ -38,7 +38,7 @@
 }
 
 .footer .box-container .box a {
-    font-family: "Inter";
+    font-family: "Inter" !important;
     font-weight: 500;
     font-size: 16px;
     line-height: 28px;

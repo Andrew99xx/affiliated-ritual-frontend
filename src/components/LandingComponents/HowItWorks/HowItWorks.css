@@ -5,9 +5,8 @@
     flex-direction: row;
     gap: 50px;
     justify-content: space-between;
-    align-items: flex-start;
+    align-items: center;
     overflow: hidden;
-
 }
 
 
@@ -36,7 +35,6 @@
 }
 
 
-
 .howItWorks-imglink {
     width: 80px;
     height: 80px;
@@ -57,4 +55,22 @@
     text-align: center;
     line-height: 27px;
     color: white;
+}
+
+
+/* Responsive styles for mobile screens */
+@media only screen and (max-width: 768px) {
+    .howItWorks-container {
+        width: 100%;
+        flex-direction: column;
+        gap: 6rem;
+    }
+
+    .howItWorks-divider {
+        display: none;
+    }
+
+    .howItWorks-items {
+        gap: 1.5rem;
+    }
 }
