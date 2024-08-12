@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from "react";
 import { RecaptchaVerifier, signInWithPhoneNumber } from "firebase/auth";
 import { doc, setDoc, getDoc, getDocs, collection } from "firebase/firestore";
+import { getStorage, ref, uploadBytes, getDownloadURL } from "firebase/storage";
+
 
 import "./Register.css";
 import OtpInputContainer from "../Signin/Signincomp/OtpInputContainer.js";
@@ -13,11 +15,17 @@ import { getCurrentTimestamp } from "../../../service/time/getCurrentTimestamp.j
 
 
 const StudentRegister = ({ onToggle }) => {
-  const [courses, setCourses] = useState([]);
   const [otp, setOtp] = useState('');
-  const [confirmationResult, setConfirmationResult] = useState(null);
+  const [courses, setCourses] = useState([]);
   const [message, setMessage] = useState('');
   const [uid, setUid] = useState('');
+  const [selectedFile, setSelectedFile] = useState(null);
+  const [confirmationResult, setConfirmationResult] = useState(null);
+
+const handleFileChange = (e) => {
+  setSelectedFile(e.target.files[0]);
+};
+
 
   const [formData, setFormData] = useState({
     firstName: "",
@@ -130,18 +138,51 @@ const StudentRegister = ({ onToggle }) => {
 
 
 
+  // const addUserToFirestore = async () => {
+  //   try {
+  //     // updating data in firestore 
+  //     // Add uid to formData
+  //     const updatedFormData = { ...formData, uid: uid };
+  //     await setDoc(doc(db, "users", uid), updatedFormData, { merge: true });
+  //     alert("Registration successful! User data saved to Firestore!");
+  //   } catch (error) {
+  //     console.error("Error adding user to Firestore: ", error);
+  //     alert("Error adding user to Firestore: ", error.message);
+  //   }
+  // };
+
   const addUserToFirestore = async () => {
     try {
-      // updating data in firestore 
-      // Add uid to formData
-      const updatedFormData = { ...formData, uid: uid };
-      await setDoc(doc(db, "users", uid), updatedFormData, { merge: true });
-      alert("Registration successful! User data saved to Firestore!");
+      if (selectedFile) {
+        // Initialize Firebase storage
+        const storage = getStorage();
+        const storageRef = ref(storage, `images/student/registration/${uid}`);
+  
+        // Upload the file
+        const snapshot = await uploadBytes(storageRef, selectedFile);
+  
+        // Get the download URL
+        const downloadURL = await getDownloadURL(snapshot.ref);
+  
+        // Update the formData with the download URL
+        const updatedFormData = { ...formData, uid: uid, registrationImage: downloadURL };
+        await setDoc(doc(db, "users", uid), updatedFormData, { merge: true });
+        
+        alert("Registration successful! User data and profile picture saved to Firestore!");
+      } else {
+        
+        // If no file selected, proceed without profile picture
+        const updatedFormData = { ...formData, uid: uid };
+        await setDoc(doc(db, "users", uid), updatedFormData, { merge: true });
+        
+        alert("Registration successful! User data saved to Firestore!");
+      }
     } catch (error) {
       console.error("Error adding user to Firestore: ", error);
       alert("Error adding user to Firestore: ", error.message);
     }
   };
+  
 
 
   // handle input changes 
@@ -299,12 +340,19 @@ const StudentRegister = ({ onToggle }) => {
           />
 
           <h3>Bank Details</h3>
+         
           <p>Account Number <sup>*</sup></p>
           <input type="text" className="input" name="accountNumber" value={formData.accountNumber} onChange={handleChange} placeholder="Account Number" required />
+          
           <p>Account Type <sup>*</sup></p>
           <input type="text" className="input" name="accountType" value={formData.accountType} onChange={handleChange} placeholder="Account Type" required />
+          
           <p>Ifsc Code <sup>*</sup></p>
           <input type="text" className="input" name="ifscCode" value={formData.ifscCode} onChange={handleChange} placeholder="Ifsc Code" required />
+
+          <p>Upload Screenshot Picture</p>
+          <input type="file" onChange={handleFileChange} />
+
 
           {/* you may change the value of Register to Update, if user is already registered */}
           <button className="btn" onClick={handleRegister}>Register</button>
