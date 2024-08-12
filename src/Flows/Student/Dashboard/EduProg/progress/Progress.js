@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import "./progress.css";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
@@ -7,16 +7,51 @@ import "swiper/css";
 const sortModulesByDate = (modules) => {
   return [...modules].sort((a, b) => new Date(a.date) - new Date(b.date));
 };
+const sortModulesAndInstallmentByDate = (modules, installments) => {
+  // Combine modules and installments
+  const combined = [...modules, ...installments];
+
+  // Sort combined array by date
+  return combined.sort((a, b) => new Date(a.date) - new Date(b.date));
+};
 
 const Progress = ({ data }) => {
+  const [courses, setCourses] = useState(data);
+  const[userId, setuserId]=useState('123')
+  useEffect(()=>{
+    setCourses(data)
+  },[data])
+
+  const handlePayNow = (courseIndex, installmentIndex) => {
+    console.log(courses);
+    
+    const updatedCourses = courses.map((course, cIndex) => {
+      if (cIndex === courseIndex) {
+        const updatedInstallments = course.installments.map((installment, iIndex) => {
+          if (iIndex === installmentIndex) {
+            return {
+              ...installment,
+              paid: installment.paid ? [...installment.paid, userId] : [userId]
+            };
+          }
+          return installment;
+        });
+        return { ...course, installments: updatedInstallments };
+      }
+      return course;
+    });
+    console.log(JSON.stringify(updatedCourses,null,2));
+    
+    setCourses(updatedCourses);
+  };
   return (
     <div className="progress">
-      {data.map((course, index) => {
+      {courses.map((course, index) => {
         // Sort modules for each course by date
-        const sortedModules = sortModulesByDate(course.modules);
+        const sortedModules = sortModulesAndInstallmentByDate(course.modules, course.installments);
 
         // Check if the length of sortedModules and installments are the same
-        const installmentsMatch = sortedModules.length === course.installments.length;
+        const installmentsMatch = true;
 
         return (
           <div key={index} className="course-section">
@@ -38,14 +73,22 @@ const Progress = ({ data }) => {
                 <Swiper className="dialogs" slidesPerView={1}>
                   {sortedModules.map((module, moduleIndex) => (
                     <SwiperSlide key={moduleIndex} className="dialog">
-                      <div className="heading">{module.name}</div>
-                      <p className="text">{module.description}</p>
+                      {<div className="heading">{module.name?module.name:'Installment'}</div>}
+                      <p className="text">{module.description?module.description:"Pay within this date"}</p>
                  
                       {installmentsMatch && (
                         <div>
-                          <p className="text"> installments Price: ₹{course.installments[moduleIndex].price}</p>
-                          <p className="text">Date: {course.installments[moduleIndex].date}</p>
+                          {module.price?<p className="text"> installments Price: ₹{module.price}</p>:<></>}
+                          <p className="text">Date: {module.date}</p>
                         </div>
+                      )}
+                      {!module.name && !module.paid && (
+                        <button onClick={() => handlePayNow(index, moduleIndex)}>
+                          PAY NOW {module.paid?module.paid.includes('123'):'not paid'}
+                        </button>
+                      )}
+                      {module.paid && module.paid.includes('123') && (
+                        <p className="text">Paid </p>
                       )}
                       {!installmentsMatch && (
                         <p className="text">Length mismatching</p>

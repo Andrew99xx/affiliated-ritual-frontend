@@ -41,7 +41,7 @@ const Attendance = ({
             <div className={styles.wrapperItem}>
               <div>{singleCourseName} / {singleCourseModule}</div>
               <div onClick={closeAttendanceModal} className={styles.btn}>
-                Mark Complted
+                Mark Completed
               </div>
             </div>
 

@@ -23,7 +23,7 @@ const Edu = () => {
     async function fetchCourseData() {
       const data = await findCoursesData();
       setCourseData(data);
-      console.log(data)
+      // console.log(JSON.stringify(data,null,2))
     }
     fetchCourseData();
   }, []);
@@ -44,6 +44,46 @@ const Edu = () => {
     } catch (error) {
       console.error("Error fetching user document:", error);
       return null;
+    }
+  }
+
+  async function findCoursesData2() {
+    const student_uid = localStorage.getItem('student_uid');
+
+    if (!student_uid) {
+      console.error("No student_uid found in localStorage");
+      return [];
+    }
+
+    try {
+      // all the courses a students had purchased 
+      const courseIdsArray = await getCourseIdsOfStudent(student_uid);
+
+      if (courseIdsArray.length === 0) {
+        console.log("No course IDs found for this student");
+        return [];
+      }
+
+      const courseDataPromises = courseIdsArray.map(async (courseId) => {
+        const courseDocRef = doc(db, "courses", courseId);
+        const courseDocSnapshot = await getDoc(courseDocRef);
+
+        if (courseDocSnapshot.exists()) {
+          return { id: courseId, ...courseDocSnapshot.data() };
+        } else {
+          console.error(`No course found for ID: ${courseId}`);
+          return null;
+        }
+      });
+
+      // Wait for all course data to be fetched
+      const courseDataArray = await Promise.all(courseDataPromises);
+
+      // Filter out any null values (in case a course document was not found)
+      return courseDataArray.filter(courseData => courseData !== null);
+    } catch (error) {
+      console.error("Error fetching course data:", error);
+      return [];
     }
   }
 
