@@ -27,14 +27,16 @@ const Signotp = ({ email, phone, onOtpVerify }) => {
         <h3 className="logo">Dummy logo</h3>
       </div>
       <div className="heading">Enter OTP</div>
+      
       <div className="subheading">Enter your OTP to sign in!</div>
 
       <div className="formcontainer">
-
-        {/* take the value from - signin components */}
+     {false && <>
         <input type="text" className="input" value={email} readonly />
         <br />
+      </>}
         <input type="text" className="input" value={phone} readonly />
+        {/* take the value from - signin components */}
         <p>Enter OTP</p>
         <OtpInputContainer onOtpChange={handleOtpChange} />
 

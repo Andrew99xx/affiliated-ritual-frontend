@@ -41,7 +41,7 @@ const Table = ({ data, onViewFull, showAction = true }) => {
 
             return (
               <tr key={item.id}>
-                <td>{item.id.slice(0, 4) + "..."}</td>
+                <td>{item.myARID.slice(0, 6) + "..."}</td>
                 <td>{item.firstName}</td>
                 {lastSixMonths.map(month => (
                   <td key={month}>{item.monthlyEarnings[month] || 0}</td>

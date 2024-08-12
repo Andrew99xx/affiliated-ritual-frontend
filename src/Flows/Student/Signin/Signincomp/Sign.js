@@ -4,7 +4,7 @@ import "../Signin.css";
 // sign in components - just entering the email
 const Sign = ({ onSignInClick }) => {
   const [message, setMessage] = useState('');
-  const [email, setEmail] = useState('');
+  const [email, setEmail] = useState('abc@gmail.com');
   const [phone, setPhone] = useState('');
 
 
@@ -26,9 +26,12 @@ const Sign = ({ onSignInClick }) => {
       </div>
 
       <div className="heading">Sign</div>
-      <div className="subheading">Enter your email to sign in!</div>
+      <div className="subheading">Enter your Mobile to sign in!</div>
 
       <div className="formcontainer">
+        {false &&
+        <>
+        
         <p>Enter Email <sup>*</sup></p>
         <input
           type="text"
@@ -37,11 +40,12 @@ const Sign = ({ onSignInClick }) => {
           value={email}
           onChange={(e) => setEmail(e.target.value)}
         />
+        </>}
         <p>Enter Phone <sup>*</sup></p>
         <input
           type="tel"
           className="input"
-          placeholder='9876543210'
+          placeholder='+919876543210'
           value={phone}
           onChange={(e) => setPhone(e.target.value)}
         />
