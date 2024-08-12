@@ -74,8 +74,9 @@ const Signin = ({ onSignin, onToggle }) => {
 
         const userExists = await checkUserExists(user.uid);
         if (userExists) {
-          onSignin(user);
           localStorage.setItem('student_uid', user.uid);
+          onSignin(user);
+        
         } else {
           alert("You are not registered");
         }

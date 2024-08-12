@@ -3,6 +3,8 @@ import { useLocation } from 'react-router-dom';
 import Signin from './Signin/Signin';
 import Dashboard from './Dashboard/Dashboard';
 import Register from './Register/Register';
+import { checkUserExists } from '../../service/checkUserExists';
+import { checkUserTypes } from '../../service/checkUserTypes';
 
 const TeamLeader = () => {
   const [isSignedIn, setIsSignedIn] = useState(false);
@@ -18,9 +20,39 @@ const TeamLeader = () => {
     }
   }, [location.search]);
 
-  const handleSignin = () => {
-    setIsSignedIn(true);
+   // if users loged in 
+   useEffect(() => {
+    const checkUserStatus = async () => {
+      const teamLeaderUid = localStorage.getItem('team_leader_uid');
+      if (teamLeaderUid) {
+        const userExists = await checkUserExists(teamLeaderUid);
+        const userTypes = await checkUserTypes(teamLeaderUid);
+        if (userExists && userTypes === "team_leader") {
+          setIsSignedIn(true);
+        }
+      }
+    };
+    checkUserStatus();
+  }, []);
+
+  const handleSignin = async() => {
+    const teamLeaderUid = localStorage.getItem('team_leader_uid');
+    const userTypes = await checkUserTypes(teamLeaderUid);
+    if (userTypes === "team_leader") {
+      setIsSignedIn(true);
+    }
+    else {
+      alert("You are not a team Leader ");
+      return
+    }
   };
+
+  const handleLogout = () => {
+    localStorage.removeItem("team_leader_uid")
+    setIsSignedIn(false);
+    setIsRegistering(false);
+    // you may redirect to home also 
+  }
 
   const toggleRegistering = () => {
     setIsRegistering(!isRegistering);
@@ -38,7 +70,7 @@ const TeamLeader = () => {
         </>
       )}
       {/*when, isSignedIn, is true */}
-      {isSignedIn && <Dashboard />}
+      {isSignedIn && <Dashboard  handleLogout={handleLogout} />}
     </div>
   );
 };

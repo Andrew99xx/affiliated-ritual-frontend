@@ -3,6 +3,8 @@ import { useLocation } from 'react-router-dom';
 import Signin from './Signin/Signin';
 import Dashboard from './Dashboard/Dashboard';
 import Register from './Register/Register';
+import { checkUserExists } from '../../service/checkUserExists';
+import { checkUserTypes } from '../../service/checkUserTypes';
 
 const Trainer = () => {
 
@@ -21,9 +23,40 @@ const Trainer = () => {
     }
   }, [location.search]);
 
-  const handleSignin = () => {
-    setIsSignedIn(true);
+  // if users loged in 
+  useEffect(() => {
+    const checkUserStatus = async () => {
+      const trainerUid = localStorage.getItem('trainer_uid');
+      if (trainerUid) {
+        const userExists = await checkUserExists(trainerUid);
+        const userTypes = await checkUserTypes(trainerUid);
+        if (userExists && userTypes === "club_trainer") {
+          setIsSignedIn(true);
+        }
+      }
+    };
+    checkUserStatus();
+  }, []);
+
+  const handleSignin = async () => {
+    const trainerUid = localStorage.getItem('trainer_uid');
+    const userTypes = await checkUserTypes(trainerUid);
+    if (userTypes === "club_trainer") {
+      setIsSignedIn(true);
+    }
+    else {
+      alert("You are not a club trainer");
+      return
+    }
+
   };
+
+  const handleLogout = () => {
+    localStorage.removeItem("trainer_uid")
+    setIsSignedIn(false);
+    setIsRegistering(false);
+    // you may redirect to home also 
+  }
 
   const toggleRegistering = () => {
     setIsRegistering(!isRegistering);
@@ -44,7 +77,7 @@ const Trainer = () => {
       )}
 
       {/*when, isSignedIn, is true */}
-      {isSignedIn && <Dashboard />}
+      {isSignedIn && <Dashboard handleLogout={handleLogout} />}
     </div>
   );
 };

@@ -73,13 +73,13 @@ const Signin = ({ onSignin, onToggle }) => {
 
         const userExists = await checkUserExists(user.uid);
         if (userExists) {
-           // Call onSignin to handle the successful sign-in or if user uid exits
-          onSignin(user);
           localStorage.setItem('trainer_uid', user.uid);
+          // Call onSignin to handle the successful sign-in or if user uid exits
+          onSignin(user);
         } else {
           alert("You are not registered");
         }
-       
+
       })
       .catch((error) => {
         console.error('Error verifying OTP:', error);
