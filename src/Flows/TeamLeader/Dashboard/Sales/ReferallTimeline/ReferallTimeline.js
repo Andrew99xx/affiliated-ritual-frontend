@@ -60,7 +60,7 @@ const Timeline = () => {
       if (usersUsingMyARID.length > 0) {
         console.log(usersUsingMyARID); // Log the users array
         setReferredUsers(usersUsingMyARID);
-        alert("Total Users using this myARID as referralId: " + usersUsingMyARID.length);
+        // alert("Total Users using this myARID as referralId: " + usersUsingMyARID.length);
       } else {
         alert("No users found with this referralId.");
       }

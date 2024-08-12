@@ -1,28 +1,66 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
+
 import "./Payout.css";
-import Box from "../../../../components/box/Box";
 import user from "./users.png";
+
+import Box from "../../../../components/box/Box";
 import Bargraph from "../../../../components/Graph/Bargraph";
 import Smallbar from "../../../../components/Smallbar/Smallbar";
 import PieChart from "../../../../components/Pie/PieChart";
-import data from "./Data.js";
-import Pay from "../../../../components/Pay/Pay";
+import Pay from "../../../../components/Pay/Pay.js"
+
+import Table from "./Table/Table.js";
+
+
+import { getClubTrainersEarnings } from "../../../../service/getUsersEarnings/getClubTrainersEarnings.js"
+import { getTeamLeadersEarnings } from "../../../../service/getUsersEarnings/getTeamLeadersEarnings.js"
+import { getTeamMembersEarnings } from "../../../../service/getUsersEarnings/getTeamMembersEarnings.js"
+
+
 
 const Payout = () => {
   const [showPay, setShowPay] = useState(false);
+  const [userPayInfo, setUserPayInfo] = useState("");
 
-  const showPayModal = () => {
+  const [displayCount, setDisplayCount] = useState(5);
+
+  const [teamLeadersData, setTeamLeadersData] = useState([]);
+  const [teamMembersData, setTeamMembersData] = useState([]);
+  const [clubTrainersData, setClubTrainersData] = useState([]);
+
+
+
+  // here, data will be coming from table, when user click on pay button 
+  const showPayModal = (item) => {
     setShowPay(true);
+    setUserPayInfo(item);
   };
 
   const closePayModal = () => {
     setShowPay(false);
   };
-  const [displayCount, setDisplayCount] = useState(5);
 
   const handleLoadMore = () => {
     setDisplayCount(displayCount + 5);
   };
+
+  
+
+  useEffect(() => {
+    const fetchEarnings = async () => {
+      const teamLeadersEarnings = await getTeamLeadersEarnings();
+      setTeamLeadersData(teamLeadersEarnings);
+
+      const membersEarnings = await getTeamMembersEarnings();
+      setTeamMembersData(membersEarnings);
+
+      const trainerEarnings = await getClubTrainersEarnings();
+      setClubTrainersData(trainerEarnings);
+    };
+
+    fetchEarnings();
+  }, []);
+
   return (
     <div className="Payout">
       <h1 className="heading">Payout</h1>
@@ -39,138 +77,50 @@ const Payout = () => {
       </div>
 
       <div className="tablespayout">
-        <div className="sl">
-          <h1 className="heading">Trainer</h1> <h1 className="viw">View All</h1>
-        </div>
-        <div className="tb">
-          <div className="tablecon">
-            <table className="table" cellSpacing={0}>
-              <thead className="tablehead">
-                <tr>
-                  <th>ID</th>
-                  <th>First Name</th>
-                  <th>Jan</th>
-                  <th>Feb</th>
-                  <th>Mar</th>
-                  <th>Apr</th>
-                  <th>May</th>
-                  <th>June</th>
-                  <th>Total</th>
-                  <th>Action</th>
-                </tr>
-              </thead>
-              <tbody className="tablebody">
-                {data.slice(0, displayCount).map((item) => (
-                  <tr key={item.id}>
-                    <td>{item.id}</td>
-                    <td>{item.first_name}</td>
-                    <td>{item.Jan}</td>
-                    <td>{item.Feb}</td>
-                    <td>{item.Mar}</td>
-                    <td>{item.Apr}</td>
-                    <td>{item.May}</td>
-                    <td>{item.June}</td>
-                    <td>{item.Total}</td>
 
-                    <td className="btns">
-                      <a className="btnn"  onClick={showPayModal}>Pay Now</a>
-                    </td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
-          </div>
-        </div>
 
         <div className="sl">
-          {" "}
-          <h1 className="heading">Team Leader</h1>
+          <h1 className="heading">Trainer</h1>
           <h1 className="viw">View All</h1>
         </div>
         <div className="tb">
-          <div className="tablecon">
-            <table className="table" cellSpacing={0}>
-              <thead className="tablehead">
-                <tr>
-                  <th>ID</th>
-                  <th>First Name</th>
-                  <th>Jan</th>
-                  <th>Feb</th>
-                  <th>Mar</th>
-                  <th>Apr</th>
-                  <th>May</th>
-                  <th>June</th>
-                  <th>Total</th>
-                  <th>Action</th>
-                </tr>
-              </thead>
-              <tbody className="tablebody">
-                {data.slice(0, displayCount).map((item) => (
-                  <tr key={item.id}>
-                    <td>{item.id}</td>
-                    <td>{item.first_name}</td>
-                    <td>{item.Jan}</td>
-                    <td>{item.Feb}</td>
-                    <td>{item.Mar}</td>
-                    <td>{item.Apr}</td>
-                    <td>{item.May}</td>
-                    <td>{item.June}</td>
-                    <td>{item.Total}</td>
-
-                    <td className="btns">
-                      <a className="btnn"  onClick={showPayModal}>Pay Now</a>
-                    </td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
-          </div>
+          <Table
+            data={clubTrainersData.slice(0, displayCount)} // Pass the team leaders data
+            onClickPay={showPayModal} // Pass the onClick handler for actions
+          />
         </div>
+
+        <div className="sl">
+          <h1 className="heading">Team Leader</h1>
+          {/* onclick of viewAll, use Full Table  */}
+          <h1 className="viw">View All</h1>
+        </div>
+        <div className="tb">
+          <Table
+            data={teamLeadersData.slice(0, displayCount)}
+            onClickPay={showPayModal}
+          />
+        </div>
+
         <div className="sl">
           <h1 className="heading">Team Member</h1>
           <h1 className="viw">View All</h1>
         </div>
         <div className="tb">
-          <div className="tablecon">
-            <table className="table" cellSpacing={0}>
-              <thead className="tablehead">
-                <tr>
-                  <th>ID</th>
-                  <th>First Name</th>
-                  <th>Jan</th>
-                  <th>Feb</th>
-                  <th>Mar</th>
-                  <th>Apr</th>
-                  <th>May</th>
-                  <th>June</th>
-                  <th>Total</th>
-                  <th>Action</th>
-                </tr>
-              </thead>
-              <tbody className="tablebody">
-                {data.slice(0, displayCount).map((item) => (
-                  <tr key={item.id}>
-                    <td>{item.id}</td>
-                    <td>{item.first_name}</td>
-                    <td>{item.Jan}</td>
-                    <td>{item.Feb}</td>
-                    <td>{item.Mar}</td>
-                    <td>{item.Apr}</td>
-                    <td>{item.May}</td>
-                    <td>{item.June}</td>
-                    <td>{item.Total}</td>
-
-                    <td className="btns">
-                      <a className="btnn"  onClick={showPayModal}>Pay Now</a>
-                    </td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
-          </div>
+          <Table
+            data={teamMembersData.slice(0, displayCount)}
+            onClickPay={showPayModal}
+          />
         </div>
       </div>
-      <Pay showPayModal={showPay} closePayModal={closePayModal} />
+
+      {/* pay - popup modal , it will be shown, if showPay = true */}
+      {/* it's code, is in another folder, check that - components/Pay/Pay*/}
+      <Pay
+        showPayModal={showPay}
+        closePayModal={closePayModal}
+        userPayInfo={userPayInfo}
+      />
 
     </div>
   );

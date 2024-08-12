@@ -3,7 +3,7 @@ import "./Pay.css";
 import close from "./close.png";
 import log from "./log.png";
 
-const Pay = ({ showPayModal, closePayModal }) => {
+const Pay = ({ showPayModal, closePayModal, userPayInfo }) => {
   return (
     <div className={showPayModal ? "modal display-block" : "modal display-none"}>
       <section className="modal-main">
@@ -13,10 +13,10 @@ const Pay = ({ showPayModal, closePayModal }) => {
         <div className="mainc">
           <h1 className="headinga">Are you sure?</h1>
           <div className="middlecontent">
-            <p>bankName</p>
-            <p>accNum</p>
-            <p>accType(saving/current)</p>
-            <p>ifscCode</p>
+            <p>First Name = {userPayInfo?.firstName || "NA"} </p>
+            <p>Account Number = {userPayInfo?.accountNumber || "NA"} </p>
+            <p>Account Type = {userPayInfo?.accountType || "NA"}</p>
+            <p>ifsc Code = {userPayInfo?.ifscCode || "NA"}</p>
           </div>
 
           <div className="btnc">

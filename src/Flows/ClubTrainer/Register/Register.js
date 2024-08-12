@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from "react";
 import { RecaptchaVerifier, signInWithPhoneNumber } from "firebase/auth";
-import { setDoc, doc } from "firebase/firestore";
+import { setDoc, doc, getDoc } from "firebase/firestore";
 import "./Register.css";
 import { auth, db } from "../../../firebase-config.js";
 import OtpInputContainer from '../Signin/Signincomp/OtpInputContainer.js';
-import { getCurrentTimestamp } from "../../../service/getCurrentTimestamp.js";
+import { getCurrentTimestamp } from "../../../service/time/getCurrentTimestamp.js";
 
 const TrainerRegister = ({ onToggle }) => {
   const [otp, setOtp] = useState('');
@@ -26,6 +26,8 @@ const TrainerRegister = ({ onToggle }) => {
     ifscCode: "",
     createdAt: "",
     updatedAt: "",
+    selectExperience : "",
+    userTypes: "club_trainer",
   });
 
   useEffect(() => {
@@ -72,11 +74,26 @@ const TrainerRegister = ({ onToggle }) => {
       return;
     }
     confirmationResult.confirm(otp)
-      .then((result) => {
+      .then(async (result) => {
         const user = result.user;
         setUid(user.uid);
         setMessage(`Phone number verified! User: ${user.uid}`);
         alert(`Phone number verified! User: ${user.uid}`);
+        // Check if the user data already exists
+        const userDocRef = doc(db, "users", user.uid);
+        const userDocSnapshot = await getDoc(userDocRef);
+
+        if (userDocSnapshot.exists()) {
+          // If user data exists, use it and prevent overwriting myARID
+          // fetching the data if exists & updating formData
+          const existingData = userDocSnapshot.data();
+          setFormData(existingData);
+        } else {
+          // If user data does not exist,
+          // getCurrentTimesTamp
+          const createdAt = getCurrentTimestamp();
+          setFormData(prevData => ({ ...prevData, createdAt }));
+        }
       })
       .catch((error) => {
         console.error('Error verifying OTP:', error);
@@ -111,8 +128,7 @@ const TrainerRegister = ({ onToggle }) => {
     e.preventDefault();
 
     const updatedAt = getCurrentTimestamp();
-    const createdAt = getCurrentTimestamp();
-    setFormData({ ...formData, updatedAt, createdAt })
+    setFormData({ ...formData, updatedAt })
 
     if (uid) {
       addUserToFirestore();
@@ -129,6 +145,33 @@ const TrainerRegister = ({ onToggle }) => {
         </div>
         <div className="heading">Registration</div>
         <form className="formcontainer">
+
+          <p>Phone <sup>*</sup></p>
+          <input
+            type="tel"
+            className="input"
+            name="phone"
+            value={formData.phone}
+            onChange={handleChange}
+            placeholder="9876543210"
+            required
+          />
+          <button
+            onClick={sendVerificationCode}
+            className="btn"
+          >GET OTP
+          </button>
+
+          <p>Enter Otp <sup>*</sup></p>
+          <OtpInputContainer onOtpChange={handleOtpChange} />
+
+          <button
+            onClick={verifyOtp}
+            className="btn">
+            Verify OTP
+          </button>
+
+
           <p>First Name <sup>*</sup></p>
           <input
             type="text"
@@ -158,30 +201,19 @@ const TrainerRegister = ({ onToggle }) => {
             placeholder="mail@simmmple.com"
             required
           />
-          <p>Phone <sup>*</sup></p>
-          <input
-            type="tel"
-            className="input"
-            name="phone"
-            value={formData.phone}
+
+          <p>Select an Experience Level <sup>*</sup></p>
+          <select
+            className="selectExperience"
+            name="selectExperience"
+            value={formData.selectExperience}
             onChange={handleChange}
-            placeholder="9876543210"
             required
-          />
-          <button
-            onClick={sendVerificationCode}
-            className="btn"
-          >GET OTP
-          </button>
-
-          <p>Enter Otp <sup>*</sup></p>
-          <OtpInputContainer onOtpChange={handleOtpChange} />
-
-          <button
-            onClick={verifyOtp}
-            className="btn">
-            Verify OTP
-          </button>
+          >
+            <option value="" disabled>Select</option>
+            <option value="fresher">  Fresher  </option>
+            <option value="experienced">  Experienced </option>
+          </select>
 
 
 
@@ -200,11 +232,14 @@ const TrainerRegister = ({ onToggle }) => {
           <input type="text" className="input" name="accountType" value={formData.accountType} onChange={handleChange} placeholder="Account Type" required />
           <p>Ifsc Code <sup>*</sup></p>
           <input type="text" className="input" name="ifscCode" value={formData.ifscCode} onChange={handleChange} placeholder="Ifsc Code" required />
+
+          <div id="recaptcha-container"></div>
+
           <button className="btn" onClick={handleRegister}>Register</button>
           <p className="alr">Already a member? <span onClick={onToggle}>Sign in</span></p>
         </form>
       </div>
-      <div id="recaptcha-container"></div>
+
       {message && <div style={{
         color: 'red',
       }}>{message}</div>}

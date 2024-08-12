@@ -38,6 +38,8 @@ const CourseList = () => {
     setDisplayCount(displayCount + 5);
   };
 
+
+  // add 
   const handleAddCourse = () => {
     setShowAddCourse(true); // Show the modal when the add icon is clicked
   };
@@ -45,6 +47,8 @@ const CourseList = () => {
     setShowAddCourse(false); // Hide the modal when close button is clicked
   };
 
+
+  // installment 
   const handleEyeClick = (courseId) => {
     setSelectedCourseId(courseId);
     setShowInstallment(true); // Show the modal when the eye icon is clicked
@@ -53,6 +57,8 @@ const CourseList = () => {
     setShowInstallment(false); // Hide the modal when close button is clicked
   };
 
+
+  // delete 
   const handleDeleteClick = (courseId) => {
     setSelectedCourseId(courseId);
     setShowDelete(true); // Show the modal when the delete icon is clicked
@@ -61,6 +67,8 @@ const CourseList = () => {
     setShowDelete(false); // Hide the modal when close button is clicked
   };
 
+
+  // edit 
   const handleEditCourse = (courseId) => {
     setSelectedCourseId(courseId);
     setShowEditCourse(true); // Show the modal when the edit icon is clicked
@@ -81,24 +89,24 @@ const CourseList = () => {
           <table className='table' cellSpacing={0}>
             <thead className='tablehead'>
               <tr>
-                <th>ID</th>
+                <th>Course ID</th>
                 <th>Course Name</th>
                 <th>Start Date</th>
                 <th>End Date</th>
                 <th>Price</th>
-                <th>Instructor</th>
+                <th>Trainer Id </th>
                 <th>Action</th>
               </tr>
             </thead>
             <tbody className='tablebody'>
               {courses.slice(0, displayCount).map((course) => (
                 <tr key={course.id}>
-                  <td>{course.id}</td>
+                  <td>{course.id.slice(0,7) + "..." || "Not Found"}</td>
                   <td>{course.courseName}</td>
                   <td>{course.startDate}</td>
                   <td>{course.endDate}</td>
                   <td>{course.coursePrice}</td>
-                  <td>{course.selectedInstructor}</td>
+                  <td>{course.selectedTrainer.slice(0,7) + "..." || "Not Found"}</td>
                   <td className='btns'>
                     <img className='icon' src={eye} alt="View" onClick={() => handleEyeClick(course.id)} />
                     <img className='icon' src={edit} alt="Edit" onClick={() => handleEditCourse(course.id)} />

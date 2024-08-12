@@ -1,33 +1,37 @@
 import React from 'react'
 import './Package.css'
 import package01 from './package01.png'
+import english from "./english.png"
+import freelance from "./freelance.png"
+import marketing from "./marketing.png"
+
 import { RiArrowRightUpLine } from "react-icons/ri";
 
 function Package() {
     const packageData = [
         {
-            packageImage: package01,
-            packageTitle: "Package 1",
+            packageImage: freelance,
+            packageTitle: "Freelancing Mastery",
             packageDetails: ["3 months", "3 classes/week", "Recording"],
             points: ["Free Doubt Session", "Live Q&A Support", "Affiliate Ritual Certificate"],
-            packagePrice: "18,000",
-            packagePriceCross: "40,000"
+            packagePrice: "1,800",
+            packagePriceCross: "4,000"
         },
         {
-            packageImage: package01,
-            packageTitle: "Package 2",
+            packageImage: marketing,
+            packageTitle: "Digital Marketing Mastery",
             packageDetails: ["6 months", "2 classes/week", "Recording"],
             points: ["Free Doubt Session", "Live Q&A Support", "Affiliate Ritual Certificate"],
-            packagePrice: "18,000",
-            packagePriceCross: "40,000"
+            packagePrice: "1,800",
+            packagePriceCross: "4,000"
         },
         {
-            packageImage: package01,
-            packageTitle: "Package 3",
+            packageImage: english,
+            packageTitle: "Speak in English",
             packageDetails: ["1 year", "1 class/week", "Recording"],
             points: ["Free Doubt Session", "Live Q&A Support", "Affiliate Ritual Certificate"],
-            packagePrice: "18,000",
-            packagePriceCross: "40,000"
+            packagePrice: "1,800",
+            packagePriceCross: "4,000"
         }
     ];
 

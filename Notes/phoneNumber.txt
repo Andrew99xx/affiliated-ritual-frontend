@@ -2,6 +2,9 @@ Phone number	    Verification code
 
 +92 21 54817547     123456   clubadmin
 
++91 8910466804      123456   club_trainer
++91 3498 567 812    123456   club_trainer
+
 +91 8765 987 650    123456   team_leader
 +91 5789 435 876    123456   team_leader
 
