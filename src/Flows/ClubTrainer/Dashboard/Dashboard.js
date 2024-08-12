@@ -1,4 +1,4 @@
-import React, { useState,useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import "./Dashboard.css";
 import Edu from "./EduProg/Edu";
 import Certificate from "./Certificate/Certificate";
@@ -17,7 +17,7 @@ import notif from "./assets/notif.png";
 import profile from "./assets/profile.png";
 import expand from "./assets/expand.png";
 
-const Dashboard = () => {
+const Dashboard = ({ handleLogout }) => {
 
   const [showModal, setShowModal] = useState(false);
 
@@ -77,7 +77,8 @@ const Dashboard = () => {
         <div className="logout" onClick={openModal}> <img src={logout} alt="" /> <span>Logout</span></div>
 
       </div>
- <Logout showModal={showModal} closeModal={closeModal} />
+
+      <Logout showModal={showModal} closeModal={closeModal} handleLogout={handleLogout} />
 
       <div className="maincontent">
         <div className="header">

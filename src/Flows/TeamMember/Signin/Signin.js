@@ -14,12 +14,15 @@ const Signin = ({ onSignin, onToggle }) => {
   const [showSign, setShowSign] = useState(true);
 
   useEffect(() => {
-    window.recaptchaVerifier = new RecaptchaVerifier(auth, 'recaptcha-container', {
-      'size': 'invisible',
-      'callback': (response) => {
-        console.log('reCAPTCHA solved');
-      }
-    });
+    const recaptchaContainer = document.getElementById('recaptcha-container');
+    if (recaptchaContainer) {
+      window.recaptchaVerifier = new RecaptchaVerifier(auth, 'recaptcha-container', {
+        'size': 'invisible',
+        'callback': (response) => {
+          console.log('reCAPTCHA solved');
+        }
+      });
+    }
 
     // Cleanup on component unmount
     return () => {
@@ -63,7 +66,7 @@ const Signin = ({ onSignin, onToggle }) => {
       return;
     }
     confirmationResult.confirm(otp)
-      .then(async(result) => {
+      .then(async (result) => {
         const user = result.user;
         setMessage(`Phone number verified! User: ${user.uid}`);
         alert(`Phone number verified! User: ${user.uid}`);
@@ -72,7 +75,7 @@ const Signin = ({ onSignin, onToggle }) => {
         const userExists = await checkUserExists(user.uid);
         alert(userExists)
         if (userExists) {
-           // Call onSignin to handle the successful sign-in or if user uid exits
+          // Call onSignin to handle the successful sign-in or if user uid exits
           onSignin(user);
         } else {
           alert("You are not registered");

@@ -27,7 +27,7 @@ import notif from "./assets/notif.png";
 import profile from "./assets/profile.png";
 import expand from "./assets/expand.png";
 
-const TeamDashboard = () => {
+const TeamDashboard = ({ handleLogout }) => {
 
   const [showModal, setShowModal] = useState(false);
 
@@ -100,7 +100,11 @@ const TeamDashboard = () => {
         <div className="logout" onClick={openModal}> <img src={logout} alt="" /> <span>Logout</span></div>
 
       </div>
-      <Logout showModal={showModal} closeModal={closeModal} />
+
+
+      <Logout showModal={showModal} closeModal={closeModal} handleLogout={handleLogout} />
+
+
       <div className="maincontent">
         <div className="header">
           <div className="left">

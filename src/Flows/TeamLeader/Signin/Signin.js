@@ -14,12 +14,15 @@ const Signin = ({ onSignin, onToggle }) => {
   const [showSign, setShowSign] = useState(true);
 
   useEffect(() => {
-    window.recaptchaVerifier = new RecaptchaVerifier(auth, 'recaptcha-container', {
-      'size': 'invisible',
-      'callback': (response) => {
-        console.log('reCAPTCHA solved');
-      }
-    });
+    const recaptchaContainer = document.getElementById('recaptcha-container');
+    if (recaptchaContainer) {
+      window.recaptchaVerifier = new RecaptchaVerifier(auth, 'recaptcha-container', {
+        'size': 'invisible',
+        'callback': (response) => {
+          console.log('reCAPTCHA solved');
+        }
+      });
+    }
 
     // Cleanup on component unmount
     return () => {
@@ -72,12 +75,13 @@ const Signin = ({ onSignin, onToggle }) => {
         const userExists = await checkUserExists(user.uid);
         alert(userExists)
         if (userExists) {
+
+          // Store the new 'uid' in localStorage
+          // storing should before calling onSingIn()
+          localStorage.setItem('team_leader_uid', user.uid);
+
           // Call onSignin to handle the successful sign-in or if user uid exits
           onSignin(user);
-          // Clear any existing 'uid' from localStorage
-          // localStorage.removeItem('team_leader_uid');
-          // Store the new 'uid' in localStorage
-          localStorage.setItem('team_leader_uid', user.uid);
         } else {
           alert("You are not registered");
         }

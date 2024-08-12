@@ -75,6 +75,9 @@ export const updateUserEarnings = async (userId, coursePrice, studentUID) => {
 };
 
 
+
+
+
 // Update team leader passive earnings
 const updateTeamLeaderPassiveEarnings = async (userId, coursePrice, studentUID) => {
     try {
