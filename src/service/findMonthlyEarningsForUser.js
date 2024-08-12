@@ -2,6 +2,9 @@ import { db } from "../firebase-config";
 import { collection, where, getDocs, query } from "firebase/firestore";
 import moment from "moment";
 
+// this will returns , an object containing last one year earnings 
+
+
 // Find earnings for the last 12 months for a given user ID
 export const findMonthlyEarningsForUser = async (userId) => {
     try {
@@ -30,7 +33,6 @@ export const findMonthlyEarningsForUser = async (userId) => {
 
             // you can change if you want different format
             const month = moment(data.createdAt, "DD-MM-YY HH:mm:ss").format("MMMM YYYY");
-
 
             if (!monthlyEarnings[month]) {
                 monthlyEarnings[month] = 0;
