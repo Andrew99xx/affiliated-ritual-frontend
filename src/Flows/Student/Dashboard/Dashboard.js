@@ -17,7 +17,7 @@ import notif from "./assets/notif.png";
 import profile from "./assets/profile.png";
 import expand from "./assets/expand.png";
 
-const Dashboard = () => {
+const Dashboard = ({ handleLogout }) => {
 
   const [showModal, setShowModal] = useState(false);
 
@@ -28,6 +28,8 @@ const Dashboard = () => {
   const closeModal = () => {
     setShowModal(false);
   };
+
+
   const [activeElement, setActiveElement] = useState('education');
   const [isMenuExpanded, setIsMenuExpanded] = useState(false);
 
@@ -70,14 +72,23 @@ const Dashboard = () => {
           <img src={activeElement === 'education' ? eduactive : edu} alt="" />
           <span>Education & Progress</span>
         </div>
+
         <div className={activeElement === 'certificate' ? "sidebarelementactive" : "sidebarelement"} onClick={() => handleClick('certificate')}>
           <img src={activeElement === 'certificate' ? ceractive : cer} alt="" />
           <span>Certificated</span>
         </div>
-        <div className="logout" onClick={openModal}> <img src={logout} alt="" /> <span>Logout</span></div>
+
+        <div
+          className="logout"
+          onClick={openModal}>
+          <img src={logout} alt="" />
+          <span>Logout</span>
+        </div>
 
       </div>
-      <Logout showModal={showModal} closeModal={closeModal} />
+
+      {/* Logout modal  */}
+      <Logout showModal={showModal} closeModal={closeModal} handleLogout={handleLogout} />
 
       <div className="maincontent">
         <div className="header">
