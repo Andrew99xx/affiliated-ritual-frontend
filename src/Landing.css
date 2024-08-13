@@ -1,17 +1,4 @@
-html::-webkit-scrollbar {
-  width: 1rem;
-
-}
-
-html::-webkit-scrollbar-track {
-  background: rgb(0, 0, 0);
-}
-
-html::-webkit-scrollbar-thumb {
-  background: linear-gradient(91.94deg, #B17E32 -8.77%, #F3E681 58.63%, #CF9F41 107.45%);
-
-}
-
+/* common css for body  */
 .body {
   background-image: url("./banner.png");
   background-repeat: no-repeat;
@@ -20,7 +7,6 @@ html::-webkit-scrollbar-thumb {
   background-size: cover;
   text-decoration: none;
 }
-
 
 /* applying to each section  */
 .body section {
@@ -58,7 +44,6 @@ html::-webkit-scrollbar-thumb {
   color: rgb(0, 0, 0);
   font-weight: 800;
   background: linear-gradient(91.94deg, #B17E32 -8.77%, #F3E681 58.63%, #CF9F41 107.45%);
-
   cursor: pointer;
   border-radius: .5rem;
   font-family: "DM Sans", sans-serif;
@@ -70,44 +55,6 @@ html::-webkit-scrollbar-thumb {
   color: #000;
 }
 
-
-/* where we are using */
-.line-down {
-  position: relative;
-  display: inline-block;
-  z-index: 0;
-}
-
-.line-down::before {
-  content: '';
-  position: absolute;
-  top: .3rem;
-  left: 0;
-  right: 0;
-  height: 100%;
-  width: 100%;
-  background: linear-gradient(91.94deg, #B17E32 -8.77%, #F3E681 58.63%, #CF9F41 107.45%);
-
-  z-index: -1;
-  -webkit-clip-path: polygon(0 85%, 100% 75%, 100% 100%, 0% 100%);
-  clip-path: polygon(0 85%, 100% 75%, 100% 100%, 0% 100%);
-}
-
-@-webkit-keyframes fadeUp {
-  0% {
-    opacity: 0;
-    -webkit-transform: translateY(4rem);
-    transform: translateY(4rem);
-  }
-}
-
-@keyframes fadeUp {
-  0% {
-    opacity: 0;
-    -webkit-transform: translateY(4rem);
-    transform: translateY(4rem);
-  }
-}
 
 
 
@@ -136,6 +83,7 @@ html::-webkit-scrollbar-thumb {
 
 
 .header .header-logo {
+  margin-left: 1rem;
   font-family: 'Popins';
   font-size: 2.5rem;
   font-weight: 700;
@@ -143,7 +91,16 @@ html::-webkit-scrollbar-thumb {
   line-height: 52px;
   color: white;
   text-decoration: none;
+  text-wrap: nowrap;
 
+}
+
+.header .navbar {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
 }
 
 .header .navbar a {
@@ -155,6 +112,7 @@ html::-webkit-scrollbar-thumb {
   text-decoration: none;
   color: #fff;
   text-transform: uppercase;
+  text-wrap: nowrap;
 }
 
 .header .navbar a:hover {
@@ -165,21 +123,28 @@ html::-webkit-scrollbar-thumb {
   cursor: pointer;
   font-size: 3rem;
   display: none;
+  margin-right: 1rem;
+  color: #fff;
 }
 
-.header-btns {
-  margin: 0 10px;
+.header .header-btns {
+  margin-left: 10px;
+  margin-right: 10px;
+  margin-bottom: 10px;
   display: flex;
+  flex-wrap: wrap;
   gap: 10px;
   align-items: center;
 }
 
-.btn-login {
+.header .btn-login {
+  cursor: pointer;
+  background-color: black;
   text-decoration: none;
   width: 167px !important;
   height: 48px !important;
+  border: 0ch !important;
   border-radius: 100px;
-  padding: 12px 24px;
   font-family: "Public Sans";
   font-weight: 400;
   font-size: 16px;
@@ -193,7 +158,8 @@ html::-webkit-scrollbar-thumb {
   gap: 7px;
 }
 
-.btn-signup {
+.header .btn-signup {
+  cursor: pointer;
   background: linear-gradient(91.94deg, #B17E32 -8.77%, #F3E681 58.63%, #CF9F41 107.45%) !important;
   text-decoration: none;
   width: 167px !important;
@@ -212,6 +178,7 @@ html::-webkit-scrollbar-thumb {
   align-items: center;
   box-sizing: border-box;
 }
+
 
 
 
@@ -309,7 +276,6 @@ html::-webkit-scrollbar-thumb {
   text-align: center;
   color: white;
 }
-
 
 
 
@@ -450,7 +416,6 @@ html::-webkit-scrollbar-thumb {
 }
 
 
-
 /* frequently asked questions */
 .faq-section {
   background-color: #0F0F0F;
@@ -496,9 +461,10 @@ html::-webkit-scrollbar-thumb {
 
 
 
-/* media queries */
+/* 1200, max width  */
 @media (max-width: 1200px) {
   .header {
+    justify-content: flex-start;
     padding: 2rem;
   }
 
@@ -506,15 +472,12 @@ html::-webkit-scrollbar-thumb {
     padding: 3rem 2rem;
   }
 
+ 
+
 }
 
-@media (max-width: 991px) {}
 
-#menu-btn {
-  cursor: pointer;
-  color: #fff;
-}
-
+/* 768 max width  */
 @media (max-width: 768px) {
   #menu-btn {
     display: inline-block;
@@ -547,6 +510,9 @@ html::-webkit-scrollbar-thumb {
   .header .navbar.active {
     -webkit-clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
     clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+    flex-direction: column;
+    align-items: flex-start;
+    align-content: flex-start;
   }
 
   .header .navbar a {
@@ -554,80 +520,15 @@ html::-webkit-scrollbar-thumb {
     margin: 0;
     padding: 1.5rem 2rem;
   }
+
+  
 }
 
+
+/* max-width , 450 */
 @media (max-width: 450px) {
 
   .body .heading h1 {
     font-size: 3rem;
   }
-}
-
-.popup-overlay {
-  z-index: 1000;
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: rgba(0, 0, 0, 0.5);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  font-size: 18px;
-}
-
-.landregister,
-.landlogin {
-  background: rgb(0, 0, 0);
-  padding: 20px;
-  border-radius: 4px;
-  max-width: 500px;
-  color: #fff;
-  width: 100%;
-  position: relative;
-}
-
-.popup-close {
-  position: absolute;
-  top: 10px;
-  right: 10px;
-  border: none;
-  background: none;
-  font-size: 3rem;
-  cursor: pointer;
-  color: #fff;
-}
-
-.popup-content h2 {
-  text-align: center;
-  font-size: 30px;
-
-}
-
-
-.popup-content .landlog {
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-}
-
-.popup-content .landlog .st,
-.tml,
-.tra {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  cursor: pointer;
-  color: #fff;
-  text-decoration: none;
-}
-
-.popup-content .landlog .st img,
-.tml img,
-.tra img {
-  border: 1px solid #F3E681;
-  border-radius: 50%;
-  margin-top: 2rem;
-  margin-bottom: 1rem;
 }

@@ -35,20 +35,20 @@ export const updateUserEarnings = async (userId, coursePrice, studentUID) => {
 
             // Add earnings record to subcollection
             const subCollectionEarnings = collection(userRef, "earnings");
-            await setDoc(doc(subCollectionEarnings, `orderId-${studentUID}`), {
+            await setDoc(doc(subCollectionEarnings, `orderId-${getCurrentTimestamp()}`), {
                 createdAt: getCurrentTimestamp(),
                 updatedAt: getCurrentTimestamp(),
                 yourAmount: yourAmount,
-                sellsType: userData.userTypes === 'team_leader' ? "active" : "passive",
+                sellsType: "active",
             });
 
             // Add referral record to subcollection
             const subCollectionReferrals = collection(userRef, "referrals");
-            await setDoc(doc(subCollectionReferrals, `orderId-${studentUID}`), {
+            await setDoc(doc(subCollectionReferrals, `orderId-${getCurrentTimestamp()}`), {
                 createdAt: getCurrentTimestamp(),
                 updatedAt: getCurrentTimestamp(),
                 referedStudentId: studentUID,
-                referType: userData.userTypes === 'team_leader' ? "active" : "passive",
+                referType:"active",
             });
 
             alert(`User's ${userData.userTypes === 'team_leader' ? 'team leader' : 'team member'} earnings updated successfully.`);
@@ -90,7 +90,7 @@ const updateTeamLeaderPassiveEarnings = async (userId, coursePrice, studentUID) 
 
             // Add earnings record to subcollection
             const subCollectionEarnings = collection(userRef, "earnings");
-            await setDoc(doc(subCollectionEarnings, `orderId-${studentUID}`), {
+            await setDoc(doc(subCollectionEarnings, `orderId-${getCurrentTimestamp()}`), {
                 createdAt: getCurrentTimestamp(),
                 updatedAt: getCurrentTimestamp(),
                 yourAmount: yourAmount,
@@ -99,7 +99,7 @@ const updateTeamLeaderPassiveEarnings = async (userId, coursePrice, studentUID) 
 
             // Add referral record to subcollection
             const subCollectionReferrals = collection(userRef, "referrals");
-            await setDoc(doc(subCollectionReferrals, `orderId-${studentUID}`), {
+            await setDoc(doc(subCollectionReferrals, `orderId-${getCurrentTimestamp()}`), {
                 createdAt: getCurrentTimestamp(),
                 updatedAt: getCurrentTimestamp(),
                 referedStudentId: studentUID,
