@@ -9,6 +9,8 @@ import { doc, updateDoc } from "firebase/firestore";
 const sortModulesByDate = (modules) => {
   return [...modules].sort((a, b) => new Date(a.date) - new Date(b.date));
 };
+
+
 const sortModulesAndInstallmentByDate = (modules, installments) => {
   // Combine modules and installments
   const combined = [...modules, ...installments];
@@ -22,7 +24,7 @@ const Progress = ({ data }) => {
   const[userId, setuserId]=useState(localStorage.getItem('student_uid'))
   useEffect(()=>{
     setCourses(data)
-  },[data])
+  }, [data])
 
   const handlePayNow = async (courseIndex, installmentDate) => {
     try {
@@ -60,6 +62,9 @@ const Progress = ({ data }) => {
       alert("Failed to update the course. Please try again.");
     }
   };
+
+
+  
   return (
     <div className="progress">
       {courses.map((course, index) => {
@@ -93,12 +98,12 @@ const Progress = ({ data }) => {
                     return(
                     <>
                     <SwiperSlide key={moduleIndex} className="dialog">
-                      {<div className="heading">{module.name?module.name:'Installment'}</div>}
-                      <p className="text">{module.description?module.description:"Pay within this date"}</p>
-                 
+                      {<div className="heading">{module.name ? module.name : 'Installment'}</div>}
+                      <p className="text">{module.description ? module.description : "Pay within this date"}</p>
+
                       {installmentsMatch && (
                         <div>
-                          {module.price?<p className="text"> installments Price: ₹{module.price}</p>:<></>}
+                          {module.price ? <p className="text"> installments Price: ₹{module.price}</p> : <></>}
                           <p className="text">Date: {module.date}</p>
                         </div>
                       )}

@@ -1,39 +1,39 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import './Package.css'
-import package01 from './package01.png'
-import english from "./english.png"
+import english from "./english.png"  // You might want to use these as placeholders
 import freelance from "./freelance.png"
 import marketing from "./marketing.png"
-
 import { RiArrowRightUpLine } from "react-icons/ri";
+import { getCoursesWithModification } from "../../../service/courses/getCoursesWithModification"
 
 function Package() {
-    const packageData = [
-        {
-            packageImage: freelance,
-            packageTitle: "Freelancing Mastery",
-            packageDetails: ["3 months", "3 classes/week", "Recording"],
-            points: ["Free Doubt Session", "Live Q&A Support", "Affiliate Ritual Certificate"],
-            packagePrice: "1,800",
-            packagePriceCross: "4,000"
-        },
-        {
-            packageImage: marketing,
-            packageTitle: "Digital Marketing Mastery",
-            packageDetails: ["6 months", "2 classes/week", "Recording"],
-            points: ["Free Doubt Session", "Live Q&A Support", "Affiliate Ritual Certificate"],
-            packagePrice: "1,800",
-            packagePriceCross: "4,000"
-        },
-        {
-            packageImage: english,
-            packageTitle: "Speak in English",
-            packageDetails: ["1 year", "1 class/week", "Recording"],
-            points: ["Free Doubt Session", "Live Q&A Support", "Affiliate Ritual Certificate"],
-            packagePrice: "1,800",
-            packagePriceCross: "4,000"
-        }
-    ];
+
+    const [packageData, setPackageData] = useState([]);
+    const [loading, setLoading] = useState(true);
+    const [error, setError] = useState(null);
+
+    useEffect(() => {
+        const fetchPackageData = async () => {
+            try {
+                const data = await getCoursesWithModification();
+                setPackageData(data);
+            } catch (err) {
+                setError('Failed to load Package data');
+            } finally {
+                setLoading(false);
+            }
+        };
+
+        fetchPackageData();
+    }, []);
+
+    if (loading) {
+        return <div>Loading...</div>;
+    }
+
+    if (error) {
+        return <div>{error}</div>;
+    }
 
     return (
         <div className='package-container'>
@@ -43,12 +43,13 @@ function Package() {
                     <div key={i} className='package-item-wrapper'>
                         <img
                             className="package-img"
-                            src={item.packageImage}
+                            src={item.packageImage || english} // Use a placeholder if image is not available
                             alt={item.packageTitle}
                         />
+                        
                         <div className='package-title'>{item.packageTitle}</div>
 
-                        <div className='package-details' >
+                        <div className='package-details'>
                             {item.packageDetails.map((detail, index) => (
                                 <li key={index}>
                                     <span className='package-dots'></span>
@@ -87,4 +88,4 @@ function Package() {
     )
 }
 
-export default Package
+export default Package;

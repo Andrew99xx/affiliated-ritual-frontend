@@ -2,11 +2,13 @@ import React, { useState, useEffect } from "react";
 import close from "./blackcr.png";
 import "./EditCourse.css";
 
-import { db } from "../../../../../firebase-config";
+import { db, storage } from "../../../../../firebase-config";
 import { getClubTrainers } from "../../../../../service/getUsers/getClubTrainers";
 import { doc, getDoc, updateDoc } from "firebase/firestore";
+import {  ref, uploadBytes, getDownloadURL } from "firebase/storage";
 
 const EditCourse = ({ showEditCourse, closeEditCourse, courseId }) => {
+  const [selectedFile, setSelectedFile] = useState(null);
   const [formState, setFormState] = useState({
     courseName: '',
     courseDuration: 1,
@@ -128,6 +130,16 @@ const EditCourse = ({ showEditCourse, closeEditCourse, courseId }) => {
   };
 
   const handleEditCourse = async () => {
+
+    let courseImageUrl = formState.courseImage;
+
+  
+    if (selectedFile) {
+      const storageRef = ref(storage, `images/clubAdmin/courseImages/${selectedFile.name}`);
+      const snapshot = await uploadBytes(storageRef, selectedFile);
+      courseImageUrl = await getDownloadURL(snapshot.ref);
+    }
+
     const updatedCourse = {
       courseName: formState.courseName,
       courseDuration: formState.courseDuration,
@@ -140,6 +152,7 @@ const EditCourse = ({ showEditCourse, closeEditCourse, courseId }) => {
       installments: formState.installments,
       numInstallments: formState.installments.length,
       numModules: formState.numModules.toString(),
+      courseImage: courseImageUrl,
     };
 
     try {
@@ -210,6 +223,7 @@ const EditCourse = ({ showEditCourse, closeEditCourse, courseId }) => {
               type="file"
               className="inputinstall"
               accept="image/*"
+              onChange={(e) => setSelectedFile(e.target.files[0])}
             />
 
             <p>Registration Fees</p>
