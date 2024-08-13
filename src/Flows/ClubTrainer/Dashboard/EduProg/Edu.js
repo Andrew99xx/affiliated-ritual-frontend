@@ -33,6 +33,8 @@ const Edu = () => {
 
 
   const showAttendanceModal = async (courseId, courseName, moduleName) => {
+    console.log("moduleName",moduleName,"courseName",courseName);
+    
     setShowAttendance(true);
 
     setSingleCourseName(courseName);
