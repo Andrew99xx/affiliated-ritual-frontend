@@ -1,14 +1,35 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import './Package.css'
-import package01 from './package01.png'
 import english from "./english.png"
 import freelance from "./freelance.png"
 import marketing from "./marketing.png"
-
 import { RiArrowRightUpLine } from "react-icons/ri";
+import { getCourses } from "../../../service/courses/getCourses"
 
 function Package() {
-    const packageData = [
+
+    const [packageData, setPackageData] = useState([]);
+    const [loading, setLoading] = useState(true);
+    const [error, setError] = useState(null);
+
+    useEffect(() => {
+        // Fetch Package data when the component mounts
+        const fetchPackageData = async () => {
+            try {
+                const data = await getCourses();
+                setPackageData(data);
+            } catch (err) {
+                setError('Failed to load Package data');
+            } finally {
+                setLoading(false);
+            }
+        };
+
+        fetchPackageData();
+    }, []); // Empty dependency array ensures this runs only once
+
+
+    const packageDataDummy = [
         {
             packageImage: freelance,
             packageTitle: "Freelancing Mastery",
@@ -39,7 +60,7 @@ function Package() {
         <div className='package-container'>
             <p className='package-paragraph'>With our exclusive packages, now you can be assured to acquire the best knowledge and expertise from our team of experts. We believe you can empower the world with industry-leading courses.</p>
             <div className='package-items'>
-                {packageData.map((item, i) => (
+                {packageDataDummy.map((item, i) => (
                     <div key={i} className='package-item-wrapper'>
                         <img
                             className="package-img"

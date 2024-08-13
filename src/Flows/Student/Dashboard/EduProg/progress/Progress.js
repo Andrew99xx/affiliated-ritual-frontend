@@ -7,6 +7,8 @@ import "swiper/css";
 const sortModulesByDate = (modules) => {
   return [...modules].sort((a, b) => new Date(a.date) - new Date(b.date));
 };
+
+
 const sortModulesAndInstallmentByDate = (modules, installments) => {
   // Combine modules and installments
   const combined = [...modules, ...installments];
@@ -17,14 +19,16 @@ const sortModulesAndInstallmentByDate = (modules, installments) => {
 
 const Progress = ({ data }) => {
   const [courses, setCourses] = useState(data);
-  const[userId, setuserId]=useState('123')
-  useEffect(()=>{
+  const [userId, setuserId] = useState('123')
+
+
+  useEffect(() => {
     setCourses(data)
-  },[data])
+  }, [data])
 
   const handlePayNow = (courseIndex, installmentIndex) => {
     console.log(courses);
-    
+
     const updatedCourses = courses.map((course, cIndex) => {
       if (cIndex === courseIndex) {
         const updatedInstallments = course.installments.map((installment, iIndex) => {
@@ -40,10 +44,13 @@ const Progress = ({ data }) => {
       }
       return course;
     });
-    console.log(JSON.stringify(updatedCourses,null,2));
-    
+    console.log(JSON.stringify(updatedCourses, null, 2));
+
     setCourses(updatedCourses);
   };
+
+
+  
   return (
     <div className="progress">
       {courses.map((course, index) => {
@@ -73,18 +80,18 @@ const Progress = ({ data }) => {
                 <Swiper className="dialogs" slidesPerView={1}>
                   {sortedModules.map((module, moduleIndex) => (
                     <SwiperSlide key={moduleIndex} className="dialog">
-                      {<div className="heading">{module.name?module.name:'Installment'}</div>}
-                      <p className="text">{module.description?module.description:"Pay within this date"}</p>
-                 
+                      {<div className="heading">{module.name ? module.name : 'Installment'}</div>}
+                      <p className="text">{module.description ? module.description : "Pay within this date"}</p>
+
                       {installmentsMatch && (
                         <div>
-                          {module.price?<p className="text"> installments Price: ₹{module.price}</p>:<></>}
+                          {module.price ? <p className="text"> installments Price: ₹{module.price}</p> : <></>}
                           <p className="text">Date: {module.date}</p>
                         </div>
                       )}
                       {!module.name && !module.paid && (
                         <button onClick={() => handlePayNow(index, moduleIndex)}>
-                          PAY NOW {module.paid?module.paid.includes('123'):'not paid'}
+                          PAY NOW {module.paid ? module.paid.includes('123') : 'not paid'}
                         </button>
                       )}
                       {module.paid && module.paid.includes('123') && (
