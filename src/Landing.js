@@ -23,30 +23,15 @@ import System from "./components/LandingComponents/System/System";
 import Package from "./components/LandingComponents/Package/Package";
 import Banner from "./components/LandingComponents/Banner/Banner";
 import Club from "./components/LandingComponents/Club/Club";
+import HeaderLoginOptions from "./components/LandingComponents/HeaderLoginOptions/HeaderLoginOptions";
+import HeaderRegisterOptions from "./components/LandingComponents/HeaderRegisterOptions/HeaderRegisterOptions.js"
+
 // import Features from "./components/LandingComponents/Features/Features";
 // import Services from "./components/LandingComponents/Services/Services";
 // import Courses from "./components/LandingComponents/Courses/Courses";
 
 
 const Landing = () => {
-  const [isRegisterOpen, setIsRegisterOpen] = useState(false);
-  const [isLoginOpen, setIsLoginOpen] = useState(false);
-
-  const openRegister = () => {
-    setIsRegisterOpen(true);
-  };
-
-  const closeRegister = () => {
-    setIsRegisterOpen(false);
-  };
-
-  const openLogin = () => {
-    setIsLoginOpen(true);
-  };
-
-  const closeLogin = () => {
-    setIsLoginOpen(false);
-  };
 
   useEffect(() => {
     const originalStyles = {
@@ -93,90 +78,47 @@ const Landing = () => {
         originalStyles.scrollPaddingTop;
     };
   }, []);
+
   useEffect(() => {
     Aos.init();
   }, []);
+
+
   const [isNavbarVisible, setIsNavbarVisible] = useState(false);
+  const [isRegisterOpen, setIsRegisterOpen] = useState(false);
+  const [isLoginOpen, setIsLoginOpen] = useState(false);
 
   const toggleNavbar = () => {
     setIsNavbarVisible(!isNavbarVisible);
   };
 
+  const openRegister = () => {
+    setIsRegisterOpen(true);
+  };
+
+  const closeRegister = () => {
+    setIsRegisterOpen(false);
+  };
+
+  const openLogin = () => {
+    setIsLoginOpen(true);
+  };
+
+  const closeLogin = () => {
+    setIsLoginOpen(false);
+  };
+
+
+
+
   return (
     <div className="body">
 
-      {/* multitpel login options */}
-      {isLoginOpen && (
-        <div className="popup-overlay">
-          <div className="landregister">
-            <button className="popup-close" onClick={closeLogin}>
-              &times;
-            </button>
-            <div className="popup-content">
-              <h2>Log in</h2>
-              <div className="landlog">
-                <Link to="/student?action=login" className="st">
-                  {" "}
-                  <img src="/student.png" alt="" height={80} width={80} />{" "}
-                  Student
-                </Link>
-                <Link className="tml" to="/teamleader?action=login" >
-                  {" "}
-                  <img src="/leader.png" alt="" height={80} width={80} /> Team
-                  Leader
-                </Link>
-                <Link to="/trainer?action=login" className="tra">
-                  <img src="/trainer.png" alt="" height={80} width={80} />{" "}
-                  Trainer
-                </Link>
-              </div>
-            </div>
-          </div>
-        </div>
-      )}
-
-      {/* multiple signin options  */}
-      {isRegisterOpen && (
-        <div className="popup-overlay">
-          <div className="landlogin">
-            <button className="popup-close" onClick={closeRegister}>
-              &times;
-            </button>
-            <div className="popup-content">
-              <h2>Sign In</h2>
-              <div className="landlog">
-                <Link to="/student?action=register" className="st">
-                  {" "}
-                  <img src="/student.png" alt="" height={80} width={80} />{" "}
-                  Student
-                </Link>
-                <Link to="/teamleader?action=register" className="tml">
-                  {" "}
-                  <img src="/leader.png" alt="" height={80} width={80} /> Team
-                  Leader
-                </Link>
-                <Link to="/trainer?action=register" className="tra">
-                  <img src="/trainer.png" alt="" height={80} width={80} />{" "}
-                  Trainer
-                </Link>
-              </div>
-            </div>
-          </div>
-        </div>
-      )}
-
+      {/* login & register options */}
+      <HeaderLoginOptions isLoginOpen={isLoginOpen} closeLogin={closeLogin} />
+      <HeaderRegisterOptions isRegisterOpen={isRegisterOpen} closeRegister={closeRegister} />
 
       <header class="header">
-        <a href="#" class="header-logo">
-          Affiliated Rituals{" "}
-        </a>
-
-        <nav className={`navbar ${isNavbarVisible ? "active" : ""}`}>
-          <a href="#home">Home</a>
-          <a href="#product">Product</a>
-          <a href="#contact_section">Contact Us</a>
-          <a href="#leaderboard_section">Leaderboard</a>
-        </nav>
 
         <div
           id="menu-btn"
@@ -186,8 +128,29 @@ const Landing = () => {
           ☰
         </div>
 
-        <div className="header-btns">
-          {/* fucntionality is good working, change the name  */}
+        <a href="#" class="header-logo">
+          Affiliated Rituals{" "}
+        </a>
+
+        <nav className={`navbar ${isNavbarVisible ? "active" : ""}`}>
+          <a href="#home">Home</a>
+          <a href="#product">Product</a>
+          <a href="#contact_section">Contact Us</a>
+          <a href="#leaderboard_section">Leaderboard</a>
+
+          <div className="header-btns">
+            <button class="btn-login" onClick={openLogin}>
+              <CiLock size={24} />
+              Login
+            </button>
+            <button  class="btn-signup" onClick={openRegister}>
+              Sign up for Free
+            </button>
+          </div>
+        </nav>
+
+        {/* className="header-btns" */}
+        {/* <div className={`header-btns ${isNavbarVisible ? "active" : ""}`}>
           <a href="#" class="btn-login" onClick={openLogin}>
             <CiLock size={24} />
             Login
@@ -195,11 +158,18 @@ const Landing = () => {
           <a href="#" class="btn-signup" onClick={openRegister}>
             Sign up for Free
           </a>
-        </div>
+        </div> */}
+
       </header>
 
 
+
+
+
+
+
       <main>
+
         {/* home section */}
         <section class="home-section" id="home">
           <Home />
@@ -300,6 +270,8 @@ const Landing = () => {
       <footer class="footer-section">
         <Footer />
       </footer>
+
+
     </div>
   );
 };
