@@ -47,6 +47,7 @@
     align-items: center;
     border-radius: 14.63px;
     padding: 1px;
+    overflow: hidden;
 }
 
 .package-title {

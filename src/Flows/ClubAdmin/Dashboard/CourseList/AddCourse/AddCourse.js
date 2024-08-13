@@ -1,11 +1,16 @@
 import React, { useEffect, useState } from "react";
 import close from "./blackcr.png";
 import "./AddCourse.css";
+
 import { collection, addDoc } from "firebase/firestore";
-import { db } from "../../../../../firebase-config.js";
+import {  ref, uploadBytes, getDownloadURL } from "firebase/storage";
+import { db, storage } from "../../../../../firebase-config.js";
+
 import { getClubTrainers } from "../../../../../service/getUsers/getClubTrainers.js";
 
 const AddCourse = ({ showAddCourse, closeAddCourse }) => {
+  const [selectedFile, setSelectedFile] = useState(null);
+
   const [formState, setFormState] = useState({
     courseName: '',
     courseDuration: 1,
@@ -97,15 +102,39 @@ const AddCourse = ({ showAddCourse, closeAddCourse }) => {
     });
   };
 
+  // const handleAddCourse = async () => {
+  //   try {
+  //     await addDoc(collection(db, "courses"), formState);
+  //     alert("Course added successfully");
+  //     closeAddCourse();
+  //   } catch (e) {
+  //     console.error("Error adding course: ", e);
+  //   }
+  // };
+
   const handleAddCourse = async () => {
     try {
-      await addDoc(collection(db, "courses"), formState);
+      let courseImageUrl = "";
+      
+      if (selectedFile) {
+        const storageRef = ref(storage, `images/clubAdmin/courseImages/${selectedFile.name}`);
+        const snapshot = await uploadBytes(storageRef, selectedFile);
+        courseImageUrl = await getDownloadURL(snapshot.ref);
+      }
+  
+      const courseData = {
+        ...formState,
+        courseImage: courseImageUrl,
+      };
+  
+      await addDoc(collection(db, "courses"), courseData);
       alert("Course added successfully");
       closeAddCourse();
     } catch (e) {
       console.error("Error adding course: ", e);
     }
   };
+  
 
   return (
     <div className={showAddCourse ? "modal display-block" : "modal display-none"}>
@@ -157,6 +186,7 @@ const AddCourse = ({ showAddCourse, closeAddCourse }) => {
               type="file"
               className="inputinstall"
               accept="image/*"
+              onChange={(e) => setSelectedFile(e.target.files[0])}
             />
 
             <p>Registration Fees</p>

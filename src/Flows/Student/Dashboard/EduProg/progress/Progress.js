@@ -2,6 +2,8 @@ import React, { useEffect, useState } from "react";
 import "./progress.css";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
+import { auth, db } from "../../../../../firebase-config";
+import { doc, updateDoc } from "firebase/firestore";
 
 // Helper function to sort modules by date
 const sortModulesByDate = (modules) => {
@@ -19,34 +21,46 @@ const sortModulesAndInstallmentByDate = (modules, installments) => {
 
 const Progress = ({ data }) => {
   const [courses, setCourses] = useState(data);
-  const [userId, setuserId] = useState('123')
-
-
-  useEffect(() => {
+  const[userId, setuserId]=useState(localStorage.getItem('student_uid'))
+  useEffect(()=>{
     setCourses(data)
   }, [data])
 
-  const handlePayNow = (courseIndex, installmentIndex) => {
-    console.log(courses);
-
-    const updatedCourses = courses.map((course, cIndex) => {
-      if (cIndex === courseIndex) {
-        const updatedInstallments = course.installments.map((installment, iIndex) => {
-          if (iIndex === installmentIndex) {
-            return {
-              ...installment,
-              paid: installment.paid ? [...installment.paid, userId] : [userId]
-            };
-          }
-          return installment;
-        });
-        return { ...course, installments: updatedInstallments };
-      }
-      return course;
-    });
-    console.log(JSON.stringify(updatedCourses, null, 2));
-
-    setCourses(updatedCourses);
+  const handlePayNow = async (courseIndex, installmentDate) => {
+    try {
+      console.log("installmentIndex",installmentDate);
+      
+      const updatedCourses = courses.map((course, cIndex) => {
+        if (cIndex === courseIndex) {
+          const updatedInstallments = course.installments.map((installment) => {
+            if (new Date(installment.date).toISOString() === new Date(installmentDate).toISOString()) {
+              return {
+                ...installment,
+                paid: installment.paid ? [...installment.paid, userId] : [userId],
+              };
+            }
+            return installment;
+          });
+          return { ...course, installments: updatedInstallments };
+        }
+        return course;
+      });
+  
+      const selectedCourse = updatedCourses[courseIndex];
+  
+      // Update Firestore with the updated course data
+      const courseRef = doc(db, "courses", selectedCourse.id);
+      await updateDoc(courseRef, selectedCourse);
+  
+      console.log("Course updated:", selectedCourse);
+      alert("Course updated successfully");
+  
+      // Update the local state with the updated courses array
+      setCourses(updatedCourses);
+    } catch (error) {
+      console.error("Error updating course:", error);
+      alert("Failed to update the course. Please try again.");
+    }
   };
 
 
@@ -78,7 +92,11 @@ const Progress = ({ data }) => {
                 </div>
 
                 <Swiper className="dialogs" slidesPerView={1}>
-                  {sortedModules.map((module, moduleIndex) => (
+                  {sortedModules.map((module, moduleIndex) => {
+                    const isInstallment = !module.name;
+                    const isPaid = isInstallment && module.paid && module.paid.includes(userId);
+                    return(
+                    <>
                     <SwiperSlide key={moduleIndex} className="dialog">
                       {<div className="heading">{module.name ? module.name : 'Installment'}</div>}
                       <p className="text">{module.description ? module.description : "Pay within this date"}</p>
@@ -89,19 +107,22 @@ const Progress = ({ data }) => {
                           <p className="text">Date: {module.date}</p>
                         </div>
                       )}
-                      {!module.name && !module.paid && (
-                        <button onClick={() => handlePayNow(index, moduleIndex)}>
-                          PAY NOW {module.paid ? module.paid.includes('123') : 'not paid'}
-                        </button>
-                      )}
-                      {module.paid && module.paid.includes('123') && (
-                        <p className="text">Paid </p>
-                      )}
+                     {!isPaid && isInstallment && (
+                          <button onClick={() => handlePayNow(index, module.date)}>
+                            PAY NOW
+                          </button>
+                        )}
+
+                        {isPaid && (
+                          <p className="text">Paid</p>
+                        )}
                       {!installmentsMatch && (
                         <p className="text">Length mismatching</p>
                       )}
                     </SwiperSlide>
-                  ))}
+                    </>
+                  )})}
+
                 </Swiper>
               </div>
             </div>

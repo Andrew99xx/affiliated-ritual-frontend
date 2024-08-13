@@ -22,9 +22,9 @@ const StudentRegister = ({ onToggle }) => {
   const [selectedFile, setSelectedFile] = useState(null);
   const [confirmationResult, setConfirmationResult] = useState(null);
 
-const handleFileChange = (e) => {
-  setSelectedFile(e.target.files[0]);
-};
+  const handleFileChange = (e) => {
+    setSelectedFile(e.target.files[0]);
+  };
 
 
   const [formData, setFormData] = useState({
@@ -156,25 +156,25 @@ const handleFileChange = (e) => {
       if (selectedFile) {
         // Initialize Firebase storage
         const storage = getStorage();
-        const storageRef = ref(storage, `images/student/registration/${uid}`);
-  
+        const storageRef = ref(storage, `images/student/${uid.slice(0, 5)}/${selectedFile.name}`);
+
         // Upload the file
         const snapshot = await uploadBytes(storageRef, selectedFile);
-  
+
         // Get the download URL
         const downloadURL = await getDownloadURL(snapshot.ref);
-  
+
         // Update the formData with the download URL
         const updatedFormData = { ...formData, uid: uid, registrationImage: downloadURL };
         await setDoc(doc(db, "users", uid), updatedFormData, { merge: true });
-        
+
         alert("Registration successful! User data and profile picture saved to Firestore!");
       } else {
-        
+
         // If no file selected, proceed without profile picture
         const updatedFormData = { ...formData, uid: uid };
         await setDoc(doc(db, "users", uid), updatedFormData, { merge: true });
-        
+
         alert("Registration successful! User data saved to Firestore!");
       }
     } catch (error) {
@@ -182,7 +182,7 @@ const handleFileChange = (e) => {
       alert("Error adding user to Firestore: ", error.message);
     }
   };
-  
+
 
 
   // handle input changes 
@@ -340,13 +340,13 @@ const handleFileChange = (e) => {
           />
 
           <h3>Bank Details</h3>
-         
+
           <p>Account Number <sup>*</sup></p>
           <input type="text" className="input" name="accountNumber" value={formData.accountNumber} onChange={handleChange} placeholder="Account Number" required />
-          
+
           <p>Account Type <sup>*</sup></p>
           <input type="text" className="input" name="accountType" value={formData.accountType} onChange={handleChange} placeholder="Account Type" required />
-          
+
           <p>Ifsc Code <sup>*</sup></p>
           <input type="text" className="input" name="ifscCode" value={formData.ifscCode} onChange={handleChange} placeholder="Ifsc Code" required />
 

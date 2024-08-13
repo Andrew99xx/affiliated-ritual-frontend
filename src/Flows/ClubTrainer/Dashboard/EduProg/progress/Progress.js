@@ -34,7 +34,7 @@ const Progress = ({ data, onClickAttendance }) => {
                     <div>
                       <div
                         className='btn'
-                        onClick={() => onClickAttendance(course.id, course.courseName, module.name)}>
+                        onClick={() => onClickAttendance(course.id, course, module)}>
                         Attendance
                       </div>
                     </div>
