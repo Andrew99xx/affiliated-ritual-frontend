@@ -39,3 +39,10 @@
 .slick-dots li.slick-active button:before {
     color: #BD9141;
 }
+
+@media (max-width: 768px) {
+    .clubImg { 
+        width: 324px;
+        height: 100%;
+    }
+}
