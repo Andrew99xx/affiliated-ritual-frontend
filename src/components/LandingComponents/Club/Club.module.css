@@ -8,11 +8,9 @@
     color: white;
 }
 
-.sliderContainer { /* Converted to CSS module */
-    margin: 30px;
-}
 
-.clubItemWrapper { /* Converted to CSS module */
+
+.clubItemContainer { /* Converted to CSS module */
     margin: 30px;
 }
 
@@ -41,8 +39,8 @@
 }
 
 @media (max-width: 768px) {
-    .clubImg { 
-        width: 324px;
+    .clubItem { 
+        width: 95% !important;
         height: 100%;
     }
 }

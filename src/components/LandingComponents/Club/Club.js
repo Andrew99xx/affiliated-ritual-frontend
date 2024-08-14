@@ -67,13 +67,13 @@ function Club() {
                 Hear From Our Club Leader And Club Member
             </p>
 
-
-            <div className={styles.sliderContainer}> {/* Highlighted: Using CSS module */}
-                <Slider {...settings} className={styles.clubItemWrapper}> {/* Highlighted: Using CSS module */}
+            {/* slider-container = coming from slick-carousel */}
+            <div className="slider-container">
+                <Slider {...settings} className={styles.clubItemContainer}> {/* Highlighted: Using CSS module */}
                     {clubData.map((item, i) => (
                         <div key={i} className={styles.clubItem}> {/* Highlighted: Using CSS module */}
                             <iframe
-                                className={styles.clubImg} 
+                                className={styles.clubImg}
                                 src={`https://www.youtube.com/embed/${item.videoId}?controls=0&modestbranding=1&rel=0&disablekb=1&fs=0&iv_load_policy=3&cc_load_policy=0&showinfo=0`}
                                 frameBorder="0"
                                 allow="autoplay; encrypted-media"
