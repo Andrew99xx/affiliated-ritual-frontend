@@ -75,10 +75,10 @@
   -webkit-box-pack: justify;
   -ms-flex-pack: justify;
   justify-content: space-between;
-  background-color: rgba(15, 15, 15, 0.95);
-  -webkit-box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.1);
-  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.1);
-  padding: 2rem 9%;
+  background-color: #252524;
+  /* -webkit-box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.1); */
+  /* box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.1); */
+  padding: 0.0rem 9%;
 }
 
 
@@ -139,7 +139,7 @@
 
 .header .btn-login {
   cursor: pointer;
-  background-color: black;
+  background-color: #252524;
   text-decoration: none;
   width: 167px !important;
   height: 48px !important;
@@ -191,7 +191,7 @@
 .home-section {
   padding-bottom: 0 !important;
   color: white;
-  background-color: #0F0F0F;
+  background-color: #252524;
   font-family: 'Public Sans', sans-serif;
   /* 
   min-height: 80vh;
@@ -469,7 +469,7 @@
   }
 
   .header {
-    padding: 2rem;
+    padding: 0rem 2rem;
   }
 
   .header .header-btns {
@@ -495,7 +495,7 @@
   .header {
     justify-content: flex-start;
     align-items: center;
-    padding: 2rem;
+    padding: 0rem 2rem;
   }
 
   .body .header .btn {

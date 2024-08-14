@@ -130,7 +130,7 @@ const Landing = () => {
         </div>
 
         <a href="#" class="header-logo">
-          <img width={300} src={logo}/>
+          <img width={200} src={logo}/>
         </a>
 
         <nav className={`navbar ${isNavbarVisible ? "active" : ""}`}>

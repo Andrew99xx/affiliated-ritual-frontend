@@ -30,3 +30,22 @@
     font-size: 20px;
     text-align: center;
 }
+
+@media(max-width:900px){
+    .banner-container {
+        width: 80%;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: 50px;
+    }
+    .banner-paragraph {
+      
+        font-size: 40px;
+      
+   
+    
+    }
+}

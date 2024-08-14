@@ -19,15 +19,15 @@
 
 .system-items {
     display: flex;
-    flex-wrap: wrap;
+    flex-shrink: 1;
     gap: 20px;
     justify-content: center;
 }
 
 .system-item-wrapper {
     position: relative;
-    width: 588px;
-    height: 450px;
+    width: 40vw;
+    height: 35vw;
     border-radius: 4px;
     background-color: #4E4E4E;
     overflow: hidden;
@@ -39,7 +39,7 @@
 /* Responsive Design */
 @media (max-width: 768px) {
     .system-item-wrapper {
-        width: 80vw; /* Set the width to 80% of the viewport width */
+        /* width: 80vw;  */
         height: auto; /* Let the height adjust automatically */
         position: relative; /* Positioning context for the iframe */
         padding-bottom: 56.25%; /* 16:9 aspect ratio (9 / 16 = 0.5625) */
