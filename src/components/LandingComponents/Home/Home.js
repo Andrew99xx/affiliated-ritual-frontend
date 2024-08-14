@@ -1,7 +1,7 @@
 import React from 'react'
 import "./Home.css"
 import image from './image.png'
-import yellow_background from "./yellow_background.jpg"
+import yellow_background from "./yellow_background.png"
 import companyLogo from './reuters.jpeg'
 
 function Home() {
@@ -30,13 +30,13 @@ function Home() {
 
             <div className='home-img-svg-wrapper'>
                 {/* add svg - todo - currently this is getting overlapped by image, why */}
-                <div className='home-svg-wrapper'>
+                {/* <div className='home-svg-wrapper'>
                     <img
                         src={yellow_background}
                         alt='home-svg'
                         className='home-svg'
                     />
-                </div>
+                </div> */}
                 <div children='home-img-wrapper'>
                     <img
                         src={image}

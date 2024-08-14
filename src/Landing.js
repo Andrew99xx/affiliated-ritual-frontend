@@ -137,28 +137,18 @@ const Landing = () => {
           <a href="#product">Product</a>
           <a href="#contact_section">Contact Us</a>
           <a href="#leaderboard_section">Leaderboard</a>
-
-          <div className="header-btns">
-            <button class="btn-login" onClick={openLogin}>
-              <CiLock size={24} />
-              Login
-            </button>
-            <button  class="btn-signup" onClick={openRegister}>
-              Sign up for Free
-            </button>
-          </div>
         </nav>
 
         {/* className="header-btns" */}
-        {/* <div className={`header-btns ${isNavbarVisible ? "active" : ""}`}>
-          <a href="#" class="btn-login" onClick={openLogin}>
+        <div className="header-btns">
+          <button class="btn-login" onClick={openLogin}>
             <CiLock size={24} />
             Login
-          </a>
-          <a href="#" class="btn-signup" onClick={openRegister}>
+          </button>
+          <button class="btn-signup" onClick={openRegister}>
             Sign up for Free
-          </a>
-        </div> */}
+          </button>
+        </div>
 
       </header>
 
@@ -246,7 +236,7 @@ const Landing = () => {
         </section>
 
         {/* leaderboard section */}
-        <section className="leaderboard-section" id="leaderboard">
+        <section className="leaderboard-section" id="leaderboard_section">
           <h1 className="heading">Leaderboard</h1>
           <Leaderboard />
         </section>

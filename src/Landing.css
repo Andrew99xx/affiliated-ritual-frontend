@@ -463,16 +463,18 @@
 
 /* 1200, max width  */
 @media (max-width: 1200px) {
-  .header {
-    justify-content: flex-start;
-    padding: 2rem;
-  }
 
   .body section {
     padding: 3rem 2rem;
   }
 
- 
+  .header {
+    padding: 2rem;
+  }
+
+  .header .header-btns {
+    display: none !important;
+  }
 
 }
 
@@ -488,6 +490,12 @@
   #menu-btn.fa-times {
     -webkit-transform: rotate(180deg);
     transform: rotate(180deg);
+  }
+
+  .header {
+    justify-content: flex-start;
+    align-items: center;
+    padding: 2rem;
   }
 
   .body .header .btn {
@@ -521,7 +529,7 @@
     padding: 1.5rem 2rem;
   }
 
-  
+
 }
 
 
