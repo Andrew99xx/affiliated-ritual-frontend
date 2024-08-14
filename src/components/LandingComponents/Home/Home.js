@@ -3,6 +3,7 @@ import "./Home.css"
 import image from './image.png'
 import yellow_background from "./yellow_background.png"
 import companyLogo from './reuters.jpeg'
+import jackpot from "./jackpot.png"
 
 function Home() {
     const companyLogoes = [
@@ -29,6 +30,7 @@ function Home() {
             </div>
 
             <div className='home-img-svg-wrapper'>
+                {/* todo- if relative , also play with z-index */}
                 {/* add svg - todo - currently this is getting overlapped by image, why */}
                 {/* <div className='home-svg-wrapper'>
                     <img
@@ -43,22 +45,31 @@ function Home() {
                         alt='home-img'
                         className='home-img'
                     />
-                    <div className='home-top-card'>BUSINESS OPPORTUNITY</div>
+                    <div className='home-top-card'>Work From Home <br></br> 100%</div>
                     <div className='home-left-card'>
                         <div className='home-left-card-percent'>
-                            110%
+                            WIN A JACKPOT
                         </div>
 
-                        <div>
+
+
+                        {/* <div>
                             Placement Asst.
-                        </div>
+                        </div> */}
 
                         <div className="home-left-card-image-container">
-                            {companyLogoes.map((item, index) => (
+                            {/* {companyLogoes.map((item, index) => (
                                 <div key={index} className="home-left-card-image-item">
                                     <img src={item.src} alt={item.alt} />
                                 </div>
-                            ))}
+                            ))} */}
+
+                            <img
+                                className='home-left-card-jackpot-img'
+                                src={jackpot}
+                                alt={"Jackpot"}
+                            />
+
                         </div>
 
                     </div>

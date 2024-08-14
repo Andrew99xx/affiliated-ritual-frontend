@@ -13,34 +13,34 @@ const Faq = () => {
 
   const data = [
     {
-      question: "What services does our education platform offer?",
+      question: "What is Affiliate Ritual and the story behind the name?",
       answer:
-        "Our platform offers a variety of services including online courses, certification programs, mentorship opportunities, and career counseling.",
+        "Affiliate Ritual is the first ever business model where anyone can join in actually free of cost and can earn in passive format. The only business model where you can join, learn from the experts, get product access as well as the affiliate software. Everything is free of cost! Since the beginning We always belive in the ritual of pure affiliate marketing. So, Affiliate Ritual has arrived!",
     },
     {
-      question: "How can I earn while learning on this platform?",
+      question: "Should I join Affiliate Ritual?",
       answer:
-        "You can earn by participating in our affiliate program, tutoring other students, contributing to course content, and taking part in sponsored projects.",
+        "Why not? Specially when you have the opportunity to earn without any investment through Affiliate Ritual.",
     },
     {
-      question: "What is the affiliate program and how does it work?",
+      question: "Tell me more about training mode.",
       answer:
-        "The affiliate program allows you to earn commissions by referring new students to our platform. You will receive a unique referral link to share, and you'll earn a percentage of the course fees for each successful enrollment through your link.",
+        "We have designed our training mode specially for those people people, who want to learn from scratch.",
     },
     {
-      question: "Are there any prerequisites for joining the courses?",
+      question: "Will I get a certificate after completion?",
       answer:
-        "Most of our courses do not have prerequisites, making them accessible to learners of all levels. However, some advanced courses may require prior knowledge or completion of introductory courses.",
+        "Ofcourse you will get Affiliate Ritual verified Certificate. But for getting a job or a client, certificate doesn't matter. But your skill definetly.",
     },
     {
-      question: "How do I access my courses and track my progress?",
+      question: "What if I can't learn? Then, will you guys throw me like others?",
       answer:
-        "You can access your courses through your account dashboard. The dashboard provides an overview of your enrolled courses, progress tracking, and completion certificates.",
+        "No, never. Because only for you people, we have invented this Super Affiliate Passive model business, where you can earn as a Club Leader through Affiliate Ritual.",
     },
     {
-      question: "What types of certifications are available?",
+      question: "Any customer support number?",
       answer:
-        "We offer various types of certifications including course completion certificates, professional certifications, and skill-based badges. These certifications can enhance your resume and professional profile.",
+        "Yes. Note down please. It's +91 89816 69409 (Affiliate Ritual).",
     },
     {
       question: "How can I get in touch with a mentor?",

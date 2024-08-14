@@ -14,8 +14,8 @@ function IntroStats() {
         },
         {
             icon: users,
-            title: "5 Star",
-            description: "Rating on Trustpilot"
+            title: "Learn & Earn",
+            description: "Opportunity"
         },
         {
             icon: recording,
