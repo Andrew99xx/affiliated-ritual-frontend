@@ -41,6 +41,7 @@
 .feedback-itp-wrapper {
     display: flex;
     flex-direction: row;
+    flex-wrap: wrap;
     justify-content: start;
     align-items: center;
     gap: 10px;
@@ -99,8 +100,8 @@
 /* Media query for small devices */
 @media (max-width: 768px) {
     .feedback-item {
-        width: 324px !important;
-        height: 300px !important;
+        width: 90% !important;
+        height: 100% !important;
     }
 
     .feedback-quote-right {
