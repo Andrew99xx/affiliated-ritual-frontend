@@ -1,5 +1,8 @@
 import React, { useState } from 'react';
 import "../Signin.css";
+import logo from "../../../../logo.png"
+
+
 
 // sign in components - just entering the email
 const Sign = ({ onSignInClick }) => {
@@ -22,7 +25,9 @@ const Sign = ({ onSignInClick }) => {
   return (
     <div className="container">
       <div>
-        <h3 className="logo">Dummy logo</h3>
+        <h3 className="logo">
+          <img width={300} src={logo} />
+        </h3>
       </div>
 
       <div className="heading">Sign</div>
@@ -30,17 +35,17 @@ const Sign = ({ onSignInClick }) => {
 
       <div className="formcontainer">
         {false &&
-        <>
-        
-        <p>Enter Email <sup>*</sup></p>
-        <input
-          type="text"
-          className="input"
-          placeholder='mail@simmmple.com'
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
-        />
-        </>}
+          <>
+
+            <p>Enter Email <sup>*</sup></p>
+            <input
+              type="text"
+              className="input"
+              placeholder='mail@simmmple.com'
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+            />
+          </>}
         <p>Enter Phone <sup>*</sup></p>
         <input
           type="tel"

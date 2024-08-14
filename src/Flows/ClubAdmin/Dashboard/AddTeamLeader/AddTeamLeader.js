@@ -1,7 +1,10 @@
 import React, { useEffect, useState } from "react";
 import { RecaptchaVerifier, signInWithPhoneNumber } from "firebase/auth";
 import { doc, setDoc } from "firebase/firestore"; // Updated imports
+
 import "./AddTeamLeader.css";
+import logo from "../../../../logo.png"
+
 import { auth, db } from "../../../../firebase-config.js";
 import OtpInputContainer from './OtpInputContainer/OtpInputContainer.js';
 
@@ -112,7 +115,10 @@ const AddTeamLeader = () => {
     <div className="AddTeamLeader">
       <div className="container">
         <div>
-          <h3 className="logo">Dummy logo</h3>
+          <h3 className="logo">
+          <img width={300} src={logo} />
+
+          </h3>
         </div>
         <div className="heading">Registration</div>
         <form className="formcontainer">

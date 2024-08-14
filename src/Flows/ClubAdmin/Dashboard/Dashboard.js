@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 // import { useNavigate } from 'react-router-dom'
 import "./Dashboard.css";
+import logo from "../../../logo.png"
 
 import AdminDash from "./AdminDash/AdminDash";
 import Couselist from "./CourseList/Couselist";
@@ -79,7 +80,9 @@ const Dashboard = () => {
 
       {/* sidebar  */}
       <div className="sidebar">
-        <h1 className="heading">Dummy logo</h1>
+        <h1 className="heading">
+          <img width={300} src={logo} />
+        </h1>
 
         <div className={activeElement === 'admindash' ? "sidebarelementactive" : "sidebarelement"} onClick={() => handleClick('admindash')}>
           <img src={activeElement === 'admindash' ? dashActive : dash} alt="" />
@@ -106,7 +109,7 @@ const Dashboard = () => {
           <span>Sale & Target</span>
         </div>
 
-        <div className={activeElement === 'addTeamLeader' ? "sidebarelementactive" : "sidebarelement"} onClick={ () => handleClick('addTeamLeader')}>
+        <div className={activeElement === 'addTeamLeader' ? "sidebarelementactive" : "sidebarelement"} onClick={() => handleClick('addTeamLeader')}>
           {/* change the image here, todo */}
           <img src={activeElement === 'saletarget' ? SaleTargetActive : SaleTarget} alt="" />
           <span>Add Team Leader</span>
@@ -148,7 +151,7 @@ const Dashboard = () => {
           {activeElement === 'gift' ? <Gift /> : null}
           {activeElement === 'payout' ? <Payout /> : null}
           {activeElement === 'saletarget' ? <SalesTarget /> : null}
-          {activeElement === 'addTeamLeader' ? <AddTeamLeader/> : null}
+          {activeElement === 'addTeamLeader' ? <AddTeamLeader /> : null}
         </div>
       </div>
     </div>

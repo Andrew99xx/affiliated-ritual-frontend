@@ -1,5 +1,6 @@
 import React from 'react';
 import "../Signin.css";
+import logo from "../../../../logo.png"
 
 const Sign = ({ onSignInClick }) => {
   const handleSignIn = () => {
@@ -9,7 +10,9 @@ const Sign = ({ onSignInClick }) => {
   return (
     <div className="container">
       <div>
-        <h3 className="logo">Dummy logo</h3>
+        <h3 className="logo">
+        <img width={300} src={logo} />
+          </h3>
       </div>
       <div className="heading">Sign In</div>
       <div className="subheading">Enter your email to sign in!</div>

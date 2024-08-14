@@ -1,11 +1,12 @@
 import React, { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
 import { CiLock } from "react-icons/ci";
-
 import Aos from "aos";
-import "./Landing.css";
 import "aos/dist/aos.css";
 import "swiper/css";
+
+import logo from "./logo.png"
+import "./Landing.css";
+
 
 // components 
 import Faq from "./components/LandingComponents/Faq/Faq";
@@ -129,7 +130,7 @@ const Landing = () => {
         </div>
 
         <a href="#" class="header-logo">
-          Affiliated Rituals{" "}
+          <img width={220} src={logo}/>
         </a>
 
         <nav className={`navbar ${isNavbarVisible ? "active" : ""}`}>

@@ -145,9 +145,10 @@
     border-radius: 10px;
     font-family: 'Public Sans';
     font-weight: 600;
-    font-size: 12px;
+    font-size: 16px;
     line-height: 32px;
     text-align: center;
+    text-transform: uppercase;
 }
 
 .home-left-card {
@@ -199,6 +200,11 @@
     width: 100%;
     height: 100%;
     object-fit: cover;
+}
+
+.home-left-card-jackpot-img {
+    width: 100px;
+    height: 100px;
 }
 
 .home-left-card-image-item:first-child {
