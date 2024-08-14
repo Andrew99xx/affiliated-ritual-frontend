@@ -1,24 +1,40 @@
 {
   "files": {
-    "main.css": "/static/css/main.bc5edbd5.css",
-    "main.js": "/static/js/main.c13e200e.js",
-    "static/js/453.59b8a61b.chunk.js": "/static/js/453.59b8a61b.chunk.js",
+    "main.css": "/static/css/main.1cf5bbe8.css",
+    "main.js": "/static/js/main.bf561e81.js",
+    "static/js/453.51b20bab.chunk.js": "/static/js/453.51b20bab.chunk.js",
+    "static/media/videoImage.jpg": "/static/media/videoImage.fd70132330197b6b2971.jpg",
+    "static/media/logo.png": "/static/media/logo.af0b4048422d6566aa8f.png",
     "static/media/cert.png": "/static/media/cert.bed9ffd2c09747e3587c.png",
+    "static/media/jackpot.png": "/static/media/jackpot.24d26a9e8af6ef4573ed.png",
     "static/media/banner.png": "/static/media/banner.96f6bef728cded70bddb.png",
+    "static/media/trainer.jpg": "/static/media/trainer.387d7e8417b7ae10cea5.jpg",
     "static/media/slot2.png": "/static/media/slot2.2cd124a548575b2d8409.png",
+    "static/media/Alj.png": "/static/media/Alj.8fc38799b33bf8fc4540.png",
+    "static/media/image.png": "/static/media/image.7a75491de557c7ec5e03.png",
     "static/media/cherries.png": "/static/media/cherries.358e029e180013afca46.png",
     "static/media/plum.png": "/static/media/plum.5313660c0730a7f79508.png",
+    "static/media/freelance.png": "/static/media/freelance.1507d92708e3262837c7.png",
     "static/media/lemon.png": "/static/media/lemon.503e22e8558d6917675e.png",
     "static/media/orange.png": "/static/media/orange.95fa47ac3f5f86e586a6.png",
+    "static/media/english.png": "/static/media/english.9c225dfe9012a94db40a.png",
     "static/media/diamond.png": "/static/media/diamond.3ec9360d68710bde3b72.png",
+    "static/media/bbc.png": "/static/media/bbc.ee997823cfe18b43335c.png",
+    "static/media/marketing.png": "/static/media/marketing.7b5f006c9ee2416ff963.png",
+    "static/media/yellow_background.png": "/static/media/yellow_background.84ca29aa40d062e7c943.png",
     "static/media/lever1.png": "/static/media/lever1.cd250c31d1a5ea98b638.png",
+    "static/media/the_hindu.jpeg": "/static/media/the_hindu.f991958d0942f6551df0.jpeg",
+    "static/media/slick.svg": "/static/media/slick.2630a3e3eab21c607e21.svg",
+    "static/media/slick.eot": "/static/media/slick.a4e97f5a2a64f0ab1323.eot",
+    "static/media/slick.ttf": "/static/media/slick.c94f7671dcc99dce43e2.ttf",
     "index.html": "/index.html",
-    "main.bc5edbd5.css.map": "/static/css/main.bc5edbd5.css.map",
-    "main.c13e200e.js.map": "/static/js/main.c13e200e.js.map",
-    "453.59b8a61b.chunk.js.map": "/static/js/453.59b8a61b.chunk.js.map"
+    "static/media/slick.woff": "/static/media/slick.295183786cd8a1389865.woff",
+    "main.1cf5bbe8.css.map": "/static/css/main.1cf5bbe8.css.map",
+    "main.bf561e81.js.map": "/static/js/main.bf561e81.js.map",
+    "453.51b20bab.chunk.js.map": "/static/js/453.51b20bab.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.bc5edbd5.css",
-    "static/js/main.c13e200e.js"
+    "static/css/main.1cf5bbe8.css",
+    "static/js/main.bf561e81.js"
   ]
 }
