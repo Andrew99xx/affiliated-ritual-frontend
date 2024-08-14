@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from "react";
 import "./Dashboard.css";
+import logo from "../../../logo.png"
+
 import Edu from "./EduProg/Edu";
 import Certificate from "./Certificate/Certificate";
 
@@ -66,7 +68,9 @@ const Dashboard = ({ handleLogout }) => {
   return (
     <div className={`dashboard ${isMenuExpanded ? 'expanded' : ''}`}>
       <div className="sidebar">
-        <h1 className="heading">Dummy logo</h1>
+        <h1 className="heading">
+        <img width={300} src={logo} />
+        </h1>
 
         <div className={activeElement === 'education' ? "sidebarelementactive" : "sidebarelement"} onClick={() => handleClick('education')}>
           <img src={activeElement === 'education' ? eduactive : edu} alt="" />

@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import "./Dashboard.css";
+import logo from "../../../logo.png"
 
 import SuperDa from "./SuperDash/SuperDashboard"
 import Couselist from "./CourseList/Couselist";
@@ -72,7 +73,9 @@ const SuperDashboard = () => {
   return (
     <div className={`dashboard ${isMenuExpanded ? 'expanded' : ''}`}>
       <div className="sidebar">
-        <h1 className="heading">Dummy logo</h1>
+        <h1 className="heading">
+        <img width={300} src={logo} />
+        </h1>
 
         <div className={activeElement === 'admindash' ? "sidebarelementactive" : "sidebarelement"} onClick={() => handleClick('admindash')}>
           <img src={activeElement === 'admindash' ? AdminDashActive : AdminDash} alt="" />

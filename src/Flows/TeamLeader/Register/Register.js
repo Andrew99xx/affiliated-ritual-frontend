@@ -1,7 +1,10 @@
 import React, { useState, useEffect } from "react";
 import { RecaptchaVerifier, signInWithPhoneNumber } from "firebase/auth";
 import { doc, setDoc, getDoc } from "firebase/firestore";
+
 import "./Register.css";
+import logo from "../../../logo.png"
+
 import { auth, db } from "../../../firebase-config";
 import OtpInputContainer from "../Signin/Signincomp/OtpInputContainer";
 import { getCurrentTimestamp } from "../../../service/time/getCurrentTimestamp";
@@ -144,7 +147,9 @@ const LeaderRegister = ({ onToggle }) => {
     <div className="Register">
       <div className="container">
         <div>
-          <h3 className="logo">Dummy logo</h3>
+          <h3 className="logo">
+          <img width={300} src={logo} />
+          </h3>
         </div>
         <div className="heading">Registration</div>
         <form className="formcontainer">

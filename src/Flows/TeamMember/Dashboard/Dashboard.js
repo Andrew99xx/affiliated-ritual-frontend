@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import "./Dashboard.css";
 import Logout from "../../../components/LogoutModal/Logout";
+import logo from "../../../logo.png"
 
 // importing assets
 import edu from "./assets/edu.png";
@@ -66,7 +67,9 @@ const MemberDashboard = () => {
   return (
     <div className={`dashboard ${isMenuExpanded ? 'expanded' : ''}`}>
       <div className="sidebar">
-        <h1 className="heading">Dummy logo</h1>
+        <h1 className="heading">
+        <img width={300} src={logo} />
+        </h1>
 
         <div className={activeElement === 'dashboard' ? "sidebarelementactive" : "sidebarelement"} onClick={() => handleClick('dashboard')}>
           <img src={activeElement === 'dashboard' ? eduactive : edu} alt="" />

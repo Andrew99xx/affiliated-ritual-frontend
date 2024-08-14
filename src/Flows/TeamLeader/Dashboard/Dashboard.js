@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import "./Dashboard.css";
+import logo from "../../../logo.png"
 
 import Direct from "./Direct/Direct";
 import Game from "./Game/Game";
@@ -73,7 +74,9 @@ const TeamDashboard = ({ handleLogout }) => {
   return (
     <div className={`dashboard ${isMenuExpanded ? 'expanded' : ''}`}>
       <div className="sidebar">
-        <h1 className="heading">Dummy logo</h1>
+        <h1 className="heading">
+        <img width={300} src={logo} />
+        </h1>
 
         <div className={activeElement === 'sales' ? "sidebarelementactive" : "sidebarelement"} onClick={() => handleClick('sales')}>
           <img src={activeElement === 'sales' ? salesActive : sales} alt="" />

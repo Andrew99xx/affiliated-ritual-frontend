@@ -1,7 +1,7 @@
 import React from 'react'
 import "./Home.css"
 import image from './image.png'
-import yellow_background from "./yellow_background.png"
+// import yellow_background from "./yellow_background.png"
 import companyLogo from './reuters.jpeg'
 import jackpot from "./jackpot.png"
 

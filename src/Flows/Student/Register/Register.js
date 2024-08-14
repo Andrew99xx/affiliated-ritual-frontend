@@ -5,6 +5,7 @@ import { getStorage, ref, uploadBytes, getDownloadURL } from "firebase/storage";
 
 
 import "./Register.css";
+import logo from "../../../logo.png"
 import OtpInputContainer from "../Signin/Signincomp/OtpInputContainer.js";
 
 import { auth, db } from "../../../firebase-config.js";
@@ -245,7 +246,9 @@ const StudentRegister = ({ onToggle }) => {
     <div className="Register">
       <div className="container">
         <div>
-          <h3 className="logo">Dummy logo</h3>
+          <h3 className="logo">
+            <img width={300} src={logo} />
+          </h3>
         </div>
         <div className="heading">Registration</div>
         <form className="formcontainer">
