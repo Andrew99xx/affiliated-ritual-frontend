@@ -236,7 +236,7 @@ const Landing = () => {
         </section>
 
         {/* leaderboard section */}
-        <section className="leaderboard-section" id="leaderboard">
+        <section className="leaderboard-section" id="leaderboard_section">
           <h1 className="heading">Leaderboard</h1>
           <Leaderboard />
         </section>
