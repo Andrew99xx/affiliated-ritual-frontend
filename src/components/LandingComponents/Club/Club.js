@@ -3,7 +3,7 @@ import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import videoImage from './videoImage.jpg';
-import "./Club.css"
+import styles from "./Club.module.css";  // Highlighted: Importing CSS module
 
 function Club() {
     const settings = {
@@ -13,13 +13,13 @@ function Club() {
         slidesToShow: 2,
         slidesToScroll: 2,
         centerMode: true,
-        // centerPadding: '0px', 
+        centerPadding: '20px',
         responsive: [
             {
                 breakpoint: 1400,
                 settings: {
                     centerMode: true,
-                    //centerPadding: '0px', 
+                    centerPadding: '20px',
                     slidesToShow: 1,
                     slidesToScroll: 1,
                     dots: true
@@ -30,51 +30,59 @@ function Club() {
 
     const clubData = [
         {
+            videoId: "qSne6OD6EcE",
             mediaLink: videoImage,
             name: "ANI News"
         },
         {
+            videoId: "qSne6OD6EcE",
             mediaLink: videoImage,
             name: "The Print"
         },
         {
+            videoId: "qSne6OD6EcE",
             mediaLink: videoImage,
             name: "ANI News"
         },
         {
+            videoId: "qSne6OD6EcE",
             mediaLink: videoImage,
             name: "The Print"
         },
         {
+            videoId: "qSne6OD6EcE",
             mediaLink: videoImage,
             name: "ANI News"
         },
         {
+            videoId: "qSne6OD6EcE",
             mediaLink: videoImage,
             name: "The Print"
         },
     ];
+
     return (
         <div>
-            <p className='club-paragraph'>
+            <p className={styles.clubParagraph}> {/* Highlighted: Using CSS module */}
                 Hear From Our Club Leader And Club Member
             </p>
 
-            {/* slider-container = coming from slick-carousel */}
-            <div className="slider-container">
-                <Slider {...settings} className="club-item-wrapper">
+
+            <div className={styles.sliderContainer}> {/* Highlighted: Using CSS module */}
+                <Slider {...settings} className={styles.clubItemWrapper}> {/* Highlighted: Using CSS module */}
                     {clubData.map((item, i) => (
-                        <div key={i} className="club-item">
-                            <img
-                                className="club-img"
-                                src={item.mediaLink}
-                                alt={item.name}
-                            />
+                        <div key={i} className={styles.clubItem}> {/* Highlighted: Using CSS module */}
+                            <iframe
+                                className={styles.clubImg} 
+                                src={`https://www.youtube.com/embed/${item.videoId}?controls=0&modestbranding=1&rel=0&disablekb=1&fs=0&iv_load_policy=3&cc_load_policy=0&showinfo=0`}
+                                frameBorder="0"
+                                allow="autoplay; encrypted-media"
+                                allowFullScreen={false}
+                            ></iframe>
                         </div>
                     ))}
                 </Slider>
             </div>
-
         </div>
     );
 }
