@@ -135,7 +135,7 @@ const Landing = () => {
 
         <nav className={`navbar ${isNavbarVisible ? "active" : ""}`}>
           <a href="#home">Home</a>
-          <a href="#product">Product</a>
+          <a href="#package">Product</a>
           <a href="#contact_section">Contact Us</a>
           <a href="#leaderboard_section">Leaderboard</a>
         </nav>
@@ -202,7 +202,7 @@ const Landing = () => {
         </section>
 
         {/* media section */}
-        <section className="media-section" id="media">
+        <section className="media-section" id="media_section">
           <h1 className="heading">Media Presence</h1>
           <Media />
         </section>
@@ -231,7 +231,7 @@ const Landing = () => {
         </section>
 
         {/* frequently asked */}
-        <section className="faq-section" id="faq">
+        <section className="faq-section" id="faq-section">
           <h1 className="heading">Frequently Asked Questions</h1>
           <Faq />
         </section>

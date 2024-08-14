@@ -95,3 +95,17 @@
     line-height: 23px;
     color: #D8D8D8;
 }
+
+/* Media query for small devices */
+@media (max-width: 768px) {
+    .feedback-item {
+        width: 324px !important;
+        height: 300px !important;
+    }
+
+    .feedback-quote-right {
+        font-size: 24px;
+        right: 3px;
+        top: -3px;
+    }
+}
