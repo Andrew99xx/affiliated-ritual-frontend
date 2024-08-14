@@ -19,11 +19,11 @@ function Footer() {
                 <div class="box">
                     <h3>Useful Links</h3>
                     <div className='footer-banner'></div>
-                    <a href="#products">Products </a>
-                    <a href="#leaderboard">Leaderboard</a>
-                    <a href="#Courses">Media Presence</a>
-                    <a href="#features">Become a partner</a>
-                    <a href="#faq-section">Become a trainer</a>
+                    <a href="#package">Products </a>
+                    <a href="#leaderboard_section">Leaderboard</a>
+                    <a href="#media_section">Media Presence</a>
+                    <a href="/teammember?action=register">Become a partner</a>
+                    <a href="/trainer?action=register">Become a trainer</a>
                     <a href="#faq-section">Quizlet Plus</a>
                 </div>
 
