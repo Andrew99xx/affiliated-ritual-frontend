@@ -71,6 +71,7 @@
     color: white;
     display: flex;
     flex-direction: row;
+    flex-wrap: wrap;
     justify-content: space-between;
     gap: 10px;
     color: white;
@@ -165,4 +166,18 @@
 
 .package-buy-icon {
     font-size: 22px;
+}
+
+
+/* Responsive Design for small screens */
+@media (max-width: 768px) {
+    .package-item-wrapper {
+        width: 80vw; /* Set dynamic width for small screens */
+        height: auto; /* Adjust height automatically */
+    }
+
+    .package-img {
+        width: 100%; /* Adjust image width to 100% of the wrapper */
+        height: auto; /* Maintain aspect ratio by auto-adjusting height */
+    }
 }

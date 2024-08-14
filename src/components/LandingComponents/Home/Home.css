@@ -214,4 +214,14 @@
         width: 80vw;
         height: auto; 
     }
+
+    .home-top-card {
+        display: none !important;
+        
+    }
+
+    .home-left-card {
+        width: 180px;
+        height: auto;
+    }
 }

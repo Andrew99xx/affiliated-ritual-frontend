@@ -51,8 +51,7 @@ function WhyRitual() {
                         <div
                             className="whyRitual-icon">
                             <img
-                                width={30}
-                                height={30}
+                                className='whyRitual-icon-img'
                                 src={item.icon}
                                 alt={item.title}
                             />
