@@ -10,21 +10,23 @@ function Club() {
         dots: true,
         infinite: true,
         speed: 500,
-        slidesToShow: 2,
-        slidesToScroll: 2,
+        slidesToShow: 3,
+        slidesToScroll: 1,
         centerMode: true,
-        centerPadding: '20px',
         responsive: [
             {
                 breakpoint: 1400,
                 settings: {
-                    centerMode: true,
-                    centerPadding: '20px',
-                    slidesToShow: 1,
-                    slidesToScroll: 1,
-                    dots: true
+                    slidesToShow: 2,
                 }
-            }
+            },
+            {
+                breakpoint: 1000,
+                settings: {
+                    slidesToShow: 1,
+                }
+            },
+          
         ]
     };
 
@@ -76,7 +78,7 @@ function Club() {
                                 className={styles.clubImg}
                                 src={`https://www.youtube.com/embed/${item.videoId}?controls=0&modestbranding=1&rel=0&disablekb=1&fs=0&iv_load_policy=3&cc_load_policy=0&showinfo=0`}
                                 frameBorder="0"
-                                allow="autoplay; encrypted-media"
+                                allow=" encrypted-media"
                                 allowFullScreen={false}
                             ></iframe>
                         </div>

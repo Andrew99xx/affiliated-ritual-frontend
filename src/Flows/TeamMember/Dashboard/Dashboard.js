@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import "./Dashboard.css";
 import Logout from "../../../components/LogoutModal/Logout";
 import logo from "../../../logo.png"
-
+import { auth } from "../../../firebase-config";
 // importing assets
 import edu from "./assets/edu.png";
 import logout from "./logout.png"
@@ -21,10 +21,30 @@ import Prize from "./Prizes/Prize";
 
 import Dash from "./Dash/Dash";
 import MemberReviews from "./Reviews/MemberReviews";
+import { getCoinsOfUser } from "../../../service/coins/getCoinsOfUser";
 
 const MemberDashboard = () => {
-  const [showModal, setShowModal] = useState(false);
 
+  const [totalCoins, setTotalCoins] = useState(0);
+
+  useEffect(() => {
+    const unsubscribe = auth.onAuthStateChanged(async (user) => {
+      if (user) {
+        const getTotalCoins = await getCoinsOfUser(user.uid);
+        setTotalCoins(getTotalCoins);
+      } else {
+        alert("No user is signed in");
+      }
+    });
+
+    // Clean up the listener when the component unmounts
+    return () => unsubscribe();
+  }, []);
+  // Empty dependency array ensures this effect runs only once
+
+
+
+  const [showModal, setShowModal] = useState(false);
   const openModal = () => {
     setShowModal(true);
   };
@@ -68,7 +88,7 @@ const MemberDashboard = () => {
     <div className={`dashboard ${isMenuExpanded ? 'expanded' : ''}`}>
       <div className="sidebar">
         <h1 className="heading">
-        <img width={300} src={logo} />
+          <img width={300} src={logo} />
         </h1>
 
         <div className={activeElement === 'dashboard' ? "sidebarelementactive" : "sidebarelement"} onClick={() => handleClick('dashboard')}>
@@ -87,7 +107,7 @@ const MemberDashboard = () => {
         <div className="logout" onClick={openModal}> <img src={logout} alt="" /> <span>Logout</span></div>
 
       </div>
- <Logout showModal={showModal} closeModal={closeModal} />
+      <Logout showModal={showModal} closeModal={closeModal} />
 
       <div className="maincontent">
         <div className="header">
@@ -102,7 +122,7 @@ const MemberDashboard = () => {
           </div>
           <div className="right">
             <div className="icons">
-              <div className="coins"><img src={coin} height={25} alt="" />  00</div>
+              <div className="coins"><img src={coin} height={25} alt="" /> {totalCoins}</div>
               <div className="maximise"><img src={expand} height={25} alt="" /></div>
               <div className="notifications"><img src={notif} height={30} alt="" /></div>
               <div className="profile"><img src={profile} height={35} alt="" /></div>

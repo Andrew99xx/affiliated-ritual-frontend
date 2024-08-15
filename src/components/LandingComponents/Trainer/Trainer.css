@@ -2,89 +2,73 @@
     margin-top: 0ch !important;
     padding-top: 0ch !important;
     font-weight: 400;
-    font-size: 16px;
-    line-height: 30px;
+    font-size: 1rem;
+    /* Changed from 16px to 1rem */
+    line-height: 1.875rem;
+    /* Changed from 30px to 1.875rem */
     text-align: center;
     color: white;
 }
 
-
 .trainer-item-wrapper {
-    margin-top: 20px;
+    margin-top: 1.25rem;
+    /* Changed from 20px to 1.25rem */
 }
 
 .trainer-item {
-    width: 312px !important;
-    height: 370px !important;
+    width: 95% !important;
+    /* Changed from 312px to 19.5rem */
+    min-height: 23.125rem !important;
+    /* Changed from 370px to 23.125rem */
+    height: 100%;
     box-sizing: border-box;
-    border-radius: 24px;
-    padding: 16px;
+    border-radius: 1.5rem;
+    /* Changed from 24px to 1.5rem */
+    padding: 1rem;
+    /* Changed from 16px to 1rem */
     background-color: #3E3E3E;
+    display: flex !important;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
 }
 
 .trainer-img {
-    width: 280px;
-    height: 264px;
+    width: 90%;
+    /* Changed from 280px to 17.5rem */
+    height: 16.5rem;
+    /* Changed from 264px to 16.5rem */
     display: block;
     background-color: #4E4E4E;
     display: flex;
     justify-content: center;
     align-items: center;
-    border-radius: 12px;
+    border-radius: 0.75rem;
+    /* Changed from 12px to 0.75rem */
 }
 
 .trainer-name {
     font-family: 'Public Sans';
     font-weight: 400;
-    font-size: 22px;
+    font-size: 1.375rem;
+    /* Changed from 22px to 1.375rem */
     text-align: center;
-    line-height: 28px;
+    line-height: 1.75rem;
+    /* Changed from 28px to 1.75rem */
     color: #BD9141;
-    margin-top: 10px;
+    margin-top: 0.625rem;
+    /* Changed from 10px to 0.625rem */
 }
 
 .trainer-position {
     font-family: 'Public Sans';
     font-weight: 400;
-    font-size: 16px;
+    font-size: 1rem;
+    /* Changed from 16px to 1rem */
     text-align: center;
-    line-height: 24px;
+    line-height: 1.5rem;
+    /* Changed from 24px to 1.5rem */
     color: white;
-    margin-top: 8px;
-}
-
-
-/* Hide the previous button */
-/* .slick-prev {
-    display: none !important;
-} */
-
-/* Hide the next button */
-/* .slick-next {
-    display: none !important;
-} */
-
-/* Optionally, hide the arrow icons */
-/* .slick-prev:before,
-.slick-next:before {
-    display: none;
-    color: #fff; 
-} */
-
-
-
-/* Style the container for the dots */
-/* .slick-dots {
-    bottom: -30px;
-} */
-
-/* Style each dot */
-.slick-dots li button:before {
-    color: #D9D9D9;
-
-}
-
-/* Style the active dot */
-.slick-dots li.slick-active button:before {
-    color: #BD9141;
+    margin-top: 0.5rem;
+    /* Changed from 8px to 0.5rem */
 }

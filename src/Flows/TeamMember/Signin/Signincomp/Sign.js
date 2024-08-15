@@ -12,12 +12,12 @@ const Sign = ({ onSignInClick }) => {
   // calling onSignInClick 
   // also passing the value 
   const handleSignIn = () => {
-    if (!email || !phone) {
+    if ( !phone) {
       setMessage('Please enter your email and phone number');
       return;
     }
     // signIn or verify process
-    onSignInClick(email, phone);
+    onSignInClick(phone);
   };
 
   return (

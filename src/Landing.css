@@ -310,6 +310,7 @@
   flex-direction: column;
   justify-content: center;
   align-items: center; */
+  /* here, we have slider, so flex box will not work  */
 }
 
 .trainer-section .heading {
@@ -352,6 +353,7 @@
   flex-direction: column;
   justify-content: center;
   align-items: center; */
+  /* here, we have slider, so flex box will not work  */
 }
 
 .club-section .heading {
@@ -386,6 +388,7 @@
   flex-direction: column;
   justify-content: center;
   align-items: center; */
+  /* here, we have slider, so flex box will not work  */
 }
 
 .feedback-section .heading {

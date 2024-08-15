@@ -1,13 +1,13 @@
 import React, { useState, useEffect } from "react";
-import "./Dashboard.css";
-import logo from "../../../logo.png"
+import { auth } from "../../../firebase-config";
 
 import Edu from "./EduProg/Edu";
 import Certificate from "./Certificate/Certificate";
-
 import Logout from "../../../components/LogoutModal/Logout";
 
+import "./Dashboard.css";
 
+import logo from "../../../logo.png"
 import logout from "./logout.png"
 import edu from "./assets/edu.png";
 import eduactive from "./assets/eduactive.png";
@@ -18,15 +18,33 @@ import coin from "./assets/coin.png";
 import notif from "./assets/notif.png";
 import profile from "./assets/profile.png";
 import expand from "./assets/expand.png";
+import { getCoinsOfUser } from "../../../service/coins/getCoinsOfUser";
 
 const Dashboard = ({ handleLogout }) => {
+
+  const [totalCoins, setTotalCoins] = useState(0);
+
+  useEffect(() => {
+    const unsubscribe = auth.onAuthStateChanged(async (user) => {
+      if (user) {
+        const getTotalCoins = await getCoinsOfUser(user.uid);
+        setTotalCoins(getTotalCoins);
+      } else {
+        alert("No user is signed in");
+      }
+    });
+
+    // Clean up the listener when the component unmounts
+    return () => unsubscribe();
+  }, []);
+  // Empty dependency array ensures this effect runs only once
+
 
   const [showModal, setShowModal] = useState(false);
 
   const openModal = () => {
     setShowModal(true);
   };
-
   const closeModal = () => {
     setShowModal(false);
   };
@@ -69,7 +87,7 @@ const Dashboard = ({ handleLogout }) => {
     <div className={`dashboard ${isMenuExpanded ? 'expanded' : ''}`}>
       <div className="sidebar">
         <h1 className="heading">
-        <img width={300} src={logo} />
+          <img width={300} src={logo} />
         </h1>
 
         <div className={activeElement === 'education' ? "sidebarelementactive" : "sidebarelement"} onClick={() => handleClick('education')}>
@@ -107,7 +125,8 @@ const Dashboard = ({ handleLogout }) => {
           </div>
           <div className="right">
             <div className="icons">
-              <div className="coins"><img src={coin} height={25} alt="" /> 00</div>
+              {/* coins - total coins earns  */}
+              <div className="coins"><img src={coin} height={25} alt="" /> {totalCoins}</div>
               <div className="maximise"><img src={expand} height={25} alt="" /></div>
               <div className="notifications"><img src={notif} height={30} alt="" /></div>
               <div className="profile"><img src={profile} height={35} alt="" /></div>
