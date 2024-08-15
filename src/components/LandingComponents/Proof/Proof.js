@@ -4,21 +4,21 @@ function Proof() {
     const proof = [
         {
             imgLink: "https://via.placeholder.com/286x393.png?text=Placeholder+Image",
-             alt : "alt name"
+            alt: "alt name"
         },
         {
             imgLink: "https://via.placeholder.com/286x393.png?text=Placeholder+Image",
-       alt : "alt name"
+            alt: "alt name"
         },
         {
             imgLink: "https://via.placeholder.com/286x393.png?text=Placeholder+Image",
-             alt : "alt name"
+            alt: "alt name"
         },
         {
             imgLink: "https://via.placeholder.com/286x393.png?text=Placeholder+Image",
-             alt : "alt name"
+            alt: "alt name"
         },
-       
+
     ];
     return (
         <div className='proof-container'>

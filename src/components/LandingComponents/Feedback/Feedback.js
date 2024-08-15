@@ -49,17 +49,26 @@ function Feedback() {
         dots: true,
         infinite: true,
         speed: 500,
-        slidesToShow: 2,
-        slidesToScroll: 2,
+        slidesToShow: 4,
+        slidesToScroll: 1,
         centerMode: true,
         responsive: [
             {
                 breakpoint: 1400,
                 settings: {
-                    centerMode: true,
+                    slidesToShow: 3,
+                }
+            },
+            {
+                breakpoint: 1000,
+                settings: {
+                    slidesToShow: 2,
+                }
+            },
+            {
+                breakpoint: 600,
+                settings: {
                     slidesToShow: 1,
-                    slidesToScroll: 1,
-                    dots: true
                 }
             }
         ]

@@ -5,8 +5,8 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    gap: 20px; */
-
+    gap: 1.25rem; */
+    /* Changed from 20px to 1.25rem */
 }
 
 .feedback-paragraph {
@@ -14,28 +14,36 @@
     margin-top: 0ch !important;
     padding-top: 0ch !important;
     font-weight: 400;
-    font-size: 16px;
-    line-height: 30px;
+    font-size: 1rem;
+    /* Changed from 16px to 1rem */
+    line-height: 1.875rem;
+    /* Changed from 30px to 1.875rem */
     text-align: center;
     color: white;
     text-wrap: wrap;
 }
 
 .feedback-container {
-    margin-top: 40px;
+    margin-top: 2.5rem;
+    /* Changed from 40px to 2.5rem */
 }
 
 .feedback-item {
-    width: 424px !important;
-    height: 288px !important;
+    width: 95% !important; 
+    /* Changed from 424px to 26.5rem */
+    height: 100%;
+    min-height: 18rem;
+    /* Changed from 288px to 18rem */
     background-color: #4E4E4E;
     display: flex !important;
     flex-direction: column;
-    gap: 25px;
-    padding: 32px;
-    border-radius: 30px;
+    gap: 1.5625rem;
+    /* Changed from 25px to 1.5625rem */
+    padding: 2rem;
+    /* Changed from 32px to 2rem */
+    border-radius: 1.875rem;
+    /* Changed from 30px to 1.875rem */
     box-sizing: border-box;
-
 }
 
 .feedback-itp-wrapper {
@@ -44,7 +52,8 @@
     flex-wrap: wrap;
     justify-content: start;
     align-items: center;
-    gap: 10px;
+    gap: 0.625rem;
+    /* Changed from 10px to 0.625rem */
     width: 100%;
     position: relative;
 }
@@ -52,8 +61,10 @@
 .feedback-icon {
     background: linear-gradient(91.94deg, #B17E32 -8.77%, #F3E681 58.63%, #CF9F41 107.45%);
     border-radius: 50%;
-    height: 60px;
-    width: 60px;
+    height: 3.75rem;
+    /* Changed from 60px to 3.75rem */
+    width: 3.75rem;
+    /* Changed from 60px to 3.75rem */
     display: flex;
     justify-content: center;
     align-items: center;
@@ -62,38 +73,48 @@
 .feedback-tp-wrapper {
     display: flex;
     flex-direction: column;
-    gap: 5px;
+    gap: 0.3125rem;
+    /* Changed from 5px to 0.3125rem */
 }
 
 .feedback-title {
     font-family: 'Poppins', sans-serif;
     font-weight: 600;
-    font-size: 19px;
-    line-height: 24px;
+    font-size: 1.1875rem;
+    /* Changed from 19px to 1.1875rem */
+    line-height: 1.5rem;
+    /* Changed from 24px to 1.5rem */
     color: white;
 }
 
 .feedback-position {
     font-family: 'Inter', sans-serif;
     font-weight: 500;
-    font-size: 14px;
-    line-height: 20px;
+    font-size: 0.875rem;
+    /* Changed from 14px to 0.875rem */
+    line-height: 1.25rem;
+    /* Changed from 20px to 1.25rem */
     color: #A5A5A5;
 }
 
 .feedback-quote-right {
     position: absolute;
-    font-size: 42px;
+    font-size: 2.625rem;
+    /* Changed from 42px to 2.625rem */
     color: #BD9141;
-    right: 10px;
-    top: -5px;
+    right: 0.625rem;
+    /* Changed from 10px to 0.625rem */
+    top: -0.3125rem;
+    /* Changed from -5px to -0.3125rem */
 }
 
 .feedback-description {
     font-family: 'Inter', sans-serif;
     font-weight: 400;
-    font-size: 16px;
-    line-height: 23px;
+    font-size: 1rem;
+    /* Changed from 16px to 1rem */
+    line-height: 1.4375rem;
+    /* Changed from 23px to 1.4375rem */
     color: #D8D8D8;
 }
 
@@ -105,8 +126,11 @@
     }
 
     .feedback-quote-right {
-        font-size: 24px;
-        right: 3px;
-        top: -3px;
+        font-size: 1.5rem;
+        /* Changed from 24px to 1.5rem */
+        right: 0.1875rem;
+        /* Changed from 3px to 0.1875rem */
+        top: -0.1875rem;
+        /* Changed from -3px to -0.1875rem */
     }
 }
