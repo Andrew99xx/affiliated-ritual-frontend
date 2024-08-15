@@ -130,7 +130,7 @@ const Landing = () => {
         </div>
 
         <a href="#" class="header-logo">
-          <img width={200} src={logo}/>
+          <img width={200} src={logo} />
         </a>
 
         <nav className={`navbar ${isNavbarVisible ? "active" : ""}`}>
@@ -215,8 +215,9 @@ const Landing = () => {
 
         {/* banner section */}
         <section className="banner-section" id="banner">
-          <Banner />
+        <Banner />
         </section>
+       
 
         {/* feedback section - voice of our students */}
         <section className="feedback-section" id="feedback">

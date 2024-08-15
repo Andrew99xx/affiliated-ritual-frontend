@@ -7,7 +7,7 @@ import { auth } from '../../../firebase-config';
 import { checkUserExists } from '../../../service/checkUserExists';
 
 const Signin = ({ onSignin, onToggle }) => {
-  const [email, setEmail] = useState('');
+
   const [phone, setPhone] = useState('');
   const [message, setMessage] = useState('');
   const [confirmationResult, setConfirmationResult] = useState(null);
@@ -32,12 +32,10 @@ const Signin = ({ onSignin, onToggle }) => {
     };
   }, []);
 
-  const handleSignInClick = (email, phone) => {
-    setEmail(email);
+  const handleSignInClick = (phone) => {
     setPhone(phone);
     sendVerificationCode(phone);
     setShowSign(false);
-
   };
 
   const handleOtpVerify = (otpComing) => {
@@ -93,7 +91,7 @@ const Signin = ({ onSignin, onToggle }) => {
       <div id="recaptcha-container"></div>
       {showSign ?
         <Sign onSignInClick={handleSignInClick} /> :
-        <Signotp email={email} phone={phone} onOtpVerify={handleOtpVerify} />
+        <Signotp phone={phone} onOtpVerify={handleOtpVerify} />
       }
       <p className='alr'>Need an account?<span onClick={onToggle}> Register</span></p>
       <div className="credit">© 2024. All Rights Reserved.</div>

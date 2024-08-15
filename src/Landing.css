@@ -310,6 +310,7 @@
   flex-direction: column;
   justify-content: center;
   align-items: center; */
+  /* here, we have slider, so flex box will not work  */
 }
 
 .trainer-section .heading {
@@ -352,6 +353,7 @@
   flex-direction: column;
   justify-content: center;
   align-items: center; */
+  /* here, we have slider, so flex box will not work  */
 }
 
 .club-section .heading {
@@ -365,6 +367,7 @@
 
 /* banner section */
 .banner-section {
+  padding: 4rem 9% !important;
   background: linear-gradient(91.94deg, #B17E32 -8.77%, #F3E681 58.63%, #CF9F41 107.45%);
   color: black;
   font-family: 'Public Sans', sans-serif;
@@ -385,6 +388,7 @@
   flex-direction: column;
   justify-content: center;
   align-items: center; */
+  /* here, we have slider, so flex box will not work  */
 }
 
 .feedback-section .heading {
