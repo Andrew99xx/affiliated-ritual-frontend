@@ -17,7 +17,7 @@ const Sign = ({ onSignInClick }) => {
       return;
     }
     // signIn or verify process
-    onSignInClick(phone);
+    onSignInClick(`+91${phone}`);
   };
 
   return (
