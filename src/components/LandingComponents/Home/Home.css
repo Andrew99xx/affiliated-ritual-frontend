@@ -1,4 +1,6 @@
 .home {
+    /* min-height: 60vh !important;
+    height: auto; */
     margin-bottom: 0 !important;
     padding: 0.625rem; 
     padding-bottom: 0 !important;
@@ -91,8 +93,22 @@
     text-align: center;
     align-items: center;
     justify-content: center;
- 
 }
+
+
+/* .home-svg-wrapper {
+    
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    
+} */
+
+/* .home-svg {
+    width: 548.29px;
+    height: 545.03px;
+} */
 
 .home-img-wrapper {
     position: absolute;
