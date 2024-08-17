@@ -3,7 +3,8 @@
     font-family: 'Public Sans', sans-serif;
     display: flex;
     flex-direction: row;
-    gap: 20px;
+    gap: 1.25rem;
+    /* 20px */
     justify-content: center;
     flex-wrap: wrap;
     /* Allow items to wrap if the container is too small */
@@ -11,14 +12,18 @@
 
 .whyRitual-item {
     /* height: 184px; */
-    width: 392px;
+    width: 30rem;
+    /* 392px */
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 20px;
+    gap: 1.25rem;
+    /* 20px */
     background-color: #3A3A3A;
-    padding: 30px 45px;
-    border-radius: 5px;
+    padding: 1.875rem 2.8125rem;
+    /* 30px 45px */
+    border-radius: 0.3125rem;
+    /* 5px */
     box-sizing: border-box;
     position: relative;
     /*box-sizing: border-box ;  Ensure padding is included in the height/width */
@@ -26,19 +31,22 @@
 
 .whyRitual-sparkle {
     position: absolute;
-    font-size: 42px;
+    font-size: 2.625rem;
+    /* 42px */
     color: #BD9141;
-    right: 15px;
-    top: 15px;
+    right: 0.9375rem;
+    /* 15px */
+    top: 0.9375rem;
+    /* 15px */
 }
-
 
 .whyRitual-icon-title-wrapper {
     display: flex;
     flex-direction: row;
     justify-content: start;
     align-items: center;
-    gap: 10px;
+    gap: 0.625rem;
+    /* 10px */
     width: 100%;
     /* why width is necessary - here  */
 }
@@ -46,45 +54,53 @@
 .whyRitual-icon {
     background: linear-gradient(91.94deg, #B17E32 -8.77%, #F3E681 58.63%, #CF9F41 107.45%);
     border-radius: 50%;
-    height: 60px !important;
-    width: 60px !important;
+    height: 3.75rem !important;
+    /* 60px */
+    width: 3.75rem !important;
+    /* 60px */
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 5px;
+    padding: 0.3125rem;
+    /* 5px */
 }
 
 .whyRitual-icon-img {
-    height: 30px;
-    width: 30px;
+    height: 1.875rem;
+    /* 30px */
+    width: 1.875rem;
+    /* 30px */
 }
 
 .whyRitual-title {
     font-family: 'Popins', sans-serif;
     font-weight: 600;
-    font-size: 19px;
-    line-height: 24px;
+    font-size: 1.1875rem;
+    /* 19px */
+    line-height: 1.5rem;
+    /* 24px */
     color: white;
 }
 
 .whyRitual-description {
     font-family: 'Inter', sans-serif;
     font-weight: 400;
-    font-size: 16px;
-    line-height: 23px;
+    font-size: 1rem;
+    /* 16px */
+    line-height: 1.4375rem;
+    /* 23px */
     color: #D8D8D8;
 }
 
-
 @media (max-width: 768px) {
-    .whyRitual-item  {
-        width: 90vw; /* Set dynamic width for small screens */
-        height: auto; /* Adjust height automatically */
+    .whyRitual-item {
+        width: 90vw;
+        /* Set dynamic width for small screens */
+        height: auto;
+        /* Adjust height automatically */
     }
 
     .whyRitual-icon {
-        
         padding: 0px;
     }
-    
 }

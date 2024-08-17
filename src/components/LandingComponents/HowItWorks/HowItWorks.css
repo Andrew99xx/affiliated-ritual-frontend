@@ -1,27 +1,32 @@
 .howItWorks-container {
     width: 80%;
-    margin: 15px auto;
+    margin: 0.9375rem auto;
+    /* 15px */
     display: flex;
     flex-direction: row;
-    gap: 50px;
+    gap: 3.125rem;
+    /* 50px */
     justify-content: space-between;
     align-items: center;
     overflow: hidden;
 }
 
-
 .howItWorks-items {
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 30px;
+    gap: 1.875rem;
+    /* 30px */
 }
 
 .howItWorks-divider {
-    width: 2px;
-    height: 241px;
+    width: 0.125rem;
+    /* 2px */
+    height: 15.0625rem;
+    /* 241px */
     position: relative;
-    margin: 0 25px;
+    margin: 0 1.5625rem;
+    /* 25px */
 }
 
 .howItWorks-divider::before {
@@ -30,33 +35,38 @@
     top: 0;
     height: 100%;
     background: linear-gradient(to bottom, #FFFFFF 0%, #FFFFFF 100%);
-    border-right: 2px dotted;
+    border-right: 0.125rem dotted;
+    /* 2px */
     background-clip: padding-box;
 }
 
-
 .howItWorks-imglink {
-    width: 80px;
-    height: 80px;
+    width: 5rem;
+    /* 80px */
+    height: 5rem;
+    /* 80px */
     color: #FFC27A;
 }
 
 .howItWorks-name {
-    font-size: 25px;
+    font-size: 1.5625rem;
+    /* 25px */
     font-weight: 700;
     text-align: center;
-    line-height: 33px;
+    line-height: 2.0625rem;
+    /* 33px */
     color: white;
 }
 
 .howItWorks-description {
-    font-size: 18px;
+    font-size: 1.125rem;
+    /* 18px */
     font-weight: 400;
     text-align: center;
-    line-height: 27px;
+    line-height: 1.6875rem;
+    /* 27px */
     color: white;
 }
-
 
 /* Responsive styles for mobile screens */
 @media only screen and (max-width: 768px) {

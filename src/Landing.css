@@ -10,42 +10,50 @@
 
 /* applying to each section  */
 .body section {
-  padding: 8rem 9%;
+  padding: 5rem 9%;
+  /* 8rem = 128px */
 }
 
 /* applying to footer */
 .body footer {
-  padding: 8rem 9%;
+  padding: 5rem 9%;
+  /* 8rem = 128px */
 }
 
 .body .heading {
   text-align: center;
-  margin-bottom: 3rem;
+  margin-bottom: 1.875rem;
+  /* 3rem = 48px */
   color: #ebd672;
-
 }
 
 .body .heading span {
   font-size: 2.5rem;
+  /* 40px */
   color: #fff;
-
 }
 
 .body .heading h1 {
   font-size: 4rem;
-  padding-top: .5rem;
+  /* 64px */
+  padding-top: 0.5rem;
+  /* 8px */
 }
 
 .body .btn {
   display: inline-block;
   margin-top: 1rem;
+  /* 16px */
   padding: 1.3rem 3.3rem;
+  /* 1.3rem = 20.8px, 3.3rem = 52.8px */
   font-size: 1.4rem;
+  /* 22.4px */
   color: rgb(0, 0, 0);
   font-weight: 800;
   background: linear-gradient(91.94deg, #B17E32 -8.77%, #F3E681 58.63%, #CF9F41 107.45%);
   cursor: pointer;
-  border-radius: .5rem;
+  border-radius: 0.5rem;
+  /* 8px */
   font-family: "DM Sans", sans-serif;
   text-decoration: none;
 }
@@ -54,9 +62,6 @@
   background: linear-gradient(91.94deg, #B17E32 -8.77%, #F3E681 58.63%, #CF9F41 107.45%);
   color: #000;
 }
-
-
-
 
 /* header css */
 .header {
@@ -76,23 +81,22 @@
   -ms-flex-pack: justify;
   justify-content: space-between;
   background-color: #252524;
-  /* -webkit-box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.1); */
-  /* box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.1); */
   padding: 0.0rem 9%;
+  /* 0.0rem = 0px */
 }
-
 
 .header .header-logo {
   margin-left: 1rem;
+  /* 16px */
   font-family: 'Popins';
   font-size: 2.5rem;
+  /* 40px */
   font-weight: 700;
-  font-size: 35px;
-  line-height: 52px;
+  line-height: 3.25rem;
+  /* 52px */
   color: white;
   text-decoration: none;
   text-wrap: nowrap;
-
 }
 
 .header .navbar {
@@ -101,14 +105,18 @@
   justify-content: center;
   align-items: center;
   gap: 1rem;
+  /* 16px */
 }
 
 .header .navbar a {
   margin: 0 1rem;
+  /* 16px */
   font-family: 'Public Sans';
-  font-size: 17px;
+  font-size: 1.0625rem;
+  /* 17px */
   font-weight: 500;
-  line-height: 19px;
+  line-height: 1.1875rem;
+  /* 19px */
   text-decoration: none;
   color: #fff;
   text-transform: uppercase;
@@ -122,18 +130,20 @@
 #menu-btn {
   cursor: pointer;
   font-size: 3rem;
+  /* 48px */
   display: none;
   margin-right: 1rem;
+  /* 16px */
   color: #fff;
 }
 
 .header .header-btns {
-  margin-left: 10px;
-  margin-right: 10px;
-  margin-bottom: 10px;
+  margin: 0.625rem;
+  /* 10px */
   display: flex;
   flex-wrap: wrap;
-  gap: 10px;
+  gap: 0.625rem;
+  /* 10px */
   align-items: center;
 }
 
@@ -141,36 +151,48 @@
   cursor: pointer;
   background-color: #252524;
   text-decoration: none;
-  width: 167px !important;
-  height: 48px !important;
+  width: 10.4375rem;
+  /* 167px */
+  height: 3rem;
+  /* 48px */
   border: 0ch !important;
-  border-radius: 100px;
+  border-radius: 6.25rem;
+  /* 100px */
   font-family: "Public Sans";
   font-weight: 400;
-  font-size: 16px;
-  line-height: 24px;
+  font-size: 1rem;
+  /* 16px */
+  line-height: 1.5rem;
+  /* 24px */
   text-align: center;
   color: white;
   display: flex;
   justify-content: center;
   align-items: center;
   box-sizing: border-box;
-  gap: 7px;
+  gap: 0.4375rem;
+  /* 7px */
 }
 
 .header .btn-signup {
   cursor: pointer;
   background: linear-gradient(91.94deg, #B17E32 -8.77%, #F3E681 58.63%, #CF9F41 107.45%) !important;
   text-decoration: none;
-  width: 167px !important;
-  height: 48px !important;
-  border-radius: 100px;
-  padding: 12px 24px;
+  width: 10.4375rem;
+  /* 167px */
+  height: 3rem;
+  /* 48px */
+  border-radius: 6.25rem;
+  /* 100px */
+  padding: 0.75rem 1.5rem;
+  /* 12px 24px */
   font-family: "Public Sans";
   font-weight: 400;
-  font-size: 16px;
+  font-size: 1rem;
+  /* 16px */
   text-wrap: nowrap;
-  line-height: 24px;
+  line-height: 1.5rem;
+  /* 24px */
   text-align: center;
   color: #242424;
   display: flex;
@@ -179,38 +201,15 @@
   box-sizing: border-box;
 }
 
-
-
-
 /* home section */
 .home-section {
   padding-top: 1rem !important;
+  /* 16px */
   padding-bottom: 0 !important;
   color: white;
   background-color: #252524;
   font-family: 'Public Sans', sans-serif;
-  /* 
-  min-height: 80vh;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-  -ms-flex-wrap: wrap;
-  flex-wrap: wrap;
-  gap: 2rem; */
-
 }
-
-
-/* Intro - stats */
-/* .introStats-section {
-  background-color: black;
-  color: white;
-  font-family: 'Public Sans', sans-serif;
-} */
-
 
 /* how it works */
 .howItWorkSection {
@@ -219,19 +218,20 @@
   font-family: 'Public Sans', sans-serif;
   display: flex;
   flex-direction: column;
-  gap: 20px;
+  gap: 1.25rem;
+  /* 20px */
   align-items: center;
 }
 
 .howItWorkSection .heading {
   font-weight: 600;
-  font-size: 40px;
-  line-height: 72px;
+  font-size: 2.5rem;
+  /* 40px */
+  line-height: 4.5rem;
+  /* 72px */
   text-align: center;
   color: white;
 }
-
-
 
 /* system section */
 .system-section {
@@ -246,12 +246,13 @@
 
 .system-section .heading {
   font-weight: 600;
-  font-size: 40px;
-  line-height: 50px;
+  font-size: 2.5rem;
+  /* 40px */
+  line-height: 3.125rem;
+  /* 50px */
   text-align: center;
   color: white;
 }
-
 
 /* package section */
 .package-section {
@@ -266,13 +267,13 @@
 
 .package-section .heading {
   font-weight: 600;
-  font-size: 40px;
-  line-height: 50px;
+  font-size: 2.5rem;
+  /* 40px */
+  line-height: 3.125rem;
+  /* 50px */
   text-align: center;
   color: white;
 }
-
-
 
 /* why affiliated section  */
 .whyRitual {
@@ -282,41 +283,38 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
-  gap: 20px;
+  gap: 1.25rem;
+  /* 20px */
   align-items: center;
 }
 
 .whyRitual .heading {
   font-weight: 600;
-  font-size: 40px;
-  line-height: 72px;
+  font-size: 2.5rem;
+  /* 40px */
+  line-height: 4.5rem;
+  /* 72px */
   text-align: center;
   color: white;
 }
-
-
 
 /* trainer section */
 .trainer-section {
   background-color: #0F0F0F;
   color: white;
   font-family: 'Public Sans', sans-serif;
-  /* display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center; */
   /* here, we have slider, so flex box will not work  */
 }
 
 .trainer-section .heading {
   font-weight: 600;
-  font-size: 40px;
-  line-height: 50px;
+  font-size: 2.5rem;
+  /* 40px */
+  line-height: 3.125rem;
+  /* 50px */
   text-align: center;
   color: white;
 }
-
-
 
 /* media section */
 .media-section {
@@ -331,38 +329,36 @@
 
 .media-section .heading {
   font-weight: 600;
-  font-size: 40px;
-  line-height: 50px;
+  font-size: 2.5rem;
+  /* 40px */
+  line-height: 3.125rem;
+  /* 50px */
   text-align: center;
   color: white;
 }
-
-
 
 /* club section - members & leaders */
 .club-section {
   background-color: #0F0F0F;
   color: white;
   font-family: 'Public Sans', sans-serif;
-  /* display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center; */
   /* here, we have slider, so flex box will not work  */
 }
 
 .club-section .heading {
   font-weight: 600;
-  font-size: 40px;
-  line-height: 50px;
+  font-size: 2.5rem;
+  /* 40px */
+  line-height: 3.125rem;
+  /* 50px */
   text-align: center;
   color: white;
 }
 
-
 /* banner section */
 .banner-section {
   padding: 4rem 9% !important;
+  /* 64px */
   background: linear-gradient(91.94deg, #B17E32 -8.77%, #F3E681 58.63%, #CF9F41 107.45%);
   color: black;
   font-family: 'Public Sans', sans-serif;
@@ -372,28 +368,23 @@
   align-items: center;
 }
 
-
-
 /* feedback section */
 .feedback-section {
   background-color: #0F0F0F;
   color: white;
   font-family: 'Public Sans', sans-serif;
-  /* display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center; */
   /* here, we have slider, so flex box will not work  */
 }
 
 .feedback-section .heading {
   font-weight: 600;
-  font-size: 40px;
-  line-height: 50px;
+  font-size: 2.5rem;
+  /* 40px */
+  line-height: 3.125rem;
+  /* 50px */
   text-align: center;
   color: white;
 }
-
 
 /* proof section */
 .proof-section {
@@ -408,12 +399,13 @@
 
 .proof-section .heading {
   font-weight: 600;
-  font-size: 40px;
-  line-height: 50px;
+  font-size: 2.5rem;
+  /* 40px */
+  line-height: 3.125rem;
+  /* 50px */
   text-align: center;
   color: white;
 }
-
 
 /* frequently asked questions */
 .faq-section {
@@ -424,8 +416,10 @@
 
 .faq-section .heading {
   font-weight: 600;
-  font-size: 40px;
-  line-height: 50px;
+  font-size: 2.5rem;
+  /* 40px */
+  line-height: 3.125rem;
+  /* 50px */
   text-align: center;
   color: white;
 }
@@ -443,12 +437,13 @@
 
 .leaderboard-section .heading {
   font-weight: 600;
-  font-size: 40px;
-  line-height: 50px;
+  font-size: 2.5rem;
+  /* 40px */
+  line-height: 3.125rem;
+  /* 50px */
   text-align: center;
   color: white;
 }
-
 
 /* footer section  */
 .footer-section {
@@ -456,27 +451,22 @@
   font-family: 'Popins';
 }
 
-
-
-
-
 /* 1200, max width  */
 @media (max-width: 1200px) {
-
   .body section {
     padding: 3rem 2rem;
+    /* 48px 32px */
   }
 
   .header {
     padding: 0rem 2rem;
+    /* 0px 32px */
   }
 
   .header .header-btns {
     display: none !important;
   }
-
 }
-
 
 /* 768 max width  */
 @media (max-width: 768px) {
@@ -495,6 +485,7 @@
     justify-content: flex-start;
     align-items: center;
     padding: 0rem 2rem;
+    /* 0px 32px */
   }
 
   .body .header .btn {
@@ -507,6 +498,7 @@
     left: 0;
     right: 0;
     border-top: 0.2rem solid #000;
+    /* 3.2px */
     background: #000;
     -webkit-clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
     clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
@@ -526,16 +518,14 @@
     display: block;
     margin: 0;
     padding: 1.5rem 2rem;
+    /* 24px 32px */
   }
-
-
 }
-
 
 /* max-width , 450 */
 @media (max-width: 450px) {
-
   .body .heading h1 {
     font-size: 3rem;
+    /* 48px */
   }
 }

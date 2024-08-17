@@ -8,30 +8,38 @@
 
 .faq-paragraph {
   font-weight: 400;
-  font-size: 16px;
-  line-height: 30px;
+  font-size: 1rem;
+  /* 16px */
+  line-height: 1.875rem;
+  /* 30px */
   text-align: center;
   color: white;
 }
 
 .faq-container {
-  margin-top: 34px;
+  margin-top: 2.125rem;
+  /* 34px */
 }
 
 .faq-item {
   /* border: 1px solid #ddd; */
-  border-radius: 4px;
-  margin-bottom: 11px;
+  border-radius: 0.25rem;
+  /* 4px */
+  margin-bottom: 0.6875rem;
+  /* 11px */
   overflow: hidden;
 }
 
 /* faq question css */
 .faq-question {
   font-weight: 500;
-  font-size: 19px;
-  line-height: 30px;
+  font-size: 1.1875rem;
+  /* 19px */
+  line-height: 1.875rem;
+  /* 30px */
   background-color: #4E4E4E;
-  padding: 15px;
+  padding: 0.9375rem;
+  /* 15px */
   cursor: pointer;
   display: flex;
   justify-content: space-between;
@@ -51,9 +59,11 @@
 
 /* faq icons css  */
 .faq-question-icons {
-  height: 32px;
-  width: 32px;
-  color: #F3E681
+  height: 2rem;
+  /* 32px */
+  width: 2rem;
+  /* 32px */
+  color: #F3E681;
 }
 
 .faq-question:hover .faq-question-icons {
@@ -62,17 +72,22 @@
 
 .faq-question-icons.highlight {
   color: #000000;
-  height: 34px;
-  width: 34px;
+  height: 2.125rem;
+  /* 34px */
+  width: 2.125rem;
+  /* 34px */
 }
 
 
 /* faq answer css */
 .faq-answer {
   font-weight: 400;
-  font-size: 16px;
-  line-height: 30px;
-  padding: 10px 25px;
+  font-size: 1rem;
+  /* 16px */
+  line-height: 1.875rem;
+  /* 30px */
+  padding: 0.625rem 1.5625rem;
+  /* 10px 25px */
   display: none;
   color: #000000;
   background: linear-gradient(91.94deg, #B17E32 -8.77%, #F3E681 58.63%, #CF9F41 107.45%);

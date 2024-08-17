@@ -3,16 +3,18 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    gap: 15px;
-   
+    gap: 0.9375rem;
+    /* 15px */
 }
 
 .proof-paragraph {
     margin-top: 0ch !important;
     padding-top: 0ch !important;
     font-weight: 400;
-    font-size: 16px;
-    line-height: 30px;
+    font-size: 1rem;
+    /* 16px */
+    line-height: 1.875rem;
+    /* 30px */
     text-align: center;
     color: white;
 }
@@ -20,16 +22,20 @@
 .proof-items {
     display: flex;
     flex-wrap: wrap;
-    gap: 20px;
+    gap: 1.25rem;
+    /* 20px */
     justify-content: center;
 }
 
 .proof-img {
-    width: 286px;
-    height: 393px;
-    background-color: #4E4E4E; 
+    width: 17.875rem;
+    /* 286px */
+    height: 24.5625rem;
+    /* 393px */
+    background-color: #4E4E4E;
     display: flex;
     justify-content: center;
     align-items: center;
-    border-radius: 4px;
+    border-radius: 0.25rem;
+    /* 4px */
 }
