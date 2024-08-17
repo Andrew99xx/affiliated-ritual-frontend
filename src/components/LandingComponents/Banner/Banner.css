@@ -22,8 +22,7 @@
 .banner-btn {
     background-color: black;
     color: white;
-    height: 4.125rem;
-    /* Changed from 66px to 4.125rem */
+    height: 60px;
     width: 16.5rem;
     /* Changed from 264px to 16.5rem */
     cursor: pointer;

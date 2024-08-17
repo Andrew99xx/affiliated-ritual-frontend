@@ -10,16 +10,10 @@ function Trainer() {
         dots: true,
         infinite: true,
         speed: 500,
-        slidesToShow: 5,
+        slidesToShow: 4,
         slidesToScroll: 1,
         centerMode: true,
         responsive: [
-            {
-                breakpoint: 1400,
-                settings: {
-                    slidesToShow: 4,
-                }
-            },
             {
                 breakpoint: 1000,
                 settings: {

@@ -19,7 +19,7 @@ const Sign = ({ onSignInClick }) => {
       return;
     }
     // signIn or verify process
-    onSignInClick(email, phone);
+    onSignInClick(email, `+91${phone}`);
   };
 
   return (
@@ -34,9 +34,10 @@ const Sign = ({ onSignInClick }) => {
       <div className="subheading">Enter your Mobile to sign in!</div>
 
       <div className="formcontainer">
+
+        {/* this is false, so that it will not appear */}
         {false &&
           <>
-
             <p>Enter Email <sup>*</sup></p>
             <input
               type="text"
@@ -45,7 +46,8 @@ const Sign = ({ onSignInClick }) => {
               value={email}
               onChange={(e) => setEmail(e.target.value)}
             />
-          </>}
+          </>
+        }
         <p>Enter Phone <sup>*</sup></p>
         <input
           type="tel"

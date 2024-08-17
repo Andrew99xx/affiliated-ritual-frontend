@@ -52,20 +52,33 @@ const LeaderRegister = ({ onToggle }) => {
     setOtp(otpComing);
   };
 
-  const sendVerificationCode = (e) => {
+  const sendVerificationCode = async (e) => {
     e.preventDefault();
-    const appVerifier = window.recaptchaVerifier;
-    signInWithPhoneNumber(auth, formData.phone, appVerifier)
-      .then((result) => {
-        setConfirmationResult(result);
-        setMessage('OTP sent to your phone');
-        alert('OTP sent to your phone');
-      })
-      .catch((error) => {
-        console.error('Error sending OTP:', error);
-        setMessage('Failed to send OTP. Please try again.');
-        alert('Failed to send OTP. Please try again.');
-      });
+
+    // const appVerifier = window.recaptchaVerifier;
+    // signInWithPhoneNumber(auth, `+91${formData.phone}`, appVerifier)
+    //   .then((result) => {
+    //     setConfirmationResult(result);
+    //     setMessage('OTP sent to your phone');
+    //     alert('OTP sent to your phone');
+    //   })
+    //   .catch((error) => {
+    //     console.error('Error sending OTP:', error);
+    //     setMessage('Failed to send OTP. Please try again.');
+    //     alert('Failed to send OTP. Please try again.');
+    //   });
+
+    try {
+      const appVerifier = window.recaptchaVerifier;
+      const result = await signInWithPhoneNumber(auth, `+91${formData.phone}`, appVerifier);
+      setConfirmationResult(result);
+      setMessage('OTP sent to your phone');
+      alert('OTP sent to your phone');
+    } catch (error) {
+      console.error('Error sending OTP:', error);
+      setMessage('Failed to send OTP. Please try again.');
+      alert('Failed to send OTP. Please try again.');
+    }
   };
 
   const verifyOtp = (e) => {
@@ -131,7 +144,7 @@ const LeaderRegister = ({ onToggle }) => {
   // if uid present then data savings & updation
   const handleRegister = (e) => {
     e.preventDefault();
-    
+
     const updatedAt = getCurrentTimestamp();
     setFormData({ ...formData, updatedAt })
 
@@ -148,7 +161,7 @@ const LeaderRegister = ({ onToggle }) => {
       <div className="container">
         <div>
           <h3 className="logo">
-          <img width={300} src={logo} />
+            <img width={300} src={logo} />
           </h3>
         </div>
         <div className="heading">Registration</div>

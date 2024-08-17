@@ -87,7 +87,7 @@ const StudentRegister = ({ onToggle }) => {
   const sendVerificationCode = (e) => {
     e.preventDefault();
     const appVerifier = window.recaptchaVerifier;
-    signInWithPhoneNumber(auth, formData.phone, appVerifier)
+    signInWithPhoneNumber(auth, `+91${formData.phone}`, appVerifier)
       .then((result) => {
         setConfirmationResult(result);
         setMessage('OTP sent to your phone');

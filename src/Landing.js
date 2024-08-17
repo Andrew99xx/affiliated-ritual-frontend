@@ -166,10 +166,13 @@ const Landing = () => {
           <Home />
         </section>
 
+        {/* introstate, without section, the reason is section has same padding for all */}
+        <IntroStats />
+
         {/* Intro Stats */}
-        <section className="introStats-section">
+        {/* <section className="introStats-section">
           <IntroStats />
-        </section>
+        </section> */}
 
         {/* how it works */}
         <section className="howItWorkSection">
@@ -215,9 +218,9 @@ const Landing = () => {
 
         {/* banner section */}
         <section className="banner-section" id="banner">
-        <Banner />
+          <Banner />
         </section>
-       
+
 
         {/* feedback section - voice of our students */}
         <section className="feedback-section" id="feedback">

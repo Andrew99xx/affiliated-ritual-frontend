@@ -182,13 +182,9 @@
 
 
 
-
-
-
-
-
 /* home section */
 .home-section {
+  padding-top: 1rem !important;
   padding-bottom: 0 !important;
   color: white;
   background-color: #252524;
@@ -209,11 +205,11 @@
 
 
 /* Intro - stats */
-.introStats-section {
+/* .introStats-section {
   background-color: black;
   color: white;
   font-family: 'Public Sans', sans-serif;
-}
+} */
 
 
 /* how it works */
@@ -234,7 +230,6 @@
   text-align: center;
   color: white;
 }
-
 
 
 
