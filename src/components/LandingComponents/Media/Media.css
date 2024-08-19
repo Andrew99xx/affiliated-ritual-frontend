@@ -21,8 +21,9 @@
 }
 
 .media-items {
-    display: flex;
-    flex-wrap: wrap;
+    /* display: flex; */
+    display: grid;
+    /* flex-wrap: wrap; */
     gap: 1.25rem;
     /* 20px */
     justify-content: center;
@@ -61,4 +62,22 @@
     /* 30px */
     text-align: center;
     color: white;
+}
+
+@media (min-width: 400px) {
+    .media-items {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (min-width: 800px) {
+    .media-items {
+        grid-template-columns: repeat(4, 1fr);
+    }
+}
+
+@media (min-width: 1200px) {
+    .media-items {
+        grid-template-columns: repeat(5, 1fr);
+    }
 }
