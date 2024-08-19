@@ -172,8 +172,6 @@ const Landing = () => {
         <IntroStats />
 
 
-
-
         {/* Intro Stats */}
         {/* <section className="introStats-section">
           <IntroStats />
