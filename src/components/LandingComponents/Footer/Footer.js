@@ -57,11 +57,11 @@ function Footer() {
 
             <div class="credit">
                 <div>
-                    <span>  © 2023-2024 Affiliate Ritual.  </span> | All rights reserved.{" "}
+                    <p>  © 2023-2024 Affiliate Ritual.  | All rights reserved.{" "}  </p>
                 </div>
 
                 <div>
-                    <span>  Term of Use </span> | Privacy Policy{" "}
+                    <p>  Term of Use  | Privacy Policy{" "}</p>
                 </div>
             </div>
         </div>

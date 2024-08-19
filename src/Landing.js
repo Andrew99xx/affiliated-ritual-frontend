@@ -161,13 +161,16 @@ const Landing = () => {
 
       <main>
 
+
+
         {/* home section */}
         <section class="home-section" id="home">
-          <Home />
+            <Home />
         </section>
 
-        {/* introstate, without section, the reason is section has same padding for all */}
+        {/* introstate, without section, the reason is, each section has same padding */}
         <IntroStats />
+
 
         {/* Intro Stats */}
         {/* <section className="introStats-section">

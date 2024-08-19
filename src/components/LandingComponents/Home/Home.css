@@ -1,6 +1,6 @@
 .home {
     margin-bottom: 0 !important;
-    padding: 0.625rem; 
+    padding: 0.625rem;
     padding-bottom: 0 !important;
     color: white;
     display: flex;
@@ -22,7 +22,7 @@
 .home-heading {
     font-family: 'Public Sans';
     font-weight: 600;
-    font-size: 1.5rem; 
+    font-size: 1.5rem;
     line-height: 2rem;
     color: #FFC27A;
 }
@@ -30,7 +30,7 @@
 .home-hook {
     font-family: 'Public Sans';
     font-weight: 600;
-    font-size: 3.5rem; 
+    font-size: 3.5rem;
     line-height: 4.5rem;
     color: white;
 }
@@ -44,9 +44,10 @@
     content: '';
     position: absolute;
     left: 0;
-    bottom: -0.1875rem; /* -3px / 16 */
+    bottom: -0.1875rem;
+    /* -3px / 16 */
     width: 100%;
-    height: 0.25rem; 
+    height: 0.25rem;
     background-color: #FFC27A;
     /* 
     background-color: transparent;
@@ -59,21 +60,22 @@
 .home-tag {
     font-family: 'Public Sans';
     font-weight: 400;
-    font-size: 1.25rem; 
-    line-height: 1.75rem; 
+    font-size: 1.25rem;
+    line-height: 1.75rem;
     color: #CFD3D6;
 }
 
 .home-btn {
     background-color: white;
     color: black;
-    height: 3.5rem; 
-    width: 13.0625rem; /* 209px / 16 */
+    height: 3.5rem;
+    width: 13.0625rem;
+    /* 209px / 16 */
     cursor: pointer;
-    border-radius: 0.25rem; 
+    border-radius: 0.25rem;
     font-family: 'Public Sans';
     font-weight: 600;
-    font-size: 1rem; 
+    font-size: 1rem;
     line-height: 2rem;
     text-align: center;
 }
@@ -91,8 +93,22 @@
     text-align: center;
     align-items: center;
     justify-content: center;
- 
 }
+
+
+/* .home-svg-wrapper {
+    
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    
+} */
+
+/* .home-svg {
+    width: 548.29px;
+    height: 545.03px;
+} */
 
 .home-img-wrapper {
     position: absolute;
@@ -105,11 +121,14 @@
 .home-img {
     /* background-color: aliceblue; */
     background-image: url('./yellow_background.png');
-    background-size: 31.2681rem; /* 500.29px / 16 */
+    background-size: 31.2681rem;
+    /* 500.29px / 16 */
     background-position: top;
     background-repeat: no-repeat;
-    width: 32.706875rem; /* 523.31px / 16 */
-    height: 40.375rem; /* 646px / 16 */
+    width: 32.706875rem;
+    /* 523.31px / 16 */
+    height: 40.375rem;
+    /* 646px / 16 */
     display: block;
     margin: 0 auto;
 }
@@ -121,37 +140,48 @@
     transform: translateX(-50%);
     background-color: white;
     color: black;
-    padding: 0.625rem; /* 10px / 16 */
-    box-shadow: 0.543125rem 0.543125rem 0px 0px rgba(0, 0, 0, 0.15); /* 8.69px / 16 */
-    border-width: 0.068125rem; /* 1.09px / 16 */
-    border-radius: 0.625rem; /* 10px / 16 */
+    padding: 0.625rem;
+    /* 10px / 16 */
+    box-shadow: 0.543125rem 0.543125rem 0px 0px rgba(0, 0, 0, 0.15);
+    /* 8.69px / 16 */
+    border-width: 0.068125rem;
+    /* 1.09px / 16 */
+    border-radius: 0.625rem;
+    /* 10px / 16 */
     border-color: #B2BBCC;
     font-family: 'Public Sans';
     font-weight: 600;
-    font-size: 1rem; 
-    line-height: 2rem; 
+    font-size: 1rem;
+    line-height: 2rem;
     text-align: center;
     text-transform: uppercase;
 }
 
 .home-left-card {
-    box-shadow: 0.543125rem 0.543125rem 0px 0px rgba(0, 0, 0, 0.15); /* 8.69px / 16 */
-    width: 15.125rem; /* 242px / 16 */
-    height: 6.5rem; /* 104px / 16 */
+    box-shadow: 0.543125rem 0.543125rem 0px 0px rgba(0, 0, 0, 0.15);
+    /* 8.69px / 16 */
+    width: 15.125rem;
+    /* 242px / 16 */
+    height: 6.5rem;
+    /* 104px / 16 */
     position: absolute;
     top: 50%;
-    left: -0.9375rem; /* -15px / 16 */
+    left: -0.9375rem;
+    /* -15px / 16 */
     transform: translateY(-50%);
     background-color: white;
     color: black;
-    padding: 0.625rem; /* 10px / 16 */
-    border-width: 0.068125rem; /* 1.09px / 16 */
-    border-radius: 0.625rem; /* 10px / 16 */
+    padding: 0.625rem;
+    /* 10px / 16 */
+    border-width: 0.068125rem;
+    /* 1.09px / 16 */
+    border-radius: 0.625rem;
+    /* 10px / 16 */
     border-color: #B2BBCC;
     font-family: 'Public Sans';
     font-weight: 600;
-    font-size: 0.75rem; 
-    line-height: 2rem; 
+    font-size: 0.75rem;
+    line-height: 2rem;
     text-align: center;
     display: flex;
     flex-direction: column;
@@ -160,9 +190,10 @@
 }
 
 .home-left-card-percent {
-    font-size: 1.125rem; 
+    font-size: 1.125rem;
     padding-bottom: 0 !important;
-    margin-bottom: -0.4375rem !important; /* -7px / 16 */
+    margin-bottom: -0.4375rem !important;
+    /* -7px / 16 */
 }
 
 .home-left-card-image-container {
@@ -173,13 +204,16 @@
 }
 
 .home-left-card-image-item {
-    width: 2.5rem; 
-    height: 2.5rem; 
+    width: 2.5rem;
+    height: 2.5rem;
     border-radius: 50%;
     overflow: hidden;
-    margin-left: -1.875rem; /* -30px / 16 */
-    border: 0.1875rem solid #f0f0f0; /* 3px / 16 */
-    box-shadow: 0 0 0.625rem rgba(249, 249, 249, 0.1); /* 10px / 16 */
+    margin-left: -1.875rem;
+    /* -30px / 16 */
+    border: 0.1875rem solid #f0f0f0;
+    /* 3px / 16 */
+    box-shadow: 0 0 0.625rem rgba(249, 249, 249, 0.1);
+    /* 10px / 16 */
 }
 
 .home-left-card-image-item img {
@@ -189,8 +223,9 @@
 }
 
 .home-left-card-jackpot-img {
-    width: 6.25rem; 
-    height: 6.25rem; /* 100px / 16 */
+    width: 6.25rem;
+    height: 6.25rem;
+    /* 100px / 16 */
 }
 
 .home-left-card-image-item:first-child {
@@ -200,18 +235,56 @@
 /* Media query for small devices */
 @media (max-width: 768px) {
     .home-img {
-        background-size: 80vw; 
+        background-size: 80vw;
         width: 80vw;
-        height: auto; 
+        height: auto;
     }
 
     .home-top-card {
         display: none !important;
-        
+
     }
 
     .home-left-card {
-        width: 11.25rem; /* 180px / 16 */
+        width: 11.25rem;
+        /* 180px / 16 */
         height: auto;
+    }
+}
+
+@media screen and (min-width: 1710px) and (min-height: 955px) and (max-width: 1710px) and (max-height: 955px) {
+    .home {
+        min-height: 65vh !important;
+        height: auto;
+        padding-top: 10rem;
+        gap: 4rem;
+    }
+
+    .home-img {
+        background-size: 42rem;
+        width: auto;
+        height: 65vh;
+    }
+}
+
+@media screen and (min-width: 1366px) and (min-height: 768px) and (max-width: 1366px) and (max-height: 768px) {
+    .home {
+        min-height: 60vh !important;
+        height: auto;
+        padding-top: 10rem;
+        overflow: hidden;
+    }
+
+    .home-img {
+        background-size: 36rem;
+        width: auto;
+        height: 60vh;
+    }
+}
+
+@media screen and (min-width: 1280px) and (min-height: 1024px) and (max-width: 1280px) and (max-height: 1024px) {
+    .home {
+        padding-top: 8rem;
+        overflow: hidden;
     }
 }
