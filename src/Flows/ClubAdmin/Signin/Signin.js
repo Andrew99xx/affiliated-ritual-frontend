@@ -53,7 +53,7 @@ const Signin = ({ onSignin }) => {
         alert('OTP sent to your phone');
       })
       .catch((error) => {
-        console.error('Error sending OTP:', error);
+        console.error('Error sending OTP:', error,phone);
         setMessage('Failed to send OTP. Please try again.');
         alert('Failed to send OTP. Please try again.');
       });

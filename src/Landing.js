@@ -197,7 +197,7 @@ const Landing = () => {
 
         {/* why affiliated ritual */}
         <section className="whyRitual" id="whyRitual">
-          <h1 className="heading">Why Affiliated Rituals</h1>
+          <h1 className="heading">Why Affiliated Ritual</h1>
           <WhyRitual />
         </section>
 

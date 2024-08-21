@@ -7,7 +7,7 @@ function Footer() {
         <div className='footer'>
             <div class="box-container">
                 <div class="box">
-                    <h3>Affliliated Rituals</h3>
+                    <h3>Affliliated Ritual</h3>
                     <div className='footer-banner'></div>
                     <p>
                         {" "}
