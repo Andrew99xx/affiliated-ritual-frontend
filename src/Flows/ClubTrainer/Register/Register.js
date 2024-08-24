@@ -2,6 +2,9 @@ import React, { useEffect, useState } from "react";
 import { RecaptchaVerifier, signInWithPhoneNumber } from "firebase/auth";
 import { setDoc, doc, getDoc } from "firebase/firestore";
 
+import PhoneInput from 'react-phone-number-input';
+import 'react-phone-number-input/style.css';
+
 import "./Register.css";
 import logo from "../../../logo.png"
 
@@ -29,7 +32,7 @@ const TrainerRegister = ({ onToggle }) => {
     ifscCode: "",
     createdAt: "",
     updatedAt: "",
-    selectExperience : "",
+    selectExperience: "",
     userTypes: "club_trainer",
   });
 
@@ -56,7 +59,7 @@ const TrainerRegister = ({ onToggle }) => {
   const sendVerificationCode = (e) => {
     e.preventDefault();
     const appVerifier = window.recaptchaVerifier;
-    signInWithPhoneNumber(auth, `+91${formData.phone}`, appVerifier)
+    signInWithPhoneNumber(auth, formData.phone, appVerifier)
       .then((result) => {
         setConfirmationResult(result);
         setMessage('OTP sent to your phone');
@@ -124,6 +127,16 @@ const TrainerRegister = ({ onToggle }) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
+  const updatePhoneNumber = (phoneNumber) => {
+    setFormData((prevData) => ({
+      ...prevData,
+      phone: phoneNumber,
+    }));
+  };
+
+
+
+
 
   // implement the updation part, what if trainer is already registered
   // this , you can do at the time of uid or otp confirmation
@@ -145,14 +158,14 @@ const TrainerRegister = ({ onToggle }) => {
       <div className="container">
         <div>
           <h3 className="logo">
-          <img width={300} src={logo} />
+            <img width={300} src={logo} />
           </h3>
         </div>
         <div className="heading">Registration</div>
         <form className="formcontainer">
 
           <p>Phone <sup>*</sup></p>
-          <input
+          {/* <input
             type="tel"
             className="input"
             name="phone"
@@ -160,6 +173,14 @@ const TrainerRegister = ({ onToggle }) => {
             onChange={handleChange}
             placeholder="9876543210"
             required
+          /> */}
+          <PhoneInput
+            international
+            defaultCountry="IN"
+            value={formData.phone}
+            onChange={updatePhoneNumber} // Directly update the phone number
+            placeholder="Enter phone number"
+            className="input"
           />
           <button
             onClick={sendVerificationCode}

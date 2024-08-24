@@ -4,6 +4,9 @@ import { doc, setDoc, getDoc } from "firebase/firestore";
 import "./Register.css";
 import logo from "../../../logo.png"
 
+import PhoneInput from 'react-phone-number-input';
+import 'react-phone-number-input/style.css';
+
 import { auth, db } from "../../../firebase-config";
 import OtpInputContainer from "../Signin/Signincomp/OtpInputContainer";
 import { getCurrentTimestamp } from "../../../service/time/getCurrentTimestamp";
@@ -55,7 +58,7 @@ const TeamMemberRegister = ({ onToggle }) => {
   const sendVerificationCode = (e) => {
     e.preventDefault();
     const appVerifier = window.recaptchaVerifier;
-    signInWithPhoneNumber(auth, `+91${formData.phone}`, appVerifier)
+    signInWithPhoneNumber(auth, formData.phone, appVerifier)
       .then((result) => {
         setConfirmationResult(result);
         setMessage('OTP sent to your phone');
@@ -123,6 +126,14 @@ const TeamMemberRegister = ({ onToggle }) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
+  const updatePhoneNumber = (phoneNumber) => {
+    setFormData((prevData) => ({
+      ...prevData,
+      phone: phoneNumber,
+    }));
+  };
+
+
   const handleRegister = (e) => {
     e.preventDefault();
 
@@ -148,7 +159,7 @@ const TeamMemberRegister = ({ onToggle }) => {
         <form className="formcontainer">
 
           <p>Phone Number <sup>*</sup></p>
-          <input
+          {/* <input
             type="tel"
             className="input"
             name="phone"
@@ -156,6 +167,14 @@ const TeamMemberRegister = ({ onToggle }) => {
             onChange={handleChange}
             placeholder="9876543210"
             required
+          /> */}
+          <PhoneInput
+            international
+            defaultCountry="IN"
+            value={formData.phone}
+            onChange={updatePhoneNumber} // Directly update the phone number
+            placeholder="Enter phone number"
+            className="input"
           />
           <button
             onClick={sendVerificationCode}

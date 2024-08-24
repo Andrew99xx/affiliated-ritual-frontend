@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import "../Signin.css";
 import logo from "../../../../logo.png"
+import PhoneInput from 'react-phone-number-input';
+import 'react-phone-number-input/style.css';
 
 // sign in components - just entering the email
 const Sign = ({ onSignInClick }) => {
@@ -12,12 +14,13 @@ const Sign = ({ onSignInClick }) => {
   // calling onSignInClick 
   // also passing the value 
   const handleSignIn = () => {
-    if ( !phone) {
+    if (!phone) {
       setMessage('Please enter your email and phone number');
       return;
     }
     // signIn or verify process
-    onSignInClick(`+91${phone}`);
+    // onSignInClick(`+91${phone}`);
+    onSignInClick(phone);
   };
 
   return (
@@ -45,12 +48,20 @@ const Sign = ({ onSignInClick }) => {
             />
           </>}
         <p>Enter Phone <sup>*</sup></p>
-        <input
+        {/* <input
           type="tel"
           className="input"
           placeholder='9876543210'
           value={phone}
           onChange={(e) => setPhone(e.target.value)}
+        /> */}
+        <PhoneInput
+          international
+          defaultCountry="IN"
+          value={phone}
+          onChange={setPhone}
+          placeholder="Enter phone number"
+          className="input"
         />
         {
           message && <div className="sign-error">{message}</div>
