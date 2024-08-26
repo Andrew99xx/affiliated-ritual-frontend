@@ -3,6 +3,8 @@ import { RecaptchaVerifier, signInWithPhoneNumber } from "firebase/auth";
 import { doc, setDoc, getDoc, getDocs, collection } from "firebase/firestore";
 import { getStorage, ref, uploadBytes, getDownloadURL } from "firebase/storage";
 
+import PhoneInput from 'react-phone-number-input';
+import 'react-phone-number-input/style.css';
 
 import "./Register.css";
 import logo from "../../../logo.png"
@@ -87,7 +89,7 @@ const StudentRegister = ({ onToggle }) => {
   const sendVerificationCode = (e) => {
     e.preventDefault();
     const appVerifier = window.recaptchaVerifier;
-    signInWithPhoneNumber(auth, `+91${formData.phone}`, appVerifier)
+    signInWithPhoneNumber(auth, formData.phone, appVerifier)
       .then((result) => {
         setConfirmationResult(result);
         setMessage('OTP sent to your phone');
@@ -188,7 +190,6 @@ const StudentRegister = ({ onToggle }) => {
 
   // handle input changes 
 
-
   const handleChange = (e) => {
     const { name, value } = e.target;
 
@@ -208,6 +209,14 @@ const StudentRegister = ({ onToggle }) => {
     } else {
       setFormData({ ...formData, [name]: value });
     }
+  };
+
+
+  const updatePhoneNumber = (phoneNumber) => {
+    setFormData((prevData) => ({
+      ...prevData,
+      phone: phoneNumber,
+    }));
   };
 
 
@@ -256,7 +265,7 @@ const StudentRegister = ({ onToggle }) => {
           <div id="recaptcha-container"></div>
 
           <p>Phone Number <sup>*</sup></p>
-          <input
+          {/* <input
             type="tel"
             className="input"
             name="phone"
@@ -264,6 +273,14 @@ const StudentRegister = ({ onToggle }) => {
             onChange={handleChange}
             placeholder="9876543210"
             required
+          /> */}
+          <PhoneInput
+            international
+            defaultCountry="IN"
+            value={formData.phone}
+            onChange={updatePhoneNumber} // Directly update the phone number
+            placeholder="Enter phone number"
+            className="input"
           />
           <button
             onClick={sendVerificationCode}

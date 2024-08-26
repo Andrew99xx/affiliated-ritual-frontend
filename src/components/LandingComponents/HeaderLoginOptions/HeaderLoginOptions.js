@@ -20,8 +20,12 @@ const HeaderLoginOptions = ({ isLoginOpen, closeLogin }) => {
             <Link className="tml" to="/teamleader?action=login">
               <img src="/leader.png" alt="" height={80} width={80} /> Team Leader
             </Link>
+            
             <Link to="/trainer?action=login" className="tra">
               <img src="/trainer.png" alt="" height={80} width={80} /> Trainer
+            </Link>
+            <Link to="/teammember?action=register" className="tml">
+              <img src="/member.png" alt="" height={80} width={80} /> Team Member
             </Link>
           </div>
         </div>

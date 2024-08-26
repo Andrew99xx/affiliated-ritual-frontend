@@ -2,6 +2,10 @@ import React, { useState, useEffect } from "react";
 import { RecaptchaVerifier, signInWithPhoneNumber } from "firebase/auth";
 import { doc, setDoc, getDoc } from "firebase/firestore";
 
+import PhoneInput from 'react-phone-number-input';
+import 'react-phone-number-input/style.css';
+
+
 import "./Register.css";
 import logo from "../../../logo.png"
 
@@ -70,7 +74,7 @@ const LeaderRegister = ({ onToggle }) => {
 
     try {
       const appVerifier = window.recaptchaVerifier;
-      const result = await signInWithPhoneNumber(auth, `+91${formData.phone}`, appVerifier);
+      const result = await signInWithPhoneNumber(auth, formData.phone, appVerifier);
       setConfirmationResult(result);
       setMessage('OTP sent to your phone');
       alert('OTP sent to your phone');
@@ -140,6 +144,14 @@ const LeaderRegister = ({ onToggle }) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
+  const updatePhoneNumber = (phoneNumber) => {
+    setFormData((prevData) => ({
+      ...prevData,
+      phone: phoneNumber,
+    }));
+  };
+
+
 
   // if uid present then data savings & updation
   const handleRegister = (e) => {
@@ -168,7 +180,7 @@ const LeaderRegister = ({ onToggle }) => {
         <form className="formcontainer">
 
           <p>Phone Number <sup>*</sup></p>
-          <input
+          {/* <input
             type="tel"
             className="input"
             name="phone"
@@ -176,6 +188,14 @@ const LeaderRegister = ({ onToggle }) => {
             onChange={handleChange}
             placeholder="9876543210"
             required
+          /> */}
+          <PhoneInput
+            international
+            defaultCountry="IN"
+            value={formData.phone}
+            onChange={updatePhoneNumber} // Directly update the phone number
+            placeholder="Enter phone number"
+            className="input"
           />
           <button
             onClick={sendVerificationCode}

@@ -12,13 +12,16 @@ const HeaderRegisterOptions = ({ isRegisterOpen, closeRegister }) => {
                     &times;
                 </button>
                 <div className="popup-content">
-                    <h2>Sign Up or Register</h2>
+                    <h2>Sign Up</h2>
                     <div className="landlog">
                         <Link to="/student?action=register" className="st">
                             <img src="/student.png" alt="" height={80} width={80} /> Student
                         </Link>
-                        <Link to="/teamleader?action=register" className="tml">
+                        {/* <Link to="/teamleader?action=register" className="tml">
                             <img src="/leader.png" alt="" height={80} width={80} /> Team Leader
+                        </Link> */}
+                        <Link to="/teammember?action=register" className="tml">
+                            <img src="/member.png" alt="" height={80} width={80} /> Team Member
                         </Link>
                         <Link to="/trainer?action=register" className="tra">
                             <img src="/trainer.png" alt="" height={80} width={80} /> Trainer
