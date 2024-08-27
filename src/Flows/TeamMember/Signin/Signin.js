@@ -74,6 +74,7 @@ const Signin = ({ onSignin, onToggle }) => {
         alert(userExists)
         if (userExists) {
           // Call onSignin to handle the successful sign-in or if user uid exits
+          localStorage.setItem('team_member_uid', user.uid);
           onSignin(user);
         } else {
           alert("You are not registered");

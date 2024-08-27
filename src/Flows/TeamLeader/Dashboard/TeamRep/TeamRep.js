@@ -9,7 +9,23 @@ import { db } from "../../../../firebase-config";
 import { doc, getDoc, collection, where, getDocs, query } from "firebase/firestore";
 import { findMonthlyEarningsForUser } from "../../../../service/findMonthlyEarningsForUser";
 
+export async function getMyARIDFromUid(team_leader_uid) {
+  try {
+    const userDocRef = doc(db, "users", team_leader_uid);
+    const userDoc = await getDoc(userDocRef);
 
+    if (userDoc.exists()) {
+      const userData = userDoc.data();
+      return userData.myARID;
+    } else {
+      console.log("No such user found!");
+      return null;
+    }
+  } catch (error) {
+    console.error("Error fetching user document:", error);
+    return null;
+  }
+}
 const TeamRep = () => {
   const [fullDataItem, setFullDataItem] = useState(null);
 
@@ -32,23 +48,7 @@ const TeamRep = () => {
     }
   }, []);
 
-  async function getMyARIDFromUid(team_leader_uid) {
-    try {
-      const userDocRef = doc(db, "users", team_leader_uid);
-      const userDoc = await getDoc(userDocRef);
-
-      if (userDoc.exists()) {
-        const userData = userDoc.data();
-        return userData.myARID;
-      } else {
-        console.log("No such user found!");
-        return null;
-      }
-    } catch (error) {
-      console.error("Error fetching user document:", error);
-      return null;
-    }
-  }
+ 
 
   async function findUsersUsingMyARID(myARID) {
     try {

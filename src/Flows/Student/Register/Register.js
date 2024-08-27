@@ -15,12 +15,16 @@ import { findUserIdByReferral } from "../../../service/findUserIdByReferral.js";
 import { findCoursePriceById } from "../../../service/findCoursePriceById.js";
 import { updateUserEarnings } from "../../../service/updateEarnings/updateUserEarnings.js";
 import { getCurrentTimestamp } from "../../../service/time/getCurrentTimestamp.js";
+import { findUserDetailBymyARID } from "../Dashboard/EduProg/progress/Progress.js";
 
+const delay = (ms) => new Promise(resolve => setTimeout(resolve, ms));
 
 const StudentRegister = ({ onToggle }) => {
   const [otp, setOtp] = useState('');
   const [courses, setCourses] = useState([]);
   const [message, setMessage] = useState('');
+  const [error, setError]=useState(false)
+  const[helpText, setHelpText]=useState('')
   const [uid, setUid] = useState('');
   const [selectedFile, setSelectedFile] = useState(null);
   const [confirmationResult, setConfirmationResult] = useState(null);
@@ -190,7 +194,7 @@ const StudentRegister = ({ onToggle }) => {
 
   // handle input changes 
 
-  const handleChange = (e) => {
+  const handleChange = async (e) => {
     const { name, value } = e.target;
 
     if (name === "courseId") {
@@ -206,8 +210,21 @@ const StudentRegister = ({ onToggle }) => {
             : [...(prevData.courseIdsArray || []), value], // Add courseId if it doesn't exist
         };
       });
-    } else {
+    }else if(name === "referralId"){
       setFormData({ ...formData, [name]: value });
+      await delay(500);
+      const foundUser=await findUserDetailBymyARID(value)
+      console.log(foundUser);
+      
+      if(foundUser){
+        setError(false)
+        setHelpText(`User found ${foundUser.firstName} ${foundUser.lastName}`)
+      }else{
+        setError(true)
+        setHelpText("No User found for this referral ID")
+      }
+      // console.log(await findUserDetailBymyARID(value))
+    } else {
     }
   };
 
@@ -259,7 +276,7 @@ const StudentRegister = ({ onToggle }) => {
             <img width={300} src={logo} />
           </h3>
         </div>
-        <div className="heading">Registration</div>
+        <div className="heading">Student Registration</div>
         <form className="formcontainer">
 
           <div id="recaptcha-container"></div>
@@ -358,6 +375,7 @@ const StudentRegister = ({ onToggle }) => {
             onChange={handleChange}
             placeholder="Enter Referral ID"
           />
+          <p style={{color:error?'red':'green'}}>{helpText}</p>
 
           <h3>Bank Details</h3>
 
@@ -375,7 +393,7 @@ const StudentRegister = ({ onToggle }) => {
 
 
           {/* you may change the value of Register to Update, if user is already registered */}
-          <button className="btn" onClick={handleRegister}>Register</button>
+          <button className="btn" disabled={error} onClick={handleRegister}>Register</button>
 
           <p className="alr">Already a member? <span onClick={onToggle}>Sign in</span></p>
 

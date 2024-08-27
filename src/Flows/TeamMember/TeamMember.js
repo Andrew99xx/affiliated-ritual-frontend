@@ -3,6 +3,8 @@ import { useLocation } from 'react-router-dom';
 import Signin from './Signin/Signin';
 import Dashboard from './Dashboard/Dashboard';
 import Register from './Register/Register';
+import { checkUserExists } from '../../service/checkUserExists';
+import { checkUserTypes } from '../../service/checkUserTypes';
 
 const TeamMember = () => {
   const [isSignedIn, setIsSignedIn] = useState(false);
@@ -17,6 +19,19 @@ const TeamMember = () => {
       setIsRegistering(false);
     }
   }, [location.search]);
+  useEffect(() => {
+    const checkUserStatus = async () => {
+      const teamMemberuid = localStorage.getItem('team_member_uid');
+      if (teamMemberuid) {
+        const userExists = await checkUserExists(teamMemberuid);
+        const userTypes = await checkUserTypes(teamMemberuid);
+        if (userExists && userTypes === "team_member") {
+          setIsSignedIn(true);
+        }
+      }
+    };
+    checkUserStatus();
+  }, []);
 
   const handleSignin = () => {
     setIsSignedIn(true);

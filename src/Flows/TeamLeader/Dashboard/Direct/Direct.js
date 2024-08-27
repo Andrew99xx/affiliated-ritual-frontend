@@ -11,6 +11,11 @@ const Direct = () => {
 
   const team_leader_uid = localStorage.getItem('team_leader_uid');
   const [referredUsers, setReferredUsers] = useState(null);
+  const [activereferredUsers, setActiveReferredUsers] = useState(null);
+  const [inactivereferredUsers, setInActiveReferredUsers] = useState(null);
+
+
+
 
   // is it good to use in useEffect , 
   useEffect(() => {

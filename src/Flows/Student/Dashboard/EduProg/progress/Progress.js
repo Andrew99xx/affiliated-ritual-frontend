@@ -54,7 +54,7 @@ export const findUserDetailBymyARID = async (myARID) => {
     }
   } catch (error) {
     console.error("Error fetching user details:", error);
-    throw error;
+    // throw error;
   }
 };
 

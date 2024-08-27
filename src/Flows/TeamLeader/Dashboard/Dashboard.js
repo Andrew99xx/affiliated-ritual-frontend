@@ -41,7 +41,10 @@ const TeamDashboard = ({ handleLogout }) => {
         const getTotalCoins = await getCoinsOfUser(user.uid);
         setTotalCoins(getTotalCoins);
       } else {
+        // wdhagskashgfaskjhf
+        localStorage.removeItem("team_leader_uid")
         alert("No user is signed in");
+        window.location.replace("teamleader?action=login")
       }
     });
 
