@@ -26,11 +26,13 @@ const Dash = () => {
 
   useEffect(() => {
     const fetchData = async () => {
-      const usersUsingMyARID = await findUsersUsingMyARID(arID);
-      setData(usersUsingMyARID);
+      if (arID) {
+        const usersUsingMyARID = await findUsersUsingMyARID(arID);
+        setData(usersUsingMyARID);
+      }
     }
     fetchData();
-  }, [])
+  }, [arID])
 
   return (
     <div className='edu'>
