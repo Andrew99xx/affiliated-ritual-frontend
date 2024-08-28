@@ -23,8 +23,8 @@ const StudentRegister = ({ onToggle }) => {
   const [otp, setOtp] = useState('');
   const [courses, setCourses] = useState([]);
   const [message, setMessage] = useState('');
-  const [error, setError]=useState(false)
-  const[helpText, setHelpText]=useState('')
+  const [error, setError] = useState(false)
+  const [helpText, setHelpText] = useState('')
   const [uid, setUid] = useState('');
   const [selectedFile, setSelectedFile] = useState(null);
   const [confirmationResult, setConfirmationResult] = useState(null);
@@ -35,6 +35,7 @@ const StudentRegister = ({ onToggle }) => {
 
 
   const [formData, setFormData] = useState({
+    isActive: false,
     firstName: "",
     lastName: "",
     phone: "",
@@ -143,21 +144,6 @@ const StudentRegister = ({ onToggle }) => {
       });
   };
 
-
-
-  // const addUserToFirestore = async () => {
-  //   try {
-  //     // updating data in firestore 
-  //     // Add uid to formData
-  //     const updatedFormData = { ...formData, uid: uid };
-  //     await setDoc(doc(db, "users", uid), updatedFormData, { merge: true });
-  //     alert("Registration successful! User data saved to Firestore!");
-  //   } catch (error) {
-  //     console.error("Error adding user to Firestore: ", error);
-  //     alert("Error adding user to Firestore: ", error.message);
-  //   }
-  // };
-
   const addUserToFirestore = async () => {
     try {
       if (selectedFile) {
@@ -172,16 +158,22 @@ const StudentRegister = ({ onToggle }) => {
         const downloadURL = await getDownloadURL(snapshot.ref);
 
         // Update the formData with the download URL
-        const updatedFormData = { ...formData, uid: uid, registrationImage: downloadURL };
+        const updatedFormData = {
+          ...formData,
+          uid: uid,
+          isActive: true,
+          registrationImage: downloadURL
+        };
         await setDoc(doc(db, "users", uid), updatedFormData, { merge: true });
-
         alert("Registration successful! User data and profile picture saved to Firestore!");
       } else {
-
         // If no file selected, proceed without profile picture
-        const updatedFormData = { ...formData, uid: uid };
+        const updatedFormData = {
+          ...formData,
+          uid: uid,
+          isActive: true
+        };
         await setDoc(doc(db, "users", uid), updatedFormData, { merge: true });
-
         alert("Registration successful! User data saved to Firestore!");
       }
     } catch (error) {
@@ -193,7 +185,6 @@ const StudentRegister = ({ onToggle }) => {
 
 
   // handle input changes 
-
   const handleChange = async (e) => {
     const { name, value } = e.target;
 
@@ -210,16 +201,16 @@ const StudentRegister = ({ onToggle }) => {
             : [...(prevData.courseIdsArray || []), value], // Add courseId if it doesn't exist
         };
       });
-    }else if(name === "referralId"){
+    } else if (name === "referralId") {
       setFormData({ ...formData, [name]: value });
       await delay(500);
-      const foundUser=await findUserDetailBymyARID(value)
+      const foundUser = await findUserDetailBymyARID(value)
       console.log(foundUser);
-      
-      if(foundUser){
+
+      if (foundUser) {
         setError(false)
         setHelpText(`User found ${foundUser.firstName} ${foundUser.lastName}`)
-      }else{
+      } else {
         setError(true)
         setHelpText("No User found for this referral ID")
       }
@@ -295,7 +286,8 @@ const StudentRegister = ({ onToggle }) => {
             international
             defaultCountry="IN"
             value={formData.phone}
-            onChange={updatePhoneNumber} // Directly update the phone number
+            onChange={updatePhoneNumber}
+            // Directly update the phone number
             placeholder="Enter phone number"
             className="input"
           />
@@ -375,7 +367,7 @@ const StudentRegister = ({ onToggle }) => {
             onChange={handleChange}
             placeholder="Enter Referral ID"
           />
-          <p style={{color:error?'red':'green'}}>{helpText}</p>
+          <p style={{ color: error ? 'red' : 'green' }}>{helpText}</p>
 
           <h3>Bank Details</h3>
 
