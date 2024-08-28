@@ -7,8 +7,9 @@ import user from "./users.png";
 import orders from "./orders.png";
 import pending from "./pending.png";
 import sales from "./sales.png";
-import { getMyARIDFromUid } from '../TeamRep/TeamRep';
 import Paragraph from 'antd/es/typography/Paragraph';
+
+import { getMyARIDFromUid } from '../../../../service/getMyARIDFromUid';
 
 const Sales = () => {
   const [arID, setArID]=useState('')

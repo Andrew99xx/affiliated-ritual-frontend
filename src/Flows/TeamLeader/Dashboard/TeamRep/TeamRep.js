@@ -5,27 +5,11 @@ import Bargraph from "../../../../components/Graph/Bargraph";
 import Table from "./Table/Table";
 import FullTable from "./FullTable/FullTable";
 
-import { db } from "../../../../firebase-config";
-import { doc, getDoc, collection, where, getDocs, query } from "firebase/firestore";
-import { findMonthlyEarningsForUser } from "../../../../service/findMonthlyEarningsForUser";
+import { getMyARIDFromUid } from "../../../../service/getMyARIDFromUid";
+import { findUsersUsingMyARID } from "../../../../service/findUsers/findUsersUsingMyARID.js"
 
-export async function getMyARIDFromUid(team_leader_uid) {
-  try {
-    const userDocRef = doc(db, "users", team_leader_uid);
-    const userDoc = await getDoc(userDocRef);
 
-    if (userDoc.exists()) {
-      const userData = userDoc.data();
-      return userData.myARID;
-    } else {
-      console.log("No such user found!");
-      return null;
-    }
-  } catch (error) {
-    console.error("Error fetching user document:", error);
-    return null;
-  }
-}
+
 const TeamRep = () => {
   const [fullDataItem, setFullDataItem] = useState(null);
 
@@ -48,33 +32,6 @@ const TeamRep = () => {
     }
   }, []);
 
- 
-
-  async function findUsersUsingMyARID(myARID) {
-    try {
-      const usersRef = collection(db, "users");
-      const usersQuery = query(usersRef, where("referralId", "==", myARID));
-      const querySnapshot = await getDocs(usersQuery);
-
-      // check if each users contains id or not
-      // how we can take id of each reffered users  
-      const usersUsingMyARID = [];
-
-      for (const doc of querySnapshot.docs) {
-        const userData = { id: doc.id, ...doc.data() };
-        // Find the monthly earnings for each user
-        const monthlyEarnings = await findMonthlyEarningsForUser(userData.id);
-        usersUsingMyARID.push({ ...userData, monthlyEarnings });
-      }
-
-
-      // return array
-      return usersUsingMyARID;
-    } catch (error) {
-      console.error("Error fetching users by referralId:", error);
-      return [];
-    }
-  }
 
   async function findUsersReferredByUid(team_leader_uid) {
     const myARID = await getMyARIDFromUid(team_leader_uid);
