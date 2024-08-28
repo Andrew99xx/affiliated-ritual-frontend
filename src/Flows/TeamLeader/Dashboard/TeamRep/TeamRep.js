@@ -9,9 +9,11 @@ import { getMyARIDFromUid } from "../../../../service/getMyARIDFromUid";
 import { findUsersUsingMyARID } from "../../../../service/findUsers/findUsersUsingMyARID.js"
 
 
-
 const TeamRep = () => {
+  const team_leader_uid = localStorage.getItem('team_leader_uid');
+
   const [fullDataItem, setFullDataItem] = useState(null);
+  const [referredUsers, setReferredUsers] = useState(null);
 
   const handleViewFull = (item) => {
     setFullDataItem(item);
@@ -22,36 +24,29 @@ const TeamRep = () => {
   };
 
 
-  const team_leader_uid = localStorage.getItem('team_leader_uid');
-  const [referredUsers, setReferredUsers] = useState(null);
-
-  // is it good to use in useEffect , 
   useEffect(() => {
-    if (team_leader_uid) {
-      findUsersReferredByUid(team_leader_uid);
-    }
-  }, []);
 
+    const fetchUsersReferredByUid = async () => {
+      const myARID = await getMyARIDFromUid(team_leader_uid);
 
-  async function findUsersReferredByUid(team_leader_uid) {
-    const myARID = await getMyARIDFromUid(team_leader_uid);
+      if (myARID) {
+        // this is an array
+        const usersUsingMyARID = await findUsersUsingMyARID(myARID);
 
-    if (myARID) {
-
-      // this is an array
-      const usersUsingMyARID = await findUsersUsingMyARID(myARID);
-
-      if (usersUsingMyARID.length > 0) {
-        console.log(usersUsingMyARID); // Log the users array
-        setReferredUsers(usersUsingMyARID);
-        // alert("Total Users using this myARID as referralId: " + usersUsingMyARID.length);
+        if (usersUsingMyARID.length > 0) {
+          console.log(usersUsingMyARID); // Log the users array
+          setReferredUsers(usersUsingMyARID);
+          // alert("Total Users using this myARID as referralId: " + usersUsingMyARID.length);
+        } else {
+          alert("No users found with this referralId.");
+        }
       } else {
-        alert("No users found with this referralId.");
+        alert("No myARID found for this uid.");
       }
-    } else {
-      alert("No myARID found for this uid.");
     }
-  }
+    fetchUsersReferredByUid();
+  }, [team_leader_uid]);
+
 
 
   return (
