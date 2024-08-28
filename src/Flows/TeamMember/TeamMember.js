@@ -19,6 +19,8 @@ const TeamMember = () => {
       setIsRegistering(false);
     }
   }, [location.search]);
+
+
   useEffect(() => {
     const checkUserStatus = async () => {
       const teamMemberuid = localStorage.getItem('team_member_uid');
