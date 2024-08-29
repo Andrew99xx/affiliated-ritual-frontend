@@ -1,21 +1,30 @@
 import React from 'react'
 import './Proof.css'
+import proof01 from "./proof01.png"
+import proof34 from "./proof34.jpg"
+import proof35 from "./proof35.jpg"
+import proof36 from "./proof36.jpg"
+
+// import proof39 from "./proof39.jpg"
+// import proof42 from "./proof42.jpg"
+
+
 function Proof() {
     const proof = [
         {
-            imgLink: "https://via.placeholder.com/286x393.png?text=Placeholder+Image",
+            imgLink: proof01,
             alt: "alt name"
         },
         {
-            imgLink: "https://via.placeholder.com/286x393.png?text=Placeholder+Image",
+            imgLink: proof34,
             alt: "alt name"
         },
         {
-            imgLink: "https://via.placeholder.com/286x393.png?text=Placeholder+Image",
+            imgLink: proof35,
             alt: "alt name"
         },
         {
-            imgLink: "https://via.placeholder.com/286x393.png?text=Placeholder+Image",
+            imgLink: proof36,
             alt: "alt name"
         },
 

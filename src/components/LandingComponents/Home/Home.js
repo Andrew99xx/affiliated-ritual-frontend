@@ -1,18 +1,21 @@
 import React from 'react'
+import { useNavigate } from 'react-router-dom'
 import "./Home.css"
 import image from './image.png'
-// import yellow_background from "./yellow_background.png"
-import companyLogo from './reuters.jpeg'
 import jackpot from "./jackpot.png"
+// import companyLogo from './reuters.jpeg'
+// import yellow_background from "./yellow_background.png"
 
 function Home() {
-    const companyLogoes = [
-        { src: companyLogo, alt: 'Image 1' },
-        { src: companyLogo, alt: 'Image 2' },
-        { src: companyLogo, alt: 'Image 3' },
-        { src: companyLogo, alt: 'Image 4' },
-        { src: companyLogo, alt: 'Image 5' }
-    ];
+    const navigate = useNavigate();
+
+    // const companyLogoes = [
+    //     { src: companyLogo, alt: 'Image 1' },
+    //     { src: companyLogo, alt: 'Image 2' },
+    //     { src: companyLogo, alt: 'Image 3' },
+    //     { src: companyLogo, alt: 'Image 4' },
+    //     { src: companyLogo, alt: 'Image 5' }
+    // ];
 
     return (
         <div className='home'>
@@ -24,7 +27,12 @@ function Home() {
                 </div>
 
                 <div className='home-tag'>Learn, Earn and Jackpot - Zero Investment!</div>
-                <button className='home-btn'>
+
+
+                <button
+                    className='home-btn'
+                    onClick={ () => {navigate('/student?action=register')}}
+                >
                     LAUNCH
                 </button>
             </div>
@@ -50,8 +58,6 @@ function Home() {
                         <div className='home-left-card-percent'>
                             WIN A JACKPOT
                         </div>
-
-
 
                         {/* <div>
                             Placement Asst.
