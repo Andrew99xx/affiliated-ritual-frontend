@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import "./ReferallTimeline.css";
-import { db } from "../../../../../firebase-config";
-import { doc, getDoc, collection, where, getDocs, query } from "firebase/firestore";
+import { getMyARIDFromUid } from "../../../../../service/getMyARIDFromUid";
+import { findUsersUsingMyARID } from "../../../../../service/findUsers/findUsersUsingMyARID";
 
 const Timeline = () => {
   const team_leader_uid = localStorage.getItem('team_leader_uid');
@@ -14,42 +14,6 @@ const Timeline = () => {
     }
   }, []);
 
-  async function getMyARIDFromUid(team_leader_uid) {
-    try {
-      const userDocRef = doc(db, "users", team_leader_uid);
-      const userDoc = await getDoc(userDocRef);
-
-      if (userDoc.exists()) {
-        const userData = userDoc.data();
-        return userData.myARID;
-      } else {
-        console.log("No such user found!");
-        return null;
-      }
-    } catch (error) {
-      console.error("Error fetching user document:", error);
-      return null;
-    }
-  }
-
-  async function findUsersUsingMyARID(myARID) {
-    try {
-      const usersRef = collection(db, "users");
-      const usersQuery = query(usersRef, where("referralId", "==", myARID));
-      const querySnapshot = await getDocs(usersQuery);
-
-      // check if each users contains id or not
-      // how we can take id of each reffered users  
-      const usersUsingMyARID = [];
-      querySnapshot.forEach((doc) => {
-        usersUsingMyARID.push(doc.data());
-      });
-      return usersUsingMyARID;
-    } catch (error) {
-      console.error("Error fetching users by referralId:", error);
-      return [];
-    }
-  }
 
   async function findUsersReferredByUid(team_leader_uid) {
     const myARID = await getMyARIDFromUid(team_leader_uid);

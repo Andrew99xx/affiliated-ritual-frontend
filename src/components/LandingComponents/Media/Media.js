@@ -1,13 +1,19 @@
 import React from 'react'
 import './Media.css'
 
+import abpBengala from "./abpBengala.png"
+import ahmedabadMirror from "./ahmedabadMirror.png"
 import Alj from "./Alj.png"
 import ani from "./ani.jpeg"
 import bbc from "./bbc.png"
 import cnn from "./cnn.jpeg"
+import hindustanMetro from "./HindustanMetro.png"
 import htimes from "./htimes.jpeg"
+import lokmatTimes from "./lokmatTimes.png"
+import ly from "./ly.png"
 import ndtv from "./ndtv.jpeg"
 import reuters from "./reuters.jpeg"
+import someNews from "./someNews.png"
 import the_hindu from "./the_hindu.jpeg"
 import the_print from "./the_print.jpeg"
 import theIndianExpress from "./theIndianExpress.jpeg"
@@ -15,44 +21,45 @@ import theIndianExpress from "./theIndianExpress.jpeg"
 function Media() {
     const mediaData = [
         {
-            logo: ani,
-            name: "ANI News"
+            logo: someNews,
+            name: "News Nation"
         },
         {
-            logo: the_print,
-            name: "The Print"
+            logo: hindustanMetro,
+            // name: "Hindustan Bytes"
         },
         {
-            logo: bbc,
-            name: "BBC News"
+            logo: ahmedabadMirror,
+            // name: "Ahmedabad Mirror"
         },
         {
             logo: reuters,
-            name: "Reuters"
+            name: "REVOI"
+        },
+       
+        {
+            logo: hindustanMetro,
+            // name: "Hindustan Metro"
         },
         {
-            logo: cnn,
-            name: "CNN"
+            logo: ly,
+            name: "Everyday Subjects"
         },
         {
-            logo: Alj,
-            name: "Al Jazeera"
+            logo: abpBengala,
+            name: "ABP Ananda"
         },
         {
-            logo: the_hindu,
-            name: "The Hindu"
+            logo: hindustanMetro,
+            // name: "The Hindustan Express"
         },
         {
-            logo: ndtv,
-            name: "NDTV"
+            logo: someNews,
+            name: "Daily Hunt"
         },
         {
-            logo: theIndianExpress,
-            name: "The Indian Express"
-        },
-        {
-            logo: htimes,
-            name: "Hindustan Times"
+            logo: ly,
+            name: "123 Men Life"
         }
     ];
     

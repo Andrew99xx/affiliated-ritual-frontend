@@ -195,9 +195,9 @@ const Landing = () => {
           <Package />
         </section>
 
-        {/* why affiliated ritual */}
+        {/* why affiliate ritual */}
         <section className="whyRitual" id="whyRitual">
-          <h1 className="heading">Why Affiliated Ritual</h1>
+          <h1 className="heading">Why Affiliate Ritual</h1>
           <WhyRitual />
         </section>
 

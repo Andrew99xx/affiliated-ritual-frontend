@@ -5,8 +5,10 @@ import Sign from './Signincomp/Sign';
 import Signotp from './Signincomp/Signotp';
 import { auth } from '../../../firebase-config';
 import { checkUserExists } from '../../../service/checkUserExists';
+import { checkUserIsActive } from '../../../service/checkUserIsActive';
 
 const Signin = ({ onSignin, onToggle }) => {
+
   const [email, setEmail] = useState('');
   const [phone, setPhone] = useState('');
   const [message, setMessage] = useState('');
@@ -32,7 +34,7 @@ const Signin = ({ onSignin, onToggle }) => {
       }
     };
   }, []);
-  
+
 
   const handleSignInClick = (email, phone) => {
     setEmail(email);
@@ -75,8 +77,16 @@ const Signin = ({ onSignin, onToggle }) => {
         const userExists = await checkUserExists(user.uid);
         if (userExists) {
           localStorage.setItem('student_uid', user.uid);
-          onSignin(user);
-        
+
+          const isActive = checkUserIsActive(user.uid);
+
+          if (isActive) {
+            onSignin(user);
+          }
+          else {
+            setMessage("Your account is not active. please contact the admin")
+          }
+
         } else {
           alert("You are not registered");
         }
@@ -91,13 +101,26 @@ const Signin = ({ onSignin, onToggle }) => {
   return (
     <div className='Signin'>
       <div id="recaptcha-container"></div>
-      {showSign ?
-        <Sign onSignInClick={handleSignInClick} /> :
-        <Signotp email={email} phone={phone} onOtpVerify={handleOtpVerify} />
+      {
+        showSign ?
+          <Sign onSignInClick={handleSignInClick} /> :
+          <Signotp
+            email={email}
+            phone={phone}
+            onOtpVerify={handleOtpVerify}
+          />
       }
       <p className='alr'>Need an account?<span onClick={onToggle}> Register</span></p>
       <div className="credit">© 2024. All Rights Reserved.</div>
-      {message && <div className="message">{message}</div>}
+      {
+        message &&
+        <div
+          style={{
+            color: "red"
+          }}
+        >
+          {message}
+        </div>}
     </div>
   );
 };
