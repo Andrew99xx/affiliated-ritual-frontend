@@ -22,7 +22,7 @@
 .home-heading {
     font-family: 'Public Sans';
     font-weight: 600;
-    font-size: 1.5rem;
+    font-size: 2rem;
     line-height: 2rem;
     color: #FFC27A;
 }
@@ -30,7 +30,7 @@
 .home-hook {
     font-family: 'Public Sans';
     font-weight: 600;
-    font-size: 3.5rem;
+    font-size: 4rem;
     line-height: 4.5rem;
     color: white;
 }
@@ -60,7 +60,7 @@
 .home-tag {
     font-family: 'Public Sans';
     font-weight: 400;
-    font-size: 1.25rem;
+    font-size: 1.5rem;
     line-height: 1.75rem;
     color: #CFD3D6;
 }
@@ -70,12 +70,12 @@
     color: black;
     height: 3.5rem;
     width: 13.0625rem;
-    /* 209px / 16 */
+  
     cursor: pointer;
     border-radius: 0.25rem;
     font-family: 'Public Sans';
     font-weight: 600;
-    font-size: 1rem;
+    font-size: 1.5rem;
     line-height: 2rem;
     text-align: center;
 }
@@ -151,7 +151,7 @@
     border-color: #B2BBCC;
     font-family: 'Public Sans';
     font-weight: 600;
-    font-size: 1rem;
+    font-size: 1.25rem;
     line-height: 2rem;
     text-align: center;
     text-transform: uppercase;
@@ -180,7 +180,7 @@
     border-color: #B2BBCC;
     font-family: 'Public Sans';
     font-weight: 600;
-    font-size: 0.75rem;
+    font-size: 1rem;
     line-height: 2rem;
     text-align: center;
     display: flex;
@@ -190,7 +190,7 @@
 }
 
 .home-left-card-percent {
-    font-size: 1.125rem;
+    font-size: 1.25rem;
     padding-bottom: 0 !important;
     margin-bottom: -0.4375rem !important;
     /* -7px / 16 */
