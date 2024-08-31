@@ -28,32 +28,25 @@
 }
 
 .body .heading span {
-  font-size: 2.5rem;
-  /* 40px */
+  font-size: 3rem;
   color: #fff;
 }
 
 .body .heading h1 {
-  font-size: 4rem;
-  /* 64px */
+  font-size: 4.5rem;
   padding-top: 0.5rem;
-  /* 8px */
 }
 
 .body .btn {
   display: inline-block;
   margin-top: 1rem;
-  /* 16px */
   padding: 1.3rem 3.3rem;
-  /* 1.3rem = 20.8px, 3.3rem = 52.8px */
-  font-size: 1.4rem;
-  /* 22.4px */
+  font-size: 2rem;
   color: rgb(0, 0, 0);
   font-weight: 800;
   background: linear-gradient(91.94deg, #B17E32 -8.77%, #F3E681 58.63%, #CF9F41 107.45%);
   cursor: pointer;
   border-radius: 0.5rem;
-  /* 8px */
   font-family: "DM Sans", sans-serif;
   text-decoration: none;
 }
@@ -110,13 +103,12 @@
 
 .header .navbar a {
   margin: 0 1rem;
-  /* 16px */
   font-family: 'Public Sans';
-  font-size: 1.0625rem;
-  /* 17px */
+  font-size: 1.5rem;
+
   font-weight: 500;
   line-height: 1.1875rem;
-  /* 19px */
+  
   text-decoration: none;
   color: #fff;
   text-transform: uppercase;
@@ -129,7 +121,7 @@
 
 #menu-btn {
   cursor: pointer;
-  font-size: 3rem;
+  font-size: 3.5rem;
   /* 48px */
   display: none;
   margin-right: 1rem;
@@ -160,7 +152,7 @@
   /* 100px */
   font-family: "Public Sans";
   font-weight: 400;
-  font-size: 1rem;
+  font-size: 1.3rem;
   /* 16px */
   line-height: 1.5rem;
   /* 24px */
@@ -178,7 +170,7 @@
   cursor: pointer;
   background: linear-gradient(91.94deg, #B17E32 -8.77%, #F3E681 58.63%, #CF9F41 107.45%) !important;
   text-decoration: none;
-  width: 10.4375rem;
+  width: auto;
   /* 167px */
   height: 3rem;
   /* 48px */
@@ -188,7 +180,7 @@
   /* 12px 24px */
   font-family: "Public Sans";
   font-weight: 400;
-  font-size: 1rem;
+  font-size: 1.3rem;
   /* 16px */
   text-wrap: nowrap;
   line-height: 1.5rem;
@@ -225,7 +217,7 @@
 
 .howItWorkSection .heading {
   font-weight: 600;
-  font-size: 2.5rem;
+  font-size: 3rem;
   /* 40px */
   line-height: 4.5rem;
   /* 72px */
@@ -246,7 +238,7 @@
 
 .system-section .heading {
   font-weight: 600;
-  font-size: 2.5rem;
+  font-size: 3rem;
   /* 40px */
   line-height: 3.125rem;
   /* 50px */
@@ -267,7 +259,7 @@
 
 .package-section .heading {
   font-weight: 600;
-  font-size: 2.5rem;
+  font-size: 3rem;
   /* 40px */
   line-height: 3.125rem;
   /* 50px */
@@ -290,7 +282,7 @@
 
 .whyRitual .heading {
   font-weight: 600;
-  font-size: 2.5rem;
+  font-size: 3rem;
   /* 40px */
   line-height: 4.5rem;
   /* 72px */
@@ -308,7 +300,7 @@
 
 .trainer-section .heading {
   font-weight: 600;
-  font-size: 2.5rem;
+  font-size: 3rem;
   /* 40px */
   line-height: 3.125rem;
   /* 50px */
@@ -329,7 +321,7 @@
 
 .media-section .heading {
   font-weight: 600;
-  font-size: 2.5rem;
+  font-size: 3rem;
   /* 40px */
   line-height: 3.125rem;
   /* 50px */
@@ -347,7 +339,7 @@
 
 .club-section .heading {
   font-weight: 600;
-  font-size: 2.5rem;
+  font-size: 3rem;
   /* 40px */
   line-height: 3.125rem;
   /* 50px */
@@ -378,7 +370,7 @@
 
 .feedback-section .heading {
   font-weight: 600;
-  font-size: 2.5rem;
+  font-size: 3rem;
   /* 40px */
   line-height: 3.125rem;
   /* 50px */
@@ -399,7 +391,7 @@
 
 .proof-section .heading {
   font-weight: 600;
-  font-size: 2.5rem;
+  font-size: 3rem;
   /* 40px */
   line-height: 3.125rem;
   /* 50px */
@@ -416,7 +408,7 @@
 
 .faq-section .heading {
   font-weight: 600;
-  font-size: 2.5rem;
+  font-size: 3rem;
   /* 40px */
   line-height: 3.125rem;
   /* 50px */
@@ -437,7 +429,7 @@
 
 .leaderboard-section .heading {
   font-weight: 600;
-  font-size: 2.5rem;
+  font-size: 3rem;
   /* 40px */
   line-height: 3.125rem;
   /* 50px */

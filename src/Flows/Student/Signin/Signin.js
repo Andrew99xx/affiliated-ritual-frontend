@@ -80,7 +80,7 @@ const Signin = ({ onSignin, onToggle }) => {
 
           const isActive = checkUserIsActive(user.uid);
 
-          if (isActive) {
+          if (isActive == true) {
             onSignin(user);
           }
           else {

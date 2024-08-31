@@ -11,7 +11,7 @@
     margin-top: 0ch !important;
     padding-top: 0ch !important;
     font-weight: 400;
-    font-size: 1rem; /* 16px */
+    font-size: 1.25rem; /* 16px */
     line-height: 1.875rem; /* 30px */
     text-align: center;
     color: white;
@@ -53,8 +53,8 @@
 .package-title {
     font-family: 'Public Sans';
     font-weight: 500;
-    font-size: 1.52375rem; /* 24.38px */
-    line-height: 2.133125rem; /* 34.13px */
+    font-size: 1.75rem; 
+    line-height: 2.25rem; 
     background: linear-gradient(91.94deg, #B17E32 -8.77%, #F3E681 58.63%, #CF9F41 107.45%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
@@ -66,8 +66,8 @@
 .package-details {
     font-family: 'Public Sans';
     font-weight: 400;
-    font-size: 1rem; /* 16px */
-    line-height: 2.125rem; /* 34px */
+    font-size: 1.25rem; 
+    line-height: 2.125rem; 
     color: white;
     display: flex;
     flex-direction: row;

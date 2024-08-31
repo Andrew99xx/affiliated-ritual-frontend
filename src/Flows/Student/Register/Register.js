@@ -161,7 +161,6 @@ const StudentRegister = ({ onToggle }) => {
         const updatedFormData = {
           ...formData,
           uid: uid,
-          isActive: true,
           registrationImage: downloadURL
         };
         await setDoc(doc(db, "users", uid), updatedFormData, { merge: true });
@@ -171,7 +170,6 @@ const StudentRegister = ({ onToggle }) => {
         const updatedFormData = {
           ...formData,
           uid: uid,
-          isActive: true
         };
         await setDoc(doc(db, "users", uid), updatedFormData, { merge: true });
         alert("Registration successful! User data saved to Firestore!");
