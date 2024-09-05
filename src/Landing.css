@@ -58,6 +58,7 @@
 
 /* header css */
 .header {
+  height: 12vh;
   position: -webkit-sticky;
   position: sticky;
   top: 0;
@@ -108,7 +109,7 @@
 
   font-weight: 500;
   line-height: 1.1875rem;
-  
+
   text-decoration: none;
   color: #fff;
   text-transform: uppercase;
@@ -193,10 +194,19 @@
   box-sizing: border-box;
 }
 
+
+/*hero section = wrapper of home & introstats ,  */
+.hero-section {
+  margin-top: 0ch;
+  margin-bottom: 0ch;
+  height: 88vh;
+  background-color: black;
+}
+
+
 /* home section */
 .home-section {
   padding-top: 1rem !important;
-  /* 16px */
   padding-bottom: 0 !important;
   color: white;
   background-color: #252524;
@@ -443,6 +453,8 @@
   font-family: 'Popins';
 }
 
+
+
 /* 1200, max width  */
 @media (max-width: 1200px) {
   .body section {
@@ -460,6 +472,10 @@
   }
 }
 
+
+
+
+
 /* 768 max width  */
 @media (max-width: 768px) {
   #menu-btn {
@@ -474,6 +490,8 @@
   }
 
   .header {
+    height: auto;
+    min-height: 12vh;
     justify-content: flex-start;
     align-items: center;
     padding: 0rem 2rem;
@@ -512,6 +530,11 @@
     padding: 1.5rem 2rem;
     /* 24px 32px */
   }
+
+  .hero-section {
+    height: auto;
+  }
+
 }
 
 /* max-width , 450 */

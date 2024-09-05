@@ -11,10 +11,8 @@
     margin-top: 0ch !important;
     padding-top: 0ch !important;
     font-weight: 400;
-    font-size: 1rem;
-    /* 16px */
-    line-height: 1.875rem;
-    /* 30px */
+    font-size: 1.25rem;
+    line-height: 2rem;
     text-align: center;
     color: white;
 }
@@ -28,14 +26,13 @@
 }
 
 .proof-img {
-    width: 17.875rem;
-    /* 286px */
-    height: 24.5625rem;
-    /* 393px */
+    width: auto;
+    min-width: 15rem;
+    height: 28rem;
     background-color: #4E4E4E;
     display: flex;
     justify-content: center;
     align-items: center;
     border-radius: 0.25rem;
-    /* 4px */
+   
 }

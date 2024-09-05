@@ -4,26 +4,21 @@
     display: flex;
     flex-direction: row;
     gap: 1.25rem;
-    /* 20px */
+    box-sizing: border-box;
     justify-content: center;
     flex-wrap: wrap;
     /* Allow items to wrap if the container is too small */
 }
 
 .whyRitual-item {
-    /* height: 184px; */
-    width: 30rem;
-    /* 392px */
+    width: 33rem;
     display: flex;
     flex-direction: column;
     align-items: center;
     gap: 1.25rem;
-    /* 20px */
     background-color: #3A3A3A;
     padding: 1.875rem 2.8125rem;
-    /* 30px 45px */
     border-radius: 0.3125rem;
-    /* 5px */
     box-sizing: border-box;
     position: relative;
     /*box-sizing: border-box ;  Ensure padding is included in the height/width */
@@ -31,7 +26,7 @@
 
 .whyRitual-sparkle {
     position: absolute;
-    font-size: 2.625rem;
+    font-size: 2.5rem;
     /* 42px */
     color: #BD9141;
     right: 0.9375rem;
@@ -75,9 +70,9 @@
 .whyRitual-title {
     font-family: 'Popins', sans-serif;
     font-weight: 600;
-    font-size: 1.1875rem;
+    font-size: 1.5rem;
     /* 19px */
-    line-height: 1.5rem;
+    line-height: 2rem;
     /* 24px */
     color: white;
 }
@@ -85,10 +80,8 @@
 .whyRitual-description {
     font-family: 'Inter', sans-serif;
     font-weight: 400;
-    font-size: 1rem;
-    /* 16px */
-    line-height: 1.4375rem;
-    /* 23px */
+    font-size: 1.25rem;
+    line-height: 2rem;
     color: #D8D8D8;
 }
 

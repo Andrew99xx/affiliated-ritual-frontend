@@ -8,17 +8,15 @@
 
 .faq-paragraph {
   font-weight: 400;
-  font-size: 1rem;
-  /* 16px */
-  line-height: 1.875rem;
-  /* 30px */
+  font-size: 1.25rem;
+  line-height: 2rem;
   text-align: center;
   color: white;
 }
 
 .faq-container {
   margin-top: 2.125rem;
-  /* 34px */
+ 
 }
 
 .faq-item {
@@ -33,13 +31,10 @@
 /* faq question css */
 .faq-question {
   font-weight: 500;
-  font-size: 1.1875rem;
-  /* 19px */
-  line-height: 1.875rem;
-  /* 30px */
+  font-size: 1.5rem;
+  line-height: 2rem;
   background-color: #4E4E4E;
-  padding: 0.9375rem;
-  /* 15px */
+  padding: 1rem;
   cursor: pointer;
   display: flex;
   justify-content: space-between;
@@ -82,12 +77,9 @@
 /* faq answer css */
 .faq-answer {
   font-weight: 400;
-  font-size: 1rem;
-  /* 16px */
-  line-height: 1.875rem;
-  /* 30px */
+  font-size: 1.25rem;
+  line-height: 1.75rem;
   padding: 0.625rem 1.5625rem;
-  /* 10px 25px */
   display: none;
   color: #000000;
   background: linear-gradient(91.94deg, #B17E32 -8.77%, #F3E681 58.63%, #CF9F41 107.45%);

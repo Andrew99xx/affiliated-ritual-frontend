@@ -14,10 +14,8 @@
     margin-top: 0ch !important;
     padding-top: 0ch !important;
     font-weight: 400;
-    font-size: 1rem;
-    /* Changed from 16px to 1rem */
-    line-height: 1.875rem;
-    /* Changed from 30px to 1.875rem */
+    font-size: 1.25rem;
+    line-height: 2rem;
     text-align: center;
     color: white;
     text-wrap: wrap;
@@ -73,27 +71,23 @@
 .feedback-tp-wrapper {
     display: flex;
     flex-direction: column;
-    gap: 0.3125rem;
-    /* Changed from 5px to 0.3125rem */
+    gap: 0.5rem;
+   
 }
 
 .feedback-title {
     font-family: 'Poppins', sans-serif;
     font-weight: 600;
-    font-size: 1.1875rem;
-    /* Changed from 19px to 1.1875rem */
-    line-height: 1.5rem;
-    /* Changed from 24px to 1.5rem */
+    font-size: 1.25rem;
+    line-height: 2rem;
     color: white;
 }
 
 .feedback-position {
     font-family: 'Inter', sans-serif;
     font-weight: 500;
-    font-size: 0.875rem;
-    /* Changed from 14px to 0.875rem */
+    font-size: 1rem;
     line-height: 1.25rem;
-    /* Changed from 20px to 1.25rem */
     color: #A5A5A5;
 }
 
@@ -103,7 +97,6 @@
     /* Changed from 42px to 2.625rem */
     color: #BD9141;
     right: 0.625rem;
-    /* Changed from 10px to 0.625rem */
     top: -0.3125rem;
     /* Changed from -5px to -0.3125rem */
 }
@@ -111,10 +104,8 @@
 .feedback-description {
     font-family: 'Inter', sans-serif;
     font-weight: 400;
-    font-size: 1rem;
-    /* Changed from 16px to 1rem */
-    line-height: 1.4375rem;
-    /* Changed from 23px to 1.4375rem */
+    font-size: 1.25rem;
+    line-height: 2rem;
     color: #D8D8D8;
 }
 

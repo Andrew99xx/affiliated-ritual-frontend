@@ -3,8 +3,8 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    gap: 0.9375rem;
-    /* 15px */
+    gap: 1rem;
+    
 }
 
 .media-paragraph {
@@ -12,20 +12,15 @@
     margin-top: 0ch !important;
     padding-top: 0ch !important;
     font-weight: 400;
-    font-size: 1rem;
-    /* 16px */
-    line-height: 1.875rem;
-    /* 30px */
+    font-size: 1.25rem;
+    line-height: 2rem;
     text-align: center;
     color: white;
 }
 
 .media-items {
-    /* display: flex; */
     display: grid;
-    /* flex-wrap: wrap; */
     gap: 1.25rem;
-    /* 20px */
     justify-content: center;
 }
 

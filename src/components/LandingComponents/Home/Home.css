@@ -1,5 +1,7 @@
 .home {
+    height: 68vh;
     margin-bottom: 0 !important;
+    margin-top: 0 !important;
     padding: 0.625rem;
     padding-bottom: 0 !important;
     color: white;
@@ -9,6 +11,7 @@
     flex-wrap: wrap;
     gap: 2rem;
     overflow: hidden;
+    /* background-color: aqua; */
 }
 
 .home-text-wrapper {
@@ -17,6 +20,7 @@
     flex: 1;
     flex-direction: column;
     gap: 2rem;
+    min-width: 40%;
 }
 
 .home-heading {
@@ -85,7 +89,8 @@
 
 /* section - other half  */
 .home-img-svg-wrapper {
-    height: 100%;
+    /* background-color: yellow; */
+    height: 68vh;
     display: flex;
     flex: 1;
     position: relative;
@@ -120,14 +125,15 @@
 .home-img {
     /* background-color: aliceblue; */
     background-image: url('./yellow_background.png');
-    background-size: 31.2681rem;
-    /* 500.29px / 16 */
+    /* background-size: 31.2681rem; */
+    background-size: 100%;
     background-position: top;
     background-repeat: no-repeat;
-    width: 32.706875rem;
-    /* 523.31px / 16 */
-    height: 40.375rem;
-    /* 646px / 16 */
+
+    width: auto;
+    /* width: 32.706875rem; */
+    height: 68vh;
+    /* height: 40.375rem; */
     display: block;
     margin: 0 auto;
 }
@@ -214,7 +220,7 @@
 .home-left-card-jackpot-img {
     width: 6.25rem;
     height: 6.25rem;
-   
+
 }
 
 .home-left-card-image-item:first-child {
@@ -223,9 +229,25 @@
 
 /* Media query for small devices */
 @media (max-width: 768px) {
+    .home {
+        padding-top: 4rem;
+        height: fit-content !important;
+        padding-bottom: 0ch !important;
+       
+    }
+
+    .home-img-svg-wrapper {
+        height: auto;
+    }
+
     .home-img {
-        background-size: 80vw;
-        width: 80vw;
+        margin-bottom: 0ch !important;
+        padding-bottom: 0ch !important;
+        /* background-color: lime; */
+        /* background-size: 80vw; */
+        /* width: 80vw;  */
+        max-width: 85vw;
+        ;
         height: auto;
     }
 
@@ -240,7 +262,7 @@
     }
 }
 
-@media screen and (min-width: 1710px) and (min-height: 955px) and (max-width: 1710px) and (max-height: 955px) {
+/* @media screen and (min-width: 1710px) and (min-height: 955px) and (max-width: 1710px) and (max-height: 955px) {
     .home {
         min-height: 68vh !important;
         height: auto;
@@ -279,9 +301,9 @@
         width: auto;
         height: 68vh;
     }
-}
+} */
 
-@media screen and (min-width: 1366px) and (min-height: 768px) and (max-width: 1366px) and (max-height: 768px) {
+/* @media screen and (min-width: 1366px) and (min-height: 768px) and (max-width: 1366px) and (max-height: 768px) {
     .home {
         min-height: 60vh !important;
         height: auto;
@@ -294,11 +316,11 @@
         width: auto;
         height: 60vh;
     }
-}
+} */
 
-@media screen and (min-width: 1280px) and (min-height: 1024px) and (max-width: 1280px) and (max-height: 1024px) {
+/* @media screen and (min-width: 1280px) and (min-height: 1024px) and (max-width: 1280px) and (max-height: 1024px) {
     .home {
         padding-top: 8rem;
         overflow: hidden;
     }
-}
+} */

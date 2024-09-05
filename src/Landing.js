@@ -156,20 +156,27 @@ const Landing = () => {
 
 
 
-
-
-
       <main>
 
+        {/* important note
+         - header is given 12vh
+         - hero section is given 88vh 
+         --- hero section - home has given = 68vh
+         --- hero section - introstats has given = 20vh
+        */}
 
-
-        {/* home section */}
-        <section class="home-section" id="home">
+        <div
+          className="hero-section"
+        >
+          {/* home section */}
+          <section class="home-section" id="home">
             <Home />
-        </section>
+          </section>
 
-        {/* introstate, without section, the reason is, each section has same padding */}
-        <IntroStats />
+          {/* introstate, without section, the reason is, each section has same padding */}
+          <IntroStats />
+
+        </div>
 
 
         {/* Intro Stats */}
