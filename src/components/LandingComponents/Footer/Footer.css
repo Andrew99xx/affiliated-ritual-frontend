@@ -18,9 +18,9 @@
 .footer .box-container .box h3 {
     color: #ffffff;
     font-weight: 600;
-    font-size: 1.375rem;
+    font-size: 1.5rem;
     /* 22px */
-    line-height: 1.75rem;
+    line-height: 2rem;
     /* 28px */
     padding: 1rem 0;
     /* unchanged as it's already in rem */
@@ -42,16 +42,15 @@
 }
 
 .footer .box p {
-    font-size: 1rem;
-    /* 16px */
+    font-size: 1.2rem;
+ 
 }
 
 .footer .box-container .box a {
     font-family: "Poppins" !important;
     font-weight: 500;
-    font-size: 1rem;
-    /* 16px */
-    line-height: 1.75rem;
+    font-size: 1.2rem;
+    line-height: 2rem;
     /* 28px */
     display: block;
     color: #B2BBCC;
@@ -72,9 +71,8 @@
 .footer .footer-media {
     display: flex;
     gap: 0.625rem;
-    /* 10px */
-    font-size: 1rem;
-    /* 16px */
+    font-size: 1.5rem;
+  
 }
 
 .footer .credit {

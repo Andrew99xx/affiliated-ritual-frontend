@@ -20,7 +20,7 @@ export const getTeamLeaders = async () => {
       ...doc.data(),
     }));
     
-    console.log(TeamLeaders);
+    // console.log(TeamLeaders);
     return TeamLeaders;
   } catch (error) {
     console.error('Error getting team Leaders:', error);

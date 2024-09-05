@@ -66,8 +66,8 @@
 .package-details {
     font-family: 'Public Sans';
     font-weight: 400;
-    font-size: 1.25rem; 
-    line-height: 2.125rem; 
+    font-size: 1.5rem; 
+    line-height: 2.25rem; 
     color: white;
     display: flex;
     flex-direction: row;
@@ -108,7 +108,7 @@
     padding-left: 0.4375rem; /* 7px */
     font-family: 'Public Sans';
     font-weight: 400;
-    font-size: 1rem; /* 16px */
+    font-size: 1.25rem; /* 16px */
     line-height: 2.125rem; /* 34px */
     color: white;
 }
@@ -130,19 +130,19 @@
 .package-price {
     font-family: 'Public Sans';
     font-weight: 600;
-    font-size: 1.5625rem; /* 25px */
-    line-height: 2.4375rem; /* 39px */
+    font-size: 1.75rem; 
+    line-height: 2.5rem; 
     color: white;
-    margin-right: 0.4375rem; /* 7px */
+    margin-right: 0.5rem; 
 }
 
 .package-price-cross {
     font-family: 'Public Sans';
     font-weight: 600;
-    font-size: 1.4375rem; /* 23px */
-    line-height: 2.4375rem; /* 39px */
+    font-size: 1.5rem; 
+    line-height: 2.5rem; 
     color: #9B9898;
-    margin-right: 0.4375rem; /* 7px */
+    margin-right: 0.4375rem; 
     text-decoration: line-through;
 }
 
@@ -158,7 +158,7 @@
 }
 
 .package-buy-icon {
-    font-size: 1.375rem; /* 22px */
+    font-size: 1.5rem; /* 22px */
 }
 
 /* Responsive Design for small screens */
