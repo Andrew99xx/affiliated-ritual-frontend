@@ -21,7 +21,7 @@
 
 .Register .logo {
     color: #E4C748;
-    font-family: "Poppins", sans-serif;
+    font-family: 'Popins',"Nunito Sans", sans-serif;
     text-align: center;
     margin: 0 0 15px 0;
     font-size: 30px;
@@ -33,7 +33,8 @@
 .Register .container .heading {
     font-size: 36px;
     color: #fff;
-    font-family: "DM Sans", sans-serif;
+      font-family:'Poppins', 'Nunito Sans', sans-serif;
+
     text-align: center;
     font-weight: 700;
     margin: 0 0 10px 0;
@@ -46,7 +47,8 @@
 
 .Register .container .subheading {
     text-align: center;
-    font-family: "DM Sans", sans-serif;
+      font-family:'Poppins', 'Nunito Sans', sans-serif;
+
     font-weight: 400;
     color: #8190BF;
     margin: 0 0 3rem 0;
@@ -70,7 +72,8 @@
     padding: 1rem;
     color: black;
     font-weight: 700;
-    font-family: "DM Sans", sans-serif;
+      font-family:'Poppins', 'Nunito Sans', sans-serif;
+
     font-size: 18px;
     text-decoration: none;
     margin: 2rem 0;
@@ -85,13 +88,15 @@
 
 .Register .formcontainer p{
     font-weight: 500;
-    font-family: "DM Sans", sans-serif;
+      font-family:'Poppins', 'Nunito Sans', sans-serif;
+
 color: #fff;
 }
 
 .Register .formcontainer h3{
     font-weight: 500;
-    font-family: "DM Sans", sans-serif;
+      font-family:'Poppins', 'Nunito Sans', sans-serif;
+
 color: #fff;
 margin-bottom: 0;
 }
@@ -120,7 +125,8 @@ color: #EF0000;
 .Register .credit{
     color: white;
     font-weight: 500;
-    font-family: "DM Sans", sans-serif;
+      font-family:'Poppins', 'Nunito Sans', sans-serif;
+
 }
 
 .Inputbox{

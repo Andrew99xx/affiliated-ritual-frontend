@@ -4,7 +4,7 @@ const Timeline = () => {
   return (
     <div className="bo">
       <div className="hed">
-        <h1 className="leader">Team leader</h1>
+        <h1 className="leader">Club leader</h1>
       </div>
       <div className="timeline-container">
         <section className="timeline-section">

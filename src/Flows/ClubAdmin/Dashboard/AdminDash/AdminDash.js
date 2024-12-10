@@ -85,11 +85,11 @@ const AdminDa = () => {
         <Box subhed={"User"} value={"40,689"} logo={user} />
         <Box subhed={"User"} value={"40,689"} logo={user} />
         <Box subhed={"User"} value={"40,689"} logo={user} />
-        <Box subhed={"User"} value={"40,689"} logo={user} />
+        {/* <Box subhed={"User"} value={"40,689"} logo={user} /> */}
       </div>
 
       <div className="graphs">
-        <Smallbar />
+        {/* <Smallbar /> */}
         <PieChart data={[10, 20, 30]} labels={["Red", "Blue", "Yellow"]} />
         <Bargraph />
       </div>

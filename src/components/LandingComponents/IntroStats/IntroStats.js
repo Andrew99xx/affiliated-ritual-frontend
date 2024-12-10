@@ -1,9 +1,10 @@
 import React from 'react';
+import { motion } from 'framer-motion';
 import "./IntroStats.css";
-import fiveStar from "./fiveStar.png"
-import recording from "./recording.png"
-import users from "./users.png"
-import videoIcon from "./video.png"
+import fiveStar from "./fiveStar.png";
+import recording from "./recording.png";
+import users from "./users.png";
+import videoIcon from "./video.png";
 
 function IntroStats() {
     const stats = [
@@ -25,29 +26,36 @@ function IntroStats() {
         {
             icon: videoIcon,
             title: "Class Recording",
-            description: "Lifetime Accesss"
+            description: "Lifetime Access"
         }
     ];
 
     return (
         <div className="introStats-container">
             {stats.map((item, i) => (
-                <div key={i} className="introStats-item">
+                <motion.div
+                    key={i}
+                    className="introStats-item"
+                    initial={{ opacity: 0, y: 50 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.6, ease: "easeOut", delay: i * 0.2 }}
+                    viewport={{ once: false, amount: 0.3 }}  // Changed `once` to `false` for repeated animation
+                >
                     <div className="introStats-icon">
                         <img 
-                        className='introStats-img'
-                        src={item.icon} 
-                        alt={item.title} 
+                            className='introStats-img'
+                            src={item.icon} 
+                            alt={item.title} 
                         />
                     </div>
                     <div className='introStats-title-des-wrapper'>
                         <div className="introStats-title">{item.title}</div>
                         <div className="introStats-description">{item.description}</div>
                     </div>
-                </div>
+                </motion.div>
             ))}
         </div>
-    )
+    );
 }
 
 export default IntroStats;

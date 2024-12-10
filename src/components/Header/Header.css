@@ -1,0 +1,594 @@
+/* common css for body  */
+.body {
+    background-image: url("./banner.png");
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center;
+    background-size: cover;
+    text-decoration: none;
+  }
+  
+  /* applying to each section  */
+  .body section {
+    padding: 5rem 9%;
+    /* 8rem = 128px */
+  }
+  
+  /* applying to footer */
+  .body footer {
+    padding: 5rem 9%;
+    /* 8rem = 128px */
+  }
+  
+  .body .heading {
+    text-align: center;
+    margin-bottom: 1.875rem;
+    /* 3rem = 48px */
+    color: #ebd672;
+  }
+  
+  .body .heading span {
+    font-size: 3rem;
+    color: #fff;
+  }
+  
+  .body .heading h1 {
+    font-size: 4.5rem;
+    padding-top: 0.5rem;
+  }
+  
+  .body .btn {
+    display: inline-block;
+    margin-top: 1rem;
+    padding: 1.3rem 3.3rem;
+    font-size: 2rem;
+    color: rgb(0, 0, 0);
+    font-weight: 800;
+    background: linear-gradient(91.94deg, #B17E32 -8.77%, #F3E681 58.63%, #CF9F41 107.45%);
+    cursor: pointer;
+    border-radius: 0.5rem;
+      font-family:'Poppins', 'Nunito Sans';
+  
+    text-decoration: none;
+  }
+  
+  .btn:hover {
+    background: linear-gradient(91.94deg, #B17E32 -8.77%, #F3E681 58.63%, #CF9F41 107.45%);
+    color: #000;
+  }
+  
+  /* header css */
+  .header {
+    height: 12vh;
+    position: -webkit-sticky;
+    position: sticky;
+    font-size: 1.6rem;
+        top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -webkit-box-pack: justify;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
+    background-color: #252524;
+    padding: 0.0rem 9%;
+    /* 0.0rem = 0px */
+  }
+  
+  .header .header-logo {
+    margin-left: 1rem;
+    /* 16px */
+    font-family: 'Popins',"Nunito Sans", sans-serif;
+    font-size: 2.5rem;
+    /* 40px */
+    font-weight: 700;
+    line-height: 3.25rem;
+    /* 52px */
+    color: white;
+    text-decoration: none;
+    text-wrap: nowrap;
+  }
+  
+  .header .navbar {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+    /* 16px */
+  }
+  
+  /* Anchor tag styles */
+  /* Navbar link styles */
+  .header .navbar a {
+    position: relative;
+    margin: 0 1rem;
+    font-family: 'Poppins', 'Nunito Sans', sans-serif;
+    font-size: 1.5rem;
+    font-weight: 500;
+    line-height: 1.1875rem;
+    text-decoration: none;
+    color: #fff;
+    text-transform: uppercase;
+    text-wrap: nowrap;
+    transition: all 0.3s ease;
+    background: none; /* Remove any previous background */
+  }
+  
+  .header .navbar a::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -0.2rem; /* Adjust position slightly below the link text */
+    width: 0%;
+    height: 2px;
+    background: linear-gradient(90deg, #CF9F41 0%, #F3E681 50%, #B17E32 100%); /* Gold gradient */
+    transition: width 0.4s ease;
+  }
+  
+  .header .navbar a:hover {
+    background: linear-gradient(90deg, #FFD700, #FFEA82);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent; /* This makes the text take on the background gradient */
+    transform: translateY(-5px); /* Move the text slightly upward */
+  
+  }
+  
+  .header .navbar a:hover::after {
+    width: 100%; /* Expand the underline to full width */
+  }
+  
+  
+  
+  #menu-btn {
+    cursor: pointer;
+    font-size: 3.5rem;
+    /* 48px */
+    display: none;
+    margin-right: 1rem;
+    /* 16px */
+    color: #fff;
+  }
+  
+  .header .header-btns {
+    margin: 0.625rem;
+    /* 10px */
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.625rem;
+    /* 10px */
+    align-items: center;
+  }
+  
+  .header .btn-login {
+    cursor: pointer;
+    background-color: #252524;
+    text-decoration: none;
+    width: 10.4375rem;
+    /* 167px */
+    height: 3rem;
+    /* 48px */
+    border: 0ch !important;
+    border-radius: 6.25rem;
+    /* 100px */
+      font-family:'Poppins', 'Nunito Sans';
+  ;
+    font-weight: 400;
+    font-size: 1.3rem;
+    /* 16px */
+    line-height: 1.5rem;
+    /* 24px */
+    text-align: center;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-sizing: border-box;
+    gap: 0.4375rem;
+    /* 7px */
+  }
+  
+  
+  .btn-signup {
+    cursor: pointer;
+    background: linear-gradient(90deg, #B17E32 0%, #F3E681 50%, #CF9F41 100%) !important;
+    text-decoration: none;
+    width: auto;
+    height: 3rem; /* 48px */
+    border-radius: 50px;
+    padding: 0.75rem 1.5rem; /* 12px 24px */
+    font-family: 'Poppins', 'Nunito Sans', sans-serif;
+    font-weight: 500;
+    font-size: 1.3rem;
+    border-width: 0cm;
+    height: 3.5rem;
+    line-height: 1.5rem; /* 24px */
+    text-align: center;
+    color: #242424;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    box-sizing: border-box;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+    transition: all 0.9s ease;
+  }
+  
+  .btn-signup:hover {
+    background: linear-gradient(90deg, #CF9F41 0%, #F3E681 50%, #B17E32 100%);
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.25);
+    transform: translateY(-3px);
+    color: #ffffff; /* Make text color white for contrast on hover */
+  }
+  
+  .btn-signup:active {
+    transform: translateY(0);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+  }
+  
+  
+  /*hero section = wrapper of home & introstats ,  */
+  .hero-section {
+    margin-top: 0ch;
+    margin-bottom: 0ch;
+    height: 88vh;
+    background-color: black;
+  }
+  
+  
+  /* home section */
+  .home-section {
+    padding-top: 1rem !important;
+    padding-bottom: 0 !important;
+    color: white;
+    background-color: #252524;
+      font-family:'Poppins', 'Nunito Sans';
+  ;
+  }
+  
+  /* how it works */
+  .howItWorkSection {
+    background-color: #252524;
+    color: white;
+      font-family:'Poppins', 'Nunito Sans';
+  ;
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+    /* 20px */
+    align-items: center;
+  }
+  
+  .howItWorkSection .heading {
+    font-weight: 600;
+    font-size: 3rem;
+    /* 40px */
+    line-height: 4.5rem;
+    /* 72px */
+    text-align: center;
+    color: white;
+  }
+  
+  /* system section */
+  .system-section {
+    background-color: #252524;
+    color: white;
+      font-family:'Poppins', 'Nunito Sans';
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .system-section .heading {
+    font-weight: 600;
+    font-size: 3rem;
+    /* 40px */
+    line-height: 3.125rem;
+    /* 50px */
+    text-align: center;
+    color: white;
+  }
+  
+  /* package section */
+  .package-section {
+    background-color: #252524;
+    color: white;
+      font-family:'Poppins', 'Nunito Sans';
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .package-section .heading {
+    font-weight: 600;
+    font-size: 3rem;
+    /* 40px */
+    line-height: 3.125rem;
+    /* 50px */
+    text-align: center;
+    color: white;
+  }
+  
+  /* why affiliate section  */
+  .whyRitual {
+    background-color: black;
+    color: white;
+      font-family:'Poppins', 'Nunito Sans';
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 1.25rem;
+    /* 20px */
+    align-items: center;
+  }
+  
+  .whyRitual .heading {
+    font-weight: 600;
+    font-size: 3rem;
+    /* 40px */
+    line-height: 4.5rem;
+    /* 72px */
+    text-align: center;
+    color: white;
+  }
+  
+  /* trainer section */
+  .trainer-section {
+    background-color: #0F0F0F;
+    color: white;
+      font-family:'Poppins', 'Nunito Sans';
+    /* here, we have slider, so flex box will not work  */
+  }
+  
+  .trainer-section .heading {
+    font-weight: 600;
+    font-size: 3rem;
+    /* 40px */
+    line-height: 3.125rem;
+    /* 50px */
+    text-align: center;
+    color: white;
+  }
+  
+  /* media section */
+  .media-section {
+    background-color: black;
+    color: white;
+      font-family:'Poppins', 'Nunito Sans';
+  ;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .media-section .heading {
+    font-weight: 600;
+    font-size: 3rem;
+    /* 40px */
+    line-height: 3.125rem;
+    /* 50px */
+    text-align: center;
+    color: white;
+  }
+  
+  /* club section - members & leaders */
+  .club-section {
+    background-color: #0F0F0F;
+    color: white;
+      font-family:'Poppins', 'Nunito Sans';
+  ;
+    /* here, we have slider, so flex box will not work  */
+  }
+  
+  .club-section .heading {
+    font-weight: 600;
+    font-size: 3rem;
+    /* 40px */
+    line-height: 3.125rem;
+    /* 50px */
+    text-align: center;
+    color: white;
+  }
+  
+  /* banner section */
+  .banner-section {
+    padding: 4rem 9% !important;
+    /* 64px */
+    background: linear-gradient(91.94deg, #B17E32 -8.77%, #F3E681 58.63%, #CF9F41 107.45%);
+    color: black;
+      font-family:'Poppins', 'Nunito Sans';
+  ;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  /* feedback section */
+  .feedback-section {
+    background-color: #0F0F0F;
+    color: white;
+      font-family:'Poppins', 'Nunito Sans';
+  ;
+    /* here, we have slider, so flex box will not work  */
+  }
+  
+  .feedback-section .heading {
+    font-weight: 600;
+    font-size: 3rem;
+    /* 40px */
+    line-height: 3.125rem;
+    /* 50px */
+    text-align: center;
+    color: white;
+  }
+  
+  /* proof section */
+  .proof-section {
+    background-color: black;
+    color: white;
+      font-family:'Poppins', 'Nunito Sans';
+  ;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .proof-section .heading {
+    font-weight: 600;
+    font-size: 3rem;
+    /* 40px */
+    line-height: 3.125rem;
+    /* 50px */
+    text-align: center;
+    color: white;
+  }
+  
+  /* frequently asked questions */
+  .faq-section {
+    background-color: #0F0F0F;
+    color: white;
+      font-family:'Poppins', 'Nunito Sans';
+  ;
+  }
+  
+  .faq-section .heading {
+    font-weight: 600;
+    font-size: 3rem;
+    /* 40px */
+    line-height: 3.125rem;
+    /* 50px */
+    text-align: center;
+    color: white;
+  }
+  
+  /* leaderboard section */
+  .leaderboard-section {
+    background-color: black;
+    color: white;
+      font-family:'Poppins', 'Nunito Sans';
+  ;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .leaderboard-section .heading {
+    font-weight: 600;
+    font-size: 3rem;
+    /* 40px */
+    line-height: 3.125rem;
+    /* 50px */
+    text-align: center;
+    color: white;
+  }
+  
+  /* footer section  */
+  .footer-section {
+    background-color: #0F0F0F;
+    font-family: 'Popins',"Nunito Sans", sans-serif;
+  }
+  
+  
+  
+  /* 1200, max width  */
+  @media (max-width: 1200px) {
+    .body section {
+      padding: 3rem 2rem;
+      /* 48px 32px */
+    }
+  
+    .header {
+      padding: 0rem 2rem;
+      font-size: 1.6rem;
+      /* 0px 32px */
+    }
+  
+    .header .header-btns {
+      display: none !important;
+    }
+  }
+  
+  
+  
+  
+  
+  /* 768 max width  */
+  @media (max-width: 768px) {
+    #menu-btn {
+      display: inline-block;
+      -webkit-transition: .2s linear;
+      transition: .2s linear;
+    }
+  
+    #menu-btn.fa-times {
+      -webkit-transform: rotate(180deg);
+      transform: rotate(180deg);
+    }
+  
+    .header {
+      height: auto;
+      min-height: 12vh;
+      justify-content: flex-start;
+      align-items: center;
+      padding: 0rem 2rem;
+      font-size: 1.6rem;
+      /* 0px 32px */
+    }
+  
+    .body .header .btn {
+      display: none;
+    }
+  
+    .header .navbar {
+      position: absolute;
+      top: 99%;
+      left: 0;
+      right: 0;
+      border-top: 0.2rem solid #000;
+      /* 3.2px */
+      background: #000;
+      -webkit-clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
+      clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
+      -webkit-transition: .2s linear;
+      transition: .2s linear;
+    }
+  
+    .header .navbar.active {
+      -webkit-clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+      clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+      flex-direction: column;
+      align-items: flex-start;
+      align-content: flex-start;
+    }
+  
+    .header .navbar a {
+      display: block;
+      margin: 0;
+      padding: 1.5rem 2rem;
+      /* 24px 32px */
+    }
+  
+    .hero-section {
+      height: auto;
+    }
+  
+  }
+  
+  /* max-width , 450 */
+  @media (max-width: 450px) {
+    .body .heading h1 {
+      font-size: 3rem;
+      /* 48px */
+    }
+  }

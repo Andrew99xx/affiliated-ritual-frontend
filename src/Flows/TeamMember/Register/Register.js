@@ -3,6 +3,7 @@ import { RecaptchaVerifier, signInWithPhoneNumber } from "firebase/auth";
 import { doc, setDoc, getDoc } from "firebase/firestore";
 import "./Register.css";
 import logo from "../../../logo.png"
+import register from "./register.png"
 
 import PhoneInput from 'react-phone-number-input';
 import 'react-phone-number-input/style.css';
@@ -10,6 +11,7 @@ import 'react-phone-number-input/style.css';
 import { auth, db } from "../../../firebase-config";
 import OtpInputContainer from "../Signin/Signincomp/OtpInputContainer";
 import { getCurrentTimestamp } from "../../../service/time/getCurrentTimestamp";
+import { notification } from "antd";
 
 const TeamMemberRegister = ({ onToggle }) => {
   const [otp, setOtp] = useState('');
@@ -62,12 +64,26 @@ const TeamMemberRegister = ({ onToggle }) => {
       .then((result) => {
         setConfirmationResult(result);
         setMessage('OTP sent to your phone');
-        alert('OTP sent to your phone');
+        // alert('OTP sent to your phone');
+        notification.success({
+          message: 'OTP Sent',
+          description: 'OTP sent to your phone.',
+          placement: 'topRight',
+          duration: 3, // Display for 3 seconds
+        });
+        
       })
       .catch((error) => {
         console.error('Error sending OTP:', error);
         setMessage('Failed to send OTP. Please try again.');
-        alert('Failed to send OTP. Please try again.');
+        // alert('Failed to send OTP. Please try again.');
+        notification.error({
+          message: 'OTP Sending Failed',
+          description: 'Failed to send OTP. Please try again.',
+          placement: 'topRight',
+          duration: 3, // Display for 3 seconds
+        });
+        
       });
   };
 
@@ -75,15 +91,26 @@ const TeamMemberRegister = ({ onToggle }) => {
     e.preventDefault();
     if (!confirmationResult) {
       setMessage('First request the OTP');
-      alert('First request the OTP');
-      return;
+notification.info({
+        message: 'OTP Request Needed',
+        description: 'First request the OTP',
+        placement: 'topRight',
+        duration: 3, // Display for 3 seconds
+      });      return;
     }
     confirmationResult.confirm(otp)
       .then(async (result) => {
         const user = result.user;
         setUid(user.uid);
         setMessage(`Phone number verified! User: ${user.uid}`);
-        alert(`Phone number verified! User: ${user.uid}`);
+        // alert(`Phone number verified! User: ${user.uid}`);
+        notification.success({
+          message: 'Verification Successful',
+          description: `Phone number verified! User: ${user.uid}`,
+          placement: 'topRight',
+          duration: 3, // Display for 3 seconds
+        });
+        
 
         // Check if the user data already exists
         const userDocRef = doc(db, "users", user.uid);
@@ -103,7 +130,14 @@ const TeamMemberRegister = ({ onToggle }) => {
       .catch((error) => {
         console.error('Error verifying OTP:', error);
         setMessage('Failed to verify OTP. Please try again.');
-        alert('Failed to verify OTP. Please try again.');
+        // alert('Failed to verify OTP. Please try again.');
+        notification.error({
+          message: 'Verification Failed',
+          description: 'Failed to verify OTP. Please try again.',
+          placement: 'topRight',
+          duration: 3, // Display for 3 seconds
+        });
+        
       });
   };
 
@@ -115,10 +149,24 @@ const TeamMemberRegister = ({ onToggle }) => {
   const addUserToFirestore = async () => {
     try {
       await setDoc(doc(db, "users", uid), formData, { merge: true });
-      alert("Registration successful! User data saved to Firestore!");
+      // alert("Registration successful! User data saved to Firestore!");
+      notification.success({
+        message: 'Registration Successful',
+        description: 'User data saved to Firestore!',
+        placement: 'topRight',
+        duration: 3, // Display for 3 seconds
+      });
+      
     } catch (error) {
       console.error("Error adding user to Firestore: ", error);
-      alert("Error adding user to Firestore: ", error.message);
+      // alert("Error adding user to Firestore: ", error.message);
+      notification.error({
+        message: 'Registration Error',
+        description: `Error adding user to Firestore: ${error.message}`,
+        placement: 'topRight',
+        duration: 3, // Display for 3 seconds
+      });
+      
     }
   };
 
@@ -150,12 +198,9 @@ const TeamMemberRegister = ({ onToggle }) => {
   return (
     <div className="Register">
       <div className="container">
-        <div>
-          <h3 className="logo">
-            <img width={300} src={logo} />
-          </h3>
-        </div>
-        <div className="heading">Registration</div>
+    <div className="left-image">
+      <img src={register} alt="Left Image" />
+    </div>
         <form className="formcontainer">
 
           <p>Phone Number <sup>*</sup></p>

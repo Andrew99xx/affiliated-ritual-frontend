@@ -1,56 +1,125 @@
+/* Leaderboard Container */
 .leaderboard-container {
     width: 80%;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    gap: 0.9375rem;
-    /* 15px */
+    gap: 1.5rem; /* Increase spacing for better layout */
+    margin-top: 2rem;
+    padding: 2rem;
+    background: rgba(0, 0, 0, 0.7); /* Slight transparency for a modern look */
+    border-radius: 1rem;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
 }
 
+/* Paragraph */
 .leaderboard-paragraph {
-    margin-top: 0ch !important;
-    padding-top: 0ch !important;
+    margin: 0;
+    padding: 0;
     font-weight: 400;
     font-size: 1.25rem;
     line-height: 2rem;
     text-align: center;
-    color: white;
+    color: #ffffff;
 }
 
+/* Leaderboard Table */
 .leaderboard {
     width: 100%;
     border-collapse: separate;
-    border-spacing: 0.625rem;
-    /* 10px */
-    font-family: 'Public Sans', sans-serif;
+    border-spacing: 0.625rem; /* 10px */
+    font-family: 'Poppins', 'Nunito Sans', sans-serif;
     text-transform: uppercase;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    border-radius: 1rem;
+    overflow: hidden;
 }
 
+/* Table Head */
 .leaderboard thead {
-    font-family: 'Public Sans', sans-serif;
     font-weight: 600;
-    font-size: 1.375rem;
-    /* 22px */
+    font-size: 1.5rem; /* Larger for emphasis */
     line-height: 3.125rem;
-    /* 50px */
     text-align: center;
-    color: #BD9141;
+    color: #F3E681;
+    background: #3E3E3E;
 }
 
+/* Table Body */
 .leaderboard tbody {
-    font-family: 'Public Sans', sans-serif;
     font-weight: 700;
     font-size: 1.375rem;
-    /* 22px */
     line-height: 3.125rem;
-    /* 50px */
     text-align: center;
     color: black;
 }
 
+/* Table Data Cell */
 .leaderboard td {
     background: linear-gradient(91.94deg, #B17E32 -8.77%, #F3E681 58.63%, #CF9F41 107.45%);
-    padding: 0.625rem;
-    /* 10px */
+    padding: 0.75rem;
+    border-radius: 0.5rem;
+    color: rgb(0, 0, 0);
+}
+
+/* Loader */
+.leaderboard-loading {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 20vh;
+    color: #ffffff;
+}
+
+.spinner {
+    width: 3rem;
+    height: 3rem;
+    border: 4px solid rgba(255, 255, 255, 0.3);
+    border-top-color: #F3E681;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+/* Leaderboard Row Styles */
+.leaderboard-row {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    color: black !important; /* Changed from #3E3E3E to black */
+}
+
+
+.leaderboard-row:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+/* Rank-based Colors */
+
+
+/* Responsive styles for mobile screens */
+@media only screen and (max-width: 768px) {
+    .leaderboard-container {
+        width: 95%;
+        padding: 1rem;
+    }
+
+    .leaderboard-paragraph {
+        font-size: 1.1rem;
+    }
+
+    .leaderboard {
+        font-size: 1rem;
+    }
 }

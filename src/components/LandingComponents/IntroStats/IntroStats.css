@@ -3,7 +3,7 @@
     height: 20vh;
     background-color: black;
     color: white;
-    font-family: 'Public Sans', sans-serif;
+      font-family:'Poppins', 'Nunito Sans', sans-serif;
     display: flex;
     justify-content: space-between !important;
     align-items: center !important;
@@ -52,24 +52,32 @@
     font-weight: bold;
     color: #F3E681;
     text-align: start;
-    text-wrap: nowrap;
+    word-wrap: break-word;  /* Ensure words wrap correctly */
+    overflow-wrap: break-word;  /* Handle long words better */
 }
 
 .introStats-description {
     font-size: 1.25rem;
     color: white;
     text-align: start;
-    text-wrap: nowrap;
+    word-wrap: break-word;  /* Ensure words wrap correctly */
+    overflow-wrap: break-word;  /* Handle long words better */
 }
 
 /* Responsive styles for mobile screens */
+/* Responsive styles for mobile screens */
 @media only screen and (max-width: 768px) {
     .introStats-container {
-        /* background-color: lime; */
         height: auto;
-        flex-direction: column;
-        align-items: start !important;
-        align-content: center !important;
-        gap: 3rem;
+        padding: auto;
+        display: grid;
+        grid-template-columns: repeat(2, 1fr); /* Two equal-width columns */
+        gap: 2rem; /* Space between grid items */
+        justify-items: center; /* Align items to the center horizontally */
+    }
+
+    .introStats-item {
+        width: 100%;
+        max-width: 300px; /* Optional: Limit the max width for each item */
     }
 }

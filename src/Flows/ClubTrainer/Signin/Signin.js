@@ -5,6 +5,7 @@ import Sign from './Signincomp/Sign';
 import Signotp from './Signincomp/Signotp';
 import { auth } from '../../../firebase-config';
 import { checkUserExists } from '../../../service/checkUserExists';
+import { notification } from 'antd';
 
 const Signin = ({ onSignin, onToggle }) => {
   const [email, setEmail] = useState('');
@@ -62,8 +63,12 @@ const Signin = ({ onSignin, onToggle }) => {
   const verifyOtp = (otp) => {
     if (!confirmationResult) {
       setMessage('First request the OTP');
-      alert('First request the OTP');
-      return;
+      notification.info({
+        message: 'OTP Request Needed',
+        description: 'First request the OTP',
+        placement: 'topRight',
+        duration: 3, // Display for 3 seconds
+      });      return;
     }
     confirmationResult.confirm(otp)
       .then(async (result) => {

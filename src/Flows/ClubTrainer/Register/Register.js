@@ -4,6 +4,7 @@ import { setDoc, doc, getDoc } from "firebase/firestore";
 
 import PhoneInput from 'react-phone-number-input';
 import 'react-phone-number-input/style.css';
+import register from "./register.png"
 
 import "./Register.css";
 import logo from "../../../logo.png"
@@ -11,6 +12,7 @@ import logo from "../../../logo.png"
 import { auth, db } from "../../../firebase-config.js";
 import OtpInputContainer from '../Signin/Signincomp/OtpInputContainer.js';
 import { getCurrentTimestamp } from "../../../service/time/getCurrentTimestamp.js";
+import { notification } from "antd";
 
 const TrainerRegister = ({ onToggle }) => {
   const [otp, setOtp] = useState('');
@@ -76,8 +78,12 @@ const TrainerRegister = ({ onToggle }) => {
     e.preventDefault();
     if (!confirmationResult) {
       setMessage('First request the OTP');
-      alert('First request the OTP');
-      return;
+      notification.info({
+        message: 'OTP Request Needed',
+        description: 'First request the OTP',
+        placement: 'topRight',
+        duration: 3, // Display for 3 seconds
+      });      return;
     }
     confirmationResult.confirm(otp)
       .then(async (result) => {
@@ -154,123 +160,126 @@ const TrainerRegister = ({ onToggle }) => {
   };
 
   return (
-    <div className="Register">
-      <div className="container">
-        <div>
-          <h3 className="logo">
-            <img width={300} src={logo} />
-          </h3>
+    <div className="Register-trainer">
+      <div className="container-trainer">
+        <div className="left-image-trainer">
+          <img src={register} alt="Trainer Register" className="static-image-trainer" />
         </div>
-        <div className="heading">Registration</div>
-        <form className="formcontainer">
+        <div className="form-section">
+          <h3 className="logo-trainer">
+            <img width={300} src={logo} alt="Logo" />
+          </h3>
+          <div className="heading-trainer">Trainer Registration</div>
+          <form className="formcontainer">
 
-          <p>Phone <sup>*</sup></p>
-          {/* <input
-            type="tel"
-            className="input"
-            name="phone"
-            value={formData.phone}
-            onChange={handleChange}
-            placeholder="9876543210"
-            required
-          /> */}
-          <PhoneInput
-            international
-            defaultCountry="IN"
-            value={formData.phone}
-            onChange={updatePhoneNumber} // Directly update the phone number
-            placeholder="Enter phone number"
-            className="input"
-          />
-          <button
-            onClick={sendVerificationCode}
-            className="btn"
-          >GET OTP
-          </button>
+            <p>Phone <sup>*</sup></p>
+            {/* <input
+  type="tel"
+  className="input"
+  name="phone"
+  value={formData.phone}
+  onChange={handleChange}
+  placeholder="9876543210"
+  required
+/> */}
+            <PhoneInput
+              international
+              defaultCountry="IN"
+              value={formData.phone}
+              onChange={updatePhoneNumber} // Directly update the phone number
+              placeholder="Enter phone number"
+              className="input"
+            />
+            <button
+              onClick={sendVerificationCode}
+              className="btn"
+            >GET OTP
+            </button>
 
-          <p>Enter Otp <sup>*</sup></p>
-          <OtpInputContainer onOtpChange={handleOtpChange} />
+            <p>Enter Otp <sup>*</sup></p>
+            <OtpInputContainer onOtpChange={handleOtpChange} />
 
-          <button
-            onClick={verifyOtp}
-            className="btn">
-            Verify OTP
-          </button>
-
-
-          <p>First Name <sup>*</sup></p>
-          <input
-            type="text"
-            className="input"
-            name="firstName"
-            value={formData.firstName}
-            onChange={handleChange}
-            placeholder="Enter first name"
-            required
-          />
-          <p>Last Name <sup>*</sup></p>
-          <input type="text"
-            className="input"
-            name="lastName"
-            value={formData.lastName}
-            onChange={handleChange}
-            placeholder="Enter last name"
-            required
-          />
-          <p>Email <sup>*</sup></p>
-          <input
-            type="email"
-            className="input"
-            name="email"
-            value={formData.email}
-            onChange={handleChange}
-            placeholder="mail@simmmple.com"
-            required
-          />
-
-          <p>Select an Experience Level <sup>*</sup></p>
-          <select
-            className="selectExperience"
-            name="selectExperience"
-            value={formData.selectExperience}
-            onChange={handleChange}
-            required
-          >
-            <option value="" disabled>Select</option>
-            <option value="fresher">  Fresher  </option>
-            <option value="experienced">  Experienced </option>
-          </select>
+            <button
+              onClick={verifyOtp}
+              className="btn">
+              Verify OTP
+            </button>
 
 
+            <p>First Name <sup>*</sup></p>
+            <input
+              type="text"
+              className="input"
+              name="firstName"
+              value={formData.firstName}
+              onChange={handleChange}
+              placeholder="Enter first name"
+              required
+            />
+            <p>Last Name <sup>*</sup></p>
+            <input type="text"
+              className="input"
+              name="lastName"
+              value={formData.lastName}
+              onChange={handleChange}
+              placeholder="Enter last name"
+              required
+            />
+            <p>Email <sup>*</sup></p>
+            <input
+              type="email"
+              className="input"
+              name="email"
+              value={formData.email}
+              onChange={handleChange}
+              placeholder="mail@simmmple.com"
+              required
+            />
 
-          <p>Date of Birth <sup>*</sup></p>
-          <input type="date" className="input" name="dob" value={formData.dob} onChange={handleChange} required />
-          <p>Adhar Number <sup>*</sup></p>
-          <input type="text" className="input" name="adharNumber" value={formData.adharNumber} onChange={handleChange} placeholder="Adhar Number" required />
-          <p>Pan Number <sup>*</sup></p>
-          <input type="text" className="input" name="panNumber" value={formData.panNumber} onChange={handleChange} placeholder="Pan Number" required />
-          <p>Address <sup>*</sup></p>
-          <input type="text" className="input" name="address" value={formData.address} onChange={handleChange} placeholder="Address" required />
-          <h3>Bank Details</h3>
-          <p>Account Number <sup>*</sup></p>
-          <input type="text" className="input" name="accountNumber" value={formData.accountNumber} onChange={handleChange} placeholder="Account Number" required />
-          <p>Account Type <sup>*</sup></p>
-          <input type="text" className="input" name="accountType" value={formData.accountType} onChange={handleChange} placeholder="Account Type" required />
-          <p>Ifsc Code <sup>*</sup></p>
-          <input type="text" className="input" name="ifscCode" value={formData.ifscCode} onChange={handleChange} placeholder="Ifsc Code" required />
+            <p>Select an Experience Level <sup>*</sup></p>
+            <select
+              className="selectExperience"
+              name="selectExperience"
+              value={formData.selectExperience}
+              onChange={handleChange}
+              required
+            >
+              <option value="" disabled>Select</option>
+              <option value="fresher">  Fresher  </option>
+              <option value="experienced">  Experienced </option>
+            </select>
 
-          <div id="recaptcha-container"></div>
 
-          <button className="btn" onClick={handleRegister}>Register</button>
-          <p className="alr">Already a member? <span onClick={onToggle}>Sign in</span></p>
-        </form>
+
+            <p>Date of Birth <sup>*</sup></p>
+            <input type="date" className="input" name="dob" value={formData.dob} onChange={handleChange} required />
+            <p>Adhar Number <sup>*</sup></p>
+            <input type="text" className="input" name="adharNumber" value={formData.adharNumber} onChange={handleChange} placeholder="Adhar Number" required />
+            <p>Pan Number <sup>*</sup></p>
+            <input type="text" className="input" name="panNumber" value={formData.panNumber} onChange={handleChange} placeholder="Pan Number" required />
+            <p>Address <sup>*</sup></p>
+            <input type="text" className="input" name="address" value={formData.address} onChange={handleChange} placeholder="Address" required />
+            <h3>Bank Details</h3>
+            <p>Account Number <sup>*</sup></p>
+            <input type="text" className="input" name="accountNumber" value={formData.accountNumber} onChange={handleChange} placeholder="Account Number" required />
+            <p>Account Type <sup>*</sup></p>
+            <input type="text" className="input" name="accountType" value={formData.accountType} onChange={handleChange} placeholder="Account Type" required />
+            <p>Ifsc Code <sup>*</sup></p>
+            <input type="text" className="input" name="ifscCode" value={formData.ifscCode} onChange={handleChange} placeholder="Ifsc Code" required />
+
+            <div id="recaptcha-container"></div>
+
+            <button className="btn" onClick={handleRegister}>Register</button>
+            <p className="alr">Already a member? <span onClick={onToggle}>Sign in</span></p>
+          </form>
+        </div>
       </div>
-
-      {message && <div style={{
-        color: 'red',
-      }}>{message}</div>}
+      {message && <div style={{ color: 'red' }}>{message}</div>}
     </div>
   );
 };
 
 export default TrainerRegister;
+
+
+

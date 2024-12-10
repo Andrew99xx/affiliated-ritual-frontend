@@ -33,7 +33,7 @@
     font-size: 16px;
     color: #fff;
 
-    font-family: "Nunito Sans", sans-serif;
+    font-family: 'Popins',"Nunito Sans", sans-serif;
     font-weight: 600;
 
 }
@@ -85,7 +85,7 @@
     justify-content: center;
     padding: 6px 8px !important;
     border-radius: 5px;
-    font-family: "Nunito Sans", sans-serif;
+    font-family: 'Popins',"Nunito Sans", sans-serif;
 font-size: 14px;
 font-weight: 700;
 margin-left: 1rem;

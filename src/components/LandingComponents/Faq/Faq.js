@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { motion } from "framer-motion";
 import "./Faq.css";
 
 const Faq = () => {
@@ -49,32 +50,50 @@ const Faq = () => {
     },
   ];
 
-
   return (
     <div className="faq">
-      <div className="faq-paragraph">Satisfying your curiosity with clear answers.</div>
+      <div className="faq-paragraph">
+        Satisfying your curiosity with clear answers.
+      </div>
       <div className="faq-container">
         {data.map((item, i) => (
-          <div key={i} className="faq-item">
-            <div
+          <motion.div
+            key={i}
+            className="faq-item"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.4, ease: "easeOut", delay: i * 0.1 }}
+            viewport={{ once: false, amount: 0.3 }}
+          >
+            <motion.div
               className={`faq-question ${selected === i ? "highlight" : ""}`}
               onClick={() => toggle(i)}
+              whileHover={{ scale: 1.02, transition: { duration: 0.2 } }}
             >
               {item.question}
               <span
-                className={`faq-question-icons ${selected === i ? "highlight" : ""}`}
+                className={`faq-question-icons ${
+                  selected === i ? "highlight" : ""
+                }`}
               >
                 {selected === i ? "-" : "+"}
               </span>
-            </div>
-            <div className={`faq-answer ${selected === i ? "show" : ""}`}>
+            </motion.div>
+            <motion.div
+              className={`faq-answer ${selected === i ? "show" : ""}`}
+              initial={{ height: 0, opacity: 0 }}
+              animate={{
+                height: selected === i ? "auto" : 0,
+                opacity: selected === i ? 1 : 0,
+              }}
+              transition={{ duration: 0.4, ease: "easeInOut" }}
+            >
               {item.answer}
-            </div>
-          </div>
+            </motion.div>
+          </motion.div>
         ))}
       </div>
     </div>
-
   );
 };
 

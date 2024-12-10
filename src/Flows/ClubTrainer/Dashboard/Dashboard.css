@@ -13,7 +13,8 @@
     color: #fff;
     overflow: hidden;
     transition: all 0.5s linear;
-    font-family: "DM Sans", sans-serif;
+      font-family:'Poppins', 'Nunito Sans', sans-serif;
+
     text-wrap:nowrap;
 
 }
@@ -21,7 +22,7 @@
 .dashboard .sidebar .heading {
     padding: 1rem;
     color: #E4C748;
-    font-family: "Poppins", sans-serif;
+    font-family: 'Popins',"Nunito Sans", sans-serif;
     text-align: center;
     margin: 0 0 15px 0;
     font-size: 30px;
@@ -107,7 +108,8 @@
 .dashboard .header .searchbar input{
     background-color: #060606;
     padding: 0.7rem 1rem;
-    font-family: "DM Sans", sans-serif;
+      font-family:'Poppins', 'Nunito Sans', sans-serif;
+
     border-radius: 5px;
     font-size: 14px;
     font-weight: 500;

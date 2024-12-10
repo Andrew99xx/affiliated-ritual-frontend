@@ -1,6 +1,6 @@
 .whyRitual-container {
     color: white;
-    font-family: 'Public Sans', sans-serif;
+      font-family:'Poppins', 'Nunito Sans', sans-serif;
     display: flex;
     flex-direction: row;
     gap: 1.25rem;
@@ -68,7 +68,7 @@
 }
 
 .whyRitual-title {
-    font-family: 'Popins', sans-serif;
+    font-family: 'Popins',"Nunito Sans", sans-serif;
     font-weight: 600;
     font-size: 1.5rem;
     /* 19px */
@@ -78,7 +78,7 @@
 }
 
 .whyRitual-description {
-    font-family: 'Inter', sans-serif;
+    font-family: 'Popins',"Nunito Sans", sans-serif;
     font-weight: 400;
     font-size: 1.25rem;
     line-height: 2rem;
@@ -106,4 +106,24 @@
         grid-template-columns: repeat(3, 1fr);
     }
 
+}
+
+/* Responsive styles for mobile screens */
+@media (max-width: 768px) {
+    .whyRitual-container {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1.25rem; /* Space between items */
+        justify-items: center; /* Align items to the center of each grid cell */
+    }
+
+    .whyRitual-item {
+        width: auto; /* Automatically adjust width to fit within the grid */
+        max-width: 45vw; /* Adjust the maximum width to avoid overlapping */
+        height: auto; /* Adjust height automatically */
+    }
+
+    .whyRitual-icon {
+        padding: 0px; /* Remove padding to save space on smaller screens */
+    }
 }

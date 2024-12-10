@@ -16,7 +16,8 @@
     background-color: #000000;
     padding: .7rem .7rem .7rem .7rem;
     width: 230px;
-    font-family: "DM Sans", sans-serif;
+      font-family:'Poppins', 'Nunito Sans', sans-serif;
+
     border-radius: 5px;
     font-size: 14px;
     font-weight: 500;

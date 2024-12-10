@@ -1,175 +1,205 @@
-.Register .container {
-    background: linear-gradient(180deg, #000000 0%, #000000 100%);
-    max-height: 80vh;
-    max-width: 531px;
-    overflow: auto;
-    border-radius: 10px;
+/* General Styling */
+
+*, *::before, *::after {
+    box-sizing: inherit;
 }
 
-.Register {
+.Register-student {
     display: flex;
     justify-content: center;
-    flex-direction: column;
     align-items: center;
-    background: url("./banner.png");
-    height: 100vh;
-    background-repeat: no-repeat;
+    background: url("./banner.png") center center no-repeat;
     background-size: cover;
-    background-position: center center;
+    height: 100vh;
+}
+
+.Register-student .container-student {
+    display: flex;
+    align-items: stretch;
+    background: #000;
+    border-radius: 12px;
+    box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.3);
     overflow: hidden;
-
+    max-width: 900px;
+    width: 100%;
+    height: 85%;
+    position: relative;
+    padding: 1rem;
 }
 
-.Register .logo {
-    color: #E4C748;
-    font-family: "Poppins", sans-serif;
-    text-align: center;
-    margin: 0 0 15px 0;
-    font-size: 30px;
-    font-weight: 700;
-    text-transform: uppercase;
-    line-height: 56px;
+/* Left Image Styling */
+.left-image-student {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40%;
+    background: #000;
 }
 
-.Register .container .heading {
-    font-size: 36px;
+.static-image {
+    width: 100%;
+    height: auto;
+    border-radius: 0 12px 12px 0;
+    object-fit: cover;
+}
+
+/* Form Section Styling */
+.form-section-student {
+    width: 60%;
+    padding: 2rem 1.5rem;
+    overflow-y: auto;
+}
+
+.logo img {
+    display: block;
+    margin: 0 auto 1rem;
+    width: 150px;
+    height: auto;
+}
+
+.heading {
+    font-size: 2rem;
     color: #fff;
-    font-family: "DM Sans", sans-serif;
-    text-align: center;
     font-weight: 700;
-    margin: 0 0 10px 0;
-
-}
-
-.Register .container {
-    padding: 2rem 4rem;
-}
-
-.Register .container .subheading {
     text-align: center;
-    font-family: "DM Sans", sans-serif;
-    font-weight: 400;
-    color: #8190BF;
-    margin: 0 0 3rem 0;
-    font-size: 16px;
-    font-weight: 400;
-    line-height: 16px;
+    margin-bottom: 1rem;
 }
 
-
-.Register .formcontainer {
+.formcontainer-student {
     display: flex;
     flex-direction: column;
+    gap: 1rem;
+    width: 100%;
+    max-width: 100%;
 }
 
-.Register .btn {
+/* Form Field Styling */
+.formcontainer-student p, .formcontainer-student h3 {
+    color: #ddd;
+    font-weight: 500;
+}
+
+.formcontainer-student input, .selectCourse {
+    width: auto;
+    padding: 0.8rem;
+    background-color: #000;
+    border: 1px solid #555;
+    border-radius: 4px;
+    color: #ddd;
+    font-size: 1rem;
+    max-width: 100%;
+}
+
+.formcontainer-student input::placeholder, .selectCourse {
+    color: #999;
+}
+
+.formcontainer-student sup {
+    color: #e74c3c;
+    font-size: 0.9em;
+}
+
+/* Button Styling */
+.btn-student {
     background: linear-gradient(91.94deg, #B17E32 -8.77%, #F3E681 58.63%, #CF9F41 107.45%);
-
-
-    width: 410px;
-    text-align: center;
-    padding: 1rem;
-    color: black;
+    width: auto;
+    padding: 0.8rem;
+    color: #333;
     font-weight: 700;
-    font-family: "DM Sans", sans-serif;
-    font-size: 18px;
-    text-decoration: none;
-    margin: 2rem 0;
-
-
-}
-
-.Register .btn:hover {
+    border: none;
+    border-radius: 8px;
+    font-size: 1.1rem;
     cursor: pointer;
-
-}
-
-.Register .formcontainer p {
-    font-weight: 500;
-    font-family: "DM Sans", sans-serif;
-    color: #fff;
-}
-
-.Register .formcontainer h3 {
-    font-weight: 500;
-    font-family: "DM Sans", sans-serif;
-    color: #fff;
-    margin-bottom: 0;
-}
-
-.Register .formcontainer sup {
-    font-size: 15px;
-    color: #EF0000;
-}
-
-.Register .formcontainer input {
-    padding: 1rem 1.2rem;
-    background-color: #000000;
-    border: 1px solid #FFFFFF4D;
-    border-radius: 5px;
-    color: #8190BF;
-    outline: none;
-    font-size: 16px;
-}
-
-.Register .flex {
-    display: flex;
-}
-
-.Register .formcontainer input::placeholder {
-    color: #8190BF;
-}
-
-.Register .credit {
-    color: white;
-    font-weight: 500;
-    font-family: "DM Sans", sans-serif;
-}
-
-.Inputbox {
-    display: flex;
-    justify-content: space-between;
-}
-
-.Register .container .info {
-    display: flex;
-    justify-content: space-between;
-    padding: 1rem 0;
-}
-
-.Register input[type='checkbox'] {
-    accent-color: #E9D21E;
-    width: 20px;
-    height: 18px;
-    margin: 0 10px 0 0;
-}
-
-.Register .selectCourse {
-    background-color: #000000;
-    padding: 1.2rem .7rem 1.2rem .7rem;
-    width: 230px;
-    font-family: "DM Sans", sans-serif;
-    border-radius: 5px;
-    font-size: 14px;
-    font-weight: 500;
-    outline: none;
-    color: #BCBCBC;
-    border: 1px solid #3a3a3a;
-    color: #fff;
-    font-size: 16px;
-    color-scheme: dark;
-
-}
-
-
-.alr {
-    align-items: center;
+    transition: all 0.3s ease;
     text-align: center;
-    color: white;
-    font-size: 16px;
+    max-width: 100%;
 }
 
-.alr span {
-    color: #E4C748;
+.btn-student:hover {
+    background: linear-gradient(91.94deg, #F3E681 -8.77%, #B17E32 58.63%, #CF9F41 107.45%);
+    color: #000;
+}
+
+.alr-student {
+    text-align: center;
+    color: #eee;
+    font-size: 0.9rem;
+    margin-top: 1rem;
+}
+
+.alr-student span {
+    color: #f39c12;
     cursor: pointer;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .Register-student .container-student {
+        flex-direction: column !important;
+        width: 95% !important;
+        height: auto !important;
+        max-height: 90vh !important;
+        padding: 1rem !important;
+    }
+    
+    .left-image-student {
+        display: none !important;
+    }
+
+    .form-section-student {
+        width: 100% !important;
+        padding: 1rem !important;
+    }
+
+    .heading {
+        font-size: 1.8rem !important;
+    }
+
+    .formcontainer-student input, .selectCourse {
+        padding: 0.6rem !important;
+        font-size: 0.9rem !important;
+        width: 100% !important;
+        max-width: 100% !important;
+    }
+
+    .btn-student {
+        padding: 0.7rem !important;
+        font-size: 1rem !important;
+        width: 100% !important;
+    }
+
+    .alr-student {
+        font-size: 0.85rem !important;
+    }
+}
+
+/* Extra Small Devices */
+@media (max-width: 480px) {
+    .heading {
+        font-size: 1.5rem !important;
+    }
+
+    .form-section-student {
+        overflow-y: auto; /* Allows scrolling when content overflows */
+        scrollbar-width: none; /* Hides scrollbar in Firefox */
+    }
+    
+    /* For WebKit browsers (Chrome, Safari) */
+    .form-section-student::-webkit-scrollbar {
+        display: none; /* Hides scrollbar in Chrome, Safari */
+    }
+
+    .formcontainer-student input, .selectCourse {
+        justify-content: center !important;
+        align-items: center !important;
+        padding: 0.5rem !important;
+        font-size: 0.8rem !important;
+        width: 100% !important;
+    }
+
+    .btn-student {
+        padding: 0.6rem !important;
+        font-size: 0.9rem !important;
+        width: 100% !important;
+    }
 }

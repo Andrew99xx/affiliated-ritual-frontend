@@ -12,6 +12,7 @@ import logo from "../../../logo.png"
 import { auth, db } from "../../../firebase-config";
 import OtpInputContainer from "../Signin/Signincomp/OtpInputContainer";
 import { getCurrentTimestamp } from "../../../service/time/getCurrentTimestamp";
+import { notification } from "antd";
 
 const LeaderRegister = ({ onToggle }) => {
   const [otp, setOtp] = useState('');
@@ -89,8 +90,12 @@ const LeaderRegister = ({ onToggle }) => {
     e.preventDefault();
     if (!confirmationResult) {
       setMessage('First request the OTP');
-      alert('First request the OTP');
-      return;
+      notification.info({
+        message: 'OTP Request Needed',
+        description: 'First request the OTP',
+        placement: 'topRight',
+        duration: 3, // Display for 3 seconds
+      });      return;
     }
     confirmationResult.confirm(otp)
       .then(async (result) => {

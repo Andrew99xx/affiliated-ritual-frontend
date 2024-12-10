@@ -1,8 +1,9 @@
-import React from 'react'
-import "./HowItWorks.css"
-import jackpot from './jackpot.png'
-import learn from './learn.png'
-import money from './money.png'
+import React from 'react';
+import { motion } from 'framer-motion';
+import "./HowItWorks.css";
+import jackpot from './jackpot.png';
+import learn from './learn.png';
+import money from './money.png';
 
 function HowItWorks() {
     const data = [
@@ -27,10 +28,19 @@ function HowItWorks() {
         <div className="howItWorks-container">
             {data.map((item, i) => (
                 <React.Fragment key={i}>
-                    <div className="howItWorks-items">
+                    <motion.div
+                        className="howItWorks-items"
+                        whileInView={{
+                            rotate: [0, 10, -10, 10, 0], // Jiggle effect
+                            transition: { duration: 0.5, ease: "easeInOut" }
+                        }}
+                        viewport={{ once: false, amount: 0.3 }}
+                        >
                         <img
                             className="howItWorks-imglink"
                             src={item.imgLink}
+                            alt={item.name}
+                           
                         />
                         <div className="howItWorks-name">
                             {item.name}
@@ -38,13 +48,12 @@ function HowItWorks() {
                         <div className="howItWorks-description">
                             {item.description}
                         </div>
-                    </div>
+                    </motion.div>
                     {i < data.length - 1 && <div className="howItWorks-divider" />}
                 </React.Fragment>
             ))}
-
         </div>
-    )
+    );
 }
 
-export default HowItWorks
+export default HowItWorks;

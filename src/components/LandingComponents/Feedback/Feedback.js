@@ -49,6 +49,8 @@ function Feedback() {
         dots: true,
         infinite: true,
         speed: 500,
+        autoplay: true, // Enables automatic sliding
+
         slidesToShow: 4,
         slidesToScroll: 1,
         centerMode: true,
@@ -66,7 +68,7 @@ function Feedback() {
                 }
             },
             {
-                breakpoint: 600,
+                breakpoint: 768,
                 settings: {
                     slidesToShow: 1,
                 }

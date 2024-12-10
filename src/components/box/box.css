@@ -26,14 +26,14 @@
     font-weight: 600;
     opacity: 70%;
 
-    font-family: "Nunito Sans", sans-serif;
+    font-family: 'Popins',"Nunito Sans", sans-serif;
 }
 
  .boxes .box .boxinfo .detail h3{
     font-size: 35px;
     color: #fff;
     font-weight: 700;
-    font-family: "Nunito Sans", sans-serif;
+    font-family: 'Popins',"Nunito Sans", sans-serif;
     margin: 0;
 
 }

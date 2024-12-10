@@ -11,7 +11,18 @@
     flex-wrap: wrap;
     gap: 2rem;
     overflow: hidden;
+    animation: floatAnimation 6s ease-in-out infinite;
+
     /* background-color: aqua; */
+}
+
+@keyframes floatAnimation {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-10px);
+    }
 }
 
 .home-text-wrapper {
@@ -24,7 +35,8 @@
 }
 
 .home-heading {
-    font-family: 'Public Sans';
+      font-family:'Poppins', 'Nunito Sans', sans-serif;
+;
     font-weight: 600;
     font-size: 2rem;
     line-height: 2rem;
@@ -32,7 +44,7 @@
 }
 
 .home-hook {
-    font-family: 'Public Sans';
+    font-family: 'Poppins', 'Nunito Sans', sans-serif;
     font-weight: 600;
     font-size: 4rem;
     line-height: 4.5rem;
@@ -42,27 +54,37 @@
 .home-hook-highlight {
     position: relative;
     display: inline-block;
+    overflow: hidden;
 }
 
 .home-hook-highlight::after {
     content: '';
     position: absolute;
-    left: 0;
+    left: 50%;
     bottom: -0.1875rem;
-    /* -3px / 16 */
-    width: 100%;
-    height: 0.25rem;
-    background-color: #FFC27A;
-    /* 
-    background-color: transparent;
-    background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 50"><path d="M0 50 Q 50 0 100 50" stroke="%23FFC27A" stroke-width="4" fill="none"/></svg>'); 
+    width: 0%; /* Start with 0% width to hide the underline */
+    height: 1rem; /* Height to give the feel of a thick brush stroke */
+    background: url('data:image/svg+xml,%3Csvg%20width%3D%22111%22%20height%3D%2212%22%20viewBox%3D%220%200%20111%2012%22%20fill%3D%22none%22%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%3E%3Cpath%20d%3D%22M2.35137%205.06247C20.2539%201.99745%2066.621%20-1.44742%20108.868%209.29324%22%20stroke%3D%22%23FFC27A%22%20stroke-width%3D%224%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22/%3E%3C/svg%3E');
+    background-repeat: no-repeat;
     background-size: cover;
-    transform: translateX(-50%); 
-    */
+    transform: translateX(-50%);
+    animation: underlineReveal 1s ease-out forwards; /* Trigger animation */
+    animation-delay: 0.5s; /* Optional delay for better timing */
 }
 
+@keyframes underlineReveal {
+    0% {
+        width: 0%;
+    }
+    100% {
+        width: 110%; /* Grow to full width */
+    }
+}
+
+
 .home-tag {
-    font-family: 'Public Sans';
+      font-family:'Poppins', 'Nunito Sans', sans-serif;
+;
     font-weight: 400;
     font-size: 1.5rem;
     line-height: 1.75rem;
@@ -70,22 +92,29 @@
 }
 
 .home-btn {
-    background-color: white;
+    background: linear-gradient(135deg, #ffffff, #f0f0f0);
     color: black;
     height: 3.5rem;
     width: 13.0625rem;
     cursor: pointer;
-    border-radius: 0.25rem;
-    font-family: 'Public Sans';
+    border-radius: 0.5rem;
+    font-family: 'Poppins', 'Nunito Sans', sans-serif;
     font-weight: 600;
     font-size: 1.5rem;
     line-height: 2rem;
     text-align: center;
+    border: none;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
 }
 
 .home-btn:hover {
-    background-color: #CF9F41;
+    background: linear-gradient(135deg, #CF9F41, #FFD27D);
+    color: white;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+    transform: translateY(-2px);
 }
+
 
 /* section - other half  */
 .home-img-svg-wrapper {
@@ -124,7 +153,7 @@
 
 .home-img {
     /* background-color: aliceblue; */
-    background-image: url('./yellow_background.png');
+    background-image: url('./yellow_background.webp');
     /* background-size: 31.2681rem; */
     background-size: 100%;
     background-position: top;
@@ -154,7 +183,8 @@
     border-radius: 0.625rem;
     /* 10px / 16 */
     border-color: #B2BBCC;
-    font-family: 'Public Sans';
+      font-family:'Poppins', 'Nunito Sans', sans-serif;
+;
     font-weight: 600;
     font-size: 1.25rem;
     line-height: 2rem;
@@ -176,7 +206,8 @@
     border-width: 0.0625rem;
     border-radius: 0.625rem;
     border-color: #B2BBCC;
-    font-family: 'Public Sans';
+      font-family:'Poppins', 'Nunito Sans', sans-serif;
+;
     font-weight: 600;
     font-size: 1rem;
     line-height: 2rem;

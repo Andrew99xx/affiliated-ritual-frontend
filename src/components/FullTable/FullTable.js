@@ -11,8 +11,8 @@ const FullTable = ({ item, onBack }) => {
     <div className="full-table-container">
       <div className="flex">
         <div className="headinc">
-          <h1 className="heading">Team Report</h1>
-          <h3 className="subheading">Team Report/{item.first_name}</h3>
+          <h1 className="heading">Club Report</h1>
+          <h3 className="subheading">Club Report/{item.first_name}</h3>
         </div>
         <button className="back-button" onClick={onBack}>
         <img src={Arrow} alt="" />

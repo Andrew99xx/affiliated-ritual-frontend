@@ -44,7 +44,8 @@
   .modal-main .mainc .para{
     text-align: center;
     color: #fff;
-    font-family: "DM Sans", sans-serif;
+      font-family:'Poppins', 'Nunito Sans', sans-serif;
+
     font-size: 16px;
   }
   .modal-main .heading{
@@ -53,7 +54,8 @@
     width: 200px;
     font-size: 25px;
     font-weight: 500;
-    font-family: "DM Sans", sans-serif;
+      font-family:'Poppins', 'Nunito Sans', sans-serif;
+
 
 
 }
@@ -74,7 +76,8 @@
     padding: 1rem;
     color: black;
     font-weight: 700;
-    font-family: "DM Sans", sans-serif;
+      font-family:'Poppins', 'Nunito Sans', sans-serif;
+
     font-size: 15px;
     text-decoration: none;
     margin: 1rem 0;

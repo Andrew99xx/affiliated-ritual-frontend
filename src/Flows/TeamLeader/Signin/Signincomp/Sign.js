@@ -32,7 +32,7 @@ const Sign = ({ onSignInClick }) => {
       </div>
 
       <div className="heading">Sign</div>
-      <div className="subheading">Enter your email to sign in!</div>
+      {/* <div className="subheading">Enter your email to sign in!</div> */}
 
       <div className="formcontainer">
         {false && (<>

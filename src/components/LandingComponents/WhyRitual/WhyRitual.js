@@ -1,12 +1,13 @@
-import React from 'react'
-import './WhyRitual.css'
-import advance from "./advance.png"
-import certificate from "./certificate.png"
-import freelance from "./freelance.png"
-import placement from "./placement.png"
-import sap_bussiness from "./sap_bussiness.png"
-import trainers from "./trainers.png"
-import twoStar from "./twoStar.png"
+import React from 'react';
+import { motion } from 'framer-motion';
+import './WhyRitual.css';
+import advance from "./advance.png";
+import certificate from "./certificate.png";
+import freelance from "./freelance.png";
+import placement from "./placement.png";
+import sap_bussiness from "./sap_bussiness.png";
+import trainers from "./trainers.png";
+import twoStar from "./twoStar.png";
 
 function WhyRitual() {
     const whyRitual = [
@@ -38,18 +39,29 @@ function WhyRitual() {
         {
             icon: sap_bussiness,
             title: "SAP Business",
-            description: "An automated business software  where everything is free!"
+            description: "An automated business software where everything is free!"
         }
     ];
 
     return (
         <div className="whyRitual-container">
             {whyRitual.map((item, i) => (
-                <div key={i} className="whyRitual-item">
-                    < img src={twoStar} alt='twostar' className='whyRitual-sparkle' />
+                <motion.div
+                    key={i}
+                    className="whyRitual-item"
+                    initial={{ opacity: 0, scale: 0.5, rotate: -15 }}
+                    whileInView={{ opacity: 1, scale: 1, rotate: 0 }}
+                    viewport={{ once: false, amount: 0.5 }}
+                    transition={{
+                        type: "spring",
+                        stiffness: 260,
+                        damping: 20,
+                        duration: 1
+                    }}
+                >
+                    <img src={twoStar} alt='twostar' className='whyRitual-sparkle' />
                     <div className='whyRitual-icon-title-wrapper'>
-                        <div
-                            className="whyRitual-icon">
+                        <div className="whyRitual-icon">
                             <img
                                 className='whyRitual-icon-img'
                                 src={item.icon}
@@ -59,10 +71,10 @@ function WhyRitual() {
                         <div className="whyRitual-title">{item.title}</div>
                     </div>
                     <div className="whyRitual-description">{item.description}</div>
-                </div>
+                </motion.div>
             ))}
         </div>
-    )
+    );
 }
 
-export default WhyRitual
+export default WhyRitual;

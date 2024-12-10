@@ -1,5 +1,6 @@
-import React from 'react'
-import './Media.css'
+import React from 'react';
+import { motion } from 'framer-motion';
+import './Media.css';
 
 import abpBengala from "./abpBengala.png"
 import ahmedabadMirror from "./ahmedabadMirror.png"
@@ -26,20 +27,16 @@ function Media() {
         },
         {
             logo: hindustanMetro,
-            // name: "Hindustan Bytes"
         },
         {
             logo: ahmedabadMirror,
-            // name: "Ahmedabad Mirror"
         },
         {
             logo: reuters,
             name: "REVOI"
         },
-       
         {
             logo: hindustanMetro,
-            // name: "Hindustan Metro"
         },
         {
             logo: ly,
@@ -51,7 +48,6 @@ function Media() {
         },
         {
             logo: hindustanMetro,
-            // name: "The Hindustan Express"
         },
         {
             logo: someNews,
@@ -62,25 +58,31 @@ function Media() {
             name: "123 Men Life"
         }
     ];
-    
-  return (
-    <div className='media-container'>
-    <p className='media-paragraph'>Let's meet with the team of our  industry expert medias. We believe that you will be able to change your life with the most advanced AI integrated training module cooked by Affiliate Ritual.</p>
-    <div className='media-items'>
-        {mediaData.map((item, i) => (
-            <div className='media-item-wrapper'>
-                <img
-                    key={i}
-                    className="media-img"
-                    src={item.logo}
-                    alt={item.alt}
-                />
-                <p className='media-name'>{item.name}</p>
+
+    return (
+        <div className='media-container'>
+            <p className='media-paragraph'>Let's meet with the team of our industry expert medias. We believe that you will be able to change your life with the most advanced AI integrated training module cooked by Affiliate Ritual.</p>
+            <div className='media-items'>
+                {mediaData.map((item, i) => (
+                    <motion.div
+                        key={i}
+                        className='media-item-wrapper'
+                        initial={{ opacity: 0, y: 50 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.5, ease: "easeOut", delay: i * 0.1 }}
+                        whileHover={{ scale: 1.05, boxShadow: "0px 8px 20px rgba(0, 0, 0, 0.2)" }}
+                    >
+                        <img
+                            className="media-img"
+                            src={item.logo}
+                            alt={item.name || 'Media Logo'}
+                        />
+                        {item.name && <p className='media-name'>{item.name}</p>}
+                    </motion.div>
+                ))}
             </div>
-        ))}
-    </div>
-</div>
-  )
+        </div>
+    )
 }
 
-export default Media
+export default Media;

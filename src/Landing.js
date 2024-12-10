@@ -6,6 +6,7 @@ import "swiper/css";
 
 import logo from "./logo.png"
 import "./Landing.css";
+import { motion } from "framer-motion";
 
 
 // components 
@@ -26,6 +27,7 @@ import Banner from "./components/LandingComponents/Banner/Banner";
 import Club from "./components/LandingComponents/Club/Club";
 import HeaderLoginOptions from "./components/LandingComponents/HeaderLoginOptions/HeaderLoginOptions";
 import HeaderRegisterOptions from "./components/LandingComponents/HeaderRegisterOptions/HeaderRegisterOptions.js"
+import Header from "./components/Header/Header.jsx";
 
 // import Features from "./components/LandingComponents/Features/Features";
 // import Services from "./components/LandingComponents/Services/Services";
@@ -35,6 +37,7 @@ import HeaderRegisterOptions from "./components/LandingComponents/HeaderRegister
 const Landing = () => {
 
   useEffect(() => {
+
     const originalStyles = {
       fontFamily: document.body.style.fontFamily,
       margin: document.body.style.margin,
@@ -102,6 +105,7 @@ const Landing = () => {
   };
 
   const openLogin = () => {
+    setIsHovered(false)
     setIsLoginOpen(true);
   };
 
@@ -110,6 +114,7 @@ const Landing = () => {
   };
 
 
+  const [isHovered, setIsHovered] = useState(false);
 
 
   return (
@@ -142,8 +147,18 @@ const Landing = () => {
 
         {/* className="header-btns" */}
         <div className="header-btns">
-          <button class="btn-login" onClick={openLogin}>
-            <CiLock size={24} />
+          <button
+            className="btn-login"
+            onClick={openLogin} // Reset hover state when clicked
+            onMouseEnter={() => setIsHovered(true)} // Set hover state to true when mouse enters
+            onMouseLeave={() => setIsHovered(false)} // Set hover state to false when mouse leaves
+          >
+            <motion.div
+              animate={isHovered ? { rotate: [0, -10, 10, -10, 0] } : { rotate: 0 }}
+              transition={{ duration: 0.5, ease: "easeInOut" }}
+            >
+              <CiLock size={24} />
+            </motion.div>
             Login
           </button>
           <button class="btn-signup" onClick={openRegister}>
@@ -152,7 +167,6 @@ const Landing = () => {
         </div>
 
       </header>
-
 
 
 
@@ -170,7 +184,7 @@ const Landing = () => {
         >
           {/* home section */}
           <section class="home-section" id="home">
-            <Home />
+            <Home onOpenLaunch={openRegister} />
           </section>
 
           {/* introstate, without section, the reason is, each section has same padding */}
@@ -189,6 +203,8 @@ const Landing = () => {
           <h1 className="heading">Learn how it works?</h1>
           <HowItWorks />
         </section>
+
+
 
         {/* system forever */}
         <section className="system-section" id="system">
@@ -228,7 +244,7 @@ const Landing = () => {
 
         {/* banner section */}
         <section className="banner-section" id="banner">
-          <Banner />
+          <Banner openSignup={openRegister} />
         </section>
 
 

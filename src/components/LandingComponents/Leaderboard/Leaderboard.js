@@ -28,11 +28,16 @@ function Leaderboard() {
     }, []); // Empty dependency array ensures this runs only once
 
     if (loading) {
-        return <div>Loading...</div>;
+        return (
+            <div className="leaderboard-loading">
+                <div className="spinner"></div>
+                <p>Loading leaderboard data...</p>
+            </div>
+        );
     }
 
     if (error) {
-        return <div>{error}</div>;
+        return <div className="leaderboard-error">{error}</div>;
     }
 
     return (
@@ -54,7 +59,7 @@ function Leaderboard() {
                 <tbody>
                     {leaderboardData.length > 0 ? (
                         leaderboardData.slice(0, 7).map((item, index) => (
-                            <tr key={index}>
+                            <tr key={index} className={`leaderboard-row rank-${index + 1}`}>
                                 <td>{index + 1}</td>
                                 <td>{item.firstName}</td>
                                 <td>₹{item.totalEarnings}</td>

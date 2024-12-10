@@ -1,5 +1,5 @@
 .feedback-main {
-    font-family: 'Public Sans', sans-serif;
+      font-family:'Poppins', 'Nunito Sans', sans-serif;
     color: white;
     /* display: flex;
     flex-direction: column;
@@ -23,6 +23,8 @@
 
 .feedback-container {
     margin-top: 2.5rem;
+    align-items: stretch; /* Ensure all items stretch to the max height */
+
     /* Changed from 40px to 2.5rem */
 }
 
@@ -42,8 +44,14 @@
     border-radius: 1.875rem;
     /* Changed from 30px to 1.875rem */
     box-sizing: border-box;
-}
+    flex: 1; /* Makes all items the same height */
 
+}
+.slider-container .slick-slide {
+    display: flex; /* Ensure each slide itself is a flex container */
+    height: auto; /* Allow automatic height adjustment */
+    align-items: stretch; /* Stretch all feedback items to the same height */
+}
 .feedback-itp-wrapper {
     display: flex;
     flex-direction: row;
@@ -76,7 +84,7 @@
 }
 
 .feedback-title {
-    font-family: 'Poppins', sans-serif;
+    font-family: 'Popins',"Nunito Sans", sans-serif;
     font-weight: 600;
     font-size: 1.25rem;
     line-height: 2rem;
@@ -84,7 +92,7 @@
 }
 
 .feedback-position {
-    font-family: 'Inter', sans-serif;
+    font-family: 'Popins',"Nunito Sans", sans-serif;
     font-weight: 500;
     font-size: 1rem;
     line-height: 1.25rem;
@@ -102,7 +110,7 @@
 }
 
 .feedback-description {
-    font-family: 'Inter', sans-serif;
+    font-family: 'Popins',"Nunito Sans", sans-serif;
     font-weight: 400;
     font-size: 1.25rem;
     line-height: 2rem;

@@ -1,16 +1,17 @@
-import React from 'react'
-import './System.css'
-import playIcon from "./playIcon.png"
+import React from 'react';
+import { motion } from 'framer-motion';
+import './System.css';
+import playIcon from "./playIcon.png";
 
 function System() {
     const systemData = [
         {
             videoId: "qSne6OD6EcE",
-            name: "describing about our system"
+            name: "Describing about our system"
         },
         {
             videoId: "OGXtEdfsnNA",
-            name: "describing about our system"
+            name: "Describing about our system"
         },
     ];
 
@@ -21,25 +22,26 @@ function System() {
             </p>
             <div className='system-items'>
                 {systemData.map((item, i) => (
-                    <div key={i} className='system-item-wrapper'>
+                    <motion.div
+                        key={i}
+                        className='system-item-wrapper'
+                        whileInView={{ opacity: 1, scale: 1 }}
+                        initial={{ opacity: 0, scale: 0.9 }}
+                        transition={{ duration: 0.5, ease: "easeOut" }}
+                        viewport={{ once: true, amount: 0.5 }} // Animates when 50% of the item is in the viewport
+                    >
                         <iframe
                             className="system-video"
-                            // src={`https://www.youtube.com/embed/${item.videoId}`}
-                            // src={`https://www.youtube.com/embed/${item.videoId}?controls=0&modestbranding=1&rel=0&disablekb=1&fs=0&showinfo=0&autohide=1`}
                             src={`https://www.youtube.com/embed/${item.videoId}?controls=0&modestbranding=1&rel=0&disablekb=1&fs=0&iv_load_policy=3&cc_load_policy=0&showinfo=0`}
                             frameBorder="0"
                             allow="autoplay; encrypted-media"
                             allowFullScreen={false}
-
                         ></iframe>
-                        {/* <div className="play-icon-overlay">
-                            <img src={playIcon} alt="Play Icon" className="play-icon" />
-                        </div> */}
-                    </div>
+                    </motion.div>
                 ))}
             </div>
         </div>
-    )
+    );
 }
 
-export default System
+export default System;

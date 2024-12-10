@@ -24,7 +24,8 @@
 .containe input{
     background-color: #060606;
     padding: 0.7rem 1rem;
-    font-family: "DM Sans", sans-serif;
+      font-family:'Poppins', 'Nunito Sans', sans-serif;
+
     border-radius: 5px;
     font-size: 14px;
     font-weight: 500;

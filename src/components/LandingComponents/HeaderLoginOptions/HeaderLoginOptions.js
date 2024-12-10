@@ -1,13 +1,26 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import "./HeaderLoginOptions.css"
+import { motion } from "framer-motion";
+import "./HeaderLoginOptions.css";
 
 const HeaderLoginOptions = ({ isLoginOpen, closeLogin }) => {
-  if (!isLoginOpen) return null;
+  if (!isLoginOpen) {
+    return null;
+  }
 
   return (
-    <div className="popup-overlay">
-      <div className="landregister">
+    <motion.div
+      className="popup-overlay"
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      transition={{ duration: 0.3 }}
+    >
+      <motion.div
+        className="landregister"
+        initial={{ scale: 0.7, opacity: 0 }}
+        animate={{ scale: 1, opacity: 1 }}
+        transition={{ duration: 0.5, type: "spring", stiffness: 100 }}
+      >
         <button className="popup-close" onClick={closeLogin}>
           &times;
         </button>
@@ -15,22 +28,53 @@ const HeaderLoginOptions = ({ isLoginOpen, closeLogin }) => {
           <h2>Log in</h2>
           <div className="landlog">
             <Link to="/student?action=login" className="st">
-              <img src="/student.png" alt="" height={80} width={80} /> Student
+              <motion.img
+                src="/student.png"
+                alt=""
+                height={80}
+                width={80}
+                whileHover={{ scale: 1.1, rotate: 5 }}
+                transition={{ type: "spring", stiffness: 200 }}
+              />{" "}
+              Student
             </Link>
             <Link className="tml" to="/teamleader?action=login">
-              <img src="/leader.png" alt="" height={80} width={80} /> Team Leader
+              <motion.img
+                src="/leader.png"
+                alt=""
+                height={80}
+                width={80}
+                whileHover={{ scale: 1.1, rotate: 5 }}
+                transition={{ type: "spring", stiffness: 200 }}
+              />{" "}
+              Team Leader
             </Link>
-            
             <Link to="/trainer?action=login" className="tra">
-              <img src="/trainer.png" alt="" height={80} width={80} /> Trainer
+              <motion.img
+                src="/trainer.png"
+                alt=""
+                height={80}
+                width={80}
+                whileHover={{ scale: 1.1, rotate: 5 }}
+                transition={{ type: "spring", stiffness: 200 }}
+              />{" "}
+              Trainer
             </Link>
             <Link to="/teammember?action=register" className="tml">
-              <img src="/member.png" alt="" height={80} width={80} /> Team Member
+              <motion.img
+                src="/member.png"
+                alt=""
+                height={80}
+                width={80}
+                whileHover={{ scale: 1.1, rotate: 5 }}
+                transition={{ type: "spring", stiffness: 200 }}
+              />{" "}
+              Team Member
             </Link>
           </div>
         </div>
-      </div>
-    </div>
+      </motion.div>
+    </motion.div>
   );
 };
 

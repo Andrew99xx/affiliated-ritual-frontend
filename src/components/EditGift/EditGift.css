@@ -49,7 +49,8 @@
     width: 200px;
     font-size: 25px;
     font-weight: 500;
-    font-family: "DM Sans", sans-serif;
+      font-family:'Poppins', 'Nunito Sans', sans-serif;
+
 
 
 }
@@ -71,7 +72,8 @@
     padding: 1rem;
     color: black;
     font-weight: 700;
-    font-family: "DM Sans", sans-serif;
+      font-family:'Poppins', 'Nunito Sans', sans-serif;
+
     font-size: 15px;
     text-decoration: none;
     margin: 1rem 0;
@@ -107,7 +109,8 @@
   background-color: #000000;
   padding: 1.2rem .7rem 1.2rem .7rem;
   /* width: 230px; */
-  font-family: "DM Sans", sans-serif;
+    font-family:'Poppins', 'Nunito Sans', sans-serif;
+
   border-radius: 5px;
   font-size: 14px;
   font-weight: 500;

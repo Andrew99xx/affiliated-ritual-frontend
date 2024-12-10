@@ -1,173 +1,207 @@
-.Register .container {
-    background: linear-gradient(180deg, #000000 0%, #000000 100%);
-    max-height: 80vh;
-    max-width: 531px;
-    overflow: auto;
-    border-radius: 10px;
-}
+/* General Styling */
 
-.Register {
+  *,
+  *::before,
+  *::after {
+    box-sizing: inherit;
+  }
+  
+  .Register-trainer {
     display: flex;
     justify-content: center;
-    flex-direction: column;
     align-items: center;
-    background: url("./banner.png");
-    height: 100vh;
-    background-repeat: no-repeat;
+    background: url("./banner.png") center center no-repeat;
     background-size: cover;
-    background-position: center center;
+    height: 100vh;
+  }
+  
+  .Register-trainer .container-trainer {
+    display: flex;
+    align-items: stretch;
+    background: #000;
+    border-radius: 12px;
+    box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.3);
     overflow: hidden;
-
-}
-
-.Register .logo {
-    color: #E4C748;
-    font-family: "Poppins", sans-serif;
-    text-align: center;
-    margin: 0 0 15px 0;
-    font-size: 30px;
-    font-weight: 700;
-    text-transform: uppercase;
-    line-height: 56px;
-}
-
-.Register .container .heading {
-    font-size: 36px;
+    max-width: 900px;
+    width: 100%;
+    height: 85vh;
+    position: relative;
+    padding: 1rem;
+    gap: 1rem !important; /* Add gap to prevent overlapping */
+  }
+  
+  /* Left Image Styling */
+  .left-image-trainer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40% !important;
+    background: #111;
+  }
+  
+  .static-image-trainer {
+    width: 100% !important;
+    height: auto !important;
+    border-radius: 0 12px 12px 0 !important;
+    object-fit: cover !important;
+  }
+  
+  /* Form Section Styling */
+  .form-section {
+    width: 60% !important;
+    padding: 2rem 1.5rem !important;
+    overflow-y: auto;
+  }
+  
+  .logo-trainer img {
+    display: block;
+    margin: 0 auto 1rem;
+    width: 150px !important;
+    height: auto;
+  }
+  
+  .heading-trainer {
+    font-size: 2rem !important;
     color: #fff;
-    font-family: "DM Sans", sans-serif;
-    text-align: center;
     font-weight: 700;
-    margin: 0 0 10px 0;
-
-}
-
-.Register .container {
-    padding: 2rem 4rem;
-}
-
-.Register .container .subheading {
     text-align: center;
-    font-family: "DM Sans", sans-serif;
-    font-weight: 400;
-    color: #8190BF;
-    margin: 0 0 3rem 0;
-    font-size: 16px;
-    font-weight: 400;
-    line-height: 16px;
-}
-
-
-.Register .formcontainer {
+    margin-bottom: 1rem !important;
+  }
+  
+  .formcontainer {
+    overflow-x: hidden !important; 
     display: flex;
     flex-direction: column;
-}
-
-.Register .btn {
-    background: linear-gradient(91.94deg, #B17E32 -8.77%, #F3E681 58.63%, #CF9F41 107.45%);
-    width: 410px;
-    text-align: center;
-    padding: 1rem;
-    color: black;
-    font-weight: 700;
-    font-family: "DM Sans", sans-serif;
-    font-size: 18px;
-    text-decoration: none;
-    margin: 2rem 0;
-
-
-}
-
-.Register .btn:hover {
-    cursor: pointer;
-
-}
-
-.Register .formcontainer p {
-    font-weight: 500;
-    font-family: "DM Sans", sans-serif;
-    color: #fff;
-}
-
-.Register .formcontainer h3 {
-    font-weight: 500;
-    font-family: "DM Sans", sans-serif;
-    color: #fff;
-    margin-bottom: 0;
-}
-
-.Register .formcontainer sup {
-    font-size: 15px;
-    color: #EF0000;
-}
-
-.Register .formcontainer input {
-    padding: 1rem 1.2rem;
-    background-color: #000000;
-    border: 1px solid #FFFFFF4D;
-    border-radius: 5px;
-    color: #8190BF;
-    outline: none;
-    font-size: 16px;
-}
-
-.Register .flex {
-    display: flex;
-}
-
-.Register .formcontainer input::placeholder {
-    color: #8190BF;
-}
-
-.Register .credit {
-    color: white;
-    font-weight: 500;
-    font-family: "DM Sans", sans-serif;
-}
-
-.Inputbox {
-    display: flex;
-    justify-content: space-between;
-}
-
-.Register .container .info {
-    display: flex;
-    justify-content: space-between;
-    padding: 1rem 0;
-}
-
-.Register input[type='checkbox'] {
-    accent-color: #E9D21E;
-    width: 20px;
-    height: 18px;
-    margin: 0 10px 0 0;
-}
-
-
-.alr {
-    align-items: center;
-    text-align: center;
-    color: white;
-    font-size: 16px;
-}
-
-.alr span {
-    color: #E4C748;
-    cursor: pointer;
-}
-
-.Register .selectExperience {
-    background-color: #000000;
-    padding: 1.2rem .7rem 1.2rem .7rem;
-    width: 230px;
-    font-family: "DM Sans", sans-serif;
-    border-radius: 5px;
-    font-size: 14px;
-    font-weight: 500;
-    outline: none;
-    color: #BCBCBC;
-    border: 1px solid #3a3a3a;
-    color: #fff;
-    font-size: 16px;
-    color-scheme: dark;
-
-}
+    gap: 1rem !important;
+    width: 100% !important;
+    max-width: 100% !important;
+  }
+  
+  /* Form Field Styling */
+  .formcontainer input,
+  .selectExperience {
+    max-width: 100% !important; /* Ensures it does not exceed the parent width */
+  width: 100% !important; /* Takes the full width of the parent */
+  box-sizing: border-box !important; /* Ensures padding is included within the width */
+  padding: 1rem !important; /* Matches input padding */
+  background-color: #000 !important; /* Matches other input fields */
+  border: 1px solid #555 !important;
+  border-radius: 4px !important;
+  color: #ddd !important;
+  font-size: 1rem !important;
+  }
+  
+  .formcontainer input::placeholder,
+  .selectExperience {
+    color: #999 !important;
+  }
+  
+  .formcontainer sup {
+    color: #ef0000 !important;
+    font-size: 0.9em !important;
+  }
+  
+  /* Button Styling */
+  .btn {
+    background: linear-gradient(91.94deg, #b17e32 -8.77%, #f3e681 58.63%, #cf9f41 107.45%) !important;
+    width: auto !important;
+    padding: 1rem !important;
+    color: black !important;
+    font-weight: 700 !important;
+    border: none !important;
+    border-radius: 8px !important;
+    font-size: 1.1rem !important;
+    cursor: pointer !important;
+    transition: all 0.3s ease !important;
+    text-align: center !important;
+    max-width: 100% !important;
+  }
+  
+  .btn:hover {
+    background: linear-gradient(91.94deg, #f3e681 -8.77%, #b17e32 58.63%, #cf9f41 107.45%) !important;
+    color: #000 !important;
+  }
+  
+  .alr {
+    text-align: center !important;
+    color: #eee !important;
+    font-size: 0.9rem !important;
+    margin-top: 1rem !important;
+  }
+  
+  .alr span {
+    color: #e4c748 !important;
+    cursor: pointer !important;
+  }
+  
+  /* Responsive Design */
+  @media (max-width: 768px) {
+    .Register-trainer .container-trainer {
+      flex-direction: column !important;
+      width: 95% !important;
+      height: auto !important;
+      max-height: 90vh !important;
+      padding: 1rem !important;
+      gap: 0 !important;
+    }
+  
+    .left-image-trainer {
+      display: none !important;
+    }
+  
+    .form-section {
+      width: 100% !important;
+      padding: 1rem !important;
+    }
+  
+    .heading-trainer {
+      font-size: 1.8rem !important;
+    }
+  
+    .formcontainer input,
+    .selectExperience {
+      padding: 0.6rem !important;
+      font-size: 0.9rem !important;
+      width: 100% !important;
+    }
+  
+    .btn {
+      padding: 0.7rem !important;
+      font-size: 1rem !important;
+      width: 100% !important;
+    }
+  
+    .alr {
+      font-size: 0.85rem !important;
+    }
+  }
+  
+  /* Extra Small Devices */
+  @media (max-width: 480px) {
+    .heading-trainer {
+      font-size: 1.5rem !important;
+    }
+  
+    .form-section {
+      overflow-y: auto !important;
+      scrollbar-width: none !important; /* Firefox */
+    }
+  
+    .form-section::-webkit-scrollbar {
+      display: none !important; /* Chrome, Safari */
+    }
+  
+    .formcontainer input,
+    .selectExperience {
+      padding: 0.5rem !important;
+      font-size: 0.8rem !important;
+      width: 100% !important;
+    }
+  
+    .btn {
+      padding: 0.6rem !important;
+      font-size: 0.9rem !important;
+      width: 100% !important;
+    }
+  }
+  

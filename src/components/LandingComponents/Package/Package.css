@@ -51,7 +51,8 @@
 }
 
 .package-title {
-    font-family: 'Public Sans';
+      font-family:'Poppins', 'Nunito Sans', sans-serif;
+;
     font-weight: 500;
     font-size: 1.75rem; 
     line-height: 2.25rem; 
@@ -64,7 +65,8 @@
 }
 
 .package-details {
-    font-family: 'Public Sans';
+      font-family:'Poppins', 'Nunito Sans', sans-serif;
+;
     font-weight: 400;
     font-size: 1.5rem; 
     line-height: 2.25rem; 
@@ -79,7 +81,8 @@
 
 .package-details li {
     padding-left: 0.4375rem; /* 7px */
-    font-family: 'Public Sans';
+      font-family:'Poppins', 'Nunito Sans', sans-serif;
+;
     font-weight: 400;
     font-size: 1rem; /* 16px */
     line-height: 2.125rem; /* 34px */
@@ -106,7 +109,8 @@
 
 .package-points li {
     padding-left: 0.4375rem; /* 7px */
-    font-family: 'Public Sans';
+      font-family:'Poppins', 'Nunito Sans', sans-serif;
+;
     font-weight: 400;
     font-size: 1.25rem; /* 16px */
     line-height: 2.125rem; /* 34px */
@@ -128,7 +132,8 @@
 }
 
 .package-price {
-    font-family: 'Public Sans';
+      font-family:'Poppins', 'Nunito Sans', sans-serif;
+;
     font-weight: 600;
     font-size: 1.75rem; 
     line-height: 2.5rem; 
@@ -137,7 +142,8 @@
 }
 
 .package-price-cross {
-    font-family: 'Public Sans';
+      font-family:'Poppins', 'Nunito Sans', sans-serif;
+;
     font-weight: 600;
     font-size: 1.5rem; 
     line-height: 2.5rem; 
