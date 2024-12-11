@@ -208,7 +208,7 @@ const Landing = () => {
 
         {/* system forever */}
         <section className="system-section" id="system">
-          <h1 className="heading">This Will Change The Sytem Forever!</h1>
+          <h1 className="heading">This Will Change The System Forever!</h1>
           <System />
         </section>
 
