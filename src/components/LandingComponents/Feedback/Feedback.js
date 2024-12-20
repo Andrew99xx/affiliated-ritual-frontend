@@ -50,8 +50,7 @@ function Feedback() {
         infinite: true,
         speed: 500,
         autoplay: true, // Enables automatic sliding
-
-        slidesToShow: 4,
+        slidesToShow: 3,
         slidesToScroll: 1,
         centerMode: true,
         responsive: [

@@ -36,7 +36,7 @@ function Home({ onOpenLaunch }) {
             <div className='home-img-svg-wrapper'>
                 <div className='home-img-wrapper'>
                     {/* Framer Motion Animation Here */}
-                    <motion.img
+                    {/* <motion.img
                         src={newBanner}
                         alt='home-img'
                         className='home-img'
@@ -44,6 +44,15 @@ function Home({ onOpenLaunch }) {
                         whileInView={{ opacity: 1, y: 0 }}
                         transition={{ duration: 1.5, ease: "easeOut" }}
                         viewport={{ once: false, amount: 0.3 }}
+                    /> */}
+                    <img
+                        src={newBanner}
+                        alt='home-img'
+                        className='home-img'
+                        // initial={{ opacity: 0, y: 50 }}
+                        // whileInView={{ opacity: 1, y: 0 }}
+                        // transition={{ duration: 1.5, ease: "easeOut" }}
+                        // viewport={{ once: false, amount: 0.3 }}
                     />
                     {/* <motion.div
                         className='home-top-card'

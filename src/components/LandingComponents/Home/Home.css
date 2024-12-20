@@ -11,7 +11,7 @@
     flex-wrap: wrap;
     gap: 2rem;
     overflow: hidden;
-    animation: floatAnimation 6s ease-in-out infinite;
+    /* animation: floatAnimation 6s ease-in-out infinite; */
 
     /* background-color: aqua; */
 }
@@ -35,6 +35,7 @@
     flex-direction: column;
     gap: 2rem;
     min-width: 40%;
+    animation: floatAnimation 6s ease-in-out infinite;
 }
 
 .home-heading {

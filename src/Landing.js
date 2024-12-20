@@ -157,7 +157,8 @@ const Landing = () => {
               animate={isHovered ? { rotate: [0, -10, 10, -10, 0] } : { rotate: 0 }}
               transition={{ duration: 0.5, ease: "easeInOut" }}
             >
-              <CiLock size={24} />
+              {/* removing lock icon - a/q to sheets */}
+              {/* <CiLock size={24} /> */}
             </motion.div>
             Login
           </button>
