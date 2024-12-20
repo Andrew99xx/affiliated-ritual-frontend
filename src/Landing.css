@@ -275,7 +275,7 @@
 
 /* system section */
 .system-section {
-  background-color: #252524;
+  background-color: black;
   color: white;
     font-family:'Poppins', 'Nunito Sans';
   display: flex;
