@@ -12,15 +12,15 @@
     margin-top: 0ch !important;
     padding-top: 0ch !important;
     font-weight: 400;
-    font-size: 1.25rem;
-    line-height: 2rem;
+    font-size: 1.5rem;
+    line-height: 1.5;
     text-align: center;
     color: white;
 }
 
 .media-items {
     display: grid;
-    gap: 1.25rem;
+    gap: 1.5rem;
     justify-content: center;
 }
 
@@ -28,7 +28,7 @@
     padding-right: 1rem;
     padding-left: 1rem;
     display: flex;
-    flex-wrap: wrap;
+    flex-wrap: nowrap;
     flex-direction: row;
     justify-content: center;
     align-items: center;
@@ -62,6 +62,7 @@
     /* 30px */
     text-align: center;
     color: white;
+    text-wrap: wrap;
 }
 
 @media (min-width: 400px) {

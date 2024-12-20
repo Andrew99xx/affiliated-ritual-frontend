@@ -4,6 +4,7 @@ import { motion } from 'framer-motion';
 import "./Home.css";
 import image from './image.webp';
 import jackpot from "./jackpot.png";
+import newBanner from "./newBanner.png";
 
 function Home({ onOpenLaunch }) {
     const navigate = useNavigate();
@@ -35,16 +36,25 @@ function Home({ onOpenLaunch }) {
             <div className='home-img-svg-wrapper'>
                 <div className='home-img-wrapper'>
                     {/* Framer Motion Animation Here */}
-                    <motion.img
-                        src={image}
+                    {/* <motion.img
+                        src={newBanner}
                         alt='home-img'
                         className='home-img'
                         initial={{ opacity: 0, y: 50 }}
                         whileInView={{ opacity: 1, y: 0 }}
                         transition={{ duration: 1.5, ease: "easeOut" }}
                         viewport={{ once: false, amount: 0.3 }}
+                    /> */}
+                    <img
+                        src={newBanner}
+                        alt='home-img'
+                        className='home-img'
+                        // initial={{ opacity: 0, y: 50 }}
+                        // whileInView={{ opacity: 1, y: 0 }}
+                        // transition={{ duration: 1.5, ease: "easeOut" }}
+                        // viewport={{ once: false, amount: 0.3 }}
                     />
-                    <motion.div
+                    {/* <motion.div
                         className='home-top-card'
                         initial={{ opacity: 0, scale: 0.8 }}
                         whileInView={{ opacity: 1, scale: 1 }}
@@ -52,8 +62,8 @@ function Home({ onOpenLaunch }) {
                         viewport={{ once: false, amount: 0.3 }}
                     >
                         Work From Home <br /> 100%
-                    </motion.div>
-                    <motion.div
+                    </motion.div> */}
+                    {/* <motion.div
                         className='home-left-card'
                         initial={{ x: -100, opacity: 0 }}
                         whileInView={{ x: 0, opacity: 1 }}
@@ -70,7 +80,7 @@ function Home({ onOpenLaunch }) {
                                 alt={"Jackpot"}
                             />
                         </div>
-                    </motion.div>
+                    </motion.div> */}
                 </div>
             </div>
         </div>
