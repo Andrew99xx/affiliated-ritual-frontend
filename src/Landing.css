@@ -109,12 +109,11 @@
   position: relative;
   margin: 0 1rem;
   font-family: 'Poppins', 'Nunito Sans', sans-serif;
-  font-size: 1.5rem;
+  font-size: 1.75rem;
   font-weight: 500;
   line-height: 1.1875rem;
   text-decoration: none;
   color: #fff;
-  text-transform: uppercase;
   text-wrap: nowrap;
   transition: all 0.3s ease;
   background: none; /* Remove any previous background */
@@ -141,6 +140,16 @@
 
 .header .navbar a:hover::after {
   width: 100%; /* Expand the underline to full width */
+}
+
+.header .navbar .active-link {
+  color: #ffd700;
+  background: none;
+  transform: none;
+}
+
+.header .navbar .active-link::after {
+  width: 0; /* Remove underline for active links */
 }
 
 
@@ -275,7 +284,7 @@
 
 /* system section */
 .system-section {
-  background-color: #252524;
+  background-color: black;
   color: white;
     font-family:'Poppins', 'Nunito Sans';
   display: flex;

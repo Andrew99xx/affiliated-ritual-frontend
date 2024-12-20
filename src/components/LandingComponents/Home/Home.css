@@ -11,15 +11,18 @@
     flex-wrap: wrap;
     gap: 2rem;
     overflow: hidden;
-    animation: floatAnimation 6s ease-in-out infinite;
+    /* animation: floatAnimation 6s ease-in-out infinite; */
 
     /* background-color: aqua; */
 }
 
 @keyframes floatAnimation {
-    0%, 100% {
+
+    0%,
+    100% {
         transform: translateY(0);
     }
+
     50% {
         transform: translateY(-10px);
     }
@@ -32,15 +35,16 @@
     flex-direction: column;
     gap: 2rem;
     min-width: 40%;
+    animation: floatAnimation 6s ease-in-out infinite;
 }
 
 .home-heading {
-      font-family:'Poppins', 'Nunito Sans', sans-serif;
-;
+    font-family: 'Poppins', 'Nunito Sans', sans-serif;
     font-weight: 600;
     font-size: 2rem;
     line-height: 2rem;
-    color: #FFC27A;
+    /* color: #FFC27A; */
+    color: #C49429;
 }
 
 .home-hook {
@@ -62,29 +66,35 @@
     position: absolute;
     left: 50%;
     bottom: -0.1875rem;
-    width: 0%; /* Start with 0% width to hide the underline */
-    height: 1rem; /* Height to give the feel of a thick brush stroke */
+    width: 0%;
+    /* Start with 0% width to hide the underline */
+    height: 1rem;
+    /* Height to give the feel of a thick brush stroke */
     background: url('data:image/svg+xml,%3Csvg%20width%3D%22111%22%20height%3D%2212%22%20viewBox%3D%220%200%20111%2012%22%20fill%3D%22none%22%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%3E%3Cpath%20d%3D%22M2.35137%205.06247C20.2539%201.99745%2066.621%20-1.44742%20108.868%209.29324%22%20stroke%3D%22%23FFC27A%22%20stroke-width%3D%224%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22/%3E%3C/svg%3E');
     background-repeat: no-repeat;
     background-size: cover;
     transform: translateX(-50%);
-    animation: underlineReveal 1s ease-out forwards; /* Trigger animation */
-    animation-delay: 0.5s; /* Optional delay for better timing */
+    animation: underlineReveal 1s ease-out forwards;
+    /* Trigger animation */
+    animation-delay: 0.5s;
+    /* Optional delay for better timing */
 }
 
 @keyframes underlineReveal {
     0% {
         width: 0%;
     }
+
     100% {
-        width: 110%; /* Grow to full width */
+        width: 110%;
+        /* Grow to full width */
     }
 }
 
 
 .home-tag {
-      font-family:'Poppins', 'Nunito Sans', sans-serif;
-;
+    font-family: 'Poppins', 'Nunito Sans', sans-serif;
+    ;
     font-weight: 400;
     font-size: 1.5rem;
     line-height: 1.75rem;
@@ -153,7 +163,7 @@
 
 .home-img {
     /* background-color: aliceblue; */
-    background-image: url('./yellow_background.webp');
+    /* background-image: url('./yellow_background.webp'); */
     /* background-size: 31.2681rem; */
     background-size: 100%;
     background-position: top;
@@ -183,8 +193,8 @@
     border-radius: 0.625rem;
     /* 10px / 16 */
     border-color: #B2BBCC;
-      font-family:'Poppins', 'Nunito Sans', sans-serif;
-;
+    font-family: 'Poppins', 'Nunito Sans', sans-serif;
+    ;
     font-weight: 600;
     font-size: 1.25rem;
     line-height: 2rem;
@@ -206,8 +216,8 @@
     border-width: 0.0625rem;
     border-radius: 0.625rem;
     border-color: #B2BBCC;
-      font-family:'Poppins', 'Nunito Sans', sans-serif;
-;
+    font-family: 'Poppins', 'Nunito Sans', sans-serif;
+    ;
     font-weight: 600;
     font-size: 1rem;
     line-height: 2rem;
@@ -264,7 +274,7 @@
         padding-top: 4rem;
         height: fit-content !important;
         padding-bottom: 0ch !important;
-       
+
     }
 
     .home-img-svg-wrapper {

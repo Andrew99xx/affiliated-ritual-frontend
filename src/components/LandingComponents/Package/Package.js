@@ -46,14 +46,14 @@ function Package() {
                             src={item.packageImage || english} // Use a placeholder if image is not available
                             alt={item.packageTitle}
                         />
-                        
+
                         <div className='package-title'>{item.packageTitle}</div>
 
                         <div className='package-details'>
                             {item.packageDetails.map((detail, index) => (
                                 <li key={index}>
                                     <span className='package-dots'></span>
-                                    {detail}
+                                    <span> {detail}</span>
                                 </li>
                             ))}
                         </div>
