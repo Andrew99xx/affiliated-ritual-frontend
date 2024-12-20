@@ -109,12 +109,11 @@
   position: relative;
   margin: 0 1rem;
   font-family: 'Poppins', 'Nunito Sans', sans-serif;
-  font-size: 1.5rem;
+  font-size: 1.75rem;
   font-weight: 500;
   line-height: 1.1875rem;
   text-decoration: none;
   color: #fff;
-  text-transform: uppercase;
   text-wrap: nowrap;
   transition: all 0.3s ease;
   background: none; /* Remove any previous background */
