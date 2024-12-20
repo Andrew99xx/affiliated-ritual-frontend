@@ -46,3 +46,4 @@ build/Release
 .DS_Store
 *.swp
 build
+.vercel
