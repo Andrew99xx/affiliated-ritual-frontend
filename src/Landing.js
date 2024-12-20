@@ -29,9 +29,9 @@ import HeaderLoginOptions from "./components/LandingComponents/HeaderLoginOption
 import HeaderRegisterOptions from "./components/LandingComponents/HeaderRegisterOptions/HeaderRegisterOptions.js"
 import Header from "./components/Header/Header.jsx";
 
-// import Features from "./components/LandingComponents/Features/Features";
-// import Services from "./components/LandingComponents/Services/Services";
-// import Courses from "./components/LandingComponents/Courses/Courses";
+import Features from "./components/LandingComponents/Features/Features";
+import Services from "./components/LandingComponents/Services/Services";
+import Courses from "./components/LandingComponents/Courses/Courses";
 
 
 const Landing = () => {
@@ -91,6 +91,8 @@ const Landing = () => {
   const [isNavbarVisible, setIsNavbarVisible] = useState(false);
   const [isRegisterOpen, setIsRegisterOpen] = useState(false);
   const [isLoginOpen, setIsLoginOpen] = useState(false);
+  const [activeHash, setActiveHash] = useState(window.location.hash || "#home");
+  const [isHovered, setIsHovered] = useState(false);
 
   const toggleNavbar = () => {
     setIsNavbarVisible(!isNavbarVisible);
@@ -113,8 +115,22 @@ const Landing = () => {
     setIsLoginOpen(false);
   };
 
+  // Update `activeHash` when URL fragment changes
+  useEffect(() => {
+    const handleHashChange = () => {
+      setActiveHash(window.location.hash || "#home");
+    };
 
-  const [isHovered, setIsHovered] = useState(false);
+    // Listen for hash changes
+    window.addEventListener("hashchange", handleHashChange);
+
+    // Cleanup event listener
+    return () => {
+      window.removeEventListener("hashchange", handleHashChange);
+    };
+  }, []);
+
+
 
 
   return (
@@ -134,15 +150,32 @@ const Landing = () => {
           ☰
         </div>
 
-        <a href="#" class="header-logo">
+        <a href="#home" class="header-logo">
           <img width={200} src={logo} />
         </a>
 
         <nav className={`navbar ${isNavbarVisible ? "active" : ""}`}>
-          <a href="#home">Home</a>
-          <a href="#product">Product</a>
-          <a href="#contact">Contact Us</a>
-          <a href="#leaderboard">Leaderboard</a>
+          <a
+            className={activeHash === "#home" ? "active-link" : ""}
+            href="#home">
+            Home
+          </a>
+          <a
+            className={activeHash === "#product" ? "active-link" : ""}
+            href="#product">
+            Product
+          </a>
+          <a
+            className={activeHash === "#contact" ? "active-link" : ""}
+            href="#contact">
+            Contact Us
+          </a>
+          <a
+            className={activeHash === "#leaderboard" ? "active-link" : ""}
+            href="#leaderboard"
+          >
+            Leaderboard
+          </a>
         </nav>
 
         {/* className="header-btns" */}
@@ -275,7 +308,7 @@ const Landing = () => {
 
         {/* <section id="Courses">
           <Courses />
-        </section> * */}
+        </section>  */}
 
         {/* 
         <section id="services">
