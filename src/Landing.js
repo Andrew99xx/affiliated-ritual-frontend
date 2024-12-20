@@ -140,9 +140,9 @@ const Landing = () => {
 
         <nav className={`navbar ${isNavbarVisible ? "active" : ""}`}>
           <a href="#home">Home</a>
-          <a href="#package">Product</a>
-          <a href="#contact_section">Contact Us</a>
-          <a href="#leaderboard_section">Leaderboard</a>
+          <a href="#product">Product</a>
+          <a href="#contact">Contact Us</a>
+          <a href="#leaderboard">Leaderboard</a>
         </nav>
 
         {/* className="header-btns" */}
@@ -214,7 +214,7 @@ const Landing = () => {
         </section>
 
         {/* packages */}
-        <section className="package-section" id="package">
+        <section className="package-section" id="product">
           <h1 className="heading">Our Exclusive Packages</h1>
           <Package />
         </section>
@@ -268,7 +268,7 @@ const Landing = () => {
         </section>
 
         {/* leaderboard section */}
-        <section className="leaderboard-section" id="leaderboard_section">
+        <section className="leaderboard-section" id="leaderboard">
           <h1 className="heading">Leaderboard</h1>
           <Leaderboard />
         </section>
