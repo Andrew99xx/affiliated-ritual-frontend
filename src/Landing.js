@@ -29,9 +29,7 @@ import HeaderLoginOptions from "./components/LandingComponents/HeaderLoginOption
 import HeaderRegisterOptions from "./components/LandingComponents/HeaderRegisterOptions/HeaderRegisterOptions.js"
 import Header from "./components/Header/Header.jsx";
 
-import Features from "./components/LandingComponents/Features/Features";
-import Services from "./components/LandingComponents/Services/Services";
-import Courses from "./components/LandingComponents/Courses/Courses";
+
 
 
 const Landing = () => {

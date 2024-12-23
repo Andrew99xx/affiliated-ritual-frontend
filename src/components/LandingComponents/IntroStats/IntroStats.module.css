@@ -1,4 +1,4 @@
-.introStats-container {
+.container {
     box-sizing: border-box;
     height: 20vh;
     background-color: black;
@@ -15,81 +15,64 @@
     padding-bottom: 4rem;
 }
 
-.introStats-item {
+.item {
     flex: 1;
     display: flex;
     align-items: center;
     gap: 1rem;
-    /* 12px / 16 */
 }
 
-.introStats-icon {
-    /* background-color: #BD9141; */
+.icon {
     background: linear-gradient(91.94deg, #B17E32 -8.77%, #F3E681 58.63%, #CF9F41 107.45%);
     display: flex;
     justify-content: center;
     align-items: center;
     padding: 1.25rem;
-    /* 20px / 16 */
     border-radius: 100%;
 }
 
-.introStats-img {
+.img {
     height: 2rem;
-    /* 31px / 16 */
     width: 2rem;
-    /* color: black; */
-    /* background-color: black; */
-    /* 31px / 16 */
 }
 
-.introStats-title-des-wrapper {
+.titleDesWrapper {
     display: flex;
     flex-direction: column;
     justify-content: start;
     gap: 0.25rem;
 }
 
-.introStats-title {
+.title {
     font-size: 1.75rem;
     font-weight: bold;
     color: #C49429;
-    
     text-align: start;
     word-wrap: break-word;
-    /* Ensure words wrap correctly */
     overflow-wrap: break-word;
-    /* Handle long words better */
 }
 
-.introStats-description {
+.description {
     font-size: 1.5rem;
     color: white;
     text-align: start;
     word-wrap: break-word;
-    /* Ensure words wrap correctly */
     overflow-wrap: break-word;
-    /* Handle long words better */
 }
 
 /* Responsive styles for mobile screens */
-/* Responsive styles for mobile screens */
 @media only screen and (max-width: 768px) {
-    .introStats-container {
+    .container {
         height: auto;
         padding: auto;
         display: grid;
         grid-template-columns: repeat(2, 1fr);
-        /* Two equal-width columns */
         gap: 2rem;
-        /* Space between grid items */
         justify-items: center;
-        /* Align items to the center horizontally */
     }
 
-    .introStats-item {
+    .item {
         width: 100%;
         max-width: 300px;
-        /* Optional: Limit the max width for each item */
     }
 }

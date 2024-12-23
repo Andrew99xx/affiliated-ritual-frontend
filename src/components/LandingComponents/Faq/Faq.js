@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { motion } from "framer-motion";
-import "./Faq.css";
+import styles from "./Faq.module.css";
 
 const Faq = () => {
   const [selected, setSelected] = useState(null);
@@ -51,36 +51,37 @@ const Faq = () => {
   ];
 
   return (
-    <div className="faq">
-      <div className="faq-paragraph">
+    <div className={styles.faq}>
+      <div className={styles.faqParagraph}>
         Satisfying your curiosity with clear answers.
       </div>
-      <div className="faq-container">
+      <div className={styles.faqContainer}>
         {data.map((item, i) => (
           <motion.div
             key={i}
-            className="faq-item"
+            className={styles.faqItem}
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.4, ease: "easeOut", delay: i * 0.1 }}
             viewport={{ once: false, amount: 0.3 }}
           >
             <motion.div
-              className={`faq-question ${selected === i ? "highlight" : ""}`}
+              className={`${styles.faqQuestion} ${selected === i ? styles.highlight : ""
+                }`}
               onClick={() => toggle(i)}
               whileHover={{ scale: 1.02, transition: { duration: 0.2 } }}
             >
               {item.question}
               <span
-                className={`faq-question-icons ${
-                  selected === i ? "highlight" : ""
-                }`}
+                className={`${styles.faqQuestionIcons} ${selected === i ? styles.highlight : ""
+                  }`}
               >
                 {selected === i ? "-" : "+"}
               </span>
             </motion.div>
             <motion.div
-              className={`faq-answer ${selected === i ? "show" : ""}`}
+              className={`${styles.faqAnswer} ${selected === i ? styles.show : ""
+                }`}
               initial={{ height: 0, opacity: 0 }}
               animate={{
                 height: selected === i ? "auto" : 0,

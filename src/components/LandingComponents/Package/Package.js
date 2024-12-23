@@ -1,10 +1,10 @@
-import React, { useEffect, useState } from 'react'
-import './Package.css'
-import english from "./english.png"  // You might want to use these as placeholders
-import freelance from "./freelance.png"
-import marketing from "./marketing.png"
+import React, { useEffect, useState } from 'react';
+import styles from './Package.module.css';
+import english from "./english.png";  // Placeholder image
+import freelance from "./freelance.png";
+import marketing from "./marketing.png";
 import { RiArrowRightUpLine } from "react-icons/ri";
-import { getCoursesWithModification } from "../../../service/courses/getCoursesWithModification"
+import { getCoursesWithModification } from "../../../service/courses/getCoursesWithModification";
 
 function Package() {
 
@@ -36,56 +36,56 @@ function Package() {
     }
 
     return (
-        <div className='package-container'>
-            <p className='package-paragraph'>With our exclusive packages, now you can be assured to acquire the best knowledge and expertise from our team of experts. We believe you can empower the world with industry-leading courses.</p>
-            <div className='package-items'>
+        <div className={styles.packageContainer}>
+            <p className={styles.packageParagraph}>
+                With our exclusive packages, now you can be assured to acquire the best knowledge and expertise from our team of experts. We believe you can empower the world with industry-leading courses.
+            </p>
+            <div className={styles.packageItems}>
                 {packageData.map((item, i) => (
-                    <div key={i} className='package-item-wrapper'>
+                    <div key={i} className={styles.packageItemWrapper}>
                         <img
-                            className="package-img"
-                            src={item.packageImage || english} // Use a placeholder if image is not available
+                            className={styles.packageImg}
+                            src={item.packageImage || english} // Use placeholder if image not available
                             alt={item.packageTitle}
                         />
+                        <div className={styles.packageTitle}>{item.packageTitle}</div>
 
-                        <div className='package-title'>{item.packageTitle}</div>
-
-                        <div className='package-details'>
+                        <div className={styles.packageDetails}>
                             {item.packageDetails.map((detail, index) => (
                                 <li key={index}>
-                                    <span className='package-dots'></span>
+                                    <span className={styles.packageDots}></span>
                                     <span> {detail}</span>
                                 </li>
                             ))}
                         </div>
 
-                        <div className='package-points'>
+                        <div className={styles.packagePoints}>
                             {item.points.map((point, index) => (
                                 <li key={index}>{point}</li>
                             ))}
                         </div>
 
-                        <div className='hr-line'></div>
+                        <div className={styles.hrLine}></div>
 
-                        <div className='package-price-wrapper'>
+                        <div className={styles.packagePriceWrapper}>
                             <div>
-                                <span className='package-price'>
+                                <span className={styles.packagePrice}>
                                     {item.packagePrice}
                                 </span>
-                                <span className='package-price-cross'>
+                                <span className={styles.packagePriceCross}>
                                     {item.packagePriceCross}
                                 </span>
                             </div>
 
-                            <div className='package-buy'>
-                                <RiArrowRightUpLine className='package-buy-icon' />
+                            <div className={styles.packageBuy}>
+                                <RiArrowRightUpLine className={styles.packageBuyIcon} />
                             </div>
-
                         </div>
                     </div>
                 ))}
             </div>
         </div>
-    )
+    );
 }
 
 export default Package;

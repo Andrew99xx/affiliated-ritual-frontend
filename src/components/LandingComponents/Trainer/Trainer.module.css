@@ -1,9 +1,9 @@
-.trainer-container {
+.container {
     padding: 2rem;
     /* background-color: #2E2E2E; Optional, depending on your layout */
 }
 
-.trainer-paragraph {
+.paragraph {
     margin-top: 0;
     padding-top: 0;
     font-weight: 400;
@@ -14,11 +14,11 @@
     margin-bottom: 2rem;
 }
 
-.slider-container {
+.sliderContainer {
     margin-top: 1.25rem;
 }
 
-.trainer-item {
+.item {
     position: relative; /* This is important for positioning text inside */
     width: 95% !important;
     max-width: 25rem;
@@ -33,7 +33,7 @@
     margin: 0 0.5rem; /* Reduce gap between slides by decreasing margin */
 }
 
-.trainer-img {
+.img {
     width: 100%;
     height: auto;
     border-radius: 1.5rem;
@@ -41,7 +41,7 @@
     display: block;
 }
 
-.txt-pos {
+.txtPos {
     position: absolute;
     bottom: 0;
     left: 0;
@@ -54,7 +54,7 @@
     text-align: center;
 }
 
-.trainer-name {
+.name {
     font-family: 'Poppins', 'Nunito Sans', sans-serif;
     font-weight: 500;
     font-size: 1.375rem;
@@ -63,7 +63,7 @@
     margin: 0.25rem 0;
 }
 
-.trainer-position {
+.position {
     font-family: 'Poppins', 'Nunito Sans', sans-serif;
     font-weight: 400;
     font-size: 1rem;

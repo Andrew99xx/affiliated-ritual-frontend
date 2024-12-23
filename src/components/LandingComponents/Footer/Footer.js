@@ -1,14 +1,14 @@
-import React from 'react'
-import './Footer.css'
+import React from 'react';
+import styles from './Footer.module.css';
 import { FaFacebookF, FaTwitter, FaLinkedin, FaWhatsapp, FaInstagram, FaYoutube } from "react-icons/fa";
 
 function Footer() {
     return (
-        <div className='footer'>
-            <div class="box-container">
-                <div class="box">
-                    <h3>Affliliated Ritual</h3>
-                    <div className='footer-banner'></div>
+        <div className={styles.footer}>
+            <div className={styles.footerBoxContainer}>
+                <div className={styles.footerBox}>
+                    <h3>Affiliated Ritual</h3>
+                    <div className={styles.footerBanner}></div>
                     <p>
                         {" "}
                         Welcome to India's 1st ever Super Affiliate Passive business Model.
@@ -16,9 +16,9 @@ function Footer() {
                     <p>Office address</p>
                     <p>customer care number</p>
                 </div>
-                <div class="box">
+                <div className={styles.footerBox}>
                     <h3>Useful Links</h3>
-                    <div className='footer-banner'></div>
+                    <div className={styles.footerBanner}></div>
                     <a href="#package">Products </a>
                     <a href="#leaderboard_section">Leaderboard</a>
                     <a href="#media_section">Media Presence</a>
@@ -27,9 +27,9 @@ function Footer() {
                     <a href="#faq-section">Quizlet Plus</a>
                 </div>
 
-                <div class="box">
+                <div className={styles.footerBox}>
                     <h3>Our Company</h3>
-                    <div className='footer-banner'></div>
+                    <div className={styles.footerBanner}></div>
                     <a href="#_">Contact Us</a>
                     <a href="#_">Disclaimer</a>
                     <a href="#_">Terms and Conditions</a>
@@ -37,13 +37,13 @@ function Footer() {
                     <a href="#_">Documents</a>
                 </div>
 
-                <div class="box">
+                <div className={styles.footerBox}>
                     <h3>Get In Touch</h3>
-                    <div className='footer-banner'></div>
-                    <p>Like, Share, Follow and Subcribe.
+                    <div className={styles.footerBanner}></div>
+                    <p>Like, Share, Follow and Subscribe.
                         If you love Affiliate Ritual</p>
 
-                    <div className='footer-media'>
+                    <div className={styles.footerMedia}>
                         <FaFacebookF />
                         <FaInstagram />
                         <FaTwitter />
@@ -55,7 +55,7 @@ function Footer() {
                 </div>
             </div>
 
-            <div class="credit">
+            <div className={styles.footerCredit}>
                 <div>
                     <p>  © 2023-2024 Affiliate Ritual.  | All rights reserved.{" "}  </p>
                 </div>
@@ -68,4 +68,4 @@ function Footer() {
     )
 }
 
-export default Footer
+export default Footer;

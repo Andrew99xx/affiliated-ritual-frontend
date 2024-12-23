@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import './Media.css';
+import styles from './Media.module.css';
 
 import abpBengala from "./abpBengala.png"
 import ahmedabadMirror from "./ahmedabadMirror.png"
@@ -60,24 +60,24 @@ function Media() {
     ];
 
     return (
-        <div className='media-container'>
-            <p className='media-paragraph'>Let's meet with the team of our industry expert medias. We believe that you will be able to change your life with the most advanced AI integrated training module cooked by Affiliate Ritual.</p>
-            <div className='media-items'>
+        <div className={styles.mediaContainer}>
+            <p className={styles.mediaParagraph}>Let's meet with the team of our industry expert medias. We believe that you will be able to change your life with the most advanced AI integrated training module cooked by Affiliate Ritual.</p>
+            <div className={styles.mediaItems}>
                 {mediaData.map((item, i) => (
                     <motion.div
                         key={i}
-                        className='media-item-wrapper'
+                        className={styles.mediaItemWrapper}
                         initial={{ opacity: 0, y: 50 }}
                         whileInView={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.5, ease: "easeOut", delay: i * 0.1 }}
                         whileHover={{ scale: 1.05, boxShadow: "0px 8px 20px rgba(0, 0, 0, 0.2)" }}
                     >
                         <img
-                            className="media-img"
+                            className={styles.mediaImg}
                             src={item.logo}
                             alt={item.name || 'Media Logo'}
                         />
-                        {item.name && <p className='media-name'>{item.name}</p>}
+                        {item.name && <p className={styles.mediaName}>{item.name}</p>}
                     </motion.div>
                 ))}
             </div>

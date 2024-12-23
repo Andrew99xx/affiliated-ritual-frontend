@@ -3,79 +3,65 @@
     font-family: "Poppins";
 }
 
-.footer .box-container {
+.footerBoxContainer {
     display: flex;
     flex-wrap: wrap;
     gap: 2rem;
-    /* unchanged as it's already in rem */
 }
 
-.footer .box-container .box {
+.footerBox {
     flex: 1 1 25rem;
-    /* unchanged as it's already in rem */
 }
 
-.footer .box-container .box h3 {
+.footerBox h3 {
     color: #ffffff;
     font-weight: 600;
     font-size: 1.5rem;
-    /* 22px */
     line-height: 2rem;
-    /* 28px */
     padding: 1rem 0;
-    /* unchanged as it's already in rem */
     font-family: "Poppins" !important;
 }
 
-.footer .footer-banner {
+.footerBanner {
     background: linear-gradient(91.94deg, #B17E32 -8.77%, #F3E681 58.63%, #CF9F41 107.45%);
     height: 0.25rem;
-    /* 4px */
     width: 1.875rem;
-    /* 30px */
     border-radius: 0.125rem;
-    /* 2px */
     margin-top: 0ch !important;
     padding-top: 0ch !important;
     margin-bottom: 1rem;
-    /* 16px */
 }
 
-.footer .box p {
+.footerBox p {
     font-size: 1.2rem;
- 
 }
 
-.footer .box-container .box a {
+.footerBox a {
     font-family: "Poppins" !important;
     font-weight: 500;
     font-size: 1.2rem;
     line-height: 2rem;
-    /* 28px */
     display: block;
     color: #B2BBCC;
     padding: 0.5rem 0;
-    /* 8px 0 */
     text-decoration: none;
 }
 
-.footer .box-container .box a:hover {
+.footerBox a:hover {
     color: #fff;
 }
 
-.footer .box-container .box img {
+.footerBox img {
     margin-top: 1rem;
-    /* unchanged as it's already in rem */
 }
 
-.footer .footer-media {
+.footerMedia {
     display: flex;
     gap: 0.625rem;
     font-size: 1.5rem;
-  
 }
 
-.footer .credit {
+.footerCredit {
     text-align: center;
     margin-top: 1.5rem;
     padding-top: 2.5rem;

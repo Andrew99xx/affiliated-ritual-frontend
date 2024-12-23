@@ -1,4 +1,4 @@
-.package-container {
+.packageContainer {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -6,7 +6,7 @@
   gap: 0.9375rem; /* 15px */
 }
 
-.package-paragraph {
+.packageParagraph {
   width: 80%;
   margin-top: 0ch !important;
   padding-top: 0ch !important;
@@ -17,7 +17,7 @@
   color: white;
 }
 
-.package-items {
+.packageItems {
   width: 100%;
   display: flex;
   flex-wrap: wrap;
@@ -26,13 +26,12 @@
   align-items: center;
 }
 
-.package-item-wrapper {
+.packageItemWrapper {
   display: flex;
   flex-direction: column;
   justify-content: start;
   align-items: start;
   gap: 0.9375rem; /* 15px */
-  /* width: 24.375rem;  */
   max-width: 30rem;
   width: auto;
   height: auto;
@@ -42,7 +41,7 @@
   box-sizing: border-box;
 }
 
-.package-img {
+.packageImg {
   width: 100%; /* 341.32px */
   height: auto; /* 252.33px */
   max-height: 32rem;
@@ -55,7 +54,7 @@
   overflow: hidden;
 }
 
-.package-title {
+.packageTitle {
   font-family: "Poppins", "Nunito Sans", sans-serif;
   font-weight: 500;
   font-size: 1.75rem;
@@ -70,10 +69,9 @@
   -webkit-text-fill-color: transparent;
   background-clip: text;
   color: transparent;
-  /* give background , background-color is different */
 }
 
-.package-details {
+.packageDetails {
   font-family: "Poppins", "Nunito Sans", sans-serif;
   font-weight: 400;
   font-size: 1.5rem;
@@ -87,11 +85,11 @@
   list-style: none;
 }
 
-.package-details li {
+.packageDetails li {
   padding-left: 0.4375rem; /* 7px */
   font-family: "Poppins", "Nunito Sans", sans-serif;
   font-weight: 400;
-  font-size: 1.20rem; /* 16px */
+  font-size: 1.2rem; /* 16px */
   line-height: 2.125rem; /* 34px */
   color: white;
   display: flex;
@@ -101,7 +99,7 @@
   gap: 0.5rem; /* 4px */
 }
 
-.package-dots {
+.packageDots {
   display: block;
   height: 0.5rem; /* 8px */
   width: 0.5rem; /* 8px */
@@ -114,12 +112,12 @@
   );
 }
 
-.package-points {
+.packagePoints {
   flex-direction: column;
   list-style: disc;
 }
 
-.package-points li {
+.packagePoints li {
   padding-left: 0.4375rem; /* 7px */
   font-family: "Poppins", "Nunito Sans", sans-serif;
   font-weight: 400;
@@ -128,13 +126,13 @@
   color: white;
 }
 
-.hr-line {
+.hrLine {
   border: 0.07625rem solid rgba(231, 233, 235, 0.3); /* 1.22px */
   width: 100%;
   height: 0;
 }
 
-.package-price-wrapper {
+.packagePriceWrapper {
   width: 100%;
   display: flex;
   flex-direction: row;
@@ -142,7 +140,7 @@
   align-items: center;
 }
 
-.package-price {
+.packagePrice {
   font-family: "Poppins", "Nunito Sans", sans-serif;
   font-weight: 600;
   font-size: 1.75rem;
@@ -151,7 +149,7 @@
   margin-right: 0.5rem;
 }
 
-.package-price-cross {
+.packagePriceCross {
   font-family: "Poppins", "Nunito Sans", sans-serif;
   font-weight: 600;
   font-size: 1.5rem;
@@ -161,7 +159,7 @@
   text-decoration: line-through;
 }
 
-.package-buy {
+.packageBuy {
   background: linear-gradient(
     91.94deg,
     #b17e32 -8.77%,
@@ -177,18 +175,18 @@
   color: black;
 }
 
-.package-buy-icon {
+.packageBuyIcon {
   font-size: 1.5rem; /* 22px */
 }
 
 /* Responsive Design for small screens */
 @media (max-width: 768px) {
-  .package-item-wrapper {
+  .packageItemWrapper {
     width: 80vw; /* Set dynamic width for small screens */
     height: auto; /* Adjust height automatically */
   }
 
-  .package-img {
+  .packageImg {
     width: 100%; /* Adjust image width to 100% of the wrapper */
     height: auto; /* Maintain aspect ratio by auto-adjusting height */
   }

@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
-import "./HeaderLoginOptions.css";
+import styles from "./HeaderLoginOptions.module.css";
 
 const HeaderLoginOptions = ({ isLoginOpen, closeLogin }) => {
   if (!isLoginOpen) {
@@ -10,24 +10,24 @@ const HeaderLoginOptions = ({ isLoginOpen, closeLogin }) => {
 
   return (
     <motion.div
-      className="popup-overlay"
+      className={styles.popupOverlay}
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       transition={{ duration: 0.3 }}
     >
       <motion.div
-        className="landregister"
+        className={styles.landregister}
         initial={{ scale: 0.7, opacity: 0 }}
         animate={{ scale: 1, opacity: 1 }}
         transition={{ duration: 0.5, type: "spring", stiffness: 100 }}
       >
-        <button className="popup-close" onClick={closeLogin}>
+        <button className={styles.popupClose} onClick={closeLogin}>
           &times;
         </button>
-        <div className="popup-content">
+        <div className={styles.popupContent}>
           <h2>Log in</h2>
-          <div className="landlog">
-            <Link to="/student?action=login" className="st">
+          <div className={styles.landlog}>
+            <Link to="/student?action=login" className={styles.st}>
               <motion.img
                 src="/student.png"
                 alt=""
@@ -38,7 +38,7 @@ const HeaderLoginOptions = ({ isLoginOpen, closeLogin }) => {
               />{" "}
               Student
             </Link>
-            <Link className="tml" to="/teamleader?action=login">
+            <Link className={styles.tml} to="/teamleader?action=login">
               <motion.img
                 src="/leader.png"
                 alt=""
@@ -49,7 +49,7 @@ const HeaderLoginOptions = ({ isLoginOpen, closeLogin }) => {
               />{" "}
               Team Leader
             </Link>
-            <Link to="/trainer?action=login" className="tra">
+            <Link to="/trainer?action=login" className={styles.tra}>
               <motion.img
                 src="/trainer.png"
                 alt=""
@@ -60,7 +60,7 @@ const HeaderLoginOptions = ({ isLoginOpen, closeLogin }) => {
               />{" "}
               Trainer
             </Link>
-            <Link to="/teammember?action=register" className="tml">
+            <Link to="/teammember?action=register" className={styles.tml}>
               <motion.img
                 src="/member.png"
                 alt=""

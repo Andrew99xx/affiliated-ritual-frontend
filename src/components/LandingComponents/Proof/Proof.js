@@ -1,13 +1,12 @@
-import React from 'react'
-import './Proof.css'
-import proof01 from "./proof01.png"
-import proof34 from "./proof34.jpg"
-import proof35 from "./proof35.jpg"
-import proof36 from "./proof36.jpg"
+import React from 'react';
+import styles from './Proof.module.css';
+import proof01 from "./proof01.png";
+import proof34 from "./proof34.jpg";
+import proof35 from "./proof35.jpg";
+import proof36 from "./proof36.jpg";
 
 // import proof39 from "./proof39.jpg"
 // import proof42 from "./proof42.jpg"
-
 
 function Proof() {
     const proof = [
@@ -27,24 +26,25 @@ function Proof() {
             imgLink: proof36,
             alt: "alt name"
         },
-
     ];
+
     return (
-        <div className='proof-container'>
-            <p className='proof-paragraph'>Not enough? Do you want more? Come with me. I have something for you and that will definitely give you satisfaction!</p>
-            <div className='proof-items'>
+        <div className={styles.proofContainer}>
+            <p className={styles.proofParagraph}>
+                Not enough? Do you want more? Come with me. I have something for you and that will definitely give you satisfaction!
+            </p>
+            <div className={styles.proofItems}>
                 {proof.map((item, i) => (
                     <img
                         key={i}
-                        className="proof-img"
+                        className={styles.proofImg}
                         src={item.imgLink}
-                        alt='screenshot as proof'
+                        alt={item.alt}
                     />
                 ))}
             </div>
-
         </div>
-    )
+    );
 }
 
-export default Proof
+export default Proof;

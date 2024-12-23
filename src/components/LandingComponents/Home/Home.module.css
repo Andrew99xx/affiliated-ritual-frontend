@@ -26,7 +26,7 @@
   }
 }
 
-.home-text-wrapper {
+.homeTextWrapper {
   margin: 0 auto;
   display: flex;
   flex: 1;
@@ -36,7 +36,7 @@
   animation: floatAnimation 6s ease-in-out infinite;
 }
 
-.home-heading {
+.homeHeading {
   font-family: "Poppins", "Nunito Sans", sans-serif;
   font-weight: 600;
   font-size: 2rem;
@@ -45,7 +45,7 @@
   color: #c49429;
 }
 
-.home-hook {
+.homeHook {
   font-family: "Poppins", "Nunito Sans", sans-serif;
   font-weight: 600;
   font-size: 4rem;
@@ -53,13 +53,13 @@
   color: white;
 }
 
-.home-hook-highlight {
+.homeHookHighlight {
   position: relative;
   display: inline-block;
   overflow: hidden;
 }
 
-.home-hook-highlight::after {
+.homeHookHighlight::after {
   content: "";
   position: absolute;
   left: 50%;
@@ -89,7 +89,7 @@
   }
 }
 
-.home-tag {
+.homeTag {
   font-family: "Poppins", "Nunito Sans", sans-serif;
   font-weight: 400;
   font-size: 1.5rem;
@@ -97,7 +97,7 @@
   color: #cfd3d6;
 }
 
-.home-btn {
+.homeBtn {
   background: linear-gradient(135deg, #ffffff, #f0f0f0);
   color: black;
   height: 3.5rem;
@@ -114,7 +114,7 @@
   transition: all 0.3s ease;
 }
 
-.home-btn:hover {
+.homeBtn:hover {
   background: linear-gradient(135deg, #cf9f41, #ffd27d);
   color: white;
   box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
@@ -122,7 +122,7 @@
 }
 
 /* section - other half  */
-.home-img-svg-wrapper {
+.homeImgSvgWrapper {
   /* background-color: yellow; */
   height: 68vh;
   display: flex;
@@ -147,7 +147,7 @@
     height: 545.03px;
 } */
 
-.home-img-wrapper {
+.homeImgWrapper {
   position: absolute;
   top: 30%;
   left: 30%;
@@ -155,7 +155,7 @@
   /* Adjust to ensure it's relative to its parent */
 }
 
-.home-img {
+.homeImg {
   /* background-color: aliceblue; */
   /* background-image: url('./yellow_background.webp'); */
   /* background-size: 31.2681rem; */
@@ -171,7 +171,7 @@
   margin: 0 auto;
 }
 
-.home-top-card {
+.homeTopCard {
   position: absolute;
   top: 0;
   right: 0;
@@ -195,7 +195,7 @@
   text-transform: uppercase;
 }
 
-.home-left-card {
+.homeLeftCard {
   box-shadow: 0.5rem 0.5rem 0px 0px rgba(0, 0, 0, 0.15);
   width: 15.25rem;
   height: 6.5rem;
@@ -220,21 +220,21 @@
   align-content: center;
 }
 
-.home-left-card-percent {
+.homeLeftCardPercent {
   font-size: 1.25rem;
   padding-bottom: 0 !important;
   margin-bottom: -0.4375rem !important;
   /* -7px / 16 */
 }
 
-.home-left-card-image-container {
+.homeLeftCardImageContainer {
   display: flex;
   justify-content: center;
   align-items: center;
   overflow: hidden;
 }
 
-.home-left-card-image-item {
+.homeLeftCardImageItem {
   width: 2.5rem;
   height: 2.5rem;
   border-radius: 50%;
@@ -244,18 +244,18 @@
   box-shadow: 0 0 0.625rem rgba(249, 249, 249, 0.1);
 }
 
-.home-left-card-image-item img {
+.homeLeftCardImageItem img {
   width: 100%;
   height: 100%;
   object-fit: cover;
 }
 
-.home-left-card-jackpot-img {
+.homeLeftCardJackpotImg {
   width: 6.25rem;
   height: 6.25rem;
 }
 
-.home-left-card-image-item:first-child {
+.homeLeftCardImageItem:first-child {
   margin-left: 0;
 }
 
@@ -270,11 +270,11 @@
     padding-bottom: 0ch !important;
   }
 
-  .home-text-wrapper {
+  .homeTextWrapper {
     background-color: red;
   }
 
-  .home-img-svg-wrapper {
+  .homeImgSvgWrapper {
     height: auto;
     background-color: blue !important;
   }
@@ -293,8 +293,8 @@
     transform: none;
   } */
 
-  .home-img {
-     background-color: yellow; 
+  .homeImg {
+    background-color: yellow;
     margin-bottom: 0ch !important;
     padding-bottom: 0ch !important;
     /* background-color: lime; */
@@ -304,11 +304,11 @@
     height: auto;
   }
 
-  .home-top-card {
+  .homeTopCard {
     display: none !important;
   }
 
-  .home-left-card {
+  .homeLeftCard {
     width: 11.25rem;
     height: auto;
   }
