@@ -1,0 +1,108 @@
+.container {
+  color: white;
+  font-family: "Poppins", "Nunito Sans", sans-serif;
+  display: flex;
+  flex-direction: row;
+  gap: 1.25rem;
+  box-sizing: border-box;
+  justify-content: center;
+  flex-wrap: wrap;
+  /* Allow items to wrap if the container is too small */
+}
+
+.item {
+  width: 33rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.25rem;
+  background-color: #3a3a3a;
+  padding: 1.875rem 2.8125rem;
+  border-radius: 0.3125rem;
+  box-sizing: border-box;
+  position: relative;
+}
+
+.sparkle {
+  position: absolute;
+  font-size: 2.5rem;
+  /* 42px */
+  color: #bd9141;
+  right: 0.9375rem;
+  /* 15px */
+  top: 0.9375rem;
+  /* 15px */
+}
+
+.iconTitleWrapper {
+  display: flex;
+  flex-direction: row;
+  justify-content: start;
+  align-items: center;
+  gap: 0.625rem;
+  width: 100%;
+}
+
+.icon {
+  background: linear-gradient(
+    91.94deg,
+    #b17e32 -8.77%,
+    #f3e681 58.63%,
+    #cf9f41 107.45%
+  );
+  border-radius: 50%;
+  height: 3.75rem !important;
+  width: 3.75rem !important;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0.3125rem;
+}
+
+.iconImg {
+  height: 1.875rem;
+  width: 1.875rem;
+}
+
+.title {
+  font-family: "Poppins", "Nunito Sans", sans-serif;
+  font-weight: 600;
+  font-size: 1.5rem;
+  line-height: 2rem;
+  color: white;
+}
+
+.description {
+  font-family: "Poppins", "Nunito Sans", sans-serif;
+  font-weight: 400;
+  font-size: 1.25rem;
+  line-height: 2rem;
+  color: #d8d8d8;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+  .container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.25rem;
+    justify-items: center;
+  }
+
+  .item {
+    width: auto;
+    max-width: 45vw;
+    height: auto;
+  }
+
+  .icon {
+    padding: 0px;
+  }
+}
+
+@media (min-width: 1000px) {
+  .container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+  }
+}

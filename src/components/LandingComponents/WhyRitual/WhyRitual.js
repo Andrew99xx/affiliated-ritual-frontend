@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import './WhyRitual.css';
+import styles from './WhyRitual.module.css'; // Import the CSS Module
 import advance from "./advance.png";
 import certificate from "./certificate.png";
 import freelance from "./freelance.png";
@@ -44,11 +44,11 @@ function WhyRitual() {
     ];
 
     return (
-        <div className="whyRitual-container">
+        <div className={styles.container}>
             {whyRitual.map((item, i) => (
                 <motion.div
                     key={i}
-                    className="whyRitual-item"
+                    className={styles.item}
                     initial={{ opacity: 0, scale: 0.5, rotate: -15 }}
                     whileInView={{ opacity: 1, scale: 1, rotate: 0 }}
                     viewport={{ once: false, amount: 0.5 }}
@@ -59,18 +59,18 @@ function WhyRitual() {
                         duration: 1
                     }}
                 >
-                    <img src={twoStar} alt='twostar' className='whyRitual-sparkle' />
-                    <div className='whyRitual-icon-title-wrapper'>
-                        <div className="whyRitual-icon">
+                    <img src={twoStar} alt='twostar' className={styles.sparkle} />
+                    <div className={styles.iconTitleWrapper}>
+                        <div className={styles.icon}>
                             <img
-                                className='whyRitual-icon-img'
+                                className={styles.iconImg}
                                 src={item.icon}
                                 alt={item.title}
                             />
                         </div>
-                        <div className="whyRitual-title">{item.title}</div>
+                        <div className={styles.title}>{item.title}</div>
                     </div>
-                    <div className="whyRitual-description">{item.description}</div>
+                    <div className={styles.description}>{item.description}</div>
                 </motion.div>
             ))}
         </div>
