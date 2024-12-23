@@ -1,18 +1,18 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import './Banner.css';
+import styles from './Banner.module.css';
 
 function Banner({ openSignup }) {
     return (
-        <div className='banner-container'>
-            <div className="banner-paragraph">
+        <div className={styles.bannerContainer}>
+            <div className={styles.bannerParagraph}>
                 Do you want to be one of them?
                 <br />
                 Join Affiliate Ritual Now
             </div>
-            
+
             <motion.button
-                className='banner-btn'
+                className={styles.bannerBtn}
                 onClick={openSignup}
                 whileHover={{
                     scale: 1.05,
@@ -32,7 +32,7 @@ function Banner({ openSignup }) {
             >
                 Signup for free
                 <motion.div
-                    className="shimmer"
+                    className={styles.shimmer}
                     initial={{ x: "-150%" }}
                     animate={{ x: "150%" }}
                     transition={{ repeat: Infinity, duration: 2, ease: "linear" }}

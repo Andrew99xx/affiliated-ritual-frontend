@@ -1,15 +1,9 @@
-.feedback-main {
+.feedbackMain {
   font-family: "Poppins", "Nunito Sans", sans-serif;
   color: white;
-  /* display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    gap: 1.25rem; */
-  /* Changed from 20px to 1.25rem */
 }
 
-.feedback-paragraph {
+.feedbackParagraph {
   width: 100%;
   margin-top: 0ch !important;
   padding-top: 0ch !important;
@@ -21,22 +15,15 @@
   text-wrap: wrap;
 }
 
-.feedback-container {
+.feedbackContainer {
   margin-top: 2.5rem;
   display: flex;
-  /* align-items: stretch;
-  justify-content: space-between;
-  position: relative;
-  height: auto; */
 }
 
-.feedback-item {
-  /* background-color: yellow; */
+.feedbackItem {
   width: 95% !important;
   max-width: 34rem;
-  height: 100% !important; /* Ensure the item takes full height of its parent */
-  /* min-height: 25rem;  */
-
+  height: 100% !important;
   background-color: #4e4e4e;
   display: flex !important;
   flex-direction: column;
@@ -44,27 +31,27 @@
   padding: 2rem;
   border-radius: 1.875rem;
   box-sizing: border-box;
-  align-self: stretch; /* Stretch to match the height of siblings */
+  align-self: stretch;
 }
 
-.slider-container .slick-slide {
-  display: flex; /* Ensure each slide itself is a flex container */
-  height: auto; /* Allow automatic height adjustment */
-  align-items: stretch; /* Stretch all feedback items to the same height */
+.sliderContainer .slick-slide {
+  display: flex;
+  height: auto;
+  align-items: stretch;
 }
-.feedback-itp-wrapper {
+
+.feedbackItpWrapper {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: start;
   align-items: center;
   gap: 0.625rem;
-  /* Changed from 10px to 0.625rem */
   width: 100%;
   position: relative;
 }
 
-.feedback-icon {
+.feedbackIcon {
   background: linear-gradient(
     91.94deg,
     #b17e32 -8.77%,
@@ -73,21 +60,19 @@
   );
   border-radius: 50%;
   height: 3.75rem;
-  /* Changed from 60px to 3.75rem */
   width: 3.75rem;
-  /* Changed from 60px to 3.75rem */
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
-.feedback-tp-wrapper {
+.feedbackTpWrapper {
   display: flex;
   flex-direction: column;
   gap: 0.5rem;
 }
 
-.feedback-title {
+.feedbackTitle {
   font-family: "Popins", "Nunito Sans", sans-serif;
   font-weight: 600;
   font-size: 1.5rem;
@@ -95,7 +80,7 @@
   color: white;
 }
 
-.feedback-position {
+.feedbackPosition {
   font-family: "Popins", "Nunito Sans", sans-serif;
   font-weight: 500;
   font-size: 1.25rem;
@@ -103,17 +88,15 @@
   color: #a5a5a5;
 }
 
-.feedback-quote-right {
+.feedbackQuoteRight {
   position: absolute;
   font-size: 2.75rem;
-  /* Changed from 42px to 2.625rem */
   color: #bd9141;
   right: 0.625rem;
   top: -0.3125rem;
-  /* Changed from -5px to -0.3125rem */
 }
 
-.feedback-description {
+.feedbackDescription {
   font-family: "Popins", "Nunito Sans", sans-serif;
   font-weight: 400;
   font-size: 1.6rem;
@@ -121,19 +104,15 @@
   color: #d8d8d8;
 }
 
-/* Media query for small devices */
 @media (max-width: 768px) {
-  .feedback-item {
+  .feedbackItem {
     width: 90% !important;
     height: 100% !important;
   }
 
-  .feedback-quote-right {
+  .feedbackQuoteRight {
     font-size: 1.5rem;
-    /* Changed from 24px to 1.5rem */
     right: 0.1875rem;
-    /* Changed from 3px to 0.1875rem */
     top: -0.1875rem;
-    /* Changed from -3px to -0.1875rem */
   }
 }
