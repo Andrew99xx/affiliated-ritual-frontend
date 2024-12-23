@@ -81,7 +81,7 @@ function Feedback() {
                 Some reviews that never lie. Check their stories and let's change your career in a snap. Change the system!
             </p>
 
-            <div className={styles.sliderContainer}>
+            <div className='slider-container'>
                 <Slider {...settings} className={styles.feedbackContainer}>
                     {feedback.map((item, i) => (
                         <div key={i} className={styles.feedbackItem}>
