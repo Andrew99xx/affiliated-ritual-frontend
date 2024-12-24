@@ -112,8 +112,6 @@ const Landing = () => {
             <HeaderLoginOptions isLoginOpen={isLoginOpen} closeLogin={closeLogin} />
             <HeaderRegisterOptions isRegisterOpen={isRegisterOpen} closeRegister={closeRegister} />
 
-
-
             <Header
                 isNavbarVisible={isNavbarVisible}
                 toggleNavbar={toggleNavbar}

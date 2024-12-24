@@ -17,18 +17,15 @@
 
 .feedbackContainer {
   margin-top: 2.5rem;
-  background-color: blue;
-  display: flex;
+  display: flex !important;
   flex-direction: row;
 }
 
-
 .feedbackItem {
-  justify-content: space-between;
   width: 95% !important;
   max-width: 34rem;
   height: 100% !important;
-  min-height: 100% !important;
+  min-height: 22rem;
   background-color: #4e4e4e;
   display: flex !important;
   flex-direction: column;
@@ -38,14 +35,7 @@
   border-radius: 1.875rem;
   box-sizing: border-box;
   align-self: stretch;
-
 }
-
-/* .sliderContainer .slick-slide {
-  display: flex;
-  height: auto;
-  align-items: stretch;
-} */
 
 .feedbackItpWrapper {
   display: flex;
@@ -59,10 +49,12 @@
 }
 
 .feedbackIcon {
-  background: linear-gradient(91.94deg,
-      #b17e32 -8.77%,
-      #f3e681 58.63%,
-      #cf9f41 107.45%);
+  background: linear-gradient(
+    91.94deg,
+    #b17e32 -8.77%,
+    #f3e681 58.63%,
+    #cf9f41 107.45%
+  );
   border-radius: 50%;
   height: 3.75rem;
   width: 3.75rem;
