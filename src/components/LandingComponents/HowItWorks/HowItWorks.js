@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import "./HowItWorks.css";
+import styles from './HowItWorks.module.css';
 import jackpot from './jackpot.png';
 import learn from './learn.png';
 import money from './money.png';
@@ -25,31 +25,30 @@ function HowItWorks() {
     ];
 
     return (
-        <div className="howItWorks-container">
+        <div className={styles.container}>
             {data.map((item, i) => (
                 <React.Fragment key={i}>
                     <motion.div
-                        className="howItWorks-items"
+                        className={styles.items}
                         whileInView={{
                             rotate: [0, 10, -10, 10, 0], // Jiggle effect
                             transition: { duration: 0.5, ease: "easeInOut" }
                         }}
                         viewport={{ once: false, amount: 0.3 }}
-                        >
+                    >
                         <img
-                            className="howItWorks-imglink"
+                            className={styles.imglink}
                             src={item.imgLink}
                             alt={item.name}
-                           
                         />
-                        <div className="howItWorks-name">
+                        <div className={styles.name}>
                             {item.name}
                         </div>
-                        <div className="howItWorks-description">
+                        <div className={styles.description}>
                             {item.description}
                         </div>
                     </motion.div>
-                    {i < data.length - 1 && <div className="howItWorks-divider" />}
+                    {i < data.length - 1 && <div className={styles.divider} />}
                 </React.Fragment>
             ))}
         </div>

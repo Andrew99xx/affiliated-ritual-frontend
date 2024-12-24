@@ -1,5 +1,5 @@
 import React from 'react';
-import './Feedback.css';
+import styles from './Feedback.module.css';
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
@@ -76,28 +76,29 @@ function Feedback() {
     };
 
     return (
-        <div className='feedback-main'>
-            <p className='feedback-paragraph'>Some reviews that never lies. check their stories and let's change your career in a snap. Change the system!</p>
+        <div className={styles.feedbackMain}>
+            <p className={styles.feedbackParagraph}>
+                Some reviews that never lie. Check their stories and let's change your career in a snap. Change the system!
+            </p>
 
-            {/* slider-container = coming from slick-carousel */}
-            <div className="slider-container">
-                <Slider {...settings} className='feedback-container'>
+            <div>
+                <Slider {...settings} className={styles.feedbackContainer}>
                     {feedback.map((item, i) => (
-                        <div key={i} className="feedback-item">
-                            <div className='feedback-itp-wrapper'>
-                                <div className="feedback-icon">{item.icon}</div>
-                                <div className='feedback-tp-wrapper'>
-                                    <div className="feedback-title">{item.title}</div>
-                                    <div className="feedback-position">{item.position}</div>
+                        <div key={i} className={styles.feedbackItem}>
+                            <div className={styles.feedbackItpWrapper}>
+                                <div className={styles.feedbackIcon}>{item.icon}</div>
+                                <div className={styles.feedbackTpWrapper}>
+                                    <div className={styles.feedbackTitle}>{item.title}</div>
+                                    <div className={styles.feedbackPosition}>{item.position}</div>
                                 </div>
-                                < FaQuoteRight className='feedback-quote-right'/>
+                                <FaQuoteRight className={styles.feedbackQuoteRight} />
                             </div>
-                            <div className="feedback-description">{item.description}</div>
+                            <div className={styles.feedbackDescription}>{item.description}</div>
                         </div>
                     ))}
                 </Slider>
             </div>
-        </div >
+        </div>
     );
 }
 

@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import "./IntroStats.css";
+import styles from './IntroStats.module.css';
 import fiveStar from "./fiveStar.png";
 import recording from "./recording.png";
 import users from "./users.png";
@@ -31,26 +31,26 @@ function IntroStats() {
     ];
 
     return (
-        <div className="introStats-container">
+        <div className={styles.container}>
             {stats.map((item, i) => (
                 <motion.div
                     key={i}
-                    className="introStats-item"
+                    className={styles.item}
                     initial={{ opacity: 0, y: 50 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.6, ease: "easeOut", delay: i * 0.2 }}
-                    viewport={{ once: false, amount: 0.3 }}  // Changed `once` to `false` for repeated animation
+                    viewport={{ once: false, amount: 0.3 }}
                 >
-                    <div className="introStats-icon">
-                        <img 
-                            className='introStats-img'
-                            src={item.icon} 
-                            alt={item.title} 
+                    <div className={styles.icon}>
+                        <img
+                            className={styles.img}
+                            src={item.icon}
+                            alt={item.title}
                         />
                     </div>
-                    <div className='introStats-title-des-wrapper'>
-                        <div className="introStats-title">{item.title}</div>
-                        <div className="introStats-description">{item.description}</div>
+                    <div className={styles.titleDesWrapper}>
+                        <div className={styles.title}>{item.title}</div>
+                        <div className={styles.description}>{item.description}</div>
                     </div>
                 </motion.div>
             ))}

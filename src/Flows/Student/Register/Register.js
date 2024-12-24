@@ -20,7 +20,7 @@ import { updateUserEarnings } from "../../../service/updateEarnings/updateUserEa
 import { getCurrentTimestamp } from "../../../service/time/getCurrentTimestamp.js";
 import { findUserDetailBymyARID } from "../Dashboard/EduProg/progress/Progress.js";
 import { notification } from "antd";
-import Header from "../../../components/Header/Header.jsx";
+// import Header from "../../../components/Header/Header.jsx";
 
 const delay = (ms) => new Promise(resolve => setTimeout(resolve, ms));
 
@@ -346,7 +346,7 @@ const StudentRegister = ({ onToggle }) => {
 
   return (
     <>
-          <Header />
+          {/* <Header /> */}
 
     <div className="Register-student">
       <div className="container-student">

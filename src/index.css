@@ -1,19 +1,27 @@
+/* body - index.html file */
 body {
   margin: 0;
-  font-family:'Poppins', 'Nunito Sans', sans-serif;
+  font-family: "Poppins", "Nunito Sans", sans-serif;
+  background-color: #060606;
 
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
+/* root - index.html file */
+:root {
+  overflow-x: hidden;
+  scroll-behavior: smooth;
+  scroll-padding-top: 7rem;
+}
+
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
 
 html::-webkit-scrollbar {
   width: 1rem;
-
 }
 
 html::-webkit-scrollbar-track {
@@ -21,45 +29,38 @@ html::-webkit-scrollbar-track {
 }
 
 html::-webkit-scrollbar-thumb {
-  background: linear-gradient(91.94deg, #B17E32 -8.77%, #F3E681 58.63%, #CF9F41 107.45%);
-
+  background: linear-gradient(
+    91.94deg,
+    #b17e32 -8.77%,
+    #f3e681 58.63%,
+    #cf9f41 107.45%
+  );
 }
 
-
-/* where we are using */
-.line-down {
-  position: relative;
-  display: inline-block;
-  z-index: 0;
+::-webkit-scrollbar {
+  width: 10px;
 }
 
-.line-down::before {
-  content: '';
-  position: absolute;
-  top: .3rem;
-  left: 0;
-  right: 0;
-  height: 100%;
-  width: 100%;
-  background: linear-gradient(91.94deg, #B17E32 -8.77%, #F3E681 58.63%, #CF9F41 107.45%);
-
-  z-index: -1;
-  -webkit-clip-path: polygon(0 85%, 100% 75%, 100% 100%, 0% 100%);
-  clip-path: polygon(0 85%, 100% 75%, 100% 100%, 0% 100%);
+::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 5px grey;
 }
 
-@-webkit-keyframes fadeUp {
-  0% {
-    opacity: 0;
-    -webkit-transform: translateY(4rem);
-    transform: translateY(4rem);
-  }
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(
+    68.42deg,
+    #b17e32 -8.44%,
+    #f3e681 54.36%,
+    #cf9f41 99.85%
+  );
+
+  border-radius: 10px;
 }
 
-@keyframes fadeUp {
-  0% {
-    opacity: 0;
-    -webkit-transform: translateY(4rem);
-    transform: translateY(4rem);
-  }
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(
+    68.42deg,
+    #b17e32 -8.44%,
+    #f3e681 54.36%,
+    #cf9f41 99.85%
+  );
 }

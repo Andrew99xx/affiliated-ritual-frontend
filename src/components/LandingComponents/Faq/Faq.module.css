@@ -1,12 +1,9 @@
-/* must checkout - landing.js & landing.css  */
-/* some css may be getting controlled by parents css */
-
 .faq {
   width: 80%;
   margin: 0 auto;
 }
 
-.faq-paragraph {
+.faqParagraph {
   font-weight: 400;
   font-size: 1.25rem;
   line-height: 2rem;
@@ -14,12 +11,11 @@
   color: white;
 }
 
-.faq-container {
+.faqContainer {
   margin-top: 2.125rem;
- 
 }
 
-.faq-item {
+.faqItem {
   /* border: 1px solid #ddd; */
   border-radius: 0.25rem;
   /* 4px */
@@ -29,7 +25,7 @@
 }
 
 /* faq question css */
-.faq-question {
+.faqQuestion {
   font-weight: 500;
   font-size: 1.5rem;
   line-height: 2rem;
@@ -41,19 +37,18 @@
   align-items: center;
 }
 
-.faq-question:hover {
+.faqQuestion:hover {
   color: #000000;
   background: linear-gradient(91.94deg, #B17E32 -8.77%, #F3E681 58.63%, #CF9F41 107.45%);
 }
 
-.faq-question.highlight {
+.faqQuestion.highlight {
   color: #000000;
   background: linear-gradient(91.94deg, #B17E32 -8.77%, #F3E681 58.63%, #CF9F41 107.45%);
 }
-
 
 /* faq icons css  */
-.faq-question-icons {
+.faqQuestionIcons {
   height: 2rem;
   /* 32px */
   width: 2rem;
@@ -61,11 +56,11 @@
   color: #F3E681;
 }
 
-.faq-question:hover .faq-question-icons {
+.faqQuestion:hover .faqQuestionIcons {
   color: #000000;
 }
 
-.faq-question-icons.highlight {
+.faqQuestionIcons.highlight {
   color: #000000;
   height: 2.125rem;
   /* 34px */
@@ -73,9 +68,8 @@
   /* 34px */
 }
 
-
 /* faq answer css */
-.faq-answer {
+.faqAnswer {
   font-weight: 400;
   font-size: 1.25rem;
   line-height: 1.75rem;
@@ -85,6 +79,6 @@
   background: linear-gradient(91.94deg, #B17E32 -8.77%, #F3E681 58.63%, #CF9F41 107.45%);
 }
 
-.faq-answer.show {
+.faqAnswer.show {
   display: block;
 }

@@ -12,6 +12,6 @@ Phone number	    Verification code
 +91 4578 912 452	123456	 team_member
 
 +1 650-768-2345	    123456	 students + team_leader
-+1 651-767-1254     123456   students + team_leader
+
 
 
