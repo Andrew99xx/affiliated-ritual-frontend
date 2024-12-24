@@ -1,0 +1,240 @@
+.main section {
+  padding: 5rem 9%;
+  /* 8rem = 128px */
+}
+
+/* 1200, max width  */
+@media (max-width: 1200px) {
+  .main section {
+    padding: 3rem 2rem;
+    /* 48px 32px */
+  }
+}
+
+/*hero section = wrapper of home & introstats ,  */
+.heroSection {
+  margin-top: 0ch;
+  margin-bottom: 0ch;
+  height: 88vh;
+  background-color: black;
+}
+
+/* home section */
+.homeSection {
+  padding-top: 1rem !important;
+  padding-bottom: 0 !important;
+  color: white;
+  background-color: #252524;
+  font-family: "Poppins", "Nunito Sans";
+}
+
+/* how it works */
+.howItWorkSection {
+  background-color: #252524;
+  color: white;
+  font-family: "Poppins", "Nunito Sans";
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  align-items: center;
+}
+
+.howItWorkSection .heading {
+  font-weight: 600;
+  font-size: 3rem;
+  line-height: 4.5rem;
+  text-align: center;
+  color: white;
+}
+
+/* system section */
+.systemSection {
+  background-color: black;
+  color: white;
+  font-family: "Poppins", "Nunito Sans";
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.systemSection .heading {
+  font-weight: 600;
+  font-size: 3rem;
+  line-height: 3.125rem;
+  text-align: center;
+  color: white;
+}
+
+/* package section */
+.packageSection {
+  background-color: #252524;
+  color: white;
+  font-family: "Poppins", "Nunito Sans";
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.packageSection .heading {
+  font-weight: 600;
+  font-size: 3rem;
+  line-height: 3.125rem;
+  text-align: center;
+  color: white;
+}
+
+/* why affiliate section */
+.whyRitual {
+  background-color: black;
+  color: white;
+  font-family: "Poppins", "Nunito Sans";
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 1.25rem;
+  align-items: center;
+}
+
+.whyRitual .heading {
+  font-weight: 600;
+  font-size: 3rem;
+  line-height: 4.5rem;
+  text-align: center;
+  color: white;
+}
+
+/* trainer section */
+.trainerSection {
+  background-color: #0f0f0f;
+  color: white;
+  font-family: "Poppins", "Nunito Sans";
+}
+
+.trainerSection .heading {
+  font-weight: 600;
+  font-size: 3rem;
+  line-height: 3.125rem;
+  text-align: center;
+  color: white;
+}
+
+/* media section */
+.mediaSection {
+  background-color: black;
+  color: white;
+  font-family: "Poppins", "Nunito Sans";
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.mediaSection .heading {
+  font-weight: 600;
+  font-size: 3rem;
+  line-height: 3.125rem;
+  text-align: center;
+  color: white;
+}
+
+/* club section */
+.clubSection {
+  background-color: #0f0f0f;
+  color: white;
+  font-family: "Poppins", "Nunito Sans";
+}
+
+.clubSection .heading {
+  font-weight: 600;
+  font-size: 3rem;
+  line-height: 3.125rem;
+  text-align: center;
+  color: white;
+}
+
+/* banner section */
+.bannerSection {
+  padding: 4rem 9% !important;
+  background: linear-gradient(
+    91.94deg,
+    #b17e32 -8.77%,
+    #f3e681 58.63%,
+    #cf9f41 107.45%
+  );
+  color: black;
+  font-family: "Poppins", "Nunito Sans";
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+/* feedback section */
+.feedbackSection {
+  background-color: #0f0f0f;
+  color: white;
+  font-family: "Poppins", "Nunito Sans";
+}
+
+.feedbackSection .heading {
+  font-weight: 600;
+  font-size: 3rem;
+  line-height: 3.125rem;
+  text-align: center;
+  color: white;
+}
+
+/* proof section */
+.proofSection {
+  background-color: black;
+  color: white;
+  font-family: "Poppins", "Nunito Sans";
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.proofSection .heading {
+  font-weight: 600;
+  font-size: 3rem;
+  line-height: 3.125rem;
+  text-align: center;
+  color: white;
+}
+
+/* frequently asked questions */
+.faqSection {
+  background-color: #0f0f0f;
+  color: white;
+  font-family: "Poppins", "Nunito Sans";
+}
+
+.faqSection .heading {
+  font-weight: 600;
+  font-size: 3rem;
+  line-height: 3.125rem;
+  text-align: center;
+  color: white;
+}
+
+/* leaderboard section */
+.leaderboardSection {
+  background-color: black;
+  color: white;
+  font-family: "Poppins", "Nunito Sans";
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.leaderboardSection .heading {
+  font-weight: 600;
+  font-size: 3rem;
+  line-height: 3.125rem;
+  text-align: center;
+  color: white;
+}

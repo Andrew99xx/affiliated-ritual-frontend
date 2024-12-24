@@ -6,8 +6,8 @@ import Student from './Flows/Student/Student';
 import TeamMember from "./Flows/TeamMember/TeamMember";
 import ClubAdmin from "./Flows/ClubAdmin/ClubAdmin";
 import SuperAdmin from "./Flows/SuperAdmin/SuperAdmin";
-import Landing from "./Landing";
 import Trainer from "./Flows/ClubTrainer/Trainer";
+import Landing from "./landing/Landing";
 
 function App() {
   return (
