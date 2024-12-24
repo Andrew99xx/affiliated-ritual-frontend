@@ -1,14 +1,5 @@
 .main section {
   padding: 5rem 9%;
-  /* 8rem = 128px */
-}
-
-/* 1200, max width  */
-@media (max-width: 1200px) {
-  .main section {
-    padding: 3rem 2rem;
-    /* 48px 32px */
-  }
 }
 
 /*hero section = wrapper of home & introstats ,  */
@@ -237,4 +228,23 @@
   line-height: 3.125rem;
   text-align: center;
   color: white;
+}
+
+/* 1200, max width  */
+@media (max-width: 1200px) {
+  .main section {
+    padding: 3rem 2rem;
+    /* 48px 32px */
+  }
+}
+
+@media (max-width: 768px) {
+  .main section {
+    padding: 3rem 2rem;
+    /* 48px 32px */
+  }
+
+  .heroSection {
+    height: auto;
+  }
 }

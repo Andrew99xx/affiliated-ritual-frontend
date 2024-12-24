@@ -1,10 +1,9 @@
 import React, { useEffect } from "react";
-import { useNavigate } from "react-router-dom";
 import styles from "./Home.module.css"; // Import the CSS module
 import newBanner from "./newBanner.png";
 
 function Home({ onOpenLaunch }) {
-    const navigate = useNavigate();
+
 
     useEffect(() => {
         // Add the 'revealed' class after a small delay to trigger the animation
