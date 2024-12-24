@@ -4,7 +4,7 @@ import { auth } from "../../../firebase-config";
 import Edu from "./EduProg/Edu";
 import Certificate from "./Certificate/Certificate";
 import Logout from "../../../components/LogoutModal/Logout";
-
+import styles from './Dashboard.module.css'
 import "./Dashboard.css";
 
 import logo from "../../../logo.png"
@@ -85,8 +85,8 @@ const Dashboard = ({ handleLogout }) => {
 
   return (
     <div className={`dashboard ${isMenuExpanded ? 'expanded' : ''}`}>
-      <div className="sidebar">
-        <h1 className="heading">
+      <div className={styles.sidebar}>
+        <h1 className={styles.heading}>
           <img width={300} src={logo} />
         </h1>
 
@@ -101,7 +101,7 @@ const Dashboard = ({ handleLogout }) => {
         </div>
 
         <div
-          className="logout"
+          className={styles.logout}
           onClick={openModal}>
           <img src={logout} alt="" />
           <span>Logout</span>
@@ -112,28 +112,28 @@ const Dashboard = ({ handleLogout }) => {
       {/* Logout modal  */}
       <Logout showModal={showModal} closeModal={closeModal} handleLogout={handleLogout} />
 
-      <div className="maincontent">
-        <div className="header">
-          <div className="left">
-            <div className="menugrid" onClick={toggleMenu} style={{ cursor: "pointer" }}>
+      <div className={styles.maincontent}>
+        <div className={styles.header}>
+          <div className={styles.left}>
+            <div className={styles.menugrid} onClick={toggleMenu} style={{ cursor: "pointer" }}>
               <img src={menu} alt="" />
             </div>
-            <div className="searchbar">
+            <div className={styles.searchbar}>
               {" "}
               <input type="text" placeholder="Search" />
             </div>
           </div>
-          <div className="right">
-            <div className="icons">
+          <div className={styles.right}>
+            <div className={styles.icons}>
               {/* coins - total coins earns  */}
-              <div className="coins"><img src={coin} height={25} alt="" /> {totalCoins}</div>
-              <div className="maximise"><img src={expand} height={25} alt="" /></div>
-              <div className="notifications"><img src={notif} height={30} alt="" /></div>
-              <div className="profile"><img src={profile} height={35} alt="" /></div>
+              <div className={styles.coins}><img src={coin} height={25} alt="" /> {totalCoins}</div>
+              <div className={styles.maximise}><img src={expand} height={25} alt="" /></div>
+              <div className={styles.notifications}><img src={notif} height={30} alt="" /></div>
+              <div className={styles.profile}><img src={profile} height={35} alt="" /></div>
             </div>
           </div>
         </div>
-        <div className="content">
+        <div className={styles.content}>
           {activeElement === 'education' ? <Edu /> : <Certificate />}
         </div>
       </div>

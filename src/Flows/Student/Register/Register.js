@@ -6,7 +6,7 @@ import Select from 'react-select'; // Import react-select
 
 import PhoneInput from 'react-phone-number-input';
 import 'react-phone-number-input/style.css';
-
+import styles from './Register.module.css'
 import "./Register.css";
 import logo from "../../../logo.png"
 
@@ -348,24 +348,24 @@ const StudentRegister = ({ onToggle }) => {
     <>
           {/* <Header /> */}
 
-    <div className="Register-student">
-      <div className="container-student">
-        <div className="left-image-student">
-          <img src={register} alt="Student Register" className="static-image" />
+    <div className={styles.RegisterStudent}>
+      <div className={styles.containerStudent}>
+        <div className={styles.leftImageStudent}>
+          <img src={register} alt="Student Register" className={styles.staticImage} />
         </div>
-        <div className="form-section-student">
-          <h3 className="logo">
+        <div className={styles.formSectionStudent}>
+          <h3 className={styles.logo}>
             <img width={300} src={logo} />
           </h3>
-          <div className="heading">Student Registration</div>
-          <form className="formcontainer-student">
+          <div className={styles.heading}>Student Registration</div>
+          <form className={styles.formcontainerStudent}>
 
             <div id="recaptcha-container"></div>
 
             <p>Phone Number <sup>*</sup></p>
             {/* <input
   type="tel"
-  className="input"
+  className={styles.input}
   name="phone"
   value={formData.phone}
   onChange={handleChange}
@@ -379,11 +379,11 @@ const StudentRegister = ({ onToggle }) => {
               onChange={updatePhoneNumber}
               // Directly update the phone number
               placeholder="Enter phone number"
-            // className="input"
+            // className={styles.input}
             />
             <button
               onClick={sendVerificationCode}
-              className="btn-student"
+              className={styles.btnStudent}
             >Send OTP
             </button>
 
@@ -392,14 +392,14 @@ const StudentRegister = ({ onToggle }) => {
 
             <button
               onClick={verifyOtp}
-              className="btn-student">
+              className={styles.btnStudent}>
               Verify OTP
             </button>
 
             <p>First Name <sup>*</sup></p>
             <input
               type="text"
-              className="input"
+              className={styles.input}
               name="firstName"
               value={formData.firstName}
               onChange={handleChange}
@@ -409,7 +409,7 @@ const StudentRegister = ({ onToggle }) => {
             <p>Last Name <sup>*</sup></p>
             <input
               type="text"
-              className="input"
+              className={styles.input}
               name="lastName"
               value={formData.lastName}
               onChange={handleChange}
@@ -418,20 +418,20 @@ const StudentRegister = ({ onToggle }) => {
             />
 
             <p>Date of Birth <sup>*</sup></p>
-            <input type="date" className="input" name="dateOfBirth" value={formData.dateOfBirth} onChange={handleChange} required />
+            <input type="date" className={styles.input} name="dateOfBirth" value={formData.dateOfBirth} onChange={handleChange} required />
 
             <p>Aadhar Number <sup>*</sup></p>
-            <input type="text" className="input" name="aadharNumber" value={formData.aadharNumber} onChange={handleChange} placeholder="Aadhar Number" required />
+            <input type="text" className={styles.input} name="aadharNumber" value={formData.aadharNumber} onChange={handleChange} placeholder="Aadhar Number" required />
 
             <p>Pan Number <sup>*</sup></p>
-            <input type="text" className="input" name="panNumber" value={formData.panNumber} onChange={handleChange} placeholder="Pan Number" required />
+            <input type="text" className={styles.input} name="panNumber" value={formData.panNumber} onChange={handleChange} placeholder="Pan Number" required />
 
             <p>Address <sup>*</sup></p>
-            <input type="text" className="input" name="address" value={formData.address} onChange={handleChange} placeholder="Address" required />
+            <input type="text" className={styles.input} name="address" value={formData.address} onChange={handleChange} placeholder="Address" required />
 
             <p>Select a course <sup>*</sup></p>
             <Select
-              className="selectCourse"
+              className={styles.selectCourse}
               name="courseId"
               options={courseOptions}
               onChange={handleCourseChange}
@@ -486,7 +486,7 @@ const StudentRegister = ({ onToggle }) => {
             <p>Referral ID</p>
             <input
               type="text"
-              className="input"
+              className={styles.input}
               name="referralId"
               value={formData.referralId}
               onChange={handleChange}
@@ -497,22 +497,22 @@ const StudentRegister = ({ onToggle }) => {
             <h3>Bank Details</h3>
 
             <p>Account Number <sup>*</sup></p>
-            <input type="text" className="input" name="accountNumber" value={formData.accountNumber} onChange={handleChange} placeholder="Account Number" required />
+            <input type="text" className={styles.input} name="accountNumber" value={formData.accountNumber} onChange={handleChange} placeholder="Account Number" required />
 
             <p>Account Type <sup>*</sup></p>
-            <input type="text" className="input" name="accountType" value={formData.accountType} onChange={handleChange} placeholder="Account Type" required />
+            <input type="text" className={styles.input} name="accountType" value={formData.accountType} onChange={handleChange} placeholder="Account Type" required />
 
             <p>Ifsc Code <sup>*</sup></p>
-            <input type="text" className="input" name="ifscCode" value={formData.ifscCode} onChange={handleChange} placeholder="Ifsc Code" required />
+            <input type="text" className={styles.input} name="ifscCode" value={formData.ifscCode} onChange={handleChange} placeholder="Ifsc Code" required />
 
             <p>Upload Screenshot Picture</p>
             <input type="file" onChange={handleFileChange} />
 
 
             {/* you may change the value of Register to Update, if user is alr-studenteady registered */}
-            <button className="btn-student" disabled={error} onClick={handleRegister}>Register</button>
+            <button className={styles.btnStudent} disabled={error} onClick={handleRegister}>Register</button>
 
-            <p className="alr-student">already a member? <span onClick={onToggle}>Sign in</span></p>
+            <p className={styles.alrStudent}>already a member? <span onClick={onToggle}>Sign in</span></p>
 
             {/* keep this recaptcha-container within the form, may be external css may intefere in css */}
           </form>

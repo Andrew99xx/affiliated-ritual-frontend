@@ -7,6 +7,7 @@ import { auth } from '../../../firebase-config';
 import { checkUserExists } from '../../../service/checkUserExists';
 import { checkUserIsActive } from '../../../service/checkUserIsActive';
 import { notification } from 'antd';
+import styles from "./Signin.module.css"
 
 const Signin = ({ onSignin, onToggle }) => {
 
@@ -104,7 +105,7 @@ const Signin = ({ onSignin, onToggle }) => {
   };
 
   return (
-    <div className='Signin'>
+    <div className={styles.Signin}>
       <div id="recaptcha-container"></div>
       {
         showSign ?
@@ -115,8 +116,8 @@ const Signin = ({ onSignin, onToggle }) => {
             onOtpVerify={handleOtpVerify}
           />
       }
-      <p className='alr'>Need an account?<span onClick={onToggle}> Register</span></p>
-      <div className="credit">© 2024. All Rights Reserved.</div>
+      <p className={styles.alr}>Need an account?<span onClick={onToggle}> Register</span></p>
+      <div className={styles.credit}>© 2024. All Rights Reserved.</div>
       {
         message &&
         <div
