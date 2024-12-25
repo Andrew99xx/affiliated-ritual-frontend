@@ -17,19 +17,20 @@
 }
 
 .proofItems {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 1.25rem; /* 20px */
-  justify-content: center;
+  width: 100%;
+  max-width: 90vw;
+  margin: 0 auto;
 }
 
 .proofImg {
   width: auto;
-  min-width: 15rem;
-  height: 28rem;
-  background-color: #4E4E4E;
+  height: auto;
+  min-height: 25rem;
+  max-height: 45rem;
+  background-color: #4e4e4e;
   display: flex;
   justify-content: center;
   align-items: center;
   border-radius: 0.25rem;
+  object-fit: cover;
 }

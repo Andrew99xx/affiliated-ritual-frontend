@@ -236,6 +236,8 @@
 /* Media query for small devices */
 @media (max-width: 768px) {
   .home {
+    height: auto;
+    
     flex-direction: column;
     padding-top: 4rem;
     padding-bottom: 0ch !important;
@@ -243,12 +245,14 @@
 
   .homeImgSvgWrapper {
     height: auto;
+    position: static;
   }
 
   .homeImgWrapper {
-    top: 40%;
-    left: 0%;
-    transform: translate(-50%, -30%);
+    position: static;
+    top: none;
+    left: none;
+    transform: none;
   }
 
   .homeImg {
