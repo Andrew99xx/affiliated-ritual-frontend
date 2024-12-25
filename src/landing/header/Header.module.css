@@ -12,12 +12,20 @@
   padding: 0rem 9%;
 }
 
-#menuBtn {
-  cursor: pointer;
-  font-size: 3.5rem;
+.mobileView {
   display: none !important;
-  margin-right: 1rem;
-  color: #fff;
+}
+
+.desktopView {
+  max-width: 70%;
+  display: flex;
+  flex: 1;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.menuBtn {
+  display: none !important;
 }
 
 .headerLogo {
@@ -140,20 +148,20 @@
   box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
 }
 
-/* 1200, max width  */
-@media (max-width: 1200px) {
-  .header {
-    padding: 0rem 2rem;
-    /* 0px 32px */
-  }
-
-  .header .headerBtns {
-    display: none !important;
-  }
-}
-
 /* 768 max width  */
 @media (max-width: 768px) {
+  .mobileView {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  .desktopView {
+    display: none !important;
+  }
+
   .header {
     height: auto;
     min-height: 12vh;
@@ -162,15 +170,12 @@
     padding: 0rem 2rem;
   }
 
-  #menuBtn {
-    display: inline-block;
-    -webkit-transition: 0.2s linear;
-    transition: 0.2s linear;
-  }
-
-  #menuBtn.fa-times {
-    -webkit-transform: rotate(180deg);
-    transform: rotate(180deg);
+  .menuBtn {
+    cursor: pointer;
+    font-size: 3.5rem;
+    display: block !important;
+    margin-right: 1rem;
+    color: #fff;
   }
 
   .header .btn {
