@@ -34,7 +34,9 @@ const Header = ({
 
             <MobileNav
                 isNavbarVisible={isNavbarVisible}
-                activeHash={activeHash} openLogin={openLogin}
+                toggleNavbar={toggleNavbar}
+                activeHash={activeHash}
+                openLogin={openLogin}
                 openRegister={openRegister}
                 isHovered={isHovered}
                 setIsHovered={setIsHovered}

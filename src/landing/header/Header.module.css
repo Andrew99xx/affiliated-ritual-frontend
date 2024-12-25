@@ -196,12 +196,28 @@
     transition: background 0.3s ease-in-out, color 0.3s ease-in-out;
   }
 
-  .mobileView .navbar a:hover {
-    background: linear-gradient(90deg, #ffd700, #ffea82);
-    color: #242424;
-  }
-
   .mobileView .navbar .activeLink {
     color: #ffd700;
+  }
+
+  .btnLogin {
+    cursor: pointer;
+    background: linear-gradient(90deg, #b17e32 0%, #f3e681 50%, #cf9f41 100%);
+    height: 3.5rem;
+    border-radius: 50px;
+    padding: 0.75rem 1.5rem;
+    font-family: "Poppins", "Nunito Sans", sans-serif;
+    font-weight: 500;
+    font-size: 1.3rem;
+    line-height: 1.5rem;
+    text-align: center;
+    color: #242424;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    box-sizing: border-box;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+    transition: all 0.9s ease;
+    flex: 1;
   }
 }
