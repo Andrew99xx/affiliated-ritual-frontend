@@ -2,12 +2,15 @@ import React from "react";
 import { motion } from "framer-motion";
 import styles from "../Header.module.css";
 
-const HeaderButtons = ({ openLogin, openRegister, isHovered, setIsHovered }) => {
+const HeaderButtons = ({ toggleNavbar, openLogin, openRegister, isHovered, setIsHovered }) => {
     return (
         <div className={styles.headerBtns}>
             <button
                 className={styles.btnLogin}
-                onClick={openLogin}
+                onClick={() => {
+                    openLogin();
+                    toggleNavbar();
+                }}
                 onMouseEnter={() => setIsHovered(true)}
                 onMouseLeave={() => setIsHovered(false)}
             >
@@ -17,7 +20,12 @@ const HeaderButtons = ({ openLogin, openRegister, isHovered, setIsHovered }) => 
                 />
                 Login
             </button>
-            <button className={styles.btnSignup} onClick={openRegister}>
+            <button
+                className={styles.btnSignup}
+                onClick={() => {
+                    openRegister();
+                    toggleNavbar();
+                }}>
                 Sign up for Free
             </button>
         </div>

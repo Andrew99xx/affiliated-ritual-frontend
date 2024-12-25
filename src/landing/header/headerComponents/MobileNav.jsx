@@ -34,6 +34,7 @@ const MobileNav = ({ isNavbarVisible, toggleNavbar, activeHash, openLogin, openR
             </nav>
 
             <HeaderButtons
+                toggleNavbar={toggleNavbar}
                 openLogin={openLogin}
                 openRegister={openRegister}
                 isHovered={isHovered}
