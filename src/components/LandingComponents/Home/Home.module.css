@@ -237,10 +237,15 @@
 @media (max-width: 768px) {
   .home {
     height: auto;
-    
     flex-direction: column;
     padding-top: 4rem;
     padding-bottom: 0ch !important;
+  }
+
+  .homeHook {
+    font-weight: 600;
+    font-size: 3rem;
+    line-height: 4rem;
   }
 
   .homeImgSvgWrapper {
