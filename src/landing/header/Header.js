@@ -25,7 +25,7 @@ const Header = ({
                 className={styles.menuBtn}
                 onClick={toggleNavbar}
             >
-                ☰
+                {isNavbarVisible ? "✕" : "☰"}
             </div>
 
             <a href="#home" className={styles.headerLogo}>

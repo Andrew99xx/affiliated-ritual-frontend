@@ -13,7 +13,7 @@
 }
 
 .mobileView {
-  display: none !important;
+  display: none;
 }
 
 .desktopView {
@@ -150,24 +150,28 @@
 
 /* 768 max width  */
 @media (max-width: 768px) {
-  .mobileView {
+  .header {
+    justify-content: flex-start;
+    align-items: center;
+  }
+  .mobileViewActive {
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    gap: 1rem;
+    justify-content: flex-start;
+    align-items: flex-start;
+    background-color: #252524;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    padding: 1rem 2rem;
+    z-index: 1000;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
+    transition: clip-path 0.3s ease-in-out;
   }
 
   .desktopView {
     display: none !important;
-  }
-
-  .header {
-    height: auto;
-    min-height: 12vh;
-    justify-content: flex-start;
-    align-items: center;
-    padding: 0rem 2rem;
   }
 
   .menuBtn {
@@ -175,39 +179,29 @@
     font-size: 3.5rem;
     display: block !important;
     margin-right: 1rem;
+    margin-top: 1.25rem;
     color: #fff;
+    transition: transform 0.2s ease-in-out;
   }
 
-  .header .btn {
-    display: none;
-  }
-
-  .header .navbar {
-    position: absolute;
-    top: 99%;
-    left: 0;
-    right: 0;
-    border-top: 0.2rem solid #000;
-    /* 3.2px */
-    background: #000;
-    -webkit-clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
-    clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
-    -webkit-transition: 0.2s linear;
-    transition: 0.2s linear;
-  }
-
-  .header .navbar .active {
-    -webkit-clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
-    clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
-    flex-direction: column;
-    align-items: flex-start;
-    align-content: flex-start;
-  }
-
-  .header .navbar a {
+  .mobileView .navbar a {
     display: block;
+    width: 100%;
+    padding: 1rem 0;
     margin: 0;
-    padding: 1.5rem 2rem;
-    /* 24px 32px */
+    color: white;
+    text-decoration: none;
+    font-family: "Poppins", sans-serif;
+    font-size: 1.5rem;
+    transition: background 0.3s ease-in-out, color 0.3s ease-in-out;
+  }
+
+  .mobileView .navbar a:hover {
+    background: linear-gradient(90deg, #ffd700, #ffea82);
+    color: #242424;
+  }
+
+  .mobileView .navbar .activeLink {
+    color: #ffd700;
   }
 }

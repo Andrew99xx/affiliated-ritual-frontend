@@ -4,8 +4,11 @@ import HeaderButtons from "./HeaderButtons";
 
 const MobileNav = ({ isNavbarVisible, activeHash, openLogin, openRegister, isHovered, setIsHovered }) => {
     return (
-        <div className={styles.mobileView}>
-            <nav className={`${styles.navbar} ${styles.mobileNav} ${isNavbarVisible ? styles.active : ""}`}>
+        <div
+            className={`${styles.mobileView} ${isNavbarVisible ? styles.mobileViewActive : ""}`}
+            aria-expanded={isNavbarVisible}
+        >
+            <nav className={styles.navbar}>
                 <a className={activeHash === "#home" ? styles.activeLink : ""} href="#home">
                     Home
                 </a>
@@ -22,12 +25,14 @@ const MobileNav = ({ isNavbarVisible, activeHash, openLogin, openRegister, isHov
                     Leaderboard
                 </a>
             </nav>
-            <HeaderButtons
-                openLogin={openLogin}
-                openRegister={openRegister}
-                isHovered={isHovered}
-                setIsHovered={setIsHovered}
-            />
+            <div className={styles.headerButtonsContainer}>
+                <HeaderButtons
+                    openLogin={openLogin}
+                    openRegister={openRegister}
+                    isHovered={isHovered}
+                    setIsHovered={setIsHovered}
+                />
+            </div>
         </div>
     );
 };
