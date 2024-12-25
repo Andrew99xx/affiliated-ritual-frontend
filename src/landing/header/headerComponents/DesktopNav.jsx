@@ -2,7 +2,7 @@ import React from "react";
 import styles from "../Header.module.css";
 import HeaderButtons from "./HeaderButtons";
 
-const DesktopNav = ({ activeHash, openLogin, openRegister, isHovered, setIsHovered }) => {
+const DesktopNav = ({ toggleNavbar, activeHash, openLogin, openRegister, isHovered, setIsHovered }) => {
     return (
         <div className={styles.desktopView}>
             <nav className={`${styles.navbar}`}>
@@ -23,6 +23,7 @@ const DesktopNav = ({ activeHash, openLogin, openRegister, isHovered, setIsHover
                 </a>
             </nav>
             <HeaderButtons
+                toggleNavbar={toggleNavbar}
                 openLogin={openLogin}
                 openRegister={openRegister}
                 isHovered={isHovered}

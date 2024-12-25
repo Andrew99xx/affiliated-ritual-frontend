@@ -42,6 +42,7 @@ const Header = ({
                 setIsHovered={setIsHovered}
             />
             <DesktopNav
+                toggleNavbar={toggleNavbar}
                 activeHash={activeHash}
                 openLogin={openLogin}
                 openRegister={openRegister}
