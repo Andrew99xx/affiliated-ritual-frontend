@@ -236,19 +236,31 @@
 /* Media query for small devices */
 @media (max-width: 768px) {
   .home {
+    min-height: 87vh;
+    height: auto;
     flex-direction: column;
     padding-top: 4rem;
     padding-bottom: 0ch !important;
+    align-items: end;
+  }
+
+  .homeHook {
+    font-weight: 600;
+    font-size: 3rem;
+    line-height: 4rem;
   }
 
   .homeImgSvgWrapper {
     height: auto;
+    position: relative;
+    display: flex;
+    flex-direction: column; /* Stacks children vertically */
+    justify-content: flex-end; /* Pushes .homeImgWrapper to the bottom */
   }
 
   .homeImgWrapper {
-    top: 40%;
-    left: 0%;
-    transform: translate(-50%, -30%);
+    position: static;
+    transform: none;
   }
 
   .homeImg {
@@ -256,5 +268,6 @@
     padding-bottom: 0ch !important;
     max-width: 85vw;
     height: auto;
+    /* background-color: yellow; */
   }
 }

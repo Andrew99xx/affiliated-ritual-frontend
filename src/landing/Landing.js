@@ -62,15 +62,11 @@ const Landing = () => {
     }, []);
 
 
-    const [isNavbarVisible, setIsNavbarVisible] = useState(false);
+
     const [isRegisterOpen, setIsRegisterOpen] = useState(false);
     const [isLoginOpen, setIsLoginOpen] = useState(false);
     const [activeHash, setActiveHash] = useState(window.location.hash || "#home");
     const [isHovered, setIsHovered] = useState(false);
-
-    const toggleNavbar = () => {
-        setIsNavbarVisible(!isNavbarVisible);
-    };
 
     const openRegister = () => {
         setIsRegisterOpen(true);
@@ -113,8 +109,6 @@ const Landing = () => {
             <HeaderRegisterOptions isRegisterOpen={isRegisterOpen} closeRegister={closeRegister} />
 
             <Header
-                isNavbarVisible={isNavbarVisible}
-                toggleNavbar={toggleNavbar}
                 activeHash={activeHash}
                 openLogin={openLogin}
                 openRegister={openRegister}
