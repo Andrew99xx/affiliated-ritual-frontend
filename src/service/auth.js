@@ -46,32 +46,3 @@ export const verifyOtp = async (otp) => {
 };
 
 
-// export const handleSendOtp = async () => {
-//   const phoneNumber = `+91${formData.phone}`;
-//   const success = await sendOtp(phoneNumber);
-//   if (success) {
-//     setIsOtpSent(true);
-//     console.log('OTP sent');
-//   }
-// };
-
-// export const handleSubmit = async (e) => {
-//   e.preventDefault();
-//   if (!isOtpSent) {
-//     await handleSendOtp();
-//   } else {
-//     try {
-//       const user = await verifyOtp(otp);
-//       const userDoc = await getDoc(doc(db, "users", user.uid));
-//       if (userDoc.exists()) {
-//         console.log('User already registered');
-//         // Handle existing user scenario
-//       } else {
-//         await setDoc(doc(db, "users", user.uid), formData);
-//         console.log('User Registered Successfully!!');
-//       }
-//     } catch (error) {
-//       console.error('Error verifying OTP:', error);
-//     }
-//   }
-// };
