@@ -84,7 +84,6 @@ const Progress = ({ data }) => {
               console.log("installment", installment);
               const userDetl = await findUserDetailByID(userId)
               const referringUser = await findUserDetailBymyARID(userDetl.referralId);
-              //////////////////////////////////////////////////////
               await updateUserEarnings(referringUser.uid, installment.price, userId)
               return {
                 ...installment,

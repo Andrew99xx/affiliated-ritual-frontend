@@ -11,7 +11,6 @@ import LoginOtpVerify from '../../../components/FlowComponents/LoginOtpVerify/Lo
 
 const Signin = ({ onSignin }) => {
 
-  const [phone, setPhone] = useState('');
   const [message, setMessage] = useState('');
   const [confirmationResult, setConfirmationResult] = useState(null);
   const [showSign, setShowSign] = useState(true);
@@ -38,7 +37,6 @@ const Signin = ({ onSignin }) => {
 
 
   const handleSignInClick = (phone) => {
-    setPhone(phone);
     sendVerificationCode(phone);
     setShowSign(false);
   };

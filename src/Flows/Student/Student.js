@@ -45,6 +45,7 @@ const Student = () => {
       setIsSignedIn(true);
       alert("You are a student ");
       console.log("You are a student ");
+      // todo : we can update the url also from /student?action=login to /student
     }
     else {
       alert("You are not a student ");

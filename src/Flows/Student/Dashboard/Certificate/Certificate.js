@@ -1,13 +1,14 @@
 import React from 'react'
-import "./Certificate.css"
-import cert from "./cert.png"
+import styles from "./Certificate.module.css"
+import cert from "../assets/cert.png"
+
 const Certificate = () => {
   return (
-    <div className='certifcate'>
-
+    <div className={styles.certifcate}>
       <h1>Certificates</h1>
-      <div className="maincer"> <img src={cert} alt="" />
-      <a href="" className="btn"> download certificate</a></div>
+      <div className={styles.maincer}>
+        <img src={cert} alt="" />
+        <a href="" className={styles.btn}> download certificate</a></div>
     </div>
   )
 }
