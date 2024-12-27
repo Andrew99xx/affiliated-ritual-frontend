@@ -103,35 +103,6 @@
 }
 
 /* Button Styling */
-.btnStudent {
-  background: linear-gradient(
-    91.94deg,
-    #b17e32 -8.77%,
-    #f3e681 58.63%,
-    #cf9f41 107.45%
-  );
-  width: auto;
-  padding: 0.8rem;
-  color: #333;
-  font-weight: 700;
-  border: none;
-  border-radius: 8px;
-  font-size: 1.1rem;
-  cursor: pointer;
-  transition: all 0.3s ease;
-  text-align: center;
-  max-width: 100%;
-}
-
-.btnStudent:hover {
-  background: linear-gradient(
-    91.94deg,
-    #f3e681 -8.77%,
-    #b17e32 58.63%,
-    #cf9f41 107.45%
-  );
-  color: #000;
-}
 
 .alrStudent {
   text-align: center;

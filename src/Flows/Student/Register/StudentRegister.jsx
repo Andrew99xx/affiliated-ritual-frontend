@@ -18,6 +18,7 @@ import { updateUserEarnings } from "../../../service/updateEarnings/updateUserEa
 import { getCurrentTimestamp } from "../../../service/time/getCurrentTimestamp.js";
 import { findUserDetailBymyARID } from "../Dashboard/EduProg/progress/Progress.js";
 import { notification } from "antd";
+import ButtonComponent from "../../../components/CssComponents/ButtonComponent.jsx";
 
 
 const delay = (ms) => new Promise(resolve => setTimeout(resolve, ms));
@@ -367,21 +368,34 @@ const StudentRegister = () => {
                 onChange={updatePhoneNumber}
                 placeholder="Enter phone number"
               />
-              <button
+
+              {/* <button
                 onClick={sendVerificationCode}
                 className={styles.btnStudent}
               >
                 Send OTP
-              </button>
+              </button> */}
+
+              <ButtonComponent
+                onClick={sendVerificationCode}
+                className={""}
+                buttonText={"Send OTP"}
+              />
 
               <p>Enter Otp <sup>*</sup></p>
               <OtpInputContainer onOtpChange={handleOtpChange} />
 
-              <button
+              {/* <button
                 onClick={verifyOtp}
                 className={styles.btnStudent}>
                 Verify OTP
-              </button>
+              </button> */}
+
+              <ButtonComponent
+                onClick={verifyOtp}
+                className={""}
+                buttonText={"Verify OTP"}
+              />
 
               <p>First Name <sup>*</sup></p>
               <input
@@ -501,13 +515,24 @@ const StudentRegister = () => {
               <input type="file" onChange={handleFileChange} />
 
               {/* you may change the value of Register to Update, if user is alr-studenteady registered */}
-              <button
+              {/* <button
                 className={styles.btnStudent}
                 disabled={error}
                 onClick={handleRegister}
               >
                 Register
-              </button>
+              </button> */}
+
+              {/* disabled will not work  */}
+
+              <ButtonComponent
+                // disabled={error}
+                onClick={handleRegister}
+                className={""}
+                buttonText={"Register"}
+              />
+
+
               <Link
                 to="/student?action=login"
                 style={{
