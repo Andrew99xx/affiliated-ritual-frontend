@@ -60,7 +60,7 @@ const HeaderLoginOptions = ({ isLoginOpen, closeLogin }) => {
               />{" "}
               Trainer
             </Link>
-            <Link to="/teammember?action=register" className={styles.tml}>
+            <Link to="/teammember?action=login" className={styles.tml}>
               <motion.img
                 src="/member.png"
                 alt=""

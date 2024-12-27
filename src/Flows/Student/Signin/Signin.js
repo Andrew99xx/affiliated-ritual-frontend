@@ -1,18 +1,16 @@
 import React, { useEffect, useState } from 'react';
 import { RecaptchaVerifier, signInWithPhoneNumber } from 'firebase/auth';
-import "./Signin.css";
-import Sign from './Signincomp/Sign';
-import Signotp from './Signincomp/Signotp';
+import { Link } from 'react-router-dom'
 import { auth } from '../../../firebase-config';
 import { checkUserExists } from '../../../service/checkUserExists';
 import { checkUserIsActive } from '../../../service/checkUserIsActive';
 import { notification } from 'antd';
 import styles from "./Signin.module.css"
+import LoginInput from '../../../components/FlowComponents/LoginInput/LoginInput';
+import LoginOtpVerify from '../../../components/FlowComponents/LoginOtpVerify/LoginOtpVerify';
 
-const Signin = ({ onSignin, onToggle }) => {
+const Signin = ({ onSignin }) => {
 
-  const [email, setEmail] = useState('');
-  const [phone, setPhone] = useState('');
   const [message, setMessage] = useState('');
   const [confirmationResult, setConfirmationResult] = useState(null);
   const [showSign, setShowSign] = useState(true);
@@ -38,9 +36,7 @@ const Signin = ({ onSignin, onToggle }) => {
   }, []);
 
 
-  const handleSignInClick = (email, phone) => {
-    setEmail(email);
-    setPhone(phone);
+  const handleSignInClick = (phone) => {
     sendVerificationCode(phone);
     setShowSign(false);
   };
@@ -72,7 +68,7 @@ const Signin = ({ onSignin, onToggle }) => {
         description: 'First request the OTP',
         placement: 'topRight',
         duration: 3, // Display for 3 seconds
-      });      return;
+      }); return;
     }
     confirmationResult.confirm(otp)
       .then(async (result) => {
@@ -84,7 +80,7 @@ const Signin = ({ onSignin, onToggle }) => {
         if (userExists) {
           localStorage.setItem('student_uid', user.uid);
 
-          const isActive = checkUserIsActive(user.uid);
+          const isActive = await checkUserIsActive(user.uid);
 
           if (isActive == true) {
             onSignin(user);
@@ -105,28 +101,28 @@ const Signin = ({ onSignin, onToggle }) => {
   };
 
   return (
-    <div className={styles.Signin}>
-      <div id="recaptcha-container"></div>
-      {
-        showSign ?
-          <Sign onSignInClick={handleSignInClick} /> :
-          <Signotp
-            email={email}
-            phone={phone}
-            onOtpVerify={handleOtpVerify}
-          />
-      }
-      <p className={styles.alr}>Need an account?<span onClick={onToggle}> Register</span></p>
-      <div className={styles.credit}>© 2024. All Rights Reserved.</div>
-      {
-        message &&
-        <div
+    <div className={styles.signin}>
+      <div className={styles.container}>
+        <div id="recaptcha-container"></div>
+        {
+          showSign ?
+            <LoginInput
+              onSignInClick={handleSignInClick}
+            /> :
+            <LoginOtpVerify
+              onOtpVerify={handleOtpVerify}
+            />
+        }
+        <Link
+          to="/student?action=register"
           style={{
-            color: "red"
+            textDecoration: 'none',
           }}
         >
-          {message}
-        </div>}
+          <p className={styles.naa}>Need an account? <span>Register</span></p>
+        </Link>
+
+      </div>
     </div>
   );
 };

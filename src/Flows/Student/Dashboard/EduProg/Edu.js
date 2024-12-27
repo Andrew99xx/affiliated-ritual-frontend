@@ -10,10 +10,11 @@ import { db } from "../../../../firebase-config";
 import { doc, getDoc } from "firebase/firestore";
 
 // importing assests
-import user from "./users.png";
-import orders from "./orders.png";
-import pending from "./pending.png";
-import sales from "./sales.png";
+import user from "../assets/users.png"
+import orders from "../assets/orders.png"
+import pending from "../assets/pending.png"
+import sales from "../assets/sales.png"
+
 
 const Edu = () => {
 

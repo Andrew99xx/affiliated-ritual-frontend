@@ -28,13 +28,8 @@ function HowItWorks() {
         <div className={styles.container}>
             {data.map((item, i) => (
                 <React.Fragment key={i}>
-                    <motion.div
+                    <div
                         className={styles.items}
-                        whileInView={{
-                            rotate: [0, 10, -10, 10, 0], // Jiggle effect
-                            transition: { duration: 0.5, ease: "easeInOut" }
-                        }}
-                        viewport={{ once: false, amount: 0.3 }}
                     >
                         <img
                             className={styles.imglink}
@@ -47,7 +42,7 @@ function HowItWorks() {
                         <div className={styles.description}>
                             {item.description}
                         </div>
-                    </motion.div>
+                    </div>
                     {i < data.length - 1 && <div className={styles.divider} />}
                 </React.Fragment>
             ))}

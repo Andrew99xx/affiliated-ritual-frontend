@@ -3,15 +3,13 @@ import { RecaptchaVerifier, signInWithPhoneNumber } from "firebase/auth";
 import { doc, setDoc, getDoc, getDocs, collection } from "firebase/firestore";
 import { getStorage, ref, uploadBytes, getDownloadURL } from "firebase/storage";
 import Select from 'react-select'; // Import react-select
-
 import PhoneInput from 'react-phone-number-input';
 import 'react-phone-number-input/style.css';
-import styles from './Register.module.css'
-import "./Register.css";
+import styles from './StudentRegister.module.css'
 import logo from "../../../logo.png"
-
 import register from "./register.png"
-import OtpInputContainer from "../Signin/Signincomp/OtpInputContainer.js";
+import OtpInputContainer from "../../../components/FlowComponents/OtpInputContainer/OtpInputContainer.jsx";
+import { Link } from "react-router-dom";
 
 import { auth, db } from "../../../firebase-config.js";
 import { findUserIdByReferral } from "../../../service/findUserIdByReferral.js";
@@ -20,11 +18,11 @@ import { updateUserEarnings } from "../../../service/updateEarnings/updateUserEa
 import { getCurrentTimestamp } from "../../../service/time/getCurrentTimestamp.js";
 import { findUserDetailBymyARID } from "../Dashboard/EduProg/progress/Progress.js";
 import { notification } from "antd";
-// import Header from "../../../components/Header/Header.jsx";
+
 
 const delay = (ms) => new Promise(resolve => setTimeout(resolve, ms));
 
-const StudentRegister = ({ onToggle }) => {
+const StudentRegister = () => {
   const [otp, setOtp] = useState('');
   const [courses, setCourses] = useState([]);
   const [message, setMessage] = useState('');
@@ -346,181 +344,182 @@ const StudentRegister = ({ onToggle }) => {
 
   return (
     <>
-          {/* <Header /> */}
+      <div className={styles.RegisterStudent}>
+        <div className={styles.containerStudent}>
+          <div className={styles.leftImageStudent}>
+            <img src={register} alt="Student Register" className={styles.staticImage} />
+          </div>
+          <div className={styles.formSectionStudent}>
+            <h3 className={styles.logo}>
+              <img width={300} src={logo} />
+            </h3>
+            <div className={styles.heading}>Student Registration</div>
+            <form className={styles.formcontainerStudent}>
 
-    <div className={styles.RegisterStudent}>
-      <div className={styles.containerStudent}>
-        <div className={styles.leftImageStudent}>
-          <img src={register} alt="Student Register" className={styles.staticImage} />
-        </div>
-        <div className={styles.formSectionStudent}>
-          <h3 className={styles.logo}>
-            <img width={300} src={logo} />
-          </h3>
-          <div className={styles.heading}>Student Registration</div>
-          <form className={styles.formcontainerStudent}>
+              <div id="recaptcha-container"></div>
 
-            <div id="recaptcha-container"></div>
+              <p>Phone Number <sup>*</sup></p>
 
-            <p>Phone Number <sup>*</sup></p>
-            {/* <input
-  type="tel"
-  className={styles.input}
-  name="phone"
-  value={formData.phone}
-  onChange={handleChange}
-  placeholder="9876543210"
-  required
-/> */}
-            <PhoneInput
-              international
-              defaultCountry="IN"
-              value={formData.phone}
-              onChange={updatePhoneNumber}
-              // Directly update the phone number
-              placeholder="Enter phone number"
-            // className={styles.input}
-            />
-            <button
-              onClick={sendVerificationCode}
-              className={styles.btnStudent}
-            >Send OTP
-            </button>
+              <PhoneInput
+                international
+                defaultCountry="IN"
+                value={formData.phone}
+                onChange={updatePhoneNumber}
+                placeholder="Enter phone number"
+              />
+              <button
+                onClick={sendVerificationCode}
+                className={styles.btnStudent}
+              >
+                Send OTP
+              </button>
 
-            <p>Enter Otp <sup>*</sup></p>
-            <OtpInputContainer onOtpChange={handleOtpChange} />
+              <p>Enter Otp <sup>*</sup></p>
+              <OtpInputContainer onOtpChange={handleOtpChange} />
 
-            <button
-              onClick={verifyOtp}
-              className={styles.btnStudent}>
-              Verify OTP
-            </button>
+              <button
+                onClick={verifyOtp}
+                className={styles.btnStudent}>
+                Verify OTP
+              </button>
 
-            <p>First Name <sup>*</sup></p>
-            <input
-              type="text"
-              className={styles.input}
-              name="firstName"
-              value={formData.firstName}
-              onChange={handleChange}
-              placeholder="Enter first name"
-              required
-            />
-            <p>Last Name <sup>*</sup></p>
-            <input
-              type="text"
-              className={styles.input}
-              name="lastName"
-              value={formData.lastName}
-              onChange={handleChange}
-              placeholder="Enter last name"
-              required
-            />
+              <p>First Name <sup>*</sup></p>
+              <input
+                type="text"
+                className={styles.input}
+                name="firstName"
+                value={formData.firstName}
+                onChange={handleChange}
+                placeholder="Enter first name"
+                required
+              />
+              <p>Last Name <sup>*</sup></p>
+              <input
+                type="text"
+                className={styles.input}
+                name="lastName"
+                value={formData.lastName}
+                onChange={handleChange}
+                placeholder="Enter last name"
+                required
+              />
 
-            <p>Date of Birth <sup>*</sup></p>
-            <input type="date" className={styles.input} name="dateOfBirth" value={formData.dateOfBirth} onChange={handleChange} required />
+              <p>Date of Birth <sup>*</sup></p>
+              <input type="date" className={styles.input} name="dateOfBirth" value={formData.dateOfBirth} onChange={handleChange} required />
 
-            <p>Aadhar Number <sup>*</sup></p>
-            <input type="text" className={styles.input} name="aadharNumber" value={formData.aadharNumber} onChange={handleChange} placeholder="Aadhar Number" required />
+              <p>Aadhar Number <sup>*</sup></p>
+              <input type="text" className={styles.input} name="aadharNumber" value={formData.aadharNumber} onChange={handleChange} placeholder="Aadhar Number" required />
 
-            <p>Pan Number <sup>*</sup></p>
-            <input type="text" className={styles.input} name="panNumber" value={formData.panNumber} onChange={handleChange} placeholder="Pan Number" required />
+              <p>Pan Number <sup>*</sup></p>
+              <input type="text" className={styles.input} name="panNumber" value={formData.panNumber} onChange={handleChange} placeholder="Pan Number" required />
 
-            <p>Address <sup>*</sup></p>
-            <input type="text" className={styles.input} name="address" value={formData.address} onChange={handleChange} placeholder="Address" required />
+              <p>Address <sup>*</sup></p>
+              <input type="text" className={styles.input} name="address" value={formData.address} onChange={handleChange} placeholder="Address" required />
 
-            <p>Select a course <sup>*</sup></p>
-            <Select
-              className={styles.selectCourse}
-              name="courseId"
-              options={courseOptions}
-              onChange={handleCourseChange}
-              placeholder="Select a course"
-
-              isSearchable={true}
-              required
-              styles={{
-                control: (provided, state) => ({
-                  ...provided,
-                  backgroundColor: '#000',
-                  borderColor: state.isFocused ? '#000' : '#000',
-                  // color: '#fff',
-                  borderRadius: '8px',
-                  // padding: '0.5rem',
-                  boxShadow: state.isFocused ? '0 0 0 1px #000' : 'none',
-                  '&:hover': {
-                    borderColor: '#000'
-                  }
-                }),
-                input: (provided) => ({
-                  ...provided,
-                  color: '#fff'
-                }),
-                placeholder: (provided) => ({
-                  ...provided,
-                  color: '#ccc'
-                }),
-                singleValue: (provided) => ({
-                  ...provided,
-                  color: '#fff'
-                }),
-                menu: (provided) => ({
-                  ...provided,
-                  backgroundColor: '#000',
-                  borderRadius: '8px',
-                  borderColor: '#fff'
-
-                }),
-                option: (provided, state) => ({
-                  ...provided,
-                  backgroundColor: state.isSelected ? '#333' : '#000',
-                  color: state.isSelected ? '#fff' : '#ccc',
-                  '&:hover': {
-                    backgroundColor: '#555',
+              <p>Select a course <sup>*</sup></p>
+              <Select
+                className={styles.selectCourse}
+                name="courseId"
+                options={courseOptions}
+                onChange={handleCourseChange}
+                placeholder="Select a course"
+                isSearchable={true}
+                required
+                styles={{
+                  control: (provided, state) => ({
+                    ...provided,
+                    backgroundColor: '#000',
+                    borderColor: state.isFocused ? '#000' : '#000',
+                    borderRadius: '8px',
+                    boxShadow: state.isFocused ? '0 0 0 1px #000' : 'none',
+                    '&:hover': {
+                      borderColor: '#000'
+                    }
+                  }),
+                  input: (provided) => ({
+                    ...provided,
                     color: '#fff'
-                  }
-                })
-              }}
-            />
+                  }),
+                  placeholder: (provided) => ({
+                    ...provided,
+                    color: '#ccc'
+                  }),
+                  singleValue: (provided) => ({
+                    ...provided,
+                    color: '#fff'
+                  }),
+                  menu: (provided) => ({
+                    ...provided,
+                    backgroundColor: '#000',
+                    borderRadius: '8px',
+                    borderColor: '#fff'
 
-            <p>Referral ID</p>
-            <input
-              type="text"
-              className={styles.input}
-              name="referralId"
-              value={formData.referralId}
-              onChange={handleChange}
-              placeholder="Enter Referral ID"
-            />
-            <p style={{ color: error ? 'red' : 'green' }}>{helpText}</p>
+                  }),
+                  option: (provided, state) => ({
+                    ...provided,
+                    backgroundColor: state.isSelected ? '#333' : '#000',
+                    color: state.isSelected ? '#fff' : '#ccc',
+                    '&:hover': {
+                      backgroundColor: '#555',
+                      color: '#fff'
+                    }
+                  })
+                }}
+              />
 
-            <h3>Bank Details</h3>
+              <p>Referral ID</p>
+              <input
+                type="text"
+                className={styles.input}
+                name="referralId"
+                value={formData.referralId}
+                onChange={handleChange}
+                placeholder="Enter Referral ID"
+              />
+              <p style={{ color: error ? 'red' : 'green' }}>{helpText}</p>
 
-            <p>Account Number <sup>*</sup></p>
-            <input type="text" className={styles.input} name="accountNumber" value={formData.accountNumber} onChange={handleChange} placeholder="Account Number" required />
+              <h3>Bank Details</h3>
 
-            <p>Account Type <sup>*</sup></p>
-            <input type="text" className={styles.input} name="accountType" value={formData.accountType} onChange={handleChange} placeholder="Account Type" required />
+              <p>Account Number <sup>*</sup></p>
+              <input
+                type="text"
+                className={styles.input}
+                name="accountNumber"
+                value={formData.accountNumber}
+                onChange={handleChange}
+                placeholder="Account Number"
+                required
+              />
 
-            <p>Ifsc Code <sup>*</sup></p>
-            <input type="text" className={styles.input} name="ifscCode" value={formData.ifscCode} onChange={handleChange} placeholder="Ifsc Code" required />
+              <p>Account Type <sup>*</sup></p>
+              <input type="text" className={styles.input} name="accountType" value={formData.accountType} onChange={handleChange} placeholder="Account Type" required />
 
-            <p>Upload Screenshot Picture</p>
-            <input type="file" onChange={handleFileChange} />
+              <p>Ifsc Code <sup>*</sup></p>
+              <input type="text" className={styles.input} name="ifscCode" value={formData.ifscCode} onChange={handleChange} placeholder="Ifsc Code" required />
 
+              <p>Upload Screenshot Picture</p>
+              <input type="file" onChange={handleFileChange} />
 
-            {/* you may change the value of Register to Update, if user is alr-studenteady registered */}
-            <button className={styles.btnStudent} disabled={error} onClick={handleRegister}>Register</button>
-
-            <p className={styles.alrStudent}>already a member? <span onClick={onToggle}>Sign in</span></p>
-
-            {/* keep this recaptcha-container within the form, may be external css may intefere in css */}
-          </form>
+              {/* you may change the value of Register to Update, if user is alr-studenteady registered */}
+              <button
+                className={styles.btnStudent}
+                disabled={error}
+                onClick={handleRegister}
+              >
+                Register
+              </button>
+              <Link
+                to="/student?action=login"
+                style={{
+                  textDecoration: 'none',
+                }}
+              >
+                <p className={styles.alrStudent}>already a member? <span>Sign in</span></p>
+              </Link>
+            </form>
+          </div>
         </div>
       </div>
-      {/* {message && <div>{message}</div>} */}
-
-    </div>
     </>
   );
 };
