@@ -3,14 +3,11 @@ import { RecaptchaVerifier, signInWithPhoneNumber } from "firebase/auth";
 import { doc, setDoc, getDoc, getDocs, collection } from "firebase/firestore";
 import { getStorage, ref, uploadBytes, getDownloadURL } from "firebase/storage";
 import Select from 'react-select'; // Import react-select
-import PhoneInput from 'react-phone-number-input';
-import 'react-phone-number-input/style.css';
 import styles from './StudentRegister.module.css'
 import logo from "../../../logo.png"
 import register from "./register.png"
 import OtpInputContainer from "../../../components/FlowComponents/OtpInputContainer/OtpInputContainer.jsx";
 import { Link } from "react-router-dom";
-
 import { auth, db } from "../../../firebase-config.js";
 import { findUserIdByReferral } from "../../../service/findUserIdByReferral.js";
 import { findCoursePriceById } from "../../../service/findCoursePriceById.js";
@@ -18,7 +15,8 @@ import { updateUserEarnings } from "../../../service/updateEarnings/updateUserEa
 import { getCurrentTimestamp } from "../../../service/time/getCurrentTimestamp.js";
 import { findUserDetailBymyARID } from "../Dashboard/EduProg/progress/Progress.js";
 import { notification } from "antd";
-import ButtonComponent from "../../../components/CssComponents/ButtonComponent.jsx";
+import ButtonComponent from "../../../components/CssComponents/ButtonComponent/ButtonComponent.jsx";
+import PhoneInputComponent from "../../../components/CssComponents/PhoneInput/PhoneInputComponent.jsx";
 
 
 const delay = (ms) => new Promise(resolve => setTimeout(resolve, ms));
@@ -360,21 +358,10 @@ const StudentRegister = () => {
               <div id="recaptcha-container"></div>
 
               <p>Phone Number <sup>*</sup></p>
-
-              <PhoneInput
-                international
-                defaultCountry="IN"
+              <PhoneInputComponent
                 value={formData.phone}
                 onChange={updatePhoneNumber}
-                placeholder="Enter phone number"
               />
-
-              {/* <button
-                onClick={sendVerificationCode}
-                className={styles.btnStudent}
-              >
-                Send OTP
-              </button> */}
 
               <ButtonComponent
                 onClick={sendVerificationCode}
@@ -384,12 +371,6 @@ const StudentRegister = () => {
 
               <p>Enter Otp <sup>*</sup></p>
               <OtpInputContainer onOtpChange={handleOtpChange} />
-
-              {/* <button
-                onClick={verifyOtp}
-                className={styles.btnStudent}>
-                Verify OTP
-              </button> */}
 
               <ButtonComponent
                 onClick={verifyOtp}
@@ -524,7 +505,6 @@ const StudentRegister = () => {
               </button> */}
 
               {/* disabled will not work  */}
-
               <ButtonComponent
                 // disabled={error}
                 onClick={handleRegister}

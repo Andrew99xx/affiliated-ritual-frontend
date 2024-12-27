@@ -15,6 +15,7 @@ import Feedback from '../../components/LandingComponents/Feedback/Feedback'
 import Proof from '../../components/LandingComponents/Proof/Proof'
 import Faq from '../../components/LandingComponents/Faq/Faq'
 import Leaderboard from '../../components/LandingComponents/Leaderboard/Leaderboard'
+import PhoneInputComponent from '../../components/CssComponents/PhoneInput/PhoneInputComponent';
 
 
 function Main({ openRegister }) {
@@ -27,6 +28,8 @@ function Main({ openRegister }) {
                 </section>
                 <IntroStats />
             </div>
+
+
 
             {/* how it works */}
             <section className={styles.howItWorkSection}>

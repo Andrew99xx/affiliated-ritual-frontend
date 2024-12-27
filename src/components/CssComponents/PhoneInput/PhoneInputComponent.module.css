@@ -1,0 +1,22 @@
+/* PhoneInputComponent.module.css */
+.phoneInputContainer {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 1rem;
+  /* background-color: yellow; */
+}
+
+.phoneInput {
+  /* background-color: aqua !important; */
+  font-size: 16px !important;
+  padding: 10px !important;
+  border: 0px solid #ccc !important;
+  border-radius: 4px !important;
+  width: 100%;
+  transition: border-color 0.3s ease-in-out !important;
+}
+
+.phoneInput:focus {
+  border-color: #007bff !important;
+  outline: none !important;
+}
