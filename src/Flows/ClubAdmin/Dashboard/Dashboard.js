@@ -112,7 +112,7 @@ const Dashboard = () => {
         <div className={activeElement === 'addTeamLeader' ? "sidebarelementactive" : "sidebarelement"} onClick={() => handleClick('addTeamLeader')}>
           {/* change the image here, todo */}
           <img src={activeElement === 'saletarget' ? SaleTargetActive : SaleTarget} alt="" />
-          <span>Add Team Leader</span>
+          <span>Add Club Leader</span>
         </div>
 
         <div className="logout" onClick={openModal}> <img src={logout} alt="" /> <span>Logout</span></div>

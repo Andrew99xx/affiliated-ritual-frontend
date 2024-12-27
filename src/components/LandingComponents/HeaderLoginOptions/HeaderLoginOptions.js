@@ -47,7 +47,7 @@ const HeaderLoginOptions = ({ isLoginOpen, closeLogin }) => {
                 whileHover={{ scale: 1.1, rotate: 5 }}
                 transition={{ type: "spring", stiffness: 200 }}
               />{" "}
-              Team Leader
+              Club Leader
             </Link>
             <Link to="/trainer?action=login" className={styles.tra}>
               <motion.img
@@ -69,7 +69,7 @@ const HeaderLoginOptions = ({ isLoginOpen, closeLogin }) => {
                 whileHover={{ scale: 1.1, rotate: 5 }}
                 transition={{ type: "spring", stiffness: 200 }}
               />{" "}
-              Team Member
+              Club Member
             </Link>
           </div>
         </div>

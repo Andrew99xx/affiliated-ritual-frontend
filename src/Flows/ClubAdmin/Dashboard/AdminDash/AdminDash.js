@@ -97,7 +97,7 @@ const AdminDa = () => {
       <div className="tables">
 
         <div className="hes">
-          <h1 className="heading">Team Members</h1>
+          <h1 className="heading">Club Members</h1>
           <h2 className="subha" onClick={ShowTeam}>View All</h2>
         </div>
         <Table data={teamMembersEarnings} onViewFull={() => { }} showAction={false} />

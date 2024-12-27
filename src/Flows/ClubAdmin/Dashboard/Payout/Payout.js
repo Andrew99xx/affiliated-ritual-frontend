@@ -91,7 +91,7 @@ const Payout = () => {
         </div>
 
         <div className="sl">
-          <h1 className="heading">Team Leader</h1>
+          <h1 className="heading">Club Leader</h1>
           {/* onclick of viewAll, use Full Table  */}
           <h1 className="viw">View All</h1>
         </div>
@@ -103,7 +103,7 @@ const Payout = () => {
         </div>
 
         <div className="sl">
-          <h1 className="heading">Team Member</h1>
+          <h1 className="heading">Club Member</h1>
           <h1 className="viw">View All</h1>
         </div>
         <div className="tb">

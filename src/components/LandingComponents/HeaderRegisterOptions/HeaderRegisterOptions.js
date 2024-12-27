@@ -39,7 +39,7 @@ const HeaderRegisterOptions = ({ isRegisterOpen, closeRegister }) => {
                         <Link to="/teammember?action=register" className={styles.tml}>
                             <img
                                 src="/member.png"
-                                alt="Team Member"
+                                alt="Club Member"
                                 height={80}
                                 width={80}
                             />{" "}

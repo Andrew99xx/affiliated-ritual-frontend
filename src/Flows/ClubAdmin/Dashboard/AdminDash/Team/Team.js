@@ -54,7 +54,7 @@ const Team = () => {
             <Box subhed={"User"} value={"40,689"} logo={user} />
           </div>
           <div className="fl">
-            <h1 className="heading">Team Members</h1>
+            <h1 className="heading">Club Members</h1>
             <input type="text" placeholder="Search" className="inputinstallll" />
           </div>
         </>

@@ -73,7 +73,7 @@ const Payout = () => {
 
         <div className="sl">
           {" "}
-          <h1 className="heading">Team Leader</h1>
+          <h1 className="heading">Club Leader</h1>
           <h1 className="viw">View All</h1>
         </div>
         <div className="tb">
@@ -116,7 +116,7 @@ const Payout = () => {
           </div>
         </div>
         <div className="sl">
-          <h1 className="heading">Team Member</h1>
+          <h1 className="heading">Club Member</h1>
           <h1 className="viw">View All</h1>
         </div>
         <div className="tb">
