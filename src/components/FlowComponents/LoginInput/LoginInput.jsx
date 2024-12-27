@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import PhoneInput from 'react-phone-number-input';
+import ButtonComponent from '../../CssComponents/ButtonComponent';
 
 const LoginInput = ({ onSignInClick }) => {
     const [phone, setPhone] = useState('');
@@ -23,12 +24,11 @@ const LoginInput = ({ onSignInClick }) => {
                 placeholder="Enter phone number"
                 className="input"
             />
-            <button
+            <ButtonComponent
+                buttonText="Sign In - GET OTP"
                 onClick={handleSignIn}
-                className="btn"
-            >
-                Sign In - GET OTP
-            </button>
+                className={""}
+            />
         </div>
     );
 }
