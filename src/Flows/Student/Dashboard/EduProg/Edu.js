@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import "./Edu.css";
+
 
 import Progress from "./progress/Progress";
 import Box from "../../../../components/box/Box";
@@ -8,6 +8,8 @@ import Bargraph from "../../../../components/Graph/Bargraph";
 
 import { db } from "../../../../firebase-config";
 import { doc, getDoc } from "firebase/firestore";
+
+import styles from "./Edu.module.css"
 
 // importing assests
 import user from "../assets/users.png"
@@ -24,7 +26,7 @@ const Edu = () => {
     async function fetchCourseData() {
       const data = await findCoursesData();
       setCourseData(data);
-      console.log(JSON.stringify(data,null,2))
+      console.log(JSON.stringify(data, null, 2))
     }
     fetchCourseData();
   }, []);
@@ -130,31 +132,17 @@ const Edu = () => {
 
 
   return (
-    <div className="edu">
-      <h1 className="heading">Education & Progress</h1>
-      <div className="boxes">
-        <Box subhed={"User"} value={"40,689"} logo={user} />
-        <Box subhed={"User"} value={"40,689"} logo={user} />
-        <Box subhed={"User"} value={"40,689"} logo={user} />
-        <Box subhed={"User"} value={"40,689"} logo={user} />
+    <div className={styles.edu}>
+
+      <div className={styles.progressCharts}>
+        <h1 className={styles.heading}>Education & Progress</h1>
       </div>
 
-      <div className="graphes">
-        <Graph />
-        <Bargraph />
-
-
-      </div>
-      <div
-        className="courses"
-        style={{
-          color: "white",
-          fontSize : "44px"
-        }}
-      >
-        Your courses
-      </div>
-      <div className="pro">
+      <div className={styles.pro}>
+        <div className={styles.courses}>Your courses</div>
+        {
+          
+        }
         <Progress data={courseData} />
       </div>
     </div>

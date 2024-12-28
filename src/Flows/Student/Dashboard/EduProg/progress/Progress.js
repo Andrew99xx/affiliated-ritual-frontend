@@ -120,7 +120,9 @@ const Progress = ({ data }) => {
 
   return (
     <div className="progress">
-      {courses.map((course, index) => {
+
+
+      {courses && courses.map((course, index) => {
         // Sort modules for each course by date
         const sortedModules = sortModulesAndInstallmentByDate(course.modules, course.installments);
 
