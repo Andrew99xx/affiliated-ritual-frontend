@@ -1,0 +1,41 @@
+.sidebar {
+  position: sticky;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  width: 17%;
+  height: 100vh;
+  color: #fff;
+  overflow: hidden;
+  transition: all 0.5s linear;
+  font-family: "Poppins", "Nunito Sans", sans-serif;
+}
+
+.heading {
+  padding: 1rem;
+  color: #e4c748;
+  font-size: 30px;
+  font-weight: 700;
+  text-align: center;
+  margin: 0 0 15px 0;
+  text-transform: uppercase;
+}
+
+.sidebarelement,
+.sidebarelementactive {
+  font-size: 18px;
+  padding: 1.3rem;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+
+.sidebarelementactive {
+  border-right: 5px solid #e4c748;
+  color: #c19e29;
+}
+
+.logout {
+  padding: 1rem;
+  cursor: pointer;
+}

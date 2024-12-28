@@ -57,7 +57,6 @@ const Student = () => {
     localStorage.removeItem("student_uid")
     setIsSignedIn(false);
     setIsRegistering(false);
-    // you may redirect to home also 
   }
 
 
