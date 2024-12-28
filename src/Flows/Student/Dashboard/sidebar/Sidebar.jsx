@@ -11,29 +11,38 @@ import ceractive from "../assets/ceractive.png";
 const Sidebar = ({ activeElement, handleClick, openModal, isMenuExpanded }) => {
     return (
         <div className={`${styles.sidebar} ${isMenuExpanded ? styles.expanded : ''}`}>
-            <h1 className={styles.heading}>
-                <img width={300} src={logo} alt="Logo" />
-            </h1>
 
-            <div
-                className={activeElement === 'education' ? styles.sidebarelementactive : styles.sidebarelement}
-                onClick={() => handleClick('education')}
-            >
-                <img src={activeElement === 'education' ? eduactive : edu} alt="Education" />
-                <span>Education & Progress</span>
+            <div className={styles.elementWrapper}>
+                <div className={styles.heading}>
+                    <img
+                        width={300}
+                        src={logo}
+                        alt="Logo"
+                        className={styles.headingLogo}
+                    />
+                </div>
+                <div
+                    className={activeElement === 'education' ? styles.sidebarelementactive : styles.sidebarelement}
+                    onClick={() => handleClick('education')}
+                >
+                    <img src={activeElement === 'education' ? eduactive : edu} alt="Education" />
+                    <p>Education & Progress</p>
+                </div>
+
+                <div
+                    className={activeElement === 'certificate' ? styles.sidebarelementactive : styles.sidebarelement}
+                    onClick={() => handleClick('certificate')}
+                >
+                    <img
+                        src={activeElement === 'certificate' ? ceractive : cer}
+                        alt="Certificates" />
+                    <p>Certificates</p>
+                </div>
             </div>
 
-            <div
-                className={activeElement === 'certificate' ? styles.sidebarelementactive : styles.sidebarelement}
-                onClick={() => handleClick('certificate')}
-            >
-                <img src={activeElement === 'certificate' ? ceractive : cer} alt="Certificates" />
-                <span>Certificates</span>
-            </div>
-
-            <div className={styles.logout} onClick={openModal}>
-                <img src={logout} alt="Logout" />
-                <span>Logout</span>
+            <div className={styles.logoutWrapper} onClick={openModal}>
+                <img src={logout} alt="Logout" className={styles.logout} />
+                <p>Logout</p>
             </div>
         </div>
     );

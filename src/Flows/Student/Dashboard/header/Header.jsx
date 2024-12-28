@@ -11,9 +11,9 @@ const Header = ({ totalCoins, toggleMenu }) => {
     return (
         <div className={styles.header}>
             <div className={styles.left}>
-                <div className={styles.menugrid} onClick={toggleMenu}>
+                {/* <div className={styles.menugrid} onClick={toggleMenu}>
                     <img src={menu} alt="Menu" />
-                </div>
+                </div> */}
                 <div className={styles.searchbar}>
                     <input type="text" placeholder="Search" />
                 </div>

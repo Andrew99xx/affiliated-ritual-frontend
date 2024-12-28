@@ -53,13 +53,15 @@ const Dashboard = ({ handleLogout }) => {
         openModal={openModal}
         isMenuExpanded={isMenuExpanded}
       />
-      <Logout showModal={showModal} closeModal={closeModal} handleLogout={handleLogout} />
       <div className={styles.maincontent}>
         <Header totalCoins={totalCoins} toggleMenu={toggleMenu} />
         <div>
           {activeElement === 'education' ? <Edu /> : <Certificate />}
         </div>
       </div>
+
+      {/* this is modal, it will open when true, independent in itself */}
+      <Logout showModal={showModal} closeModal={closeModal} handleLogout={handleLogout} />
     </div>
   );
 };
