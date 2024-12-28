@@ -1,6 +1,6 @@
 /* LoginInput.module.css */
 
-.phoneContainer {
+.loginContainer {
   width: 100%;
   height: auto;
   display: flex;
@@ -9,8 +9,8 @@
   /* background-color: aliceblue; */
 }
 
-.phoneInputContainer {
-  background-color: blue;
+.phoneInputWrapper {
+  /* background-color: blue; */
   width: 100%;
   height: auto;
   display: flex;

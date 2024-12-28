@@ -16,8 +16,8 @@ const LoginInput = ({ onSignInClick }) => {
     };
 
     return (
-        <div className={styles.phoneContainer}>
-            <div className={styles.phoneInputContainer}>
+        <div className={styles.loginContainer}>
+            <div className={styles.phoneInputWrapper}>
                 <p className={styles.label}>Enter Phone <sup>*</sup></p>
                 <PhoneInputComponent
                     value={phone}

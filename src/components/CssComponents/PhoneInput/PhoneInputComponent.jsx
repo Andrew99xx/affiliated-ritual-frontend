@@ -1,8 +1,7 @@
 // PhoneInputComponent.tsx
 import React from 'react';
-import PhoneInput from 'react-phone-number-input';
-import 'react-phone-number-input/style.css';
 import styles from './PhoneInputComponent.module.css';
+import PhoneInput from 'react-phone-number-input';
 
 const PhoneInputComponent = ({
     value,
@@ -11,16 +10,14 @@ const PhoneInputComponent = ({
     defaultCountry = 'IN',
 }) => {
     return (
-        <div className={styles.phoneInputContainer}>
-            <PhoneInput
-                international
-                defaultCountry={defaultCountry}
-                value={value}
-                onChange={onChange}
-                placeholder={placeholder}
-                className={styles.phoneInput}
-            />
-        </div>
+        <PhoneInput
+            international
+            defaultCountry={defaultCountry}
+            value={value}
+            onChange={onChange}
+            placeholder={placeholder}
+            className={styles.phoneInput}
+        />
     );
 };
 
