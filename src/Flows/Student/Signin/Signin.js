@@ -8,6 +8,7 @@ import { notification } from 'antd';
 import styles from "./Signin.module.css"
 import LoginInput from '../../../components/FlowComponents/LoginInput/LoginInput';
 import LoginOtpVerify from '../../../components/FlowComponents/LoginOtpVerify/LoginOtpVerify';
+import logo from "../../../logo.png"
 
 const Signin = ({ onSignin }) => {
 
@@ -104,6 +105,11 @@ const Signin = ({ onSignin }) => {
     <div className={styles.signin}>
       <div className={styles.container}>
         <div id="recaptcha-container"></div>
+
+        <h3 className={styles.logo}>
+          <img width={300} src={logo} />
+        </h3>
+        <div className={styles.heading}>Student Login</div>
         {
           showSign ?
             <LoginInput

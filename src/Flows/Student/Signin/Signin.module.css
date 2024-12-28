@@ -15,7 +15,7 @@
   box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.3);
   overflow: hidden;
   overflow-y: auto;
-  max-width: 900px;
+  max-width: 700px;
   min-width: 35%;
   width: auto;
   height: auto;
@@ -23,6 +23,21 @@
   padding: 2rem;
   color: white;
   flex-direction: column;
+}
+
+.logo img {
+  display: block;
+  margin: 0 auto 1rem;
+  width: 150px;
+  height: auto;
+}
+
+.heading {
+  font-size: 2rem;
+  color: #fff;
+  font-weight: 700;
+  text-align: center;
+  margin-bottom: 1rem;
 }
 
 .signin .naa {
