@@ -1,18 +1,20 @@
 import React, { useState, useEffect } from "react";
 import { RecaptchaVerifier, signInWithPhoneNumber } from "firebase/auth";
 import { doc, setDoc, getDoc } from "firebase/firestore";
+import { Link } from "react-router-dom";
 
-import PhoneInput from 'react-phone-number-input';
-import 'react-phone-number-input/style.css';
+import styles from "../../../styles/Register.module.css"
 
-
-import "./Register.css";
-import logo from "../../../logo.png"
 
 import { auth, db } from "../../../firebase-config";
-import OtpInputContainer from "../Signin/Signincomp/OtpInputContainer";
+// import OtpInputContainer from "../Signin/Signincomp/OtpInputContainer";
 import { getCurrentTimestamp } from "../../../service/time/getCurrentTimestamp";
 import { notification } from "antd";
+import OtpInputContainer from "../../../components/FlowComponents/OtpInputContainer/OtpInputContainer";
+import RegisterLogo from "../../../components/CssComponents/RegisterLogo/RegisterLogo";
+import ArLogo from "../../../components/CssComponents/ArLogo/ArLogo";
+import PhoneInputComponent from "../../../components/CssComponents/PhoneInput/PhoneInputComponent";
+import ButtonComponent from "../../../components/CssComponents/ButtonComponent/ButtonComponent";
 
 const LeaderRegister = ({ onToggle }) => {
   const [otp, setOtp] = useState('');
@@ -95,7 +97,7 @@ const LeaderRegister = ({ onToggle }) => {
         description: 'First request the OTP',
         placement: 'topRight',
         duration: 3, // Display for 3 seconds
-      });      return;
+      }); return;
     }
     confirmationResult.confirm(otp)
       .then(async (result) => {
@@ -174,106 +176,190 @@ const LeaderRegister = ({ onToggle }) => {
   };
 
   return (
-    <div className="Register">
-      <div className="container">
-        <div>
-          <h3 className="logo">
-            <img width={300} src={logo} />
-          </h3>
+    <div className={styles.RegisterBackground}>
+      <div className={styles.RegisterContainer}>
+
+        <div className={styles.RegisterImage}>
+          <RegisterLogo />
         </div>
-        <div className="heading">Registration</div>
-        <form className="formcontainer">
 
-          <p>Phone Number <sup>*</sup></p>
-          {/* <input
-            type="tel"
-            className="input"
-            name="phone"
-            value={formData.phone}
-            onChange={handleChange}
-            placeholder="9876543210"
-            required
-          /> */}
-          <PhoneInput
-            international
-            defaultCountry="IN"
-            value={formData.phone}
-            onChange={updatePhoneNumber} // Directly update the phone number
-            placeholder="Enter phone number"
-            className="input"
-          />
-          <button
-            onClick={sendVerificationCode}
-            className="btn"
-          >Send OTP
-          </button>
-
-          <p>Enter Otp <sup>*</sup></p>
-          <OtpInputContainer onOtpChange={handleOtpChange} />
-
-          <button
-            onClick={verifyOtp}
-            className="btn">
-            Verify OTP
-          </button>
+        <div className={styles.formSection}>
+          <ArLogo />
+          <div className={styles.headingText}> Team Leader Registration</div>
+          <form className={styles.formContainer}>
+            <div id="recaptcha-container"></div>
+            <div className={styles.labelInputWrapper}>
+              <div className={styles.labelText}>Phone Number <sup>*</sup></div>
+              <PhoneInputComponent
+                value={formData.phone}
+                onChange={updatePhoneNumber}
+              />
+            </div>
 
 
-          <p>First Name <sup>*</sup></p>
-          <input
-            type="text"
-            className="input"
-            name="firstName"
-            value={formData.firstName}
-            onChange={handleChange}
-            placeholder="Enter first name"
-            required
-          />
-          <p>Last Name <sup>*</sup></p>
-          <input type="text"
-            className="input"
-            name="lastName"
-            value={formData.lastName}
-            onChange={handleChange}
-            placeholder="Enter last name"
-            required
-          />
-          <p>Email <sup>*</sup></p>
-          <input
-            type="email"
-            className="input"
-            name="email"
-            value={formData.email}
-            onChange={handleChange}
-            placeholder="mail@simmmple.com"
-            required
-          />
+            <ButtonComponent
+              onClick={sendVerificationCode}
+              className={""}
+              buttonText={"Send OTP"}
+            />
+
+            <div className={styles.labelInputWrapper}>
+              <div className={styles.labelText}>Enter OTP <sup>*</sup></div>
+              <OtpInputContainer onOtpChange={handleOtpChange} />
+            </div>
+
+            <ButtonComponent
+              onClick={verifyOtp}
+              className={""}
+              buttonText={"Verify OTP"}
+            />
 
 
-          <p>Date of Birth <sup>*</sup></p>
-          <input type="date" className="input" name="dateOfBirth" value={formData.dateOfBirth} onChange={handleChange} required />
-          <p>Aadhar Number <sup>*</sup></p>
-          <input type="text" className="input" name="aadharNumber" value={formData.aadharNumber} onChange={handleChange} placeholder="Aadhar Number" required />
-          <p>Pan Number <sup>*</sup></p>
-          <input type="text" className="input" name="panNumber" value={formData.panNumber} onChange={handleChange} placeholder="Pan Number" required />
-          <p>Address <sup>*</sup></p>
-          <input type="text" className="input" name="address" value={formData.address} onChange={handleChange} placeholder="Address" required />
-          <h3>Bank Details</h3>
-          <p>Account Number <sup>*</sup></p>
-          <input type="text" className="input" name="accountNumber" value={formData.accountNumber} onChange={handleChange} placeholder="Account Number" required />
-          <p>Account Type <sup>*</sup></p>
-          <input type="text" className="input" name="accountType" value={formData.accountType} onChange={handleChange} placeholder="Account Type" required />
-          <p>Ifsc Code <sup>*</sup></p>
-          <input type="text" className="input" name="ifscCode" value={formData.ifscCode} onChange={handleChange} placeholder="Ifsc Code" required />
-          {/* this may be used to update */}
-          <button className="btn" onClick={handleRegister}>Register</button>
-          <p className="alr">Already a member? <span onClick={onToggle}>Sign in</span></p>
-          <div id="recaptcha-container"></div>
-          {/* keep this recaptcha-container within the form, may be external css may intefere in css */}
-        </form>
-      </div>
+            <div className={styles.labelInputWrapper}>
+              <div className={styles.labelText}> Name <sup>*</sup></div>
+              <input
+                type="text"
+                className={styles.Input}
+                name="firstName"
+                value={formData.firstName}
+                onChange={handleChange}
+                placeholder="Enter first name"
+                required
+              />
+            </div>
+            <div className={styles.labelInputWrapper}>
+              <div className={styles.Label}>Last Name <sup>*</sup></div>
+              <input
+                type="text"
+                className={styles.Input}
+                name="lastName"
+                value={formData.lastName}
+                onChange={handleChange}
+                placeholder="Enter last name"
+                required
+              />
+            </div>
+            <div className={styles.labelInputWrapper}>
+              <div className={styles.labelText}>Email <sup>*</sup></div>
+              <input
+                type="email"
+                className={styles.Input}
+                name="email"
+                value={formData.email}
+                onChange={handleChange}
+                placeholder="mail@simmmple.com"
+                required
+              />
+            </div>
+            <div className={styles.labelInputWrapper}>
+              <div className={styles.labelText}> of Birth <sup>*</sup></div>
+              <input
+                type="date"
+                className={styles.Input}
+                name="dateOfBirth"
+                value={formData.dateOfBirth}
+                onChange={handleChange}
+                required
+              />
+            </div >
+            <div className={styles.labelInputWrapper}>
+              <div className={styles.labelText}>Aadhar Number <sup>*</sup></div>
+              <input
+                type="text"
+                className={styles.Input}
+                name="aadharNumber"
+                value={formData.aadharNumber}
+                onChange={handleChange}
+                placeholder="Aadhar Number"
+                required
+              />
+            </div >
+            <div className={styles.labelInputWrapper}>
+              <div className={styles.labelText}> Number <sup>*</sup></div>
+              <input
+                type="text"
+                className={styles.Input}
+                name="panNumber"
+                value={formData.panNumber}
+                onChange={handleChange}
+                placeholder="Pan Number"
+                required
+              />
+            </div >
+            <div className={styles.labelInputWrapper}>
+              <div className={styles.labelText}>Address <sup>*</sup></div>
+              <input
+                type="text"
+                className={styles.Input}
+                name="address"
+                value={formData.address}
+                onChange={handleChange}
+                placeholder="Address"
+                required
+              />
+            </div >
+            <h3 className={styles.headingText}>Bank Details</h3>
+            <div className={styles.labelInputWrapper}>
+              <div className={styles.labelText}>Account Number <sup>*</sup></div>
+              <input
+                type="text"
+                className={styles.Input}
+                name="accountNumber"
+                value={formData.accountNumber}
+                onChange={handleChange}
+                placeholder="Account Number"
+                required
+              />
+            </div >
+            <div className={styles.labelInputWrapper}>
+              <div className={styles.labelText}>Account Type <sup>*</sup></div>
+              <input
+                type="text"
+                className={styles.Input}
+                name="accountType"
+                value={formData.accountType}
+                onChange={handleChange}
+                placeholder="Account Type"
+                required
+              />
+            </div >
+            <div className={styles.labelInputWrapper}>
+              <div className={styles.labelText}> Code <sup>*</sup></div>
+              <input
+                type="text"
+                className={styles.Input}
+                name="ifscCode"
+                value={formData.ifscCode}
+                onChange={handleChange}
+                placeholder="IFSC Code"
+                required
+              />
+            </div>
 
-      {message && <div className="message">{message}</div>}
-    </div>
+
+
+
+
+            <ButtonComponent
+              onClick={handleRegister}
+              className={""}
+              buttonText={"Register"}
+            />
+
+
+            <Link
+              to="/teamleader?action=login"
+              style={{
+                textDecoration: 'none',
+              }}
+            >
+              <div className={styles.alr}>already a member? <span>Login</span></div>
+            </Link>
+
+          </form >
+        </div >
+      </div >
+    </div >
   );
 };
 

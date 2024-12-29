@@ -1,0 +1,6 @@
+.RegisterImage {
+  width: 100%;
+  height: auto;
+  border-radius: 0 12px 12px 0;
+  object-fit: cover;
+}

@@ -1,13 +1,18 @@
 import React, { useEffect, useState } from 'react';
 import { RecaptchaVerifier, signInWithPhoneNumber } from 'firebase/auth';
-import "./Signin.css";
-import Sign from './Signincomp/Sign';
-import Signotp from './Signincomp/Signotp';
+import styles from "../../../styles/Signin.module.css"
+import { Link } from 'react-router-dom';
+
+// import Sign from './Signincomp/Sign';
+// import Signotp from './Signincomp/Signotp';
 import { auth } from '../../../firebase-config';
 import { checkUserExists } from '../../../service/checkUserExists';
 import { notification } from 'antd';
+import LoginInput from '../../../components/FlowComponents/LoginInput/LoginInput';
+import LoginOtpVerify from '../../../components/FlowComponents/LoginOtpVerify/LoginOtpVerify';
+import ArLogo from '../../../components/CssComponents/ArLogo/ArLogo';
 
-const Signin = ({ onSignin, onToggle }) => {
+const Signin = ({ onSignin }) => {
   const [email, setEmail] = useState('');
   const [phone, setPhone] = useState('');
   const [message, setMessage] = useState('');
@@ -68,7 +73,7 @@ const Signin = ({ onSignin, onToggle }) => {
         description: 'First request the OTP',
         placement: 'topRight',
         duration: 3, // Display for 3 seconds
-      });      return;
+      }); return;
     }
     confirmationResult.confirm(otp)
       .then(async (result) => {
@@ -99,16 +104,34 @@ const Signin = ({ onSignin, onToggle }) => {
   };
 
   return (
-    <div className='Signin'>
-      <div id="recaptcha-container"></div>
-      {showSign ?
-        <Sign onSignInClick={handleSignInClick} /> :
-        <Signotp email={email} phone={phone} onOtpVerify={handleOtpVerify} />
-      }
-      <p className='alr'>Need an account?<span onClick={onToggle}> Register</span></p>
-      <div className="credit">© 2024. All Rights Reserved.</div>
-      {message && <div className="message">{message}</div>}
-    </div>
+    <>
+      <div className={styles.signin}>
+        <div className={styles.container}>
+          <div id="recaptcha-container"></div>
+
+          <ArLogo />
+          <div className={styles.heading}>Team Leader Login</div>
+          {
+            showSign ?
+              <LoginInput
+                onSignInClick={handleSignInClick}
+              /> :
+              <LoginOtpVerify
+                onOtpVerify={handleOtpVerify}
+              />
+          }
+          <Link
+            to="/teamleader?action=register"
+            style={{
+              textDecoration: 'none',
+            }}
+          >
+            <p className={styles.naa}>Need an account? <span>Register</span></p>
+          </Link>
+
+        </div>
+      </div>
+    </>
   );
 };
 

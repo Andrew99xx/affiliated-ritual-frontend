@@ -20,8 +20,8 @@ const TeamLeader = () => {
     }
   }, [location.search]);
 
-   // if users loged in 
-   useEffect(() => {
+  // if users loged in 
+  useEffect(() => {
     const checkUserStatus = async () => {
       const teamLeaderUid = localStorage.getItem('team_leader_uid');
       if (teamLeaderUid) {
@@ -35,7 +35,7 @@ const TeamLeader = () => {
     checkUserStatus();
   }, []);
 
-  const handleSignin = async() => {
+  const handleSignin = async () => {
     const teamLeaderUid = localStorage.getItem('team_leader_uid');
     const userTypes = await checkUserTypes(teamLeaderUid);
     if (userTypes === "team_leader") {
@@ -63,14 +63,19 @@ const TeamLeader = () => {
       {!isSignedIn && (
         <>
           {isRegistering ? (
-            <Register onToggle={toggleRegistering} />
+            <Register
+            // onToggle={toggleRegistering}
+            />
           ) : (
-            <Signin onSignin={handleSignin} onToggle={toggleRegistering} />
+            <Signin
+              onSignin={handleSignin}
+            // onToggle={toggleRegistering}
+            />
           )}
         </>
       )}
       {/*when, isSignedIn, is true */}
-      {isSignedIn && <Dashboard  handleLogout={handleLogout} />}
+      {isSignedIn && <Dashboard handleLogout={handleLogout} />}
     </div>
   );
 };

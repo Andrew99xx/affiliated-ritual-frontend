@@ -5,7 +5,7 @@ import { auth } from '../../../firebase-config';
 import { checkUserExists } from '../../../service/checkUserExists';
 import { checkUserIsActive } from '../../../service/checkUserIsActive';
 import { notification } from 'antd';
-import styles from "./Signin.module.css"
+import styles from "../../../styles/Signin.module.css"
 import LoginInput from '../../../components/FlowComponents/LoginInput/LoginInput';
 import LoginOtpVerify from '../../../components/FlowComponents/LoginOtpVerify/LoginOtpVerify';
 import logo from "../../../logo.png"

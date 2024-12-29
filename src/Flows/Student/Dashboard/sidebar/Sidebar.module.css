@@ -50,9 +50,17 @@
   flex-wrap: wrap;
 }
 
+.sidebarelement:hover {
+  background-color: #110d03;
+}
+
 .sidebarelementactive {
   border-right: 5px solid #e4c748;
   color: #c19e29;
+}
+
+.sidebarelementactive:hover {
+  background-color: #110d03;
 }
 
 .elementText {
@@ -77,7 +85,6 @@
 
 @media (max-width: 992px) {
   .sidebar {
-    background-color: beige;
     max-width: min-content;
     gap: 4rem;
   }
