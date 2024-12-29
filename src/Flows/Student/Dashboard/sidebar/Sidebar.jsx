@@ -25,7 +25,7 @@ const Sidebar = ({ activeElement, handleClick, openModal, isMenuExpanded }) => {
                     onClick={() => handleClick('education')}
                 >
                     <img src={activeElement === 'education' ? eduactive : edu} alt="Education" />
-                    <p className={styles.elementText}>Education & Progress</p>
+                    <p className={styles.elementText}>Education</p>
                 </div>
 
                 <div

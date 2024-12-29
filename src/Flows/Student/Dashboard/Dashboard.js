@@ -10,7 +10,6 @@ import Certificate from "./Certificate/Certificate.js"
 import Logout from "../../../components/LogoutModal/Logout";
 import { getCoinsOfUser } from "../../../service/coins/getCoinsOfUser";
 
-
 const Dashboard = ({ handleLogout }) => {
   const [totalCoins, setTotalCoins] = useState(0);
   const [showModal, setShowModal] = useState(false);

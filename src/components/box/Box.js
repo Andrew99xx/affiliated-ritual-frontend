@@ -6,7 +6,7 @@ const Box = ({subhed,value,logo}) => {
     <div className="box">
           <div className="boxinfo">
             <div className="detail">
-              {/* <p>Total {subhed}</p> */}
+              <p>Total {subhed}</p>
               <h3>{value}</h3>
             </div>
             <div className="boxicon">
@@ -14,10 +14,10 @@ const Box = ({subhed,value,logo}) => {
             </div>
           </div>
           <div className="status">
-            {/* <div>
+            <div>
               {" "}
               icon <span>8.5%</span> up from yesterday
-            </div> */}
+            </div>
           </div>
         </div>
   )

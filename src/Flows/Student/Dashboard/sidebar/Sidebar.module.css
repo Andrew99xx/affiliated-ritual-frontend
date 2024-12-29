@@ -75,18 +75,21 @@
   height: 30px;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 992px) {
   .sidebar {
+    background-color: beige;
     max-width: min-content;
     gap: 4rem;
   }
   .headingLogo {
-    width: 25px;
+    width: 55px;
     height: auto;
   }
 
   .elementWrapper {
-    gap: 2rem;
+    background-color: black;
+    align-items: center;
+    gap: 3rem;
   }
 
   .sidebarelement,
@@ -106,10 +109,5 @@
 
   .elementText {
     display: none;
-  }
-
-  .logout {
-    width: 30px;
-    height: 30px;
   }
 }
