@@ -15,7 +15,6 @@ const Sidebar = ({ activeElement, handleClick, openModal, isMenuExpanded }) => {
             <div className={styles.elementWrapper}>
                 <div className={styles.heading}>
                     <img
-                        width={300}
                         src={logo}
                         alt="Logo"
                         className={styles.headingLogo}
@@ -26,7 +25,7 @@ const Sidebar = ({ activeElement, handleClick, openModal, isMenuExpanded }) => {
                     onClick={() => handleClick('education')}
                 >
                     <img src={activeElement === 'education' ? eduactive : edu} alt="Education" />
-                    <p>Education & Progress</p>
+                    <p className={styles.elementText}>Education & Progress</p>
                 </div>
 
                 <div
@@ -35,14 +34,15 @@ const Sidebar = ({ activeElement, handleClick, openModal, isMenuExpanded }) => {
                 >
                     <img
                         src={activeElement === 'certificate' ? ceractive : cer}
-                        alt="Certificates" />
-                    <p>Certificates</p>
+                        alt="Certificates"
+                    />
+                    <p className={styles.elementText}>Certificates</p>
                 </div>
             </div>
 
             <div className={styles.logoutWrapper} onClick={openModal}>
                 <img src={logout} alt="Logout" className={styles.logout} />
-                <p>Logout</p>
+                <p className={styles.elementText}>Logout</p>
             </div>
         </div>
     );

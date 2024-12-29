@@ -15,7 +15,6 @@ const Dashboard = ({ handleLogout }) => {
   const [totalCoins, setTotalCoins] = useState(0);
   const [showModal, setShowModal] = useState(false);
   const [activeElement, setActiveElement] = useState('education');
-  const [isMenuExpanded, setIsMenuExpanded] = useState(false);
 
   useEffect(() => {
     const unsubscribe = auth.onAuthStateChanged(async (user) => {
@@ -26,38 +25,25 @@ const Dashboard = ({ handleLogout }) => {
         alert("No user is signed in");
       }
     });
-
-    const handleResize = () => {
-      setIsMenuExpanded(window.innerWidth < 1168);
-    };
-
-    window.addEventListener("resize", handleResize);
-    handleResize();
-
     return () => {
       unsubscribe();
-      window.removeEventListener("resize", handleResize);
     };
   }, []);
 
   const openModal = () => setShowModal(true);
   const closeModal = () => setShowModal(false);
   const handleClick = (element) => setActiveElement(element);
-  const toggleMenu = () => setIsMenuExpanded(!isMenuExpanded);
 
   return (
-    <div className={`${styles.dashboard} ${isMenuExpanded ? styles.expanded : ''}`}>
+    <div className={`${styles.dashboard}`}>
       <Sidebar
         activeElement={activeElement}
         handleClick={handleClick}
         openModal={openModal}
-        isMenuExpanded={isMenuExpanded}
       />
       <div className={styles.maincontent}>
-        <Header totalCoins={totalCoins} toggleMenu={toggleMenu} />
-        <div>
-          {activeElement === 'education' ? <Edu /> : <Certificate />}
-        </div>
+        <Header totalCoins={totalCoins} />
+        {activeElement === 'education' ? <Edu /> : <Certificate />}
       </div>
 
       {/* this is modal, it will open when true, independent in itself */}

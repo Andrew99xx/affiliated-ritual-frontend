@@ -1,23 +1,10 @@
 .dashboard {
+  background-color: black;
   display: flex;
   color: white;
 }
 
 .maincontent {
-  width: 83%;
+  width: 100%;
   z-index: 1;
-}
-
-.expanded .maincontent {
-  width: 95%;
-}
-
-@media (max-width: 1168px) {
-  .sidebar {
-    width: 88px;
-  }
-
-  .maincontent {
-    width: calc(100% - 88px);
-  }
 }
