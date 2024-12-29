@@ -51,7 +51,6 @@ const TeamLeader = () => {
     localStorage.removeItem("team_leader_uid")
     setIsSignedIn(false);
     setIsRegistering(false);
-    // you may redirect to home also 
   }
 
   const toggleRegistering = () => {
@@ -63,14 +62,10 @@ const TeamLeader = () => {
       {!isSignedIn && (
         <>
           {isRegistering ? (
-            <Register
-            // onToggle={toggleRegistering}
-            />
+            <Register />
           ) : (
             <Signin
-              onSignin={handleSignin}
-            // onToggle={toggleRegistering}
-            />
+              onSignin={handleSignin} />
           )}
         </>
       )}
