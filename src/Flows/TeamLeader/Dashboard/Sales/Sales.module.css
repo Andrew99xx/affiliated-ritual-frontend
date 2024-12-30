@@ -1,0 +1,76 @@
+.sales {
+  padding: 1rem;
+}
+
+.heading {
+  color: #fff;
+  font-size: 1.5rem;
+  font-family: "Poppins", "Nunito Sans", sans-serif;
+  font-weight: 700;
+  margin-bottom: 1rem;
+}
+
+.copyable {
+  font-size: 1rem;
+  color: wheat;
+}
+
+.boxes {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+.graphes {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1.5rem;
+  color: white;
+  margin-bottom: 2rem;
+}
+
+.courses {
+  color: #fff;
+  margin-bottom: 2rem;
+  font-size: 1.5rem;
+  font-family: "Poppins", "Nunito Sans", sans-serif;
+  font-weight: 700;
+}
+
+.pro {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 1rem;
+  overflow-x: scroll;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+  .heading {
+    font-size: 1.5rem;
+  }
+
+  .copyable {
+    font-size: 0.9rem;
+  }
+
+  .courses {
+    font-size: 0.9rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .heading {
+    font-size: 1.2rem;
+  }
+
+  .copyable {
+    font-size: 0.8rem;
+  }
+
+  .courses {
+    font-size: 0.8rem;
+  }
+}

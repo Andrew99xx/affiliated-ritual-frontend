@@ -53,9 +53,6 @@ const TeamLeader = () => {
     setIsRegistering(false);
   }
 
-  const toggleRegistering = () => {
-    setIsRegistering(!isRegistering);
-  };
 
   return (
     <div>
@@ -65,7 +62,8 @@ const TeamLeader = () => {
             <Register />
           ) : (
             <Signin
-              onSignin={handleSignin} />
+              onSignin={handleSignin}
+            />
           )}
         </>
       )}

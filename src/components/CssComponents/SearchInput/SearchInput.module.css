@@ -1,0 +1,23 @@
+.searchbar {
+  display: flex;
+  flex: 1;
+}
+
+.searchbarInput {
+  flex: 1;
+  padding: 0.7rem 1rem;
+  background-color: #060606;
+  font-size: 14px;
+  border-radius: 5px;
+  color: #bcbcbc;
+  border: 0.6px solid #ebd672;
+  outline: none;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .searchbarInput {
+    max-width: unset;
+    width: 100%;
+  }
+}
