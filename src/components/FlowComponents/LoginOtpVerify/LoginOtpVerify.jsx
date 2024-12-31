@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import OtpInputContainer from "../OtpInputContainer/OtpInputContainer";
-import styles from "./LoginOtpVerify.module.css"
+import styles from "./LoginOtpVerify.module.css";  // Import the CSS module
+import ButtonComponent from "../../CssComponents/ButtonComponent/ButtonComponent";
 
 // signin components - after receiving otp
 const LoginOtpVerify = ({ onOtpVerify }) => {
@@ -11,7 +12,6 @@ const LoginOtpVerify = ({ onOtpVerify }) => {
         setOtp(otpComing);
     };
 
-
     // onClick of button
     const handleSignIn = (e) => {
         e.preventDefault();
@@ -19,23 +19,24 @@ const LoginOtpVerify = ({ onOtpVerify }) => {
     };
 
     return (
-        <div className="formcontainer">
+        <div className={styles.verifyContainer}> {/* Use styles from CSS module */}
             <p>Enter OTP</p>
             <OtpInputContainer onOtpChange={handleOtpChange} />
-            <div className="info">
-                <div
-                    className="rememberme"
-                >
-                    <input type="checkbox" />
+            <div className={styles.info}>
+                <div className={styles.rememberme}>
+                    <input
+                        className={styles.checkbox}
+                        type="checkbox"
+                    />
                     <p> Keep me logged in</p>
                 </div>
-                <button>Resend OTP</button>
+                <button className={styles.resendButton}>Resend OTP</button>
             </div>
-            <button
+            <ButtonComponent
                 onClick={handleSignIn}
-                className="btn">
-                Sign In - verify OTP
-            </button>
+                className={styles.verifyButton}
+                buttonText={"Sign In - Verify OTP"}
+            />
         </div>
     );
 };

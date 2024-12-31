@@ -1,16 +1,19 @@
 import React, { useEffect, useState } from 'react';
 import { RecaptchaVerifier, signInWithPhoneNumber } from 'firebase/auth';
-import "./Signin.css";
-import Sign from './Signincomp/Sign';
-import Signotp from './Signincomp/Signotp';
+import styles from "../../../styles/Signin.module.css"
+import { Link } from 'react-router-dom';
+
+// import Sign from './Signincomp/Sign';
+// import Signotp from './Signincomp/Signotp';
 import { auth } from '../../../firebase-config';
 import { checkUserExists } from '../../../service/checkUserExists';
 import { notification } from 'antd';
+import LoginInput from '../../../components/FlowComponents/LoginInput/LoginInput';
+import LoginOtpVerify from '../../../components/FlowComponents/LoginOtpVerify/LoginOtpVerify';
+import ArLogo from '../../../components/CssComponents/ArLogo/ArLogo';
 
-const Signin = ({ onSignin, onToggle }) => {
-  const [email, setEmail] = useState('');
-  const [phone, setPhone] = useState('');
-  const [message, setMessage] = useState('');
+const Signin = ({ onSignin }) => {
+
   const [confirmationResult, setConfirmationResult] = useState(null);
   const [showSign, setShowSign] = useState(true);
 
@@ -33,9 +36,7 @@ const Signin = ({ onSignin, onToggle }) => {
     };
   }, []);
 
-  const handleSignInClick = (email, phone) => {
-    setEmail(email);
-    setPhone(phone);
+  const handleSignInClick = (phone) => {
     sendVerificationCode(phone);
     setShowSign(false);
 
@@ -50,30 +51,29 @@ const Signin = ({ onSignin, onToggle }) => {
     signInWithPhoneNumber(auth, phone, appVerifier)
       .then((result) => {
         setConfirmationResult(result);
-        setMessage('OTP sent to your phone');
+
         alert('OTP sent to your phone');
       })
       .catch((error) => {
         console.error('Error sending OTP:', error);
-        setMessage('Failed to send OTP. Please try again.');
+
         alert('Failed to send OTP. Please try again.');
       });
   };
 
   const verifyOtp = (otp) => {
     if (!confirmationResult) {
-      setMessage('First request the OTP');
       notification.info({
         message: 'OTP Request Needed',
         description: 'First request the OTP',
         placement: 'topRight',
         duration: 3, // Display for 3 seconds
-      });      return;
+      }); return;
     }
     confirmationResult.confirm(otp)
       .then(async (result) => {
         const user = result.user;
-        setMessage(`Phone number verified! User: ${user.uid}`);
+
         alert(`Phone number verified! User: ${user.uid}`);
 
         // checking if user exists or not 
@@ -93,22 +93,40 @@ const Signin = ({ onSignin, onToggle }) => {
       })
       .catch((error) => {
         console.error('Error verifying OTP:', error);
-        setMessage('Failed to verify OTP. Please try again.');
+
         alert('Failed to verify OTP. Please try again.');
       });
   };
 
   return (
-    <div className='Signin'>
-      <div id="recaptcha-container"></div>
-      {showSign ?
-        <Sign onSignInClick={handleSignInClick} /> :
-        <Signotp email={email} phone={phone} onOtpVerify={handleOtpVerify} />
-      }
-      <p className='alr'>Need an account?<span onClick={onToggle}> Register</span></p>
-      <div className="credit">© 2024. All Rights Reserved.</div>
-      {message && <div className="message">{message}</div>}
-    </div>
+    <>
+      <div className={styles.signin}>
+        <div className={styles.container}>
+          <div id="recaptcha-container"></div>
+
+          <ArLogo />
+          <div className={styles.heading}>Team Leader Login</div>
+          {
+            showSign ?
+              <LoginInput
+                onSignInClick={handleSignInClick}
+              /> :
+              <LoginOtpVerify
+                onOtpVerify={handleOtpVerify}
+              />
+          }
+          <Link
+            to="/teamleader?action=register"
+            style={{
+              textDecoration: 'none',
+            }}
+          >
+            <p className={styles.naa}>Need an account? <span>Register</span></p>
+          </Link>
+
+        </div>
+      </div>
+    </>
   );
 };
 

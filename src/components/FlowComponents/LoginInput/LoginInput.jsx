@@ -1,5 +1,8 @@
 import React, { useState } from 'react';
-import PhoneInput from 'react-phone-number-input';
+import ButtonComponent from '../../CssComponents/ButtonComponent/ButtonComponent';
+import styles from "./LoginInput.module.css"
+import PhoneInputComponent from '../../CssComponents/PhoneInput/PhoneInputComponent';
+
 
 const LoginInput = ({ onSignInClick }) => {
     const [phone, setPhone] = useState('');
@@ -13,24 +16,22 @@ const LoginInput = ({ onSignInClick }) => {
     };
 
     return (
-        <div className="formcontainer">
-            <p>Enter Phone <sup>*</sup></p>
-            <PhoneInput
-                international
-                defaultCountry="IN"
-                value={phone}
-                onChange={setPhone}
-                placeholder="Enter phone number"
-                className="input"
-            />
-            <button
+        <div className={styles.loginContainer}>
+            <div className={styles.phoneInputWrapper}>
+                <p className={styles.label}>Enter Phone <sup>*</sup></p>
+                <PhoneInputComponent
+                    value={phone}
+                    onChange={setPhone}
+                    placeholder="Enter phone number"
+                />
+            </div>
+            <ButtonComponent
+                buttonText="Sign In - GET OTP"
                 onClick={handleSignIn}
-                className="btn"
-            >
-                Sign In - GET OTP
-            </button>
+                className=""
+            />
         </div>
     );
-}
+};
 
 export default LoginInput;

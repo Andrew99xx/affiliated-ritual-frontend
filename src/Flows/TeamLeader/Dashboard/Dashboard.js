@@ -30,6 +30,7 @@ import notif from "./assets/notif.png";
 import profile from "./assets/profile.png";
 import expand from "./assets/expand.png";
 import { getCoinsOfUser } from "../../../service/coins/getCoinsOfUser";
+import SearchInput from "../../../components/CssComponents/SearchInput/SearchInput";
 
 const TeamDashboard = ({ handleLogout }) => {
 
@@ -137,10 +138,7 @@ const TeamDashboard = ({ handleLogout }) => {
             <div className="menugrid" onClick={toggleMenu} style={{ cursor: "pointer" }}>
               <img src={menu} alt="" />
             </div>
-            <div className="searchbar">
-              {" "}
-              <input type="text" placeholder="Search" />
-            </div>
+            <SearchInput />
           </div>
           <div className="right">
             <div className="icons">

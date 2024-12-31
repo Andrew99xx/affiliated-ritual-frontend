@@ -1,0 +1,104 @@
+.box {
+  background-color: #000;
+  border: 0.6px solid rgb(66, 66, 66);
+  border-radius: 15px;
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  max-width: 280px;
+  margin: 0.5rem;
+  height: auto; /* Adjust height dynamically */
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.box:hover {
+  transform: scale(1.02);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+.boxInfo {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.boxIcon img {
+  width: 40px;
+  height: 40px;
+  object-fit: contain;
+}
+
+.detail p {
+  font-size: 1rem;
+  color: #fff;
+  font-weight: 600;
+  opacity: 0.7;
+  font-family: "Poppins", "Nunito Sans", sans-serif;
+  margin: 0;
+}
+
+.detail h3 {
+  font-size: 1.8rem;
+  color: #fff;
+  font-weight: 700;
+  font-family: "Poppins", "Nunito Sans", sans-serif;
+  margin: 0;
+}
+
+.status {
+  font-size: 0.9rem;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.status .icon {
+  color: limegreen;
+  font-weight: bold;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .box {
+    max-width: 100%;
+    padding: 0.8rem;
+  }
+
+  .detail p {
+    font-size: 0.9rem;
+  }
+
+  .detail h3 {
+    font-size: 1.5rem;
+  }
+
+  .boxIcon img {
+    width: 35px;
+    height: 35px;
+  }
+}
+
+@media (max-width: 480px) {
+  .box {
+    padding: 0.6rem;
+  }
+
+  .detail p {
+    font-size: 0.8rem;
+  }
+
+  .detail h3 {
+    font-size: 1.2rem;
+  }
+
+  .boxIcon img {
+    width: 30px;
+    height: 30px;
+  }
+
+  .status {
+    font-size: 0.8rem;
+  }
+}

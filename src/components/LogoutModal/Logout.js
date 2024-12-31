@@ -1,27 +1,36 @@
-
 import React from 'react'
-import "./logout.css"
+import styles from './logout.module.css' // Import the CSS module
+import close from './close.png'
+import log from './log.png'
+import ButtonComponent from '../CssComponents/ButtonComponent/ButtonComponent'
 
-import close from "./close.png"
-import log from "./log.png"
 const Logout = ({ showModal, closeModal, handleLogout }) => {
   return (
-    <div className={showModal ? "modal display-block" : "modal display-none"}>
-      <section className="modal-main">
-        <div className="closebtn" onClick={closeModal}>
+    <div
+      className={showModal ? `${styles.modal} ${styles.displayBlock}` : `${styles.modal} ${styles.displayNone}`}
+    >
+      <section className={styles.modalMain}>
+        <div
+          className={styles.closebtn}
+          onClick={closeModal}>
           <img src={close} alt="" />
         </div>
-        <div className="mainc">
-          <img src={log} alt="" />
-          <h1 className="heading">Are you sure you want to Logout?</h1>
-
-          <div className="btnc">
-            <div onClick={closeModal} className="btn">Cancel</div>
-
-            <div className="btn" onClick={handleLogout}>Logout</div>
+        <div className={styles.mainc}>
+          <img src={log} alt="switch" />
+          <h1 className={styles.heading}>Are you sure you want to Logout?</h1>
+          <div className={styles.btnc}>
+            <ButtonComponent
+              onClick={closeModal}
+              className={styles.btn}
+              buttonText={"Cancel"}
+            />
+            <ButtonComponent
+              onClick={handleLogout}
+              className={styles.btn}
+              buttonText={"Logout"}
+            />
           </div>
         </div>
-
       </section>
     </div>
   )

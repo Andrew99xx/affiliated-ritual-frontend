@@ -1,0 +1,30 @@
+.phoneInput {
+  background-color: black !important;
+  height: auto;
+  min-height: 3rem;
+  font-size: 16px !important;
+  padding: 10px !important;
+  border: 0px solid #ccc !important;
+  border-radius: 3px !important;
+  width: auto;
+  max-width: auto;
+  transition: border-color 0.3s ease-in-out !important;
+}
+
+.phoneInput:focus {
+  border-color: #007bff !important;
+  outline: none !important;
+}
+
+/* Targeting the phone number input field inside the PhoneInput component */
+.phoneInput input {
+  background-color: black !important;
+  max-width: 100% !important;
+  height: 100% !important;
+  font-size: 18px !important;
+  padding: 12px !important;
+  border: 1px solid #ccc !important;
+  border-radius: 4px !important;
+  color: white !important;
+  margin-left: 10px;
+}

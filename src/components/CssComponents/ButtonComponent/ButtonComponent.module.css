@@ -1,0 +1,30 @@
+/* Button Styling */
+.btn {
+  background: linear-gradient(
+    91.94deg,
+    #b17e32 -8.77%,
+    #f3e681 58.63%,
+    #cf9f41 107.45%
+  ) !important;
+  width: auto !important;
+  padding: 1rem !important;
+  color: black !important;
+  font-weight: 700 !important;
+  border: none !important;
+  border-radius: 8px !important;
+  font-size: 1.1rem !important;
+  cursor: pointer !important;
+  transition: all 0.3s ease !important;
+  text-align: center !important;
+  max-width: 100% !important;
+}
+
+.btn:hover {
+  background: linear-gradient(
+    91.94deg,
+    #f3e681 -8.77%,
+    #b17e32 58.63%,
+    #cf9f41 107.45%
+  ) !important;
+  color: #000 !important;
+}
