@@ -27,7 +27,7 @@ function Media() {
     const mediaData = [
         {
             logo: dailyhunt,
-            name: "Daily Nation",
+            // name: "Daily Nation",
             link: "https://m.dailyhunt.in/news/india/english/republic+news+india-epaper-dhfacc36dfce9c4bb68db0e89d033c921b/affiliate+ritual+leading+edtech+platform+empowering+educated+youths+to+become+financially+independent-newsid-dhfacc36dfce9c4bb68db0e89d033c921b_5794bad0854411efbfc5cb9e96709a27?sm=Y"
         },
         {
@@ -38,7 +38,7 @@ function Media() {
         
         {
             logo: hindustanMetro,
-            name: "Hindustan Metro",
+            // name: "Hindustan Metro",
             link: "https://hindustanmetro.com/navigating-the-new-wave-of-online-earning-with-affiliate-ritual/"
         },
         {
@@ -54,7 +54,7 @@ function Media() {
         
         {
             logo: ahmedabadMirror,
-            name: "Ahemdabad Mirror",
+            // name: "Ahemdabad Mirror",
             link:"https://www.ahmedabadmirror.com/affiliate-ritual-20-by-supriyo-chatterjee-a-revolutionary-move-towards-online-success/81874460.html"
         },
         

@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import "./Dashboard.css";
-import logo from "../../../logo.png"
+// import logo from "../../../logo.png"
 
 import { auth } from "../../../firebase-config";
 
@@ -31,6 +31,7 @@ import profile from "./assets/profile.png";
 import expand from "./assets/expand.png";
 import { getCoinsOfUser } from "../../../service/coins/getCoinsOfUser";
 import SearchInput from "../../../components/CssComponents/SearchInput/SearchInput";
+import ArLogo from "../../../components/CssComponents/ArLogo/ArLogo"
 
 const TeamDashboard = ({ handleLogout }) => {
 
@@ -97,16 +98,15 @@ const TeamDashboard = ({ handleLogout }) => {
 
   return (
     <div className={`dashboard ${isMenuExpanded ? 'expanded' : ''}`}>
-      <div className="sidebar">
-        <h1 className="heading">
-          <img width={300} src={logo} />
-        </h1>
 
+
+      {/* sidbar */}
+      <div className="sidebar">
+        <ArLogo />
         <div className={activeElement === 'sales' ? "sidebarelementactive" : "sidebarelement"} onClick={() => handleClick('sales')}>
           <img src={activeElement === 'sales' ? salesActive : sales} alt="" />
           <span>Sales & Stats</span>
         </div>
-
         <div className={activeElement === 'teamRep' ? "sidebarelementactive" : "sidebarelement"} onClick={() => handleClick('teamRep')}>
           <img src={activeElement === 'teamRep' ? teamRepActive : teamRep} alt="" />
           <span>Team Report</span>
@@ -123,9 +123,7 @@ const TeamDashboard = ({ handleLogout }) => {
           <img src={activeElement === 'reviews' ? reviewsActive : reviews} alt="" />
           <span>Reviews</span>
         </div>
-
         <div className="logout" onClick={openModal}> <img src={logout} alt="" /> <span>Logout</span></div>
-
       </div>
 
 
