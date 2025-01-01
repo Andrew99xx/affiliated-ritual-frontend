@@ -19,7 +19,7 @@ import ArLogo from "../../../components/CssComponents/ArLogo/ArLogo.jsx";
 import RegisterLogo from "../../../components/CssComponents/RegisterLogo/RegisterLogo.jsx";
 
 
-const delay = (ms) => new Promise(resolve => setTimeout(resolve, ms));
+// const delay = (ms) => new Promise(resolve => setTimeout(resolve, ms));
 
 const StudentRegister = () => {
   const [otp, setOtp] = useState('');
@@ -271,7 +271,7 @@ const StudentRegister = () => {
       });
     } else if (name === "referralId") {
       setFormData({ ...formData, [name]: value });
-      await delay(500);
+      // await delay(500);
       const foundUser = await findUserDetailBymyARID(value)
       console.log(foundUser);
 
@@ -284,6 +284,7 @@ const StudentRegister = () => {
       }
       // console.log(await findUserDetailBymyARID(value))
     } else {
+      setFormData({ ...formData, [name]: value });
     }
   };
 

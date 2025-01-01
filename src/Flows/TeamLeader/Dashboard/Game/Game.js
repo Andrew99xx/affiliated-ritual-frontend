@@ -8,8 +8,7 @@ import item3 from "./icons/lemon.png";
 import item4 from "./icons/plum.png";
 import item5 from "./icons/orange.png";
 import item6 from "./icons/cherries.png";
-import ArGame from '../../../../components/CssComponents/ArGame/ArGame';
-import SlotMachine from '../../../../components/CssComponents/ArGameWhole/SlotMachine';
+
 const Game = () => {
   const [isRotated, setIsRotated] = useState(false);
 
@@ -91,8 +90,7 @@ const Game = () => {
       </div>
 
       <h2 className="subheading">Big Prize</h2>
-      <ArGame />
-      <SlotMachine/>
+
 
     </div>
   )
