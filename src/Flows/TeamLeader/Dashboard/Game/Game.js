@@ -8,6 +8,7 @@ import item3 from "./icons/lemon.png";
 import item4 from "./icons/plum.png";
 import item5 from "./icons/orange.png";
 import item6 from "./icons/cherries.png";
+
 const Game = () => {
   const [isRotated, setIsRotated] = useState(false);
 
@@ -53,43 +54,44 @@ const Game = () => {
         </div>
 
         <div className="slotcontainer">
-        <div className="slotgame">
-          <div className="mr-2"></div>
-        <SlotCounter
+          <div className="slotgame">
+            <div className="mr-2"></div>
+            <SlotCounter
 
-          ref={counterRef}
-          startValueOnce
-          autoAnimationStart={false}
-          startValue={[
-            <img className="item" src={item1} height={80} width={80} alt="" />,
-            <img className="item" src={item2} height={80}width={80} alt="" />,
-            <img className="item" src={item3} height={80}width={80} alt="" />,
-          ]}
-          value={randomImages} // Set value prop to randomImages state
-          dummyCharacters={[
-            <img className="item" src={item1} height={80}width={80} alt="" />,
-            <img className="item" src={item2} height={80}width={80} alt="" />,
-            <img className="item" src={item3} height={80}width={80} alt="" />,
-            <img className="item" src={item4} height={80} width={80}alt="" />,
-            <img className="item" src={item5} height={80} width={80}alt="" />,
-            <img className="item" src={item6} height={80}width={80} alt="" />,
-          ]}
-        />
-          <img
-      className={`leverimage ${isRotated ? 'rotated' : ''}`}
-      src={lever}
-      alt=""
-      onClick={() => {
-        toggleRotate();
-        resetAndStartAnimation();
-      }}
-    />
-        </div></div>
+              ref={counterRef}
+              startValueOnce
+              autoAnimationStart={false}
+              startValue={[
+                <img className="item" src={item1} height={80} width={80} alt="" />,
+                <img className="item" src={item2} height={80} width={80} alt="" />,
+                <img className="item" src={item3} height={80} width={80} alt="" />,
+              ]}
+              value={randomImages} // Set value prop to randomImages state
+              dummyCharacters={[
+                <img className="item" src={item1} height={80} width={80} alt="" />,
+                <img className="item" src={item2} height={80} width={80} alt="" />,
+                <img className="item" src={item3} height={80} width={80} alt="" />,
+                <img className="item" src={item4} height={80} width={80} alt="" />,
+                <img className="item" src={item5} height={80} width={80} alt="" />,
+                <img className="item" src={item6} height={80} width={80} alt="" />,
+              ]}
+            />
+            <img
+              className={`leverimage ${isRotated ? 'rotated' : ''}`}
+              src={lever}
+              alt=""
+              onClick={() => {
+                toggleRotate();
+                resetAndStartAnimation();
+              }}
+            />
+          </div></div>
 
       </div>
 
       <h2 className="subheading">Big Prize</h2>
-      
+
+
     </div>
   )
 }
