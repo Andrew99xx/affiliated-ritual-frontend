@@ -72,20 +72,26 @@
     padding: 1rem 2rem;
     gap: 1.5rem;
     align-items: flex-start;
+    /* background-color: blue; */
   }
 
   .left {
     max-width: unset;
     width: 100% !important;
+    display: none;
+    /* background-color: yellow; */
   }
 
   .searchbarInput {
+    /* background-color: yellow; */
     max-width: unset;
     width: 100%;
+    display: none;
   }
 
   .right {
-    justify-content: space-between;
+    /* background-color: yellow; */
+    justify-content: end;
     width: 100%;
   }
 

@@ -11,6 +11,7 @@ const Header = ({ totalCoins }) => {
     return (
         <div className={styles.header}>
             <div className={styles.left}>
+                {/* to implement - expanded & collpase */}
                 {/* <div className={styles.menugrid} onClick={toggleMenu}>
                     <img src={menu} alt="Menu" />
                 </div> */}
@@ -19,12 +20,12 @@ const Header = ({ totalCoins }) => {
                 </div>
             </div>
             <div className={styles.right}>
-                <div className={styles.coins}>
+                {/* <div className={styles.coins}>
                     <img src={coin} height={25} alt="Coin" /> {totalCoins}
-                </div>
-                <div className={styles.maximise}>
+                </div> */}
+                {/* <div className={styles.maximise}>
                     <img src={expand} height={25} alt="Expand" />
-                </div>
+                </div> */}
                 <div className={styles.notifications}>
                     <img src={notif} height={30} alt="Notifications" />
                 </div>
