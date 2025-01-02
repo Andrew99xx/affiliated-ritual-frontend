@@ -136,7 +136,15 @@ const Edu = () => {
 
       <div className={styles.progressCharts}>
         <h1 className={styles.heading}>Education & Progress</h1>
+        <div className={styles.boxes}>
+          <Box subhed={"User"} value={"40,689"} logo={user} />
+          <Box subhed={"User"} value={"40,689"} logo={user} />
+          <Box subhed={"User"} value={"40,689"} logo={user} />
+          <Box subhed={"User"} value={"40,689"} logo={user} />
+        </div>
       </div>
+
+
 
       <div className={styles.pro}>
         <div className={styles.courses}>Your courses</div>

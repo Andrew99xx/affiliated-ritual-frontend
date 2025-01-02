@@ -7,14 +7,14 @@ import notif from '../assets/notif.png';
 import profile from '../assets/profile.png';
 import expand from '../assets/expand.png';
 
-const Header = ({ totalCoins }) => {
+const Header = ({ totalCoins, toggleMenu }) => {
     return (
         <div className={styles.header}>
             <div className={styles.left}>
                 {/* to implement - expanded & collpase */}
-                {/* <div className={styles.menugrid} onClick={toggleMenu}>
+                <div className={styles.menugrid} onClick={toggleMenu}>
                     <img src={menu} alt="Menu" />
-                </div> */}
+                </div>
                 <div className={styles.searchbar}>
                     <input className={styles.searchbarInput} type="text" placeholder="Search" />
                 </div>
