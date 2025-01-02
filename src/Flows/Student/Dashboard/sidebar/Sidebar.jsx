@@ -9,8 +9,9 @@ import cer from "../assets/cer.png";
 import ceractive from "../assets/ceractive.png";
 
 const Sidebar = ({ activeElement, handleClick, openModal, isMenuExpanded }) => {
+    console.log(isMenuExpanded);
     return (
-        <div className={`${styles.sidebar} ${isMenuExpanded ? styles.expanded : ''}`}>
+        <div className={`${styles.sidebar} ${isMenuExpanded ? styles.collapseSidebar : ''}`}>
 
             <div className={styles.elementWrapper}>
                 <div className={styles.heading}>
@@ -25,7 +26,7 @@ const Sidebar = ({ activeElement, handleClick, openModal, isMenuExpanded }) => {
                     onClick={() => handleClick('education')}
                 >
                     <img src={activeElement === 'education' ? eduactive : edu} alt="Education" />
-                    <p className={styles.elementText}>Education</p>
+                    <p className={`${styles.elementText} ${isMenuExpanded ? styles.hideElementText : ''}`}>Education</p>
                 </div>
 
                 <div
@@ -36,13 +37,13 @@ const Sidebar = ({ activeElement, handleClick, openModal, isMenuExpanded }) => {
                         src={activeElement === 'certificate' ? ceractive : cer}
                         alt="Certificates"
                     />
-                    <p className={styles.elementText}>Certificates</p>
+                    <p className={`${styles.elementText} ${isMenuExpanded ? styles.hideElementText : ''}`}>Certificates</p>
                 </div>
             </div>
 
             <div className={styles.logoutWrapper} onClick={openModal}>
                 <img src={logout} alt="Logout" className={styles.logout} />
-                <p className={styles.elementText}>Logout</p>
+                <p className={`${styles.elementText} ${isMenuExpanded ? styles.hideElementText : ''}`}>Logout</p>
             </div>
         </div>
     );

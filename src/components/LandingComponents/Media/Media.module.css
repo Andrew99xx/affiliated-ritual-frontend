@@ -1,77 +1,75 @@
 .mediaContainer {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    gap: 1rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
 }
 
 .mediaParagraph {
-    width: 80%;
-    margin-top: 0ch !important;
-    padding-top: 0ch !important;
-    font-weight: 400;
-    font-size: 1.5rem;
-    line-height: 1.5;
-    text-align: center;
-    color: white;
+  width: 80%;
+  margin-top: 0ch !important;
+  padding-top: 0ch !important;
+  font-weight: 400;
+  font-size: 1.5rem;
+  line-height: 1.5;
+  text-align: center;
+  color: white;
 }
 
 .mediaItems {
-    display: grid;
-    gap: 1.5rem;
-    justify-content: center;
+  display: grid;
+  gap: 1.5rem;
+  justify-content: center;
+  grid-template-columns: repeat(6, 1fr);
 }
 
 .mediaItemWrapper {
-    padding-right: 1rem;
-    padding-left: 1rem;
-    display: flex;
-    flex-wrap: nowrap;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    gap: 0.5rem;
-    width: 13.625rem;
-    height: 6.8125rem;
-    background-color: #4E4E4E;
+  padding-right: 1rem;
+  padding-left: 1rem;
+  display: flex;
+  flex-wrap: nowrap;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
+  width: 13.625rem;
+  height: 6.8125rem;
+  background-color: #4e4e4e;
 }
 
 .mediaImg {
-    width: auto;
-    max-width: 7rem;
-    height: auto;
-    max-height: 4rem;
-    background-color: #4E4E4E;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  width: auto;
+  max-width: 7rem;
+  height: auto;
+  max-height: 4rem;
+  background-color: #4e4e4e;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .mediaName {
-    font-weight: 700;
-    font-size: 1rem;
-    line-height: 1.875rem;
-    text-align: center;
-    color: white;
-    text-wrap: wrap;
+  font-weight: 700;
+  font-size: 1rem;
+  line-height: 1.875rem;
+  text-align: center;
+  color: white;
+  text-wrap: wrap;
 }
 
-@media (min-width: 400px) {
-    .mediaItems {
-        grid-template-columns: repeat(2, 1fr);
-    }
-    
+@media (max-width: 1000px) {
+  .mediaItems {
+    grid-template-columns: repeat(3, 1fr);
+  }
 }
 
-@media (min-width: 800px) {
-    .mediaItems {
-        grid-template-columns: repeat(4, 1fr);
-    }
-}
+@media (max-width: 400px) {
+  .mediaItems {
+    grid-template-columns: repeat(2, 1fr);
+  }
 
-@media (min-width: 1200px) {
-    .mediaItems {
-        grid-template-columns: repeat(5, 1fr);
-    }
+  .mediaName {
+    display: none;
+  }
 }

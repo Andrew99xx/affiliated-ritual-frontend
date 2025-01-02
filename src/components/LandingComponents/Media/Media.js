@@ -35,7 +35,7 @@ function Media() {
             name: "Hindustan Bytes",
             link: "https://www.hindustanbytes.com/affiliate-ritual-leading-ed-tech-platform-empowering-educated-youths-to-become-financially-independent"
         },
-        
+
         {
             logo: hindustanMetro,
             // name: "Hindustan Metro",
@@ -49,15 +49,15 @@ function Media() {
         {
             logo: abpBengala,
             name: "ABP Ananda",
-            link:"https://bengali.abplive.com/brand-wire/revolution-in-affiliate-marketing-affiliate-ritual-2-point-0-launched-1091006"
+            link: "https://bengali.abplive.com/brand-wire/revolution-in-affiliate-marketing-affiliate-ritual-2-point-0-launched-1091006"
         },
-        
+
         {
             logo: ahmedabadMirror,
             // name: "Ahemdabad Mirror",
-            link:"https://www.ahmedabadmirror.com/affiliate-ritual-20-by-supriyo-chatterjee-a-revolutionary-move-towards-online-success/81874460.html"
+            link: "https://www.ahmedabadmirror.com/affiliate-ritual-20-by-supriyo-chatterjee-a-revolutionary-move-towards-online-success/81874460.html"
         },
-        
+
     ];
 
     return (
@@ -66,9 +66,9 @@ function Media() {
             <div className={styles.mediaItems} >
                 {mediaData.map((item, i) => (
                     <motion.div
-                    onClick={() => {
-                        window.open(item.link, "_blank"); // Open the link in a new tab
-                    }}
+                        onClick={() => {
+                            window.open(item.link, "_blank"); // Open the link in a new tab
+                        }}
                         key={i}
                         className={styles.mediaItemWrapper}
                         initial={{ opacity: 0, y: 50 }}

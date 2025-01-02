@@ -17,13 +17,15 @@
 }
 
 .proofItems {
+  /* background-color: aliceblue; */
   width: 100%;
-  max-width: 90vw;
+  max-width: 80vw;
   margin: 0 auto;
 }
 
 .proofImg {
   width: auto;
+  max-width: 90%;
   height: auto;
   min-height: 25rem;
   max-height: 45rem;

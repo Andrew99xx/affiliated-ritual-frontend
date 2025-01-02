@@ -12,6 +12,8 @@
 .progressCharts {
   display: flex;
   flex-direction: column;
+  /* background-color: yellow; */
+  width: 100%;
 }
 
 .heading {
@@ -19,6 +21,14 @@
   font-weight: 600;
   margin-bottom: 1rem;
   color: #f3e681;
+}
+
+.boxes {
+  /* background-color: aliceblue; */
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1rem;
+  margin-bottom: 2rem;
 }
 
 .pro {

@@ -7,7 +7,7 @@
   height: 100vh;
 }
 
-.signin .container {
+.container {
   display: flex;
   align-items: stretch;
   background: #000;
@@ -50,4 +50,15 @@
 .signin .naa span {
   color: #f39c12;
   cursor: pointer;
+}
+
+@media (max-width: 768px) {
+  .signin {
+    background: none;
+    background-color: #000;
+  }
+
+  .container {
+    max-width: 80% !important;
+  }
 }

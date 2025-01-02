@@ -14,6 +14,7 @@ const Dashboard = ({ handleLogout }) => {
   const [totalCoins, setTotalCoins] = useState(0);
   const [showModal, setShowModal] = useState(false);
   const [activeElement, setActiveElement] = useState('education');
+  const [isMenuExpanded, setIsMenuExpanded] = useState(false);
 
   useEffect(() => {
     const unsubscribe = auth.onAuthStateChanged(async (user) => {
@@ -29,6 +30,23 @@ const Dashboard = ({ handleLogout }) => {
     };
   }, []);
 
+  useEffect(() => {
+    const handleResize = () => {
+      setIsMenuExpanded(false);
+    };
+
+    // Add event listener for window resize
+    window.addEventListener("resize", handleResize);
+
+    // Initial check on component mount
+    handleResize();
+
+    // Clean up event listener on component unmount
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []);
+
   const openModal = () => setShowModal(true);
   const closeModal = () => setShowModal(false);
   const handleClick = (element) => setActiveElement(element);
@@ -39,9 +57,13 @@ const Dashboard = ({ handleLogout }) => {
         activeElement={activeElement}
         handleClick={handleClick}
         openModal={openModal}
+        isMenuExpanded={isMenuExpanded}
       />
       <div className={styles.maincontent}>
-        <Header totalCoins={totalCoins} />
+        <Header
+          totalCoins={totalCoins}
+          toggleMenu={() => setIsMenuExpanded(!isMenuExpanded)}
+        />
         {activeElement === 'education' ? <Edu /> : <Certificate />}
       </div>
 
