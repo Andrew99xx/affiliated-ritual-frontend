@@ -23,6 +23,7 @@
 }
 
 .collapseSidebar {
+  /* background-color: yellow; */
   width: 10%;
   max-width: 10%;
 }
@@ -71,7 +72,7 @@
   text-wrap: wrap;
 }
 
-.hideElementText{
+.hideElementText {
   display: none;
 }
 

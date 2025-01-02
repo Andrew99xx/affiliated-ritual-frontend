@@ -115,8 +115,8 @@ const Dashboard = ({ handleLogout }) => {
           </div>
           <div className="right">
             <div className="icons">
-              <div className="coins"><img src={coin} height={25} alt="" />{totalCoins}</div>
-              <div className="maximise"><img src={expand} height={25} alt="" /></div>
+              {/* <div className="coins"><img src={coin} height={25} alt="" />{totalCoins}</div> */}
+              {/* <div className="maximise"><img src={expand} height={25} alt="" /></div> */}
               <div className="notifications"><img src={notif} height={30} alt="" /></div>
               <div className="profile"><img src={profile} height={35} alt="" /></div>
             </div>
