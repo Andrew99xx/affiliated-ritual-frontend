@@ -45,7 +45,7 @@ const TeamMember = () => {
 
   return (
     <div>
-      {!isSignedIn && (
+      {/* {!isSignedIn && ( */}
         <>
           {isRegistering ? (
             <Register onToggle={toggleRegistering} />
@@ -53,9 +53,9 @@ const TeamMember = () => {
             <Signin onSignin={handleSignin} onToggle={toggleRegistering} />
           )}
         </>
-      )}
+      {/* )} */}
       {/*when, isSignedIn, is true */}
-      {isSignedIn && <Dashboard />}
+      {/* {isSignedIn && <Dashboard />} */}
     </div>
   );
 };

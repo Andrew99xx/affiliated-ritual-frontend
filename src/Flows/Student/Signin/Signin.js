@@ -90,6 +90,7 @@ const Signin = ({ onSignin }) => {
           else {
             setMessage("Your account is not active. please contact the admin")
           }
+          window.location.href ='/student/dashboard'
 
         } else {
           alert("You are not registered");

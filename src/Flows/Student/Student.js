@@ -5,12 +5,18 @@ import Dashboard from './Dashboard/Dashboard';
 import Register from './Register/StudentRegister.jsx';
 import { checkUserExists } from '../../service/checkUserExists.js';
 import { checkUserTypes } from '../../service/checkUserTypes.js';
+import { useAuth } from '../../provider/Auth.provider.jsx';
 
 const Student = () => {
   const [isSignedIn, setIsSignedIn] = useState(false);
   const [isRegistering, setIsRegistering] = useState(false);
   const location = useLocation();
+  const { user, loading } = useAuth();
 
+  useEffect(()=>{
+    console.log("H O W D Y",user);
+    
+  },[])
   useEffect(() => {
     const searchParams = new URLSearchParams(location.search);
     if (searchParams.get('action') === 'register') {
@@ -62,7 +68,7 @@ const Student = () => {
 
   return (
     <div>
-      {!isSignedIn && (
+      
         <>
           {isRegistering ? (
             <Register />
@@ -72,8 +78,8 @@ const Student = () => {
             />
           )}
         </>
-      )}
-      {isSignedIn && <Dashboard handleLogout={handleLogout} />}
+      
+      {/* {isSignedIn && <Dashboard handleLogout={handleLogout} />} */}
     </div>
   );
 };

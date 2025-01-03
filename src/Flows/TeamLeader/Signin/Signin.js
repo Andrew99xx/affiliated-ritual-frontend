@@ -87,6 +87,7 @@ const Signin = ({ onSignin }) => {
 
           // Call onSignin to handle the successful sign-in or if user uid exits
           onSignin(user);
+          window.location.href ='/student/dashboard'
         } else {
           alert("You are not registered");
         }

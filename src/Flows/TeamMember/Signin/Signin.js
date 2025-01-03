@@ -99,6 +99,7 @@ notification.info({
           // Call onSignin to handle the successful sign-in or if user uid exits
           localStorage.setItem('team_member_uid', user.uid);
           onSignin(user);
+          window.location.href ='/student/dashboard'
         } else {
           // alert("You are not registered");
           notification.error({

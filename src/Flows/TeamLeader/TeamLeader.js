@@ -56,7 +56,7 @@ const TeamLeader = () => {
 
   return (
     <div>
-      {!isSignedIn && (
+      {/* {!isSignedIn && ( */}
         <>
           {isRegistering ? (
             <Register />
@@ -66,9 +66,9 @@ const TeamLeader = () => {
             />
           )}
         </>
-      )}
+      {/* )} */}
       {/*when, isSignedIn, is true */}
-      {isSignedIn && <Dashboard handleLogout={handleLogout} />}
+      {/* {isSignedIn && <Dashboard handleLogout={handleLogout} />} */}
     </div>
   );
 };
